@@ -1,8 +1,8 @@
 {
-  "name": "ffc-template-node",
+  "name": "ffc-mpdp-backend",
   "version": "0.1.0",
-  "description": "description-of-project-goes-here",
-  "homepage": "https://github.com/DEFRA/ffc-template-node",
+  "description": "Backend for making payment data public",
+  "homepage": "https://github.com/DEFRA/ffc-mpdp-backend",
   "main": "app/index.js",
   "scripts": {
     "pretest": "npm run test:lint",
@@ -17,7 +17,7 @@
   "contributors": [],
   "license": "OGL-UK-3.0",
   "dependencies": {
-    "@hapi/hapi": "^20.2.1",
+    "@hapi/hapi": "^20.2.2",
     "applicationinsights": "^2.2.1"
   },
   "devDependencies": {
