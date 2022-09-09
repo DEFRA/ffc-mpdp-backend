@@ -1,8 +1,8 @@
 environment: development
-name: ffc-template-node
-namespace: ffc-demo
-workstream: ffc-demo
-image: ffc-template-node
+name: ffc-mpdp-backend
+namespace: ffc-mpdp
+workstream: ffc-mpdp
+image: ffc-mpdp-backend
 
 labels: {}
 
@@ -10,10 +10,10 @@ appInsights:
   key:
 
 containerConfigMap:
-  name: ffc-template-node-config-map
+  name: ffc-mpdp-backend-config-map
 
 containerSecret:
-  name: ffc-template-node-container-secret
+  name: ffc-mpdp-backend-container-secret
   type: Opaque
 
 deployment:

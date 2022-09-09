@@ -1,10 +1,10 @@
 services:
-  ffc-template-node:
+  ffc-mpdp-backend:
     build:
       context: .
       target: production
-    image: ffc-template-node
-    container_name: ffc-template-node
+    image: ffc-mpdp-backend
+    container_name: ffc-mpdp-backend
     environment:
-      APPINSIGHTS_CLOUDROLE: ffc-template-node-local
+      APPINSIGHTS_CLOUDROLE: ffc-mpdp-backend-local
       APPINSIGHTS_INSTRUMENTATIONKEY: ${APPINSIGHTS_INSTRUMENTATIONKEY}

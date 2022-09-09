@@ -1,0 +1,8 @@
+{{- include "ffc-helm-library.deployment" (list . "ffc-mpdp-backend.deployment") -}}
+{{- define "ffc-mpdp-backend.deployment" -}}
+spec:
+  template:
+    spec:
+      containers:
+      - {{ include "ffc-helm-library.container" (list . "ffc-mpdp-backend.container") }}
+{{- end -}}

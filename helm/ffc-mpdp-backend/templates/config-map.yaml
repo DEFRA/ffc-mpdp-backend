@@ -1,5 +1,5 @@
-{{- include "ffc-helm-library.container-config-map" (list . "ffc-template-node.config-map") -}}
-{{- define "ffc-template-node.config-map" -}}
+{{- include "ffc-helm-library.container-config-map" (list . "ffc-mpdp-backend.config-map") -}}
+{{- define "ffc-mpdp-backend.config-map" -}}
 data:
   NODE_ENV: {{ quote .Values.environment }}
   PORT: {{ quote .Values.container.port }}

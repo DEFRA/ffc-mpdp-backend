@@ -1,6 +1,6 @@
 apiVersion: v2
-description: description-of-project-goes-here
-name: ffc-template-node
+description: Backend for making payment data public
+name: ffc-mpdp-backend
 # this version is automatically updated in the build pipline
 version: 1.0.0
 dependencies:
