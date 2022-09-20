@@ -22,7 +22,7 @@ services:
     entrypoint: >
       sh -c "/scripts/migration/database-up"
     depends_on:
-      - ffc-pay-statement-data-postgres
+      - ffc-mpdp-backend-postgres
     volumes:
       - ./changelog:/liquibase/changelog
       - ./scripts:/scripts
@@ -35,12 +35,12 @@ services:
     entrypoint: >
       sh -c "/scripts/migration/database-down"
     depends_on:
-      - ffc-pay-statement-data-postgres
+      - ffc-mpdp-backend-postgres
     volumes:
       - ./changelog:/liquibase/changelog
       - ./scripts:/scripts
 
-  ffc-pay-statement-data-postgres:
+  ffc-mpdp-backend-postgres:
     image: postgres:11.4-alpine
     environment: *common-postgres
     volumes:

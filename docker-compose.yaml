@@ -8,7 +8,7 @@ services:
     environment:
       APPINSIGHTS_CLOUDROLE: ffc-mpdp-backend-local
       APPINSIGHTS_INSTRUMENTATIONKEY: ${APPINSIGHTS_INSTRUMENTATIONKEY}
-      POSTGRES_DB: ffc_pay_statement_data
+      POSTGRES_DB: ffc_mpdp_backend
       POSTGRES_HOST: ${POSTGRES_HOST:-ffc-mpdp-backend-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_SCHEMA_PASSWORD:-ppp}
       POSTGRES_PORT: 5432
