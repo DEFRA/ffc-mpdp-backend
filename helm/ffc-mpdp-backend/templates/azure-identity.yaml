@@ -1,0 +1,5 @@
+{{- if .Values.aadPodIdentity }}
+{{- include "ffc-helm-library.azure-identity" (list . "ffc-mpdp-backend.azure-identity") -}}
+{{- end }}
+{{- define "ffc-mpdp-backend.azure-identity" -}}
+{{- end -}}
