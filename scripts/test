@@ -51,11 +51,16 @@ compose() {
 (
   cd "${projectRoot}"
 
+  # create test output folder
+  mkdir -p test-output
+
   # Guarantee clean environment
   compose down -v
+  docker-compose -f docker-compose.migrate.yaml -p "${service}-test" down -v
 
   # Ensure container images are up to date
   compose build
+  docker-compose -f docker-compose.migrate.yaml -p "${service}-test" run --rm database-up
 
   # Run tests
   if [ "${debug}" = "true" ]; then
