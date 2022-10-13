@@ -5,6 +5,16 @@ services:
       target: production
     image: ffc-mpdp-backend
     container_name: ffc-mpdp-backend
+    depends_on:
+      - ffc-mpdp-backend-postgres
     environment:
       APPINSIGHTS_CLOUDROLE: ffc-mpdp-backend-local
       APPINSIGHTS_INSTRUMENTATIONKEY: ${APPINSIGHTS_INSTRUMENTATIONKEY}
+  ffc-mpdp-backend-postgres:
+    image: postgres:11.4-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRES_DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_DB_PASSWORD:-postgres}
+    ports:
+      - '5432:5432'
