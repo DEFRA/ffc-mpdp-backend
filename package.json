@@ -18,6 +18,7 @@
   "license": "OGL-UK-3.0",
   "dependencies": {
     "@hapi/hapi": "^20.2.2",
+    "@hapi/inert": "^7.0.0",
     "applicationinsights": "^2.2.1",
     "pg": "^8.8.0",
     "sequelize": "^6.24.0"

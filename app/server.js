@@ -1,15 +1,24 @@
 require('./insights').setup()
 const Hapi = require('@hapi/hapi')
 
-const server = Hapi.server({
-  port: process.env.PORT
-})
+const startServer = async () => {
+  const server = Hapi.server({
+    port: process.env.PORT
+  })
 
-const routes = [].concat(
-  require('./routes/healthy'),
-  require('./routes/healthz')
-)
+  // Required for handling static files
+  await server.register(require('@hapi/inert'));
 
-server.route(routes)
+  const routes = [].concat(
+    require('./routes/healthy'),
+    require('./routes/healthz'),
+    require('./routes/downloadall')
+  )
 
-module.exports = server
+  server.route(routes)
+  await server.start()
+  // console.log('Server running on %s', server.info.uri)
+  return server;
+}
+
+module.exports = startServer
