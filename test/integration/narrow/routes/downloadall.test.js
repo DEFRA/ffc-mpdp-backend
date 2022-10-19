@@ -1,8 +1,10 @@
 describe('downloadall test', () => {
   const server = require('../../../../app/server')
 
-  beforeAll(async () => {
-    await server().start()
+  beforeEach(async () => {
+    // TODO move this registration to server.js once the code base migrated to typescript
+    await server.register(require('@hapi/inert'))
+    await server.start()
   })
 
   test('GET /healthz route returns 200', async () => {
@@ -12,7 +14,7 @@ describe('downloadall test', () => {
     }
 
     const response = await server.inject(options)
-    expect(response.statusCode).toBe(304)
+    expect(response.statusCode).toBe(200)
   })
 
   afterEach(async () => {

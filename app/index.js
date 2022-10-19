@@ -1,9 +1,11 @@
-const startServer = require('./server')
-
+const server = require('./server')
 
 const init = async () => {
-  await startServer()
-  }
+  // TODO move this registration to server.js once the code base migrated to typescript
+  await server.register(require('@hapi/inert'))
+  await server.start()
+  console.log('Server running on %s', server.info.uri)
+}
 
 process.on('unhandledRejection', (err) => {
   console.log(err)
