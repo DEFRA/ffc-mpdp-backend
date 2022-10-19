@@ -10,6 +10,7 @@ module.exports = {
     'lcov'
   ],
   coveragePathIgnorePatterns: [
+    '<rootDir>/app/dist/',
     '<rootDir>/node_modules/',
     '<rootDir>/test-output/',
     '<rootDir>/test/',

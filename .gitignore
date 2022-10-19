@@ -5,3 +5,6 @@ helm/**/*.lock
 .vscode
 .DS_Store
 
+# Editor stuff
+.vscode
+dist/

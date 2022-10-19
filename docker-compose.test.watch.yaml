@@ -4,3 +4,6 @@ services:
       sh -c "npm run test:watch"
     volumes:
       - ./.git:/home/node/.git
+
+volumes:
+  dist:

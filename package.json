@@ -3,15 +3,18 @@
   "version": "0.1.1",
   "description": "Backend for making payment data public",
   "homepage": "https://github.com/DEFRA/ffc-mpdp-backend",
-  "main": "app/index.js",
+  "main": "app/dist/index.js",
   "scripts": {
+    "build": "webpack",
+    "build:watch": "webpack --watch",
     "pretest": "npm run test:lint",
     "test": "jest --runInBand --forceExit",
     "test:watch": "jest --coverage=false --onlyChanged --watch --runInBand",
     "test:lint": "standard",
     "test:debug": "node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --coverage=false --onlyChanged --watch --runInBand --no-cache",
-    "start:watch": "nodemon --inspect=0.0.0.0 --ext js --legacy-watch app/index.js",
-    "start:debug": "nodemon --inspect-brk=0.0.0.0 --ext js --legacy-watch app/index.js"
+    "start:watch": "npm-run-all --parallel build:watch start:nodemon",
+    "start:debug": "nodemon --inspect-brk=0.0.0.0 --ext css,js,njk --legacy-watch app/dist/index.js",
+    "start:nodemon": "nodemon --inspect=0.0.0.0 --ext css,js,njk --legacy-watch app/dist/index.js"
   },
   "author": "Defra",
   "contributors": [],
@@ -19,16 +22,33 @@
   "dependencies": {
     "@hapi/hapi": "^20.2.2",
     "applicationinsights": "^2.2.1",
+    "applicationinsights-native-metrics": "0.0.8",
+    "node-loader": "^2.0.0",
     "pg": "^8.8.0",
     "sequelize": "^6.24.0"
   },
   "devDependencies": {
+    "@types/hapi__hapi": "^20.0.12",
+    "@types/node": "^18.11.2",
+    "@types/webpack": "^5.28.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "declaration-bundler-webpack-plugin": "^1.0.3",
     "jest": "^27.5.1",
     "jest-junit": "^13.0.0",
-    "nodemon": "^2.0.15",
-    "standard": "^16.0.4"
+    "nodemon": "^2.0.20",
+    "npm-run-all": "^4.1.5",
+    "standard": "^16.0.4",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "wepack-cli": "0.0.1-security"
   },
   "standard": {
+    "env": {
+      "jest": true
+    },
     "globals": [
       "describe",
       "beforeEach",
@@ -38,6 +58,13 @@
       "jest",
       "beforeAll",
       "afterAll"
+    ],
+    "ignore": [
+      "test/acceptance/**/*.js",
+      "test/acceptance/**/*.mjs",
+      "test/acceptance/**/*.cjs",
+      "app/dist/**/*.js",
+      "webpack.config.js"
     ]
   },
   "nodemonConfig": {
