@@ -68,7 +68,6 @@
       "test/acceptance/**/*.cjs",
       "app/dist/**/*.js",
       "webpack.config.js",
-      "babel.config.js",
       "jest.config.js"
     ]
   },

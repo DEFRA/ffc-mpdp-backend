@@ -27,16 +27,7 @@ module.exports = {
     path: path.resolve(__dirname, 'app/dist'),
   },
   resolve: {
-    extensions: [ '.ts', '.js' ],
-    // fallback: { 
-    //   "os": require.resolve("os-browserify/browser"),
-    //   "crypto": require.resolve("crypto-browserify"),
-    //   "path": require.resolve("path-browserify"),
-    //   "stream": require.resolve("stream-browserify"),
-    //   "zlib": require.resolve("browserify-zlib"),
-    //   "https": require.resolve("https-browserify"),
-    //   "fs": false
-    // }
+    extensions: [ '.ts', '.js' ]
   },
   plugins: [
     new CleanWebpackPlugin()
