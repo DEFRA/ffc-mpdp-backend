@@ -2,7 +2,8 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     '**/*.js',
-    '!**/*.test.js'
+    '**/*.ts',
+    '!**/*.test.ts'
   ],
   coverageDirectory: 'test-output',
   coverageReporters: [
@@ -14,7 +15,8 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/test-output/',
     '<rootDir>/test/',
-    '<rootDir>/jest.config.js'
+    '<rootDir>/jest.config.js',
+    '<rootDir>/webpack.config.js'
   ],
   modulePathIgnorePatterns: [
     'node_modules'
@@ -32,5 +34,12 @@ module.exports = {
   ],
   testEnvironment: 'node',
   testPathIgnorePatterns: [],
+  testMatch: [
+    '**/__tests__/**/*.+(ts|js)',
+    '**/?(*.)+(spec|test).+(ts|js)'
+  ],
+  transform: {
+    '^.+\\.(ts|tsx)$': 'ts-jest'
+  },
   verbose: true
 }

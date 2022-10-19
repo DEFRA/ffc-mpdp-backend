@@ -1,8 +1,10 @@
-describe('Healthz test', () => {
-  const server = require('../../../../app/server')
+import { Server } from '@hapi/hapi'
+import { startServer } from '../../../../app/server'
 
+describe('Healthy test', () => {
+  let server: Server;
   beforeEach(async () => {
-    await server.start()
+    server = await startServer()
   })
 
   test('GET /healthz route returns 200', async () => {

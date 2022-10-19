@@ -7,10 +7,11 @@
   "scripts": {
     "build": "webpack",
     "build:watch": "webpack --watch",
+    "lint:fix": "standard --fix",
     "pretest": "npm run test:lint",
     "test": "jest --runInBand --forceExit",
     "test:watch": "jest --coverage=false --onlyChanged --watch --runInBand",
-    "test:lint": "standard",
+    "test:lint": "standard --fix",
     "test:debug": "node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --coverage=false --onlyChanged --watch --runInBand --no-cache",
     "start:watch": "npm-run-all --parallel build:watch start:nodemon",
     "start:debug": "nodemon --inspect-brk=0.0.0.0 --ext css,js,njk --legacy-watch app/dist/index.js",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@types/hapi__hapi": "^20.0.12",
+    "@types/jest": "^29.2.0",
     "@types/node": "^18.11.2",
     "@types/webpack": "^5.28.0",
     "clean-webpack-plugin": "^4.0.0",
@@ -39,6 +41,7 @@
     "nodemon": "^2.0.20",
     "npm-run-all": "^4.1.5",
     "standard": "^16.0.4",
+    "ts-jest": "^29.0.3",
     "ts-loader": "^9.4.1",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0",
@@ -64,7 +67,9 @@
       "test/acceptance/**/*.mjs",
       "test/acceptance/**/*.cjs",
       "app/dist/**/*.js",
-      "webpack.config.js"
+      "webpack.config.js",
+      "babel.config.js",
+      "jest.config.js"
     ]
   },
   "nodemonConfig": {
