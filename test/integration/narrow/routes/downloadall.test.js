@@ -1,13 +1,13 @@
 describe('downloadall test', () => {
-  const server = require('../../../../app/server')
+  const createServer = require('../../../../app/server')
+  let server
 
   beforeEach(async () => {
-    // TODO move this registration to server.js once the code base migrated to typescript
-    await server.register(require('@hapi/inert'))
+    server = await createServer()
     await server.start()
   })
 
-  test('GET /healthz route returns 200', async () => {
+  test('GET /downloadall route returns 200', async () => {
     const options = {
       method: 'GET',
       url: '/downloadall'
