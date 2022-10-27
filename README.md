@@ -1,35 +1,6 @@
-# FFC Template Node
+# FFC MPDP Backend Service
 
-Template to support rapid delivery of microservices for FFC Platform. It contains the configuration needed to deploy a simple Hapi Node server to the Azure Kubernetes Platform.
-
-## Usage
-
-Create a new repository from this template and run `./rename.js` specifying the new name of the project and the description to use e.g.
-```
-./rename.js ffc-demo-web "Web frontend for demo workstream"
-```
-
-The script will update the following:
-
-* `package.json`: update `name`, `description`, `homepage`
-* `docker-compose.yaml`: update the service name, `image` and `container_name`
-* `docker-compose.test.yaml`: update the service name, `image` and `container_name`
-* `docker-compose.override.yaml`: update the service name, `image` and `container_name`
-* Rename `helm/ffc-template-node`
-* `helm/ffc-template-node/Chart.yaml`: update `description` and `name`
-* `helm/ffc-template-node/values.yaml`: update  `name`, `namespace`, `workstream`, `image`, `containerConfigMap.name`
-* `helm/ffc-template-node/templates/_container.yaml`: update the template name
-* `helm/ffc-template-node/templates/cluster-ip-service.yaml`: update the template name and list parameter of include
-* `helm/ffc-template-node/templates/config-map.yaml`: update the template name and list parameter of include
-* `helm/ffc-template-node/templates/deployment.yaml`: update the template name, list parameter of deployment and container includes
-
-### Notes on automated rename
-
-* The Helm chart deployment values in `helm/ffc-template-node/values.yaml` may need updating depending on the resource needs of your microservice
-* The rename is a one-way operation i.e. currently it doesn't allow the name being changed from to be specified
-* There is some validation on the input to try and ensure the rename is successful, however, it is unlikely to stand up to malicious entry
-* Once the rename has been performed the script can be removed from the repo
-* Should the rename go awry the changes can be reverted via `git clean -df && git checkout -- .`
+> Backend service for the Making Payment Data Public
 
 ## Prerequisites
 
@@ -38,7 +9,7 @@ The script will update the following:
 
 Optional:
 - Kubernetes
-- Helm
+- Helm                                                                      |
 
 ## Running the application
 
@@ -66,12 +37,18 @@ docker-compose build
 
 ### Start
 
-Use Docker Compose to run service locally.
+The core search funcationality relies on the ffc-mpdp-frontend service to connect to a running instance of the this service. In order to allow the two applications from separate containers to connect to each other they must both share a common network bridge.
+For convenience a start script is present in ./scripts/start which can setup the bridge and launch this service
+
+For a manual approach run the following command in the given order. The first command to create network is only required to run initially once, so you can skip this step when starting up Frontend service. Likewise, if you have ran this command while starting Frontend service, then ignore this step here. 
 
 ```
-docker-compose up
-```
+# Create network
+docker network create ffc-mpdp
 
+# Use Docker Compose to build the container and run service locally.
+docker-compose -f docker-compose.yaml -f docker-compose.override.yaml -f docker-compose.link.yaml up --build
+```
 ## Test structure
 
 The tests have been structured into subfolders of `./test` as per the
