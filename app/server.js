@@ -1,15 +1,38 @@
 require('./insights').setup()
 const Hapi = require('@hapi/hapi')
 
-const server = Hapi.server({
-  port: process.env.PORT
-})
+async function createServer () {
+  // Create the hapi server
+  const server = Hapi.server({
+    port: process.env.PORT,
+    routes: {
+      validate: {
+        options: {
+          abortEarly: false
+        }
+      }
+    }
+  })
 
-const routes = [].concat(
-  require('./routes/healthy'),
-  require('./routes/healthz')
-)
+  // Register the plugins
+  await server.register(require('@hapi/inert'))
 
-server.route(routes)
+  process.on('SIGTERM', async function () {
+    process.exit(0)
+  })
 
-module.exports = server
+  process.on('SIGINT', async function () {
+    process.exit(0)
+  })
+
+  const routes = [].concat(
+    require('./routes/healthy'),
+    require('./routes/healthz'),
+    require('./routes/downloadall')
+  )
+  server.route(routes)
+
+  return server
+}
+
+module.exports = createServer

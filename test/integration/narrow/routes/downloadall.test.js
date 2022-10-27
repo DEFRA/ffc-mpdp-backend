@@ -1,4 +1,4 @@
-describe('Healthz test', () => {
+describe('downloadall test', () => {
   const createServer = require('../../../../app/server')
   let server
 
@@ -7,10 +7,10 @@ describe('Healthz test', () => {
     await server.start()
   })
 
-  test('GET /healthz route returns 200', async () => {
+  test('GET /downloadall route returns 200', async () => {
     const options = {
       method: 'GET',
-      url: '/healthz'
+      url: '/downloadall'
     }
 
     const response = await server.inject(options)
