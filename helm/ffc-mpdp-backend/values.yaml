@@ -51,8 +51,8 @@ azureIdentity:
   resourceID: not-a-real-resourceID
 
 postgresService:
-  postgresDb: ffc_pay_statement_constructor
-  postgresqlHost: ffc-pay-statement-constructor-postgres
+  postgresDb: ffc_mpdp_backend
+  postgresqlHost: ffc-mpdp-backend-postgres
   postgresPort: 5432
   postgresSchema: public
   postgresUser: postgres
