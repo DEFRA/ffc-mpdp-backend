@@ -43,3 +43,16 @@ readinessProbe:
   initialDelaySeconds: 10
   periodSeconds: 10
   failureThreshold: 3
+
+aadPodIdentity: true
+
+azureIdentity:
+  clientID: not-a-real-clientID
+  resourceID: not-a-real-resourceID
+
+postgresService:
+  postgresDb: ffc_mpdp_backend
+  postgresqlHost: ffc-mpdp-backend-postgres
+  postgresPort: 5432
+  postgresSchema: public
+  postgresUser: postgres
