@@ -24,10 +24,10 @@ deployment:
 
 container:
   imagePullPolicy: IfNotPresent
-  requestMemory: 10Mi
-  requestCpu: 10m
-  limitMemory: 40Mi
-  limitCpu: 40m
+  requestMemory: 100Mi
+  requestCpu: 100m
+  limitMemory: 120Mi
+  limitCpu: 120m
   port: 3000
 
 livenessProbe:
