@@ -1,0 +1,45 @@
+const auth = require('@azure/ms-rest-nodeauth')
+const { production } = require('./constants').environments
+
+function isProd () {
+  return process.env.NODE_ENV === production
+}
+
+const dbConfig = {
+  username: process.env.POSTGRES_USER || 'postgres',
+  password: process.env.POSTGRES_PASSWORD || 'postgres',
+  database: process.env.POSTGRES_DB,
+  schema: process.env.POSTGRES_SCHEMA_NAME || 'public',
+  host: process.env.POSTGRES_HOST || 'host.docker.internal',
+  port: process.env.POSTGRES_PORT || 5432,
+  logging: process.env.POSTGRES_LOGGING || false,
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: isProd()
+  },
+  hooks: {
+    beforeConnect: async (cfg) => {
+      if (isProd()) {
+        const credentials = await auth.loginWithVmMSI({ resource: 'https://ossrdbms-aad.database.windows.net' })
+        const token = await credentials.getToken()
+        cfg.password = token.accessToken
+      }
+    }
+  },
+  retry: {
+    backoffBase: 500,
+    backoffExponent: 1.1,
+    match: [/SequelizeConnectionError/],
+    max: 10,
+    name: 'connection',
+    timeout: 60000
+  }
+}
+
+const config = {
+  production: dbConfig,
+  development: dbConfig,
+  test: dbConfig
+}
+
+module.exports = config
