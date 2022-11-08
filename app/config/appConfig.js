@@ -1,4 +1,4 @@
-const databaseConfig = require('./database-config')
+const databaseConfig = require('./databaseConfig')
 const { environments } = require('./constants')
 
 const value = {
