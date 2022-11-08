@@ -2,8 +2,6 @@ const createServer = require('./server')
 const databaseConfig = require('./config/database-config')
 const { environments } = require('./config/constants')
 
-
-
 const value = {
   database: databaseConfig,
   isDev: process.env.NODE_ENV === environments.development,
@@ -17,5 +15,5 @@ createServer()
     console.log(err)
     process.exit(1)
   })
-  
+
 module.exports = value

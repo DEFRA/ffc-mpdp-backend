@@ -32,14 +32,12 @@ const PaymentData = sequelize.define('payment_activity_data', {
 
 // Collect and display the db restuls
 async function getPaymentData () {
-  let es
   try {
-    es = await PaymentData.findAll()
+    return PaymentData.findAll()
   } catch (error) {
     console.log('Error occured while reading data : ' + error)
     // TODO handle this error
   }
-  return es
 }
 
 module.exports = getPaymentData
