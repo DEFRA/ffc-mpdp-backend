@@ -1,10 +1,15 @@
-const getPaymentData = require('../services/databaseService')
+const { getPaymentData } = require('../services/databaseService')
 
 module.exports = {
   method: 'GET',
   path: '/paymentdata',
   handler: async (request, h) => {
-    const records = await getPaymentData()
-    return records
+    try {
+      const records = await getPaymentData()
+      if (!records) return h.response('No data found').code(404)
+      return h.response(records).code(200)
+    } catch (error) {
+      return h.response('Error while reading data').code(500)
+    }
   }
 }

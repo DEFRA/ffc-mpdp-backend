@@ -18,7 +18,7 @@ const sequelize = new Sequelize(
 )
 // host: host.docker.internal // for docker image
 // Define the Model
-const PaymentData = sequelize.define('payment_activity_data', {
+const PaymentDataModel = sequelize.define('payment_activity_data', {
   id: { type: DataTypes.INTEGER, primaryKey: true },
   payee_name: DataTypes.CHAR,
   part_postcode: DataTypes.CHAR,
@@ -33,11 +33,11 @@ const PaymentData = sequelize.define('payment_activity_data', {
 // Collect and display the db restuls
 async function getPaymentData () {
   try {
-    return PaymentData.findAll()
+    return PaymentDataModel.findAll()
   } catch (error) {
-    console.log('Error occured while reading data : ' + error)
-    // TODO handle this error
+    console.error('Error occured while reading data : ' + error)
+    throw error
   }
 }
 
-module.exports = getPaymentData
+module.exports = { getPaymentData }

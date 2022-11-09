@@ -1,6 +1,58 @@
-describe('paymentdata api test', () => {
-  test('start the server from index', () => {
+const databaseService = require('../../../../app/services/databaseService')
+
+describe('paymentdata api call test', () => {
+  const getPaymentDataMock = jest.spyOn(databaseService, 'getPaymentData')
+  getPaymentDataMock.mockReturnValue('[{"id":1,"payee_name":"Farmer A","part_postcode":"RG1","town":"Reading","parliamentary_constituency":"Reading East","county_council":"Berkshire","scheme":"SFI Arable and Horticultural Land","activity_detail":"Low","amount":"223.65"}]')
+
+  const createServer = require('../../../../app/server')
+  let server
+
+  beforeEach(async () => {
+    server = await createServer()
+    await server.start()
+  })
+
+  test('paymentdata api test to be defined', () => {
     const paymentdata = require('../../../../app/routes/paymentdata')
     expect(paymentdata).toBeDefined()
+    expect(paymentdata.handler).toBeDefined()
+  })
+
+  test('GET /paymentdata returns 200', async () => {
+    const options = {
+      method: 'GET',
+      url: '/paymentdata'
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(200)
+  })
+
+  test('GET /paymentdata returns 404', async () => {
+    getPaymentDataMock.mockReturnValue(null)
+    const options = {
+      method: 'GET',
+      url: '/paymentdata'
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(404)
+  })
+
+  test('GET /paymentdata returns 500', async () => {
+    getPaymentDataMock.mockImplementation(() => { throw new Error() })
+    const options = {
+      method: 'GET',
+      url: '/paymentdata'
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(500)
+  })
+
+  afterEach(async () => {
+    await server.stop()
+    jest.clearAllMocks()
+  })
+
+  afterAll(() => {
+    jest.resetAllMocks()
   })
 })
