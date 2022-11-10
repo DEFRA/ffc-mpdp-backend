@@ -16,6 +16,7 @@ async function createServer () {
 
   // Register the plugins
   await server.register(require('@hapi/inert'))
+  await server.register(require('./plugins/logging'))
 
   process.on('SIGTERM', async function () {
     process.exit(0)
