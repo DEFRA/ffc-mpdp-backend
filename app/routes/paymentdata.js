@@ -9,7 +9,7 @@ module.exports = {
       if (!records) return h.response('No data found').code(404)
       return h.response(records).code(200)
     } catch (error) {
-      return h.response('Error while reading data').code(500)
+      return h.response('Error while reading data' + error).code(500)
     }
   }
 }
