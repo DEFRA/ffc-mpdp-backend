@@ -23,7 +23,8 @@
     "applicationinsights": "^2.2.1",
     "hapi-pino": "^11.0.1",
     "pg": "^8.8.0",
-    "sequelize": "^6.24.0"
+    "sequelize": "^6.24.0",
+    "pg-hstore": "2.3.4"
   },
   "devDependencies": {
     "jest": "^27.5.1",

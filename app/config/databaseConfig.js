@@ -12,7 +12,7 @@ const dbConfig = {
   schema: process.env.POSTGRES_SCHEMA_NAME || 'public',
   host: process.env.POSTGRES_HOST || 'host.docker.internal',
   port: process.env.POSTGRES_PORT || 5432,
-  logging: process.env.POSTGRES_LOGGING || false,
+  logging: process.env.POSTGRES_LOGGING || true,
   dialect: 'postgres',
   dialectOptions: {
     ssl: isProd()
