@@ -9,5 +9,4 @@ data:
   POSTGRES_DB: {{ quote .Values.postgresService.postgresDb }}
   POSTGRES_SCHEMA_NAME: {{ quote .Values.postgresService.postgresSchema }}
   POSTGRES_USER: {{ quote .Values.postgresService.postgresUser }}
-  POSTGRES_LOGGING: {{ quote .Values.postgresService.postgresLogging }}
 {{- end -}}
