@@ -4,17 +4,7 @@ const dbConfigAllEnv = require('../config/databaseConfig')
 const dbConfig = dbConfigAllEnv[value.env]
 
 const sequelize = new Sequelize(
-  dbConfig.database, // 'postgres', // database
-  dbConfig.username, // 'postgres', // username
-  dbConfig.password, // 'postgres', // password
-  {
-    host: dbConfig.host, // 'localhost',
-    dialect: dbConfig.dialect, // 'postgres',
-    port: dbConfig.port, // port:5432,
-    define: {
-      timestamps: false
-    }
-  }
+  dbConfig
 )
 // host: host.docker.internal // for docker image
 // Define the Model

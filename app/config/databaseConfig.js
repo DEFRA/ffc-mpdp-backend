@@ -33,6 +33,9 @@ const dbConfig = {
     max: 10,
     name: 'connection',
     timeout: 60000
+  },
+  define: {
+    timestamps: false
   }
 }
 
