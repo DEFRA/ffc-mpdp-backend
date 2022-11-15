@@ -14,7 +14,7 @@ describe('errors plugin test', () => {
     }
     const response = await server.inject(options)
     expect(response.statusCode).toBe(500)
-  })
+  },30000)
 
   test('returns the error when the server called with error URL', async () => {
     const createServer = require('../../../../app/server')
@@ -25,5 +25,5 @@ describe('errors plugin test', () => {
 
     expect(server.registrations['hapi-pino']).toBeDefined()
     expect(server.registrations.errors).toBeDefined()
-  })
+  },30000)
 })
