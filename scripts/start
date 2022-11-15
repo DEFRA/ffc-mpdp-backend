@@ -11,7 +11,7 @@ cd "${projectRoot}"
 
 docker-compose down -v
 docker-compose -f docker-compose.migrate.yaml down
-docker-compose -f docker-compose.migrate.yaml run database-up
+docker-compose -f docker-compose.migrate.yaml run --rm database-up
 
 docker-compose \
   -f docker-compose.yaml \
