@@ -22,7 +22,7 @@ describe('errors plugin test', () => {
       url: '/invalidurl'
     }
     const response = await server.inject(options)
-    expect(response.statusCode).toBe(500)
+    expect(response.statusCode).toBe(404)
   }, 30000)
 
   test('returns the error when the server called with error URL', async () => {
