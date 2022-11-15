@@ -11,7 +11,7 @@ describe('errors plugin test', () => {
     await server.stop()
   })
 
-  test('createServer returns server', () => {
+  test('errors plugin should be defined', () => {
     const errors = require('../../../../app/plugins/errors')
     expect(errors).toBeDefined()
   })
@@ -25,7 +25,7 @@ describe('errors plugin test', () => {
     expect(response.statusCode).toBe(404)
   }, 30000)
 
-  test('returns the error when the server called with error URL', async () => {
+  test('Verify the plugins are registered to the server', async () => {
     expect(server.registrations['hapi-pino']).toBeDefined()
     expect(server.registrations.errors).toBeDefined()
   }, 30000)
