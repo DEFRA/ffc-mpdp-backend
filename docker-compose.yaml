@@ -18,6 +18,9 @@ services:
     environment:
       - POSTGRES_USER=${POSTGRES_DB_USER:-postgres}
       - POSTGRES_PASSWORD=${POSTGRES_DB_PASSWORD:-postgres}
+      - POSTGRES_USERNAME=${POSTGRES_DB_USER:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-ffc_mpdp_backend}
+      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
     ports:
       - '5432:5432'
       

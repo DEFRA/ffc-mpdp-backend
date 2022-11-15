@@ -16,6 +16,7 @@ async function createServer () {
 
   // Register the plugins
   await server.register(require('@hapi/inert'))
+  await server.register(require('./plugins/logging'))
 
   process.on('SIGTERM', async function () {
     process.exit(0)
@@ -28,7 +29,8 @@ async function createServer () {
   const routes = [].concat(
     require('./routes/healthy'),
     require('./routes/healthz'),
-    require('./routes/downloadall')
+    require('./routes/downloadall'),
+    require('./routes/paymentdata')
   )
   server.route(routes)
 

@@ -52,7 +52,7 @@ azureIdentity:
 
 postgresService:
   postgresDb: ffc_mpdp_backend
-  postgresqlHost: ffc-mpdp-backend-postgres
+  postgresqlHost: ffc-mpdp-backend
   postgresPort: 5432
   postgresSchema: public
   postgresUser: postgres
