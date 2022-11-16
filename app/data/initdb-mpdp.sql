@@ -15,5 +15,11 @@ CREATE TABLE public.payment_activity_data
   payment_date Date
 );
 
+-- Modifications based on data changes
+ALTER TABLE payment_activity_data
+  ADD COLUMN scheme_detail VARCHAR(128),
+  ADD COLUMN activity_level VARCHAR(16);
+ALTER TABLE payment_activity_data DROP COLUMN activity_detail;
+
 -- select data
 select * from public.payment_activity_data;

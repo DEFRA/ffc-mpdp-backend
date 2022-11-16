@@ -16,7 +16,8 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
   parliamentary_constituency: DataTypes.CHAR,
   county_council: DataTypes.CHAR,
   scheme: DataTypes.CHAR,
-  activity_detail: DataTypes.CHAR,
+  scheme_detail: DataTypes.CHAR,
+  activity_level: DataTypes.CHAR,
   amount: DataTypes.DOUBLE
 })
 
