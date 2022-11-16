@@ -6,18 +6,17 @@ const dbConfig = dbConfigAllEnv[value.env]
 const sequelize = new Sequelize(
   dbConfig
 )
-// host: host.docker.internal // for docker image
 // Define the Model
 const PaymentDataModel = sequelize.define('payment_activity_data', {
   id: { type: DataTypes.INTEGER, primaryKey: true },
-  payee_name: DataTypes.CHAR,
-  part_postcode: DataTypes.CHAR,
-  town: DataTypes.CHAR,
-  parliamentary_constituency: DataTypes.CHAR,
-  county_council: DataTypes.CHAR,
-  scheme: DataTypes.CHAR,
-  scheme_detail: DataTypes.CHAR,
-  activity_level: DataTypes.CHAR,
+  payee_name: DataTypes.STRING(32),
+  part_postcode: DataTypes.STRING(8),
+  town: DataTypes.STRING(32),
+  parliamentary_constituency: DataTypes.STRING(32),
+  county_council: DataTypes.STRING(64),
+  scheme: DataTypes.STRING(64),
+  scheme_detail: DataTypes.STRING(128),
+  activity_level: DataTypes.STRING(16),
   amount: DataTypes.DOUBLE
 })
 
