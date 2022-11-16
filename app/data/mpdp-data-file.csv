@@ -1,24 +1,1002 @@
-﻿Farmer A,RG1,Reading,Reading East,Berkshire,SFI Arable and Horticultural Land,Low,223.65
-Farmer A,RG1,Reading,Reading East,Berkshire,SFI Arable and Horticultural Soils,Medium,895.5
-Farmer A,RG1,Reading,Reading East,Berkshire,SFI Arable and Horticultural Land,High,12022.42
-Farmer A,RG1,Reading,Reading East,Berkshire,SFI Pilot Participation Payment,,1250
-Farmer B,SL4,Winkfield,Windsor,Berkshire,SFI Pilot Participation Payment,,1250
-Farmer B,SL4,Winkfield,Windsor,Berkshire,SFI Hedgerow,Medium,620.02
-Farmer B,SL4,Winkfield,Windsor,Berkshire,SFI Low and no input Grassland,Medium,3191.1
-Farmer C,LS6,Leeds,Leeds North West,Yorkshire and The Humber,SFI Pilot Participation Payment,,1250
-Farmer C,LS6,Leeds,Leeds North West,Yorkshire and The Humber,SFI Improved Grassland soils,Low,496.21
-Farmer C,LS6,Leeds,Leeds North West,Yorkshire and The Humber,SFI Low and no input Grassland,High,7273.13
-Farmer C,LS6,Leeds,Leeds North West,Yorkshire and The Humber,SFI On farm woodland,Medium,463.05
-Farmer D,B69,Sandwell,West Bromwich West,West Midlands,SFI Pilot Participation Payment,,1250
-Farmer D,B69,Sandwell,West Bromwich West,West Midlands,SFI Improved Grassland soils,High,4948.23
-Farmer E,BN16,Rustington,Worthing West,West Sussex,SFI Pilot Participation Payment,,1250
-Farmer E,BN16,Rustington,Worthing West,West Sussex,SFI On farm woodland,High,957.35
-Farmer F,TS24,Hartlepool,Hartlepool,Durham,SFI Pilot Participation Payment,,1250
-Farmer F,TS24,Hartlepool,Hartlepool,Durham,SFI Improved Grassland soils,,1195.68
-Farmer F,TS24,Hartlepool,Hartlepool,Durham,FIF,FETF32 - Dribble Bar minimum working width 6 metre,4000
-Farmer G,ME15,Boughton Monchelsea,Faversham and Mid Kent,Kent,SFI Pilot Participation Payment,,1250
-Farmer G,ME15,Boughton Monchelsea,Faversham and Mid Kent,Kent,SFI Waterbody Buffering,,12.83
-Farmer G,ME15,Boughton Monchelsea,Faversham and Mid Kent,Kent,FIF,FETF44 - Direct Drill 3m,12054
-Farmer H,EX39,Abbotsham,Torridge and West Devon,Devon,Fif,"FETF20 - Timber winches:,FETF72 - Automatic Weighing and Drafting Crate for sheep",8158
-Farmer I,PO7,Havant,Meon Valley,Hampshire,FIF,FETF69 - Mobile Sheep Handling Systems ,3100
-Farmer J,RM11,Havering,Hornchurch and Upminster,Greater London,FIF,FETF45 - Direct Drill 6m,25000
+Financial  Year,Payee_Name,Part_Postcode,Town,Parliamentary Constituency,County Council,Scheme,scheme detail,activity level,Amount
+21/22,Abdullah Knight,DG2 , None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,7370
+21/22,Abdullah Knight,DG2 , None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,14685
+21/22,Abdullah Knight,DG2 , None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,25125
+21/22,Adan Brandt,YO26 , Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,2999
+21/22,Adan Brandt,YO26 , Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,On farm woodland,High,34774
+21/22,Adan Brandt,YO26 , Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Improved Grassland,Low,22725
+21/22,Adan Brandt,YO26 , Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,34501
+21/22,Ainsley Hanna,GU31 , Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,21287
+21/22,Ainsley Hanna,GU31 , Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,6272
+21/22,Ainsley Hanna,GU31 , Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,31568
+21/22,Ainsley Hanna,GU31 , Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland,High,19576
+21/22,Ainsley Hanna,GU31 , Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,Low,24545
+21/22,Ainsley Hanna,GU31 , Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,16150
+21/22,Ainsley Hanna,GU31 , Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,High,13024
+21/22,Alaina Livingston,EC1R , Islington,   Islington South and Finsbury , None,Farming Equipment and Technology Fund,Horticulture,N/a,15911
+21/22,Alaina Livingston,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,18719
+21/22,Alaina Livingston,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Hedgerow,Low,32605
+21/22,Alaina Livingston,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,15058
+21/22,Alaina Livingston,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,20435
+21/22,Alaina Livingston,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,23211
+21/22,Alaina Livingston,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,4582
+21/22,Alan Patrick,S72 , Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,5137
+21/22,Alan Patrick,S72 , Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland,High,7440
+21/22,Alan Patrick,S72 , Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,1772
+21/22,Alan Patrick,S72 , Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,28102
+21/22,Alan Patrick,S72 , Barnsley,   Barnsley East , None,Farming Equipment and Technology Fund,Livestock Handling and weighing equipment,N/a,29877
+21/22,Alberto Mcneil,DY3 , Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,25362
+21/22,Alberto Mcneil,DY3 , Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,On farm woodland,High,33713
+21/22,Alberto Mcneil,DY3 , Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,15281
+21/22,Alberto Mcneil,DY3 , Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,18716
+21/22,Alberto Mcneil,DY3 , Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,15499
+21/22,Alberto Mcneil,DY3 , Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,19800
+21/22,Alejandro Howell,DA1 , Dartford,   Dartford , Kent,Farming Equipment and Technology Fund,Horticulture,N/a,11885
+21/22,Alejandro Howell,DA1 , Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,26980
+21/22,Alejandro Howell,DA1 , Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Improved Grassland,High,12245
+21/22,Alejandro Howell,DA1 , Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,8613
+21/22,Alexia White,CW11 , Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,6017
+21/22,Alexia White,CW11 , Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,26076
+21/22,Alexia White,CW11 , Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,15709
+21/22,Alexia White,CW11 , Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,25721
+21/22,Alexia White,CW11 , Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,28778
+21/22,Alexia White,CW11 , Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,8287
+21/22,Alexia White,CW11 , Sandbach , Congleton , None,Farming Equipment and Technology Fund,Horticulture,N/a,11417
+21/22,Alexia White,CW11 , Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,11977
+21/22,Alexia White,CW11 , Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,22333
+21/22,Alexia White,CW11 , Sandbach , Congleton , None,Farming Equipment and Technology Fund,Forestry,N/a,13453
+21/22,Allen Lopez,SN3 , Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland,High,14033
+21/22,Allen Lopez,SN3 , Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,18779
+21/22,Allen Lopez,SN3 , Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,28329
+21/22,Allen Lopez,SN3 , Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,9565
+21/22,Allen Lopez,SN3 , Covingham , North Swindon , None,Farming Equipment and Technology Fund,Precision and Analysis,N/a,24175
+21/22,Allen Lopez,SN3 , Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,15831
+21/22,Allen Lopez,SN3 , Covingham , North Swindon , None,Sustainable Farming Incentive pilot,On farm woodland,High,34650
+21/22,Alyssa Orozco,EX17 , Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,25096
+21/22,Alyssa Orozco,EX17 , Washford Pyne , Central Devon , Devon,Farming Equipment and Technology Fund,Livestock Handling and weighing equipment,N/a,14085
+21/22,Alyssa Orozco,EX17 , Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,On farm woodland,Low,5850
+21/22,Alyssa Orozco,EX17 , Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Hedgerow,High,8584
+21/22,Alyssa Orozco,EX17 , Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,17327
+21/22,Amya Henry,PE28 , Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Hedgerow,Medium,34473
+21/22,Amya Henry,PE28 , Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,25504
+21/22,Amya Henry,PE28 , Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,4339
+21/22,Amya Henry,PE28 , Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,28089
+21/22,Amya Henry,PE28 , Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,15376
+21/22,Amya Henry,PE28 , Somersham , North West Cambridgeshire , Cambridgeshire,Farming Equipment and Technology Fund,Other Livestock equipment,N/a,3960
+21/22,Amya Henry,PE28 , Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland,Low,31716
+21/22,Andreas Jenkins,L37 , Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,High,14492
+21/22,Andreas Jenkins,L37 , Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,Low,4365
+21/22,Andreas Jenkins,L37 , Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,10337
+21/22,Andreas Jenkins,L37 , Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,High,27060
+21/22,Andreas Jenkins,L37 , Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,26853
+21/22,Andreas Jenkins,L37 , Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,8170
+21/22,Andreas Jenkins,L37 , Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,Low,35397
+21/22,Andreas Jenkins,L37 , Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,Low,35207
+21/22,Andreas Jenkins,L37 , Formby , Sefton Central , None,Farming Equipment and Technology Fund,Horticulture,N/a,18442
+21/22,Andreas Jenkins,L37 , Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,34010
+21/22,Andreas Jenkins,L37 , Formby , Sefton Central , None,Farming Equipment and Technology Fund,Forestry,N/a,33399
+21/22,Arabella Austin,DE22 , Derby,   Derby North , None,Farming Equipment and Technology Fund,Precision and Analysis,N/a,11311
+21/22,Arabella Austin,DE22 , Derby,   Derby North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,21041
+21/22,Arabella Austin,DE22 , Derby,   Derby North , None,Sustainable Farming Incentive pilot,On farm woodland,Low,27309
+21/22,Arabella Austin,DE22 , Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,11406
+21/22,Arabella Austin,DE22 , Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,6492
+21/22,Arabella Austin,DE22 , Derby,   Derby North , None,Farming Equipment and Technology Fund,Precision and Analysis,N/a,18475
+21/22,Arabella Austin,DE22 , Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,23128
+21/22,Araceli Ayers,SL2 , Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,15997
+21/22,Araceli Ayers,SL2 , Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,3732
+21/22,Aryana Glass,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,35194
+21/22,Aryana Glass,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,18967
+21/22,Aryana Glass,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,Low,10489
+21/22,Aryana Glass,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,Medium,13418
+21/22,Aryana Glass,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,10556
+21/22,Aryana Glass,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,Medium,2733
+21/22,August Dennis,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,20740
+21/22,August Dennis,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,High,33641
+21/22,August Dennis,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,35419
+21/22,August Dennis,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,On farm woodland,Medium,12482
+21/22,August Dennis,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Medium,10774
+21/22,August Dennis,WD6 , Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,30966
+21/22,August Dennis,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,4490
+21/22,August Dennis,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,5029
+21/22,August Dennis,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,1868
+21/22,Axel Ross,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,23795
+21/22,Axel Ross,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,22080
+21/22,Axel Ross,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Farming Equipment and Technology Fund,Livestock Handling and weighing equipment,N/a,28284
+21/22,Axel Ross,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Farming Equipment and Technology Fund,Other Livestock equipment,N/a,14632
+21/22,Axel Ross,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,30937
+21/22,Ayaan Wong,GU31, Harting , Chichester , West Sussex,Farming Equipment and Technology Fund,Livestock Handling and weighing equipment,N/a,6095
+21/22,Ayaan Wong,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Low and no input Grassland,High,23892
+21/22,Ayaan Wong,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,32660
+21/22,Ayaan Wong,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,Low,33974
+21/22,Azaria Mccoy,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland,Low,22410
+21/22,Azaria Mccoy,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,20646
+21/22,Baylee Payne,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,13553
+21/22,Baylee Payne,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,35729
+21/22,Baylee Payne,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,22201
+21/22,Baylee Payne,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,2498
+21/22,Baylee Payne,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,7885
+21/22,Baylee Payne,EC1R , Islington,   Islington South and Finsbury , None,Farming Equipment and Technology Fund,Resource Management,N/a,10313
+21/22,Baylee Payne,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,5457
+21/22,Braden Gill,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,4197
+21/22,Braden Gill,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,19172
+21/22,Braden Gill,S72, Barnsley,   Barnsley East , None,Farming Equipment and Technology Fund,Resource Management,N/a,16944
+21/22,Braden Gill,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,14948
+21/22,Braden Gill,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,24131
+21/22,Braiden Howell,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,23300
+21/22,Brayan Calderon,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,17321
+21/22,Brayan Calderon,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,27756
+21/22,Brayan Calderon,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,22644
+21/22,Brayan Calderon,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,17320
+21/22,Brayan Calderon,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,18170
+21/22,Bria Cabrera,DA1, Dartford,   Dartford , Kent,Farming Equipment and Technology Fund,Livestock Handling and weighing equipment,N/a,17327
+21/22,Bria Cabrera,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,5582
+21/22,Bria Cabrera,DA1, Dartford,   Dartford , Kent,Farming Equipment and Technology Fund,General,N/a,16934
+21/22,Bria Cabrera,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,22906
+21/22,Bria Cabrera,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,2826
+21/22,Brian Ferrell,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,14230
+21/22,Brian Ferrell,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,10328
+21/22,Brian Ferrell,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,31344
+21/22,Brian Ferrell,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Hedgerow,High,7393
+21/22,Brian Ferrell,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,14927
+21/22,Bridget Franklin,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,7948
+21/22,Bridget Franklin,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,11569
+21/22,Bridget Franklin,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,32757
+21/22,Bridget Franklin,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,High,23103
+21/22,Bridget Franklin,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland,High,18183
+21/22,Bridget Franklin,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,On farm woodland,Low,5690
+21/22,Casey Bryan,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,21235
+21/22,Casey Bryan,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,On farm woodland,High,32212
+21/22,Casey Bryan,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,15496
+21/22,Casey Bryan,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Hedgerow,High,22166
+21/22,Casey Greene,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,On farm woodland,Low,29564
+21/22,Casey Greene,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Hedgerow,Medium,19894
+21/22,Casey Greene,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,34673
+21/22,Casey Greene,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland soils,High,29685
+21/22,Casey Greene,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,11084
+21/22,Chandler Christian,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland,Medium,24750
+21/22,Chandler Christian,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,7008
+21/22,Chandler Christian,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,26755
+21/22,Charity Booker,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,16824
+21/22,Charity Booker,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,9873
+21/22,Charity Booker,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,On farm woodland,Medium,14084
+21/22,Charity Booker,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland,Medium,1269
+21/22,Charity Booker,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,33249
+21/22,Charity Booker,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,11306
+21/22,Charity Booker,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,4973
+21/22,Charity Booker,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,10530
+21/22,Charity Booker,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,31391
+21/22,Charity Booker,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,25113
+21/22,Christine Ray,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,High,27883
+21/22,Christine Ray,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,21823
+21/22,Christine Ray,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,19045
+21/22,Christine Ray,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,25576
+21/22,Christine Ray,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,23523
+21/22,Christine Ray,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,20115
+21/22,Christine Ray,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland,High,20691
+21/22,Clay Wyatt,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland,High,11602
+21/22,Clay Wyatt,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Hedgerow,Low,31217
+21/22,Cynthia Odom,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,12702
+21/22,Cynthia Odom,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,13633
+21/22,Cynthia Odom,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,17048
+21/22,Cynthia Odom,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,On farm woodland,Low,24384
+21/22,Cynthia Odom,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,6906
+21/22,Cynthia Odom,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,22609
+21/22,Cynthia Odom,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Medium,18337
+21/22,Cynthia Odom,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,24947
+21/22,Dale Valenzuela,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,27934
+21/22,Dale Valenzuela,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,On farm woodland,High,11307
+21/22,Dale Valenzuela,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,34723
+21/22,Dale Valenzuela,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,19365
+21/22,Dale Valenzuela,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,On farm woodland,Medium,2878
+21/22,Dale Valenzuela,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Medium,5665
+21/22,Dale Valenzuela,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,12552
+21/22,Dale Valenzuela,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,4249
+21/22,Daniel Ferrell,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,26575
+21/22,Daniel Ferrell,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,On farm woodland,High,34827
+21/22,Daniel Ferrell,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,27440
+21/22,Daniel Ferrell,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,10346
+21/22,Daniel Ferrell,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,28045
+21/22,Daniel Ferrell,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Improved Grassland,Medium,33086
+21/22,Daniel Ferrell,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,30957
+21/22,Daniel Ferrell,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,20133
+21/22,Daniel Ferrell,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,21281
+21/22,Darwin Chang,GU31, Harting , Chichester , West Sussex,Farming Equipment and Technology Fund,,N/a,26494
+21/22,Darwin Chang,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,High,29536
+21/22,Darwin Chang,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,Low,21156
+21/22,Darwin Chang,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,Medium,11703
+21/22,Darwin Chang,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,23611
+21/22,Darwin Chang,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,1923
+21/22,Declan Craig,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,Low,7114
+21/22,Declan Craig,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,25048
+21/22,Declan Craig,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,7220
+21/22,Denise Underwood,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,High,28154
+21/22,Denise Underwood,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,13242
+21/22,Denise Underwood,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,11185
+21/22,Denise Underwood,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,2374
+21/22,Denise Underwood,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,5578
+21/22,Denise Underwood,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,29927
+21/22,Denise Underwood,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,15606
+21/22,Denise Underwood,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,26995
+21/22,Devyn Weiss,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,5350
+21/22,Devyn Weiss,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,4051
+21/22,Devyn Weiss,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,7333
+21/22,Devyn Weiss,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,28729
+21/22,Devyn Weiss,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,13139
+21/22,Devyn Weiss,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,On farm woodland,Low,26206
+21/22,Devyn Weiss,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,15691
+21/22,Devyn Weiss,DY3, Dudley,   Dudley North , None,Farming Equipment and Technology Fund,,N/a,27371
+21/22,Devyn Weiss,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,On farm woodland,Medium,7616
+21/22,Donald Arias,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,4237
+21/22,Donald Arias,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,31641
+21/22,Donald Arias,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Hedgerow,Medium,26782
+21/22,Donald Arias,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,3677
+21/22,Drake Diaz,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,33594
+21/22,Drake Diaz,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,26913
+21/22,Drake Diaz,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,19415
+21/22,Eddie Dunn,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,18740
+21/22,Eddie Dunn,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,2646
+21/22,Eduardo Franklin,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,23867
+21/22,Efrain Shaw,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,Low,10743
+21/22,Efrain Shaw,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,6168
+21/22,Efrain Shaw,CW11, Sandbach , Congleton , None,Farming Equipment and Technology Fund,,N/a,17178
+21/22,Efrain Shaw,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland,High,18017
+21/22,Efrain Shaw,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,25135
+21/22,Eileen Gomez,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,On farm woodland,High,14622
+21/22,Eileen Gomez,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,13357
+21/22,Eileen Gomez,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,3133
+21/22,Eileen Gomez,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,17433
+21/22,Eileen Gomez,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,33381
+21/22,Eileen Gomez,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,14187
+21/22,Eileen Gomez,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,27769
+21/22,Eileen Mcdaniel,EX17, Washford Pyne , Central Devon , Devon,Farming Equipment and Technology Fund,,N/a,1612
+21/22,Eileen Mcdaniel,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,10000
+21/22,Eileen Mcdaniel,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,26812
+21/22,Eileen Mcdaniel,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,25353
+21/22,Eileen Mcdaniel,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,18839
+21/22,Eileen Mcdaniel,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,24797
+21/22,Eileen Mcdaniel,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,17203
+21/22,Eliana Wood,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,29321
+21/22,Eliana Wood,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,4976
+21/22,Eliana Wood,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Farming Equipment and Technology Fund,,N/a,31639
+21/22,Eliana Wood,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,17627
+21/22,Eliana Wood,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,7715
+21/22,Eliana Wood,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,High,6779
+21/22,Eliana Wood,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,12469
+21/22,Eliana Wood,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,High,6286
+21/22,Eliana Wood,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,25709
+21/22,Eliana Wood,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,13483
+21/22,Eliana Wood,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,6231
+21/22,Elisa Gilmore,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,29585
+21/22,Elisa Gilmore,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,High,20900
+21/22,Elisa Gilmore,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,High,22316
+21/22,Elisa Gilmore,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,6379
+21/22,Elisa Gilmore,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,23187
+21/22,Elisa Gilmore,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,10141
+21/22,Elisa Gilmore,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,25872
+21/22,Ella Patrick,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,5418
+21/22,Ella Patrick,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,11221
+21/22,Ella Patrick,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,13577
+21/22,Ella Patrick,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,5972
+21/22,Ella Patrick,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Improved Grassland,High,27842
+21/22,Ella Patrick,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,High,27130
+21/22,Ella Patrick,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,17007
+21/22,Ella Patrick,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,20922
+21/22,Elliott Dickerson,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,High,19057
+21/22,Elliott Dickerson,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,4157
+21/22,Elliott Dickerson,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Low,23924
+21/22,Elliott Dickerson,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,High,19301
+21/22,Elliott Dickerson,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,4386
+21/22,Elliott Dickerson,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,16444
+21/22,Elliott Dickerson,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,34777
+21/22,Elliott Dickerson,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,High,2302
+21/22,Elliott Dickerson,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,21157
+21/22,Emanuel Barrera,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Improved Grassland,High,4922
+21/22,Emanuel Barrera,DG2, None , Dumfries and Galloway , None,Farming Equipment and Technology Fund,,N/a,17973
+21/22,Emanuel Barrera,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,13949
+21/22,Emilia Gross,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Hedgerow,Medium,23612
+21/22,Emilia Gross,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,29689
+21/22,Emilia Gross,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,On farm woodland,Medium,35290
+21/22,Emilia Gross,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,18617
+21/22,Emilia Gross,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,20366
+21/22,Emilia Gross,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,26351
+21/22,Emilio Nunez,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,19228
+21/22,Emilio Nunez,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,30886
+21/22,Emilio Nunez,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,1532
+21/22,Emily Cochran,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,High,17325
+21/22,Emily Cochran,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,5678
+21/22,Emily Cochran,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,High,33581
+21/22,Emily Cochran,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,17883
+21/22,Emmy Donaldson,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,34170
+21/22,Emmy Donaldson,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Hedgerow,High,22191
+21/22,Emmy Donaldson,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,25412
+21/22,Emmy Donaldson,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,30697
+21/22,Emmy Donaldson,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,32164
+21/22,Enrique Fernandez,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,30272
+21/22,Enrique Fernandez,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,23708
+21/22,Enrique Fernandez,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,19991
+21/22,Enrique Fernandez,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,24234
+21/22,Enrique Fernandez,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,11499
+21/22,Ernest Vincent,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,16118
+21/22,Ernest Vincent,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland,High,32248
+21/22,Ernest Vincent,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland,High,10061
+21/22,Ernest Vincent,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,15480
+21/22,Ernest Vincent,DY3, Dudley,   Dudley North , None,Farming Equipment and Technology Fund,,N/a,23387
+21/22,Famer Pam,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,5525
+21/22,Famer Pam,DA1, Dartford,   Dartford , Kent,Farming Equipment and Technology Fund,,N/a,18131
+21/22,Famer Pam,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Hedgerow,High,13674
+21/22,Famer Pam,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,32654
+21/22,Famer Pam,DA1, Dartford,   Dartford , Kent,Farming Equipment and Technology Fund,,N/a,33531
+21/22,Famer Pam,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,3961
+21/22,Famer Pam,CW11, Sandbach , Congleton , None,Farming Equipment and Technology Fund,,N/a,22219
+21/22,Famer Pam,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Hedgerow,Low,5614
+21/22,Famer Pam,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,30835
+21/22,Farmer A,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,7853
+21/22,Farmer A,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,20926
+21/22,Farmer A,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,26046
+21/22,Farmer A,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Pilot Participation Payment,,28237
+21/22,Farmer Ash,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,High,11876
+21/22,Farmer Ash,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,27619
+21/22,Farmer Ash,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,28174
+21/22,Farmer Ash,SN3, Covingham , North Swindon , None,Farming Equipment and Technology Fund,,N/a,20985
+21/22,Farmer Ash,SN3, Covingham , North Swindon , None,Farming Equipment and Technology Fund,,N/a,28571
+21/22,Farmer Ash,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Hedgerow,High,27935
+21/22,Farmer B,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Pilot Participation Payment,,35688
+21/22,Farmer B,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,35158
+21/22,Farmer B,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,4656
+21/22,Farmer C,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Pilot Participation Payment,,6352
+21/22,Farmer C,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,20950
+21/22,Farmer C,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Low and no input Grassland,High,24303
+21/22,Farmer C,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,On farm woodland,Medium,10069
+21/22,Farmer D,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Pilot Participation Payment,,13959
+21/22,Farmer D,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland soils,High,13238
+21/22,Farmer E,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Pilot Participation Payment,,26731
+21/22,Farmer E,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,On farm woodland,High,15460
+21/22,Farmer F,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Pilot Participation Payment,,16833
+21/22,Farmer F,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,25979
+21/22,Farmer F,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Farming Equipment and Technology Fund,,N/a,16907
+21/22,Farmer G,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Pilot Participation Payment,,8500
+21/22,Farmer G,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Waterbody Buffering,Low,26660
+21/22,Farmer G,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,1569
+21/22,Farmer Gavin,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,High,20466
+21/22,Farmer Gavin,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,27077
+21/22,Farmer Gavin,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,7377
+21/22,Farmer Gavin,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,30644
+21/22,Farmer Gavin,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,5717
+21/22,Farmer Gavin,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,High,10678
+21/22,Farmer H,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,34519
+21/22,Farmer H,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,2702
+21/22,Farmer I,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,25633
+21/22,Farmer J,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,13661
+21/22,Farmer John,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,29240
+21/22,Farmer John,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,22104
+21/22,Farmer John,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,22398
+21/22,Farmer John,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,25772
+21/22,Farmer John,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,31048
+21/22,Farmer John,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,1968
+21/22,Farmer John,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,7968
+21/22,Farmer K,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,19109
+21/22,Farmer K,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,20207
+21/22,Farmer K,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,10200
+21/22,Farmer K,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,31480
+21/22,Farmer Kate,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,2628
+21/22,Farmer Kate,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Medium,29421
+21/22,Farmer Kate,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,Low,31964
+21/22,Farmer Kate,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,High,29030
+21/22,Farmer Kate,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,17567
+21/22,Farmer Kate,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,6693
+21/22,Farmer Ken,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,21730
+21/22,Farmer Ken,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,3619
+21/22,Farmer Ken,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,9506
+21/22,Farmer Ken,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,On farm woodland,High,3480
+21/22,Farmer Ken,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,12441
+21/22,Farmer Ken,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,25770
+21/22,Farmer Kevin,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Farming Equipment and Technology Fund,,N/a,2333
+21/22,Farmer L,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,10672
+21/22,Farmer L,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Improved Grassland,Low,35360
+21/22,Farmer L,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,On farm woodland,Low,11479
+21/22,Farmer M,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Low and no input Grassland,High,25628
+21/22,Farmer M,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,High,16844
+21/22,Farmer M,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,27429
+21/22,Farmer M,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,26420
+21/22,Farmer Michael,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,Medium,7117
+21/22,Farmer Michael,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,15683
+21/22,Farmer Michael,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,7333
+21/22,Farmer Michael,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,1794
+21/22,Farmer Michael,EC1R , Islington,   Islington South and Finsbury , None,Farming Equipment and Technology Fund,,N/a,30996
+21/22,Farmer Michael,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,High,30892
+21/22,Farmer Michael,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,17817
+21/22,Farmer Michael,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,30820
+21/22,Farmer Michael,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,High,21211
+21/22,Farmer Michael,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,19763
+21/22,Farmer Mika,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,29532
+21/22,Farmer Mika,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Hedgerow,High,11884
+21/22,Farmer Mika,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,14077
+21/22,Farmer Mika,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,30075
+21/22,Farmer Mika,S72, Barnsley,   Barnsley East , None,Farming Equipment and Technology Fund,,N/a,35423
+21/22,Farmer Morgan,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,21220
+21/22,Farmer Morgan,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,10984
+21/22,Farmer Morgan,DY3, Dudley,   Dudley North , None,Farming Equipment and Technology Fund,,N/a,8410
+21/22,Farmer Morgan,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,29149
+21/22,Farmer Morgan,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Hedgerow,Low,29378
+21/22,Farmer Morgan,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,35057
+21/22,Farmer N,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Hedgerow,Medium,20781
+21/22,Farmer N,DA1, Dartford,   Dartford , Kent,Farming Equipment and Technology Fund,,N/a,23822
+21/22,Farmer O,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,24753
+21/22,Farmer O,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,On farm woodland,Medium,21824
+21/22,Farmer P,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Hedgerow,High,26185
+21/22,Farmer P,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,17861
+21/22,Farmer P,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,16773
+21/22,Farmer Q,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,34669
+21/22,Farmer Q,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,33660
+21/22,Farmer Q,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,3931
+21/22,Farmer R,CW11, Sandbach , Congleton , None,Farming Equipment and Technology Fund,,N/a,23542
+21/22,Farmer R,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,24618
+21/22,Farmer S,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,25904
+21/22,Farmer Sam,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,34378
+21/22,Farmer Sam,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Hedgerow,High,24682
+21/22,Farmer Sam,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland,High,29065
+21/22,Farmer Sam,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,14903
+21/22,Farmer Sam,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,1815
+21/22,Farmer Sam,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,4032
+21/22,Farmer Sam,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,10295
+21/22,Farmer Sam,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,35052
+21/22,Farmer Sam,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Hedgerow,High,26312
+21/22,Farmer Sam,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,35733
+21/22,Farmer Sam,EX17, Washford Pyne , Central Devon , Devon,Farming Equipment and Technology Fund,,N/a,29650
+21/22,Farmer Sam,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,32322
+21/22,Farmer Sarah,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,On farm woodland,Low,31328
+21/22,Farmer Sarah,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,21309
+21/22,Farmer Sarah,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland soils,High,30673
+21/22,Farmer Sarah,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,28593
+21/22,Farmer Sarah,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,29726
+21/22,Farmer Sarah,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,On farm woodland,Medium,29011
+21/22,Farmer Sarah,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Hedgerow,High,34341
+21/22,Farmer Sarah,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,31832
+21/22,Farmer Shan ,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,4991
+21/22,Farmer Shan ,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,High,1603
+21/22,Farmer Shan ,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,Low,19034
+21/22,Farmer Shan ,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,32641
+21/22,Farmer Shan ,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,High,21822
+21/22,Farmer Shan ,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,1923
+21/22,Farmer Shan ,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,32021
+21/22,Farmer Shan ,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,High,35071
+21/22,Farmer Shan ,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,17562
+21/22,Farmer Sidd,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,11979
+21/22,Farmer Sidd,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,Low,23295
+21/22,Farmer Sidd,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,35102
+21/22,Farmer Sidd,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Hedgerow,High,8631
+21/22,Farmer Sidd,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,5891
+21/22,Farmer Sidd,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,8033
+21/22,Farmer Sidd,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,On farm woodland,Low,17924
+21/22,Farmer Sidd,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,12550
+21/22,Farmer Sidd,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,28694
+21/22,Farmer T,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,10485
+21/22,Farmer Vel,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,On farm woodland,High,9313
+21/22,Farmer Vel,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,11965
+21/22,Farmer Vel,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,4954
+21/22,Farmer Vel,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,On farm woodland,Low,25986
+21/22,Farmer Vel,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,22329
+21/22,Farmer Vel,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,31109
+21/22,Farmer Vel,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,High,18836
+21/22,George George,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,3555
+21/22,George George,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,35050
+21/22,George George,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,High,13376
+21/22,George George,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Low,26475
+21/22,Gia Reilly,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,High,24129
+21/22,Gia Reilly,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,On farm woodland,High,3656
+21/22,Gia Reilly,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,17236
+21/22,Gia Reilly,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,21210
+21/22,Gia Reilly,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,17629
+21/22,Gia Reilly,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,2681
+21/22,Giana Weber,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Farming Equipment and Technology Fund,,N/a,6799
+21/22,Giana Weber,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,On farm woodland,Low,25370
+21/22,Giana Weber,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,35515
+21/22,Giana Weber,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,11185
+21/22,Giana Weber,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,10153
+21/22,Giana Weber,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,Medium,22709
+21/22,Giana Weber,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,Low,30479
+21/22,Gisselle Cummings,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,35154
+21/22,Gisselle Cummings,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Low and no input Grassland,High,35944
+21/22,Gisselle Cummings,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,11240
+21/22,Gregory Mcconnell,EC1R , Islington,   Islington South and Finsbury , None,Farming Equipment and Technology Fund,,N/a,27378
+21/22,Gregory Mcconnell,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,15990
+21/22,Gregory Mcconnell,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,21666
+21/22,Gregory Mcconnell,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,29886
+21/22,Hana Moon,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,33489
+21/22,Hana Moon,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,6271
+21/22,Hana Moon,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,17950
+21/22,Hana Moon,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Hedgerow,High,12889
+21/22,Hana Moon,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,1509
+21/22,Haylie Cervantes,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,31888
+21/22,Haylie Cervantes,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,23939
+21/22,Haylie Cervantes,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,3909
+21/22,Haylie Cervantes,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,On farm woodland,High,6758
+21/22,Haylie Cervantes,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Hedgerow,Low,14214
+21/22,Haylie Cervantes,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,6156
+21/22,Haylie Cervantes,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,On farm woodland,Low,30991
+21/22,Haylie Cervantes,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,27766
+21/22,Haylie Cervantes,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,1832
+21/22,Hazel Esparza,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Hedgerow,Medium,17761
+21/22,Hazel Esparza,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,2352
+21/22,Hazel Esparza,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Hedgerow,Low,30247
+21/22,Hazel Esparza,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,34841
+21/22,Hazel Esparza,CW11, Sandbach , Congleton , None,Farming Equipment and Technology Fund,,N/a,31524
+21/22,Hazel Esparza,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,15122
+21/22,Hazel Esparza,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,13899
+21/22,Isabela Barnes,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Hedgerow,High,1472
+21/22,Isabela Barnes,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,7565
+21/22,Isabela Barnes,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,28422
+21/22,Isabela Barnes,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,17544
+21/22,Izabella Adkins,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,2558
+21/22,Izabella Adkins,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,3315
+21/22,Izabella Adkins,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,21270
+21/22,Izabella Adkins,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,29225
+21/22,Izabella Adkins,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,24754
+21/22,Izabella Adkins,SN3, Covingham , North Swindon , None,Farming Equipment and Technology Fund,,N/a,32554
+21/22,Jadiel Suarez,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,32920
+21/22,Jadiel Suarez,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,5821
+21/22,Jaelyn Vega,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,7813
+21/22,Jaelyn Vega,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,26423
+21/22,Jaelyn Vega,EX17, Washford Pyne , Central Devon , Devon,Farming Equipment and Technology Fund,,N/a,12146
+21/22,Jaelyn Vega,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Hedgerow,High,10208
+21/22,Jaelyn Vega,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,On farm woodland,High,8608
+21/22,Janessa Hubbard,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,On farm woodland,High,10211
+21/22,Janessa Hubbard,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,31441
+21/22,Janessa Hubbard,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,28131
+21/22,Janessa Hubbard,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,On farm woodland,High,11685
+21/22,Janessa Russell,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,21355
+21/22,Janessa Russell,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,11276
+21/22,Janessa Russell,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,5654
+21/22,Janessa Russell,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,28253
+21/22,Janessa Russell,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland soils,High,19681
+21/22,Jasmin Bush,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,24819
+21/22,Jasmin Bush,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,29216
+21/22,Jasmin Bush,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,High,23975
+21/22,Jasmin Bush,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,10765
+21/22,Javion Winters,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,28256
+21/22,Javion Winters,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,19397
+21/22,Javion Winters,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,4468
+21/22,Javion Winters,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,9243
+21/22,Javon Randolph,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,30726
+21/22,Javon Randolph,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,31338
+21/22,Javon Randolph,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,Low,22816
+21/22,Javon Randolph,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,On farm woodland,High,21114
+21/22,Javon Randolph,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Hedgerow,Low,35613
+21/22,Javon Randolph,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,8682
+21/22,Javon Randolph,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,28817
+21/22,Javon Randolph,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,33585
+21/22,Jazmin Forbes,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,25845
+21/22,Jazmin Forbes,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,17159
+21/22,Jazmin Forbes,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,12033
+21/22,Jessica Moody,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,29646
+21/22,Jessica Moody,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Low,11439
+21/22,Jessica Moody,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Medium,34042
+21/22,Jordin Moyer,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,5932
+21/22,Jordin Moyer,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,High,22554
+21/22,Jordin Moyer,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,5434
+21/22,Jordin Moyer,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,17024
+21/22,Jordin Moyer,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,6087
+21/22,Jordin Moyer,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Low,27750
+21/22,Jordin Moyer,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,11293
+21/22,Jordin Moyer,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,High,5981
+21/22,Joseph Carson,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,14118
+21/22,Joseph Carson,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,30174
+21/22,Joseph Carson,DG2, None , Dumfries and Galloway , None,Farming Equipment and Technology Fund,,N/a,3186
+21/22,Joseph Carson,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,9076
+21/22,Joseph Carson,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,23648
+21/22,Joseph Carson,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Improved Grassland,Low,21051
+21/22,Josiah Hess,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,On farm woodland,Medium,34681
+21/22,Josiah Hess,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,33575
+21/22,Josiah Hess,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,21317
+21/22,Josiah Hess,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,High,13295
+21/22,Josiah Hess,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,24629
+21/22,Julien Ramsey,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,High,16577
+21/22,Julien Ramsey,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,12724
+21/22,Julien Ramsey,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,High,28828
+21/22,Julien Ramsey,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,35204
+21/22,Kailyn Moody,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,13949
+21/22,Kailyn Moody,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,9871
+21/22,Karissa Juarez,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,21526
+21/22,Karissa Juarez,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,30055
+21/22,Kayleigh Strong,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,29677
+21/22,Kayleigh Strong,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,15572
+21/22,Kayleigh Strong,EC1R , Islington,   Islington South and Finsbury , None,Farming Equipment and Technology Fund,,N/a,19733
+21/22,Kayleigh Strong,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,19517
+21/22,Kayleigh Strong,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,32480
+21/22,Kayleigh Strong,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Hedgerow,Low,1299
+21/22,Kayleigh Strong,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,5490
+21/22,Kayleigh Strong,S72, Barnsley,   Barnsley East , None,Farming Equipment and Technology Fund,,N/a,22753
+21/22,Kayleigh Strong,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland,High,10789
+21/22,Kayleigh Strong,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,22580
+21/22,Keaton Nichols,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,20334
+21/22,Keaton Nichols,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,12135
+21/22,Keaton Nichols,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,28935
+21/22,Keaton Nichols,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,23761
+21/22,Keaton Nichols,DY3, Dudley,   Dudley North , None,Farming Equipment and Technology Fund,,N/a,17167
+21/22,Keaton Nichols,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,26419
+21/22,Keaton Nichols,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,On farm woodland,High,21908
+21/22,Kelsie Guerrero,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,On farm woodland,Low,2384
+21/22,Kelsie Guerrero,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Hedgerow,Medium,31796
+21/22,Kelsie Guerrero,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,26978
+21/22,Kelsie Guerrero,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,20790
+21/22,Kelsie Guerrero,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,25180
+21/22,Kelsie Guerrero,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,9594
+21/22,Kelsie Guerrero,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Hedgerow,Low,28187
+21/22,Kian Webb,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,31687
+21/22,Kian Webb,CW11, Sandbach , Congleton , None,Farming Equipment and Technology Fund,,N/a,5220
+21/22,Kian Webb,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,Low,23524
+21/22,Kian Webb,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,17964
+21/22,Kian Webb,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,1350
+21/22,Kian Webb,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,19872
+21/22,Kimora Terrell,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,7884
+21/22,Kimora Terrell,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,22241
+21/22,Kimora Terrell,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,6461
+21/22,Kimora Terrell,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,11452
+21/22,King Fuller,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,30110
+21/22,King Fuller,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,6645
+21/22,King Fuller,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland,Low,6602
+21/22,King Fuller,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,35649
+21/22,King Fuller,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,30712
+21/22,Kole Meyer,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,29796
+21/22,Kole Meyer,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland,Low,8336
+21/22,Kole Meyer,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,On farm woodland,High,33801
+21/22,Kole Meyer,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,22936
+21/22,Kole Meyer,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,3971
+21/22,Kole Meyer,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Farming Equipment and Technology Fund,,N/a,21966
+21/22,Konnor Barrett,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,6278
+21/22,Konnor Barrett,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,24464
+21/22,Konnor Barrett,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,35869
+21/22,Konnor Barrett,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,3486
+21/22,Konnor Barrett,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,17856
+21/22,Konnor Barrett,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,28800
+21/22,Konnor Barrett,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,27524
+21/22,Kristin Pineda,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,24824
+21/22,Kristin Pineda,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,26493
+21/22,Kristin Pineda,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,20271
+21/22,Kristin Pineda,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,High,29826
+21/22,Kristin Pineda,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,19306
+21/22,Kristin Pineda,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,2265
+21/22,Kristin Pineda,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,1736
+21/22,Lacey Anderson,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Hedgerow,Low,13354
+21/22,Lacey Anderson,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,25085
+21/22,Lacey Anderson,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,35924
+21/22,Lacey Anderson,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,3355
+21/22,Lacey Anderson,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,10349
+21/22,Laci Irwin,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,11534
+21/22,Laci Irwin,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Hedgerow,Low,16864
+21/22,Landon Hendricks,SL2, Hedgerley , Beaconsfield , None,Farming Equipment and Technology Fund,,N/a,11084
+21/22,Landon Hendricks,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Hedgerow,High,29550
+21/22,Landon Hendricks,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,16193
+21/22,Landon Hendricks,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,14668
+21/22,Layne Maldonado,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,31692
+21/22,Layne Maldonado,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,High,6665
+21/22,Layne Maldonado,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,31578
+21/22,Layne Maldonado,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,5435
+21/22,Layne Maldonado,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,Medium,3751
+21/22,Leila Gallegos,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,On farm woodland,Low,5715
+21/22,Leila Gallegos,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,20857
+21/22,Leila Gallegos,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,5663
+21/22,Leila Gallegos,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Medium,10103
+21/22,Leila Gallegos,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,High,21268
+21/22,Leila Gallegos,DG2, None , Dumfries and Galloway , None,Farming Equipment and Technology Fund,,N/a,9588
+21/22,Leila Gallegos,DG2, None , Dumfries and Galloway , None,Farming Equipment and Technology Fund,,N/a,22371
+21/22,Leila Gallegos,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,13848
+21/22,Leila Gallegos,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,25580
+21/22,Lewis Aguirre,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,17262
+21/22,Lewis Aguirre,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,16065
+21/22,Lewis Aguirre,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,4052
+21/22,Lewis Aguirre,GU31, Harting , Chichester , West Sussex,Farming Equipment and Technology Fund,,N/a,17354
+21/22,Lewis Aguirre,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,23711
+21/22,Lewis Aguirre,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,Low,33980
+21/22,Libby Huff,GU31, Harting , Chichester , West Sussex,Farming Equipment and Technology Fund,,N/a,25948
+21/22,Libby Huff,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,Low,15825
+21/22,Libby Huff,GU31, Harting , Chichester , West Sussex,Farming Equipment and Technology Fund,,N/a,1399
+21/22,Libby Huff,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Low and no input Grassland,High,26306
+21/22,Libby Huff,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,6267
+21/22,Libby Huff,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,Low,9277
+21/22,Libby Huff,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,12821
+21/22,Libby Huff,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Hedgerow,High,17037
+21/22,Libby Huff,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,High,23471
+21/22,Lillie Terrell,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,23510
+21/22,Lillie Terrell,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,5417
+21/22,Lillie Terrell,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,16442
+21/22,Lillie Terrell,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,On farm woodland,High,27430
+21/22,Lillie Terrell,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,13028
+21/22,Lillie Terrell,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,On farm woodland,Low,20551
+21/22,Lillie Terrell,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland,High,32150
+21/22,Lillie Terrell,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,34368
+21/22,Lillie Terrell,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,5927
+21/22,Lillie Terrell,DY3, Dudley,   Dudley North , None,Farming Equipment and Technology Fund,,N/a,24780
+21/22,Lizbeth Valencia,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,9522
+21/22,Lizbeth Valencia,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,4055
+21/22,Lizbeth Valencia,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,29246
+21/22,Lizbeth Valencia,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,32988
+21/22,Lizbeth Valencia,DA1, Dartford,   Dartford , Kent,Farming Equipment and Technology Fund,,N/a,13081
+21/22,Lizbeth Valencia,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,9501
+21/22,Lizbeth Valencia,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Improved Grassland soils,High,20649
+21/22,Lizbeth Valencia,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,10831
+21/22,Lorena Avila,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,Low,31651
+21/22,Lorena Avila,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,26556
+21/22,Lorena Avila,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,26237
+21/22,Lorena Avila,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,13301
+21/22,Louis Buckley,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,14894
+21/22,Louis Buckley,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,3944
+21/22,Lyla Bray,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,25917
+21/22,Lyla Bray,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,14575
+21/22,Lyla Bray,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,13922
+21/22,Lyla Bray,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,4630
+21/22,Lyla Bray,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,15364
+21/22,Lyla Bray,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,On farm woodland,High,5893
+21/22,Lyla Bray,SN3, Covingham , North Swindon , None,Farming Equipment and Technology Fund,,N/a,24157
+21/22,Lyla Bray,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,12112
+21/22,Lyla Bray,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Hedgerow,High,26128
+21/22,Madalynn Mccullough,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,4418
+21/22,Madalynn Mccullough,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,2874
+21/22,Madalynn Mccullough,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,21055
+21/22,Madalynn Mccullough,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Hedgerow,High,8100
+21/22,Madilyn Kelley,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,9620
+21/22,Madilyn Kelley,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,29668
+21/22,Madilyn Kelley,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,12062
+21/22,Madilyn Kelley,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Hedgerow,Low,3643
+21/22,Madilyn Kelley,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,13676
+21/22,Madilyn Kelley,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,2009
+21/22,Madilyn Kelley,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,12766
+21/22,Makhi Sawyer,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,15104
+21/22,Makhi Sawyer,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,On farm woodland,Medium,27382
+21/22,Makhi Sawyer,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,30128
+21/22,Makhi Sawyer,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,High,5717
+21/22,Makhi Sawyer,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,4472
+21/22,Malakai Burch,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,19604
+21/22,Malakai Burch,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,6360
+21/22,Malakai Burch,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,21409
+21/22,Malakai Burch,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,Low,1257
+21/22,Malakai Burch,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,22896
+21/22,Marquise Mcgrath,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,33761
+21/22,Marquise Mcgrath,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,29768
+21/22,Marquise Mcgrath,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,34654
+21/22,Messiah Escobar,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,4489
+21/22,Messiah Escobar,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,16317
+21/22,Messiah Escobar,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,5552
+21/22,Messiah Escobar,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,21686
+21/22,Messiah Escobar,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,33610
+21/22,Messiah Escobar,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,On farm woodland,High,11674
+21/22,Messiah Escobar,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,22560
+21/22,Mikaela Matthews,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,9624
+21/22,Mikaela Matthews,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,2420
+21/22,Mikaela Matthews,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,31401
+21/22,Mikaela Matthews,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,30187
+21/22,Mikaela Matthews,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Low,12396
+21/22,Mikaela Matthews,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,High,32852
+21/22,Milton Branch,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,2616
+21/22,Milton Branch,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,8594
+21/22,Milton Branch,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,High,35382
+21/22,Moriah Hahn,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,21978
+21/22,Moriah Hahn,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,10872
+21/22,Moriah Hahn,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Medium,16535
+21/22,Moriah Hahn,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,On farm woodland,Medium,26233
+21/22,Moriah Hahn,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,32528
+21/22,Moriah Hahn,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,2850
+21/22,Natalie Prince,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,29307
+21/22,Natalie Prince,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,On farm woodland,High,23826
+21/22,Natalya Rios,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,On farm woodland,Medium,29214
+21/22,Natalya Rios,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Farming Equipment and Technology Fund,,N/a,14206
+21/22,Natalya Rios,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Low and no input Grassland,High,2244
+21/22,Natalya Rios,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Farming Equipment and Technology Fund,,N/a,17262
+21/22,Natalya Rios,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,Medium,21763
+21/22,Neveah Rodgers,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,23549
+21/22,Neveah Rodgers,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,Low,3729
+21/22,Pablo Wells,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,Medium,23326
+21/22,Pablo Wells,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Low and no input Grassland,High,27354
+21/22,Pablo Wells,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland,High,15012
+21/22,Pablo Wells,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Low and no input Grassland,High,15810
+21/22,Pablo Wells,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,Low,35818
+21/22,Pablo Wells,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,15611
+21/22,Ralph Kane,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,23135
+21/22,Ralph Kane,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,31864
+21/22,Ralph Kane,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,4845
+21/22,Ralph Kane,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,33748
+21/22,Ralph Kane,EC1R , Islington,   Islington South and Finsbury , None,Farming Equipment and Technology Fund,,N/a,1440
+21/22,Ralph Kane,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,9174
+21/22,Raymond Villarreal,S72, Barnsley,   Barnsley East , None,Farming Equipment and Technology Fund,,N/a,35682
+21/22,Raymond Villarreal,S72, Barnsley,   Barnsley East , None,Farming Equipment and Technology Fund,,N/a,25961
+21/22,Raymond Villarreal,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,31347
+21/22,Raymond Villarreal,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,8682
+21/22,Reagan Bell,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,18192
+21/22,Reagan Bell,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,10092
+21/22,Reagan Bell,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,35459
+21/22,Reagan Bell,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Hedgerow,High,19506
+21/22,Reagan Bell,DY3, Dudley,   Dudley North , None,Farming Equipment and Technology Fund,,N/a,2102
+21/22,Reagan Bell,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,35517
+21/22,Reilly Sullivan,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,8491
+21/22,Reilly Sullivan,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,On farm woodland,Medium,21260
+21/22,Reilly Sullivan,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Improved Grassland,High,23794
+21/22,Reilly Sullivan,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Hedgerow,Low,3240
+21/22,Reilly Sullivan,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,High,23398
+21/22,Reilly Sullivan,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,34327
+21/22,Reilly Sullivan,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,1881
+21/22,Reilly Sullivan,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,15388
+21/22,Rey Jones,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,High,20716
+21/22,Rey Jones,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,High,10459
+21/22,Rey Jones,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,17987
+21/22,Rey Jones,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Hedgerow,High,35789
+21/22,Rey Jones,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,High,24944
+21/22,Rey Jones,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,17574
+21/22,Rey Jones,SN3, Covingham , North Swindon , None,Farming Equipment and Technology Fund,,N/a,16417
+21/22,Rey Jones,SN3, Covingham , North Swindon , None,Farming Equipment and Technology Fund,,N/a,33190
+21/22,Romeo Miles,SN3, Covingham , North Swindon , None,Farming Equipment and Technology Fund,,N/a,8351
+21/22,Romeo Miles,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,9398
+21/22,Romeo Miles,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,On farm woodland,Low,9474
+21/22,Romeo Miles,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,30074
+21/22,Romeo Miles,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland,High,23924
+21/22,Romeo Miles,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,32435
+21/22,Romeo Miles,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland,Medium,11860
+21/22,Roselyn Andrade,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Low and no input Grassland,High,15832
+21/22,Roselyn Andrade,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,17267
+21/22,Roselyn Andrade,EX17, Washford Pyne , Central Devon , Devon,Farming Equipment and Technology Fund,,N/a,2317
+21/22,Roselyn Andrade,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Farming Equipment and Technology Fund,,N/a,30785
+21/22,Roselyn Pham,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,15455
+21/22,Roselyn Pham,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,27158
+21/22,Roselyn Pham,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Hedgerow,Low,17625
+21/22,Roselyn Pham,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland,Low,16570
+21/22,Salvador Tapia,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,20846
+21/22,Salvador Tapia,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,24916
+21/22,Salvador Tapia,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,26203
+21/22,Salvador Tapia,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,32023
+21/22,Salvatore Noble,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,11857
+21/22,Salvatore Noble,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,8970
+21/22,Salvatore Noble,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,35318
+21/22,Salvatore Noble,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,12093
+21/22,Salvatore Noble,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,22808
+21/22,Salvatore Noble,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,Low,20786
+21/22,Salvatore Noble,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,21257
+21/22,Salvatore Noble,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,15558
+21/22,Samantha Mcmahon,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,High,9257
+21/22,Samantha Mcmahon,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,11785
+21/22,Samantha Mcmahon,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,On farm woodland,High,24957
+21/22,Samantha Mcmahon,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Hedgerow,High,9130
+21/22,Samantha Mcmahon,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,28303
+21/22,Samantha Mcmahon,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,31614
+21/22,Samantha Mcmahon,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,2705
+21/22,Sanaa Moyer,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,On farm woodland,High,15235
+21/22,Sanaa Moyer,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,25420
+21/22,Sanaa Moyer,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,On farm woodland,Low,3568
+21/22,Sanaa Moyer,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,3909
+21/22,Sanaa Moyer,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,Low,30463
+21/22,Sanaa Moyer,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,11356
+21/22,Saniyah Trevino,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,Low,1718
+21/22,Saniyah Trevino,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,High,25225
+21/22,Savion Bean,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,31107
+21/22,Savion Bean,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,35052
+21/22,Savion Bean,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,10879
+21/22,Savion Bean,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,High,32283
+21/22,Savion Bean,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,5115
+21/22,Savion Bean,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,Medium,19053
+21/22,Sherlyn Campbell,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Hedgerow,High,10302
+21/22,Sherlyn Campbell,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,On farm woodland,High,16538
+21/22,Sherlyn Campbell,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,29525
+21/22,Sherlyn Campbell,DG2, None , Dumfries and Galloway , None,Farming Equipment and Technology Fund,,N/a,7174
+21/22,Sherlyn Campbell,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Improved Grassland,High,16864
+21/22,Sherlyn Campbell,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Farming Equipment and Technology Fund,,N/a,1906
+21/22,Sherlyn Campbell,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Hedgerow,Low,27144
+21/22,Shyann Warren,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Hedgerow,Medium,2720
+21/22,Shyann Warren,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,11231
+21/22,Shyann Warren,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,20637
+21/22,Stella Benson,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,12583
+21/22,Stella Benson,GU31, Harting , Chichester , West Sussex,Farming Equipment and Technology Fund,,N/a,10153
+21/22,Stella Benson,GU31, Harting , Chichester , West Sussex,Farming Equipment and Technology Fund,,N/a,22152
+21/22,Stella Benson,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,3043
+21/22,Stella Benson,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,25532
+21/22,Stella Benson,EC1R , Islington,   Islington South and Finsbury , None,Farming Equipment and Technology Fund,,N/a,17343
+21/22,Stella Benson,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,31637
+21/22,Steve Cummings,EC1R , Islington,   Islington South and Finsbury , None,Farming Equipment and Technology Fund,,N/a,19317
+21/22,Steve Cummings,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,8498
+21/22,Steve Cummings,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,30683
+21/22,Steve Cummings,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,9666
+21/22,Tania Arellano,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,15643
+21/22,Tania Arellano,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Hedgerow,High,30692
+21/22,Tania Arellano,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Hedgerow,High,20850
+21/22,Tania Arellano,S72, Barnsley,   Barnsley East , None,Farming Equipment and Technology Fund,,N/a,6522
+21/22,Tate Cameron,S72, Barnsley,   Barnsley East , None,Farming Equipment and Technology Fund,,N/a,33815
+21/22,Tate Cameron,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,20777
+21/22,Tate Cameron,DY3, Dudley,   Dudley North , None,Farming Equipment and Technology Fund,,N/a,2795
+21/22,Tate Cameron,DY3, Dudley,   Dudley North , None,Farming Equipment and Technology Fund,,N/a,9362
+21/22,Tate Cameron,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,On farm woodland,High,6224
+21/22,Tate Cameron,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,25078
+21/22,Tate Cameron,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,26838
+21/22,Tate Cameron,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,11202
+21/22,Tess Dunn,DA1, Dartford,   Dartford , Kent,Farming Equipment and Technology Fund,,N/a,29576
+21/22,Tess Dunn,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,2154
+21/22,Tess Dunn,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Hedgerow,High,16013
+21/22,Tess Dunn,DA1, Dartford,   Dartford , Kent,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,34488
+21/22,Tess Dunn,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,High,30096
+21/22,Tess Dunn,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,17386
+21/22,Tess Dunn,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,26579
+21/22,Valentina Burns,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,3866
+21/22,Valentina Burns,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,2067
+21/22,Valentina Burns,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,15536
+21/22,Valentina Burns,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,5923
+21/22,Valentina Burns,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,25274
+21/22,Valentina Burns,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,5668
+21/22,Valentina Burns,CW11, Sandbach , Congleton , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,10816
+21/22,Valentina Burns,SN3, Covingham , North Swindon , None,Farming Equipment and Technology Fund,,N/a,31677
+21/22,Valentina Burns,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,11951
+21/22,Valentina Burns,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Hedgerow,High,27540
+21/22,Vaughn Bullock,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,24308
+21/22,Vaughn Bullock,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,35748
+21/22,Vaughn Bullock,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,8627
+21/22,Veronica Bender,SN3, Covingham , North Swindon , None,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,2213
+21/22,Veronica Bender,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,14288
+21/22,Veronica Bender,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Low and no input Grassland,High,27475
+21/22,Veronica Bender,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,10747
+21/22,Veronica Bender,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,25489
+21/22,Veronica Bender,EX17, Washford Pyne , Central Devon , Devon,Sustainable Farming Incentive pilot,Improved Grassland,High,7596
+21/22,Veronica Bender,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,On farm woodland,Low,9031
+21/22,Veronica Bender,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Farming Equipment and Technology Fund,,N/a,25738
+21/22,Veronica Bender,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,24536
+21/22,Victor Proctor,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Farming Equipment and Technology Fund,,N/a,2062
+21/22,Victor Proctor,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Improved Grassland,Medium,24423
+21/22,Victor Proctor,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,28385
+21/22,Victor Proctor,PE28, Somersham , North West Cambridgeshire , Cambridgeshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,7337
+21/22,Victor Proctor,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,High,7498
+21/22,Victor Proctor,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,20007
+21/22,Wade Andrews,L37, Formby , Sefton Central , None,Farming Equipment and Technology Fund,,N/a,2925
+21/22,Wade Andrews,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,High,13032
+21/22,Wade Andrews,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Hedgerow,High,1689
+21/22,Wade Andrews,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,On farm woodland,High,17011
+21/22,Wade Andrews,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,3636
+21/22,Wade Andrews,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,30734
+21/22,Wade Andrews,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,31655
+21/22,Wade Andrews,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,14504
+21/22,Wade Andrews,L37, Formby , Sefton Central , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,30450
+21/22,Wade Andrews,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,8266
+21/22,Wade Andrews,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,7063
+21/22,Wade Andrews,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland,Low,17365
+21/22,Walter Pacheco,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,4176
+21/22,Walter Pacheco,DE22, Derby,   Derby North , None,Farming Equipment and Technology Fund,,N/a,8337
+21/22,Walter Pacheco,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,20372
+21/22,Walter Pacheco,DE22, Derby,   Derby North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,High,22096
+21/22,Walter Pacheco,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,15231
+21/22,Walter Pacheco,SL2, Hedgerley , Beaconsfield , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,17266
+21/22,Willie Morse,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,On farm woodland,High,29425
+21/22,Willie Morse,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,18269
+21/22,Willie Morse,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Medium,7977
+21/22,Willie Morse,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,13079
+21/22,Willie Morse,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,4111
+21/22,Willie Morse,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,19968
+21/22,Willie Morse,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Medium,35750
+21/22,Yael Boone,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,On farm woodland,Medium,3622
+21/22,Yael Boone,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,9268
+21/22,Yael Boone,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Improved Grassland,High,10093
+21/22,Yael Boone,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Sustainable Farming Incentive pilot,Low and no input Grassland,Low,29297
+21/22,Yael Boone,WD6, Elstree and Borehamwood , Hertsmere , Hertfordshire,Farming Equipment and Technology Fund,,N/a,27157
+21/22,Yasmin Williamson,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,35856
+21/22,Yasmin Williamson,DG2, None , Dumfries and Galloway , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,9164
+21/22,Yasmin Williamson,DG2, None , Dumfries and Galloway , None,Farming Equipment and Technology Fund,,N/a,30709
+21/22,Yasmin Williamson,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,Low,4605
+21/22,Yasmin Williamson,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,On farm woodland,Medium,16169
+21/22,Yasmin Williamson,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Hedgerow,High,22715
+21/22,Yurem Kaufman,YO26, Little Ouseburn , Selby and Ainsty , North Yorkshire,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,18480
+21/22,Yurem Kaufman,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,Low,22095
+21/22,Yurem Kaufman,GU31, Harting , Chichester , West Sussex,Farming Equipment and Technology Fund,,N/a,12039
+21/22,Yurem Kaufman,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,Low,33190
+21/22,Zachariah Matthews,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Improved Grassland soils,Low,16567
+21/22,Zachariah Matthews,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,Medium,22531
+21/22,Zachariah Matthews,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,Hedgerow,Medium,20698
+21/22,Zachariah Matthews,GU31, Harting , Chichester , West Sussex,Sustainable Farming Incentive pilot,On farm woodland,Medium,27918
+21/22,Zachariah Matthews,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,Medium,18128
+21/22,Zachariah Matthews,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Improved Grassland,High,34029
+21/22,Zachariah Matthews,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Low and no input Grassland,High,17263
+21/22,Zain Price,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Hedgerow,Medium,4811
+21/22,Zain Price,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Medium,34257
+21/22,Zain Price,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,Low,21253
+21/22,Zain Price,EC1R , Islington,   Islington South and Finsbury , None,Sustainable Farming Incentive pilot,On farm woodland,Medium,25323
+21/22,Zain Price,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Arable and Horticultural Land,High,30792
+21/22,Zain Price,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,27267
+21/22,Zain Price,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Improved Grassland,High,8396
+21/22,Zain Price,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Arable and Horticultural Soils,High,15052
+21/22,Zain Price,S72, Barnsley,   Barnsley East , None,Sustainable Farming Incentive pilot,Hedgerow,Low,15330
+21/22,Zain Price,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,On farm woodland,High,3401
+21/22,Zoe Mcneil,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Hedgerow,Low,30465
+21/22,Zoe Mcneil,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,Improved Grassland soils,Medium,2434
+21/22,Zoe Mcneil,DY3, Dudley,   Dudley North , None,Sustainable Farming Incentive pilot,On farm woodland,Low,11068
+21/22,AGGREGATE,N/a,N/a,N/a,N/a,Tree Health Pilot,1 Payment Made,N/a,28171
