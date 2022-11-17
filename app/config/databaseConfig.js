@@ -7,7 +7,7 @@ function isProd () {
 
 const dbConfig = {
   username: process.env.POSTGRES_USER || 'postgres',
-  password: process.env.POSTGRES_PASSWORD || 'postgres',
+  password: process.env.POSTGRES_PASSWORD || 'ppp',
   database: process.env.POSTGRES_DB || 'ffc_mpdp_backend',
   schema: process.env.POSTGRES_SCHEMA_NAME || 'public',
   host: process.env.POSTGRES_HOST || 'host.docker.internal',
