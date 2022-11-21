@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require('sequelize')
+const { Sequelize, DataTypes, Op, where, fn, col } = require('sequelize')
 const value = require('../config/appConfig')
 const dbConfigAllEnv = require('../config/databaseConfig')
 const dbConfig = dbConfigAllEnv[value.env]
@@ -21,9 +21,27 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
 })
 
 // Collect and display the db restuls
-async function getPaymentData () {
+async function getPaymentData (searchString = '', limit = 20, offset = 1) {
+  if (searchString === '') throw new Error('Empty search content')
+  console.log('searchString :' + searchString)
+  const mf = 0.4 // Matching factor
   try {
-    return PaymentDataModel.findAll()
+    return PaymentDataModel.findAndCountAll({
+      limit: limit,
+      offset: offset,
+      where: {
+        [Op.or]: [
+          where(fn('SIMILARITY', col('payee_name'), searchString), { [Op.gt]: mf }),
+          where(fn('SIMILARITY', col('part_postcode'), searchString), { [Op.gt]: mf }),
+          where(fn('SIMILARITY', col('town'), searchString), { [Op.gt]: mf }),
+          where(fn('SIMILARITY', col('parliamentary_constituency'), searchString), { [Op.gt]: mf }),
+          where(fn('SIMILARITY', col('county_council'), searchString), { [Op.gt]: mf }),
+          where(fn('SIMILARITY', col('scheme'), searchString), { [Op.gt]: mf }),
+          where(fn('SIMILARITY', col('scheme_detail'), searchString), { [Op.gt]: mf }),
+          where(fn('SIMILARITY', col('activity_level'), searchString), { [Op.gt]: mf })
+        ]
+      }
+    })
   } catch (error) {
     console.error('Error occured while reading data : ' + error)
     throw error
