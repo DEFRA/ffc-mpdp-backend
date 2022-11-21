@@ -23,7 +23,6 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
 // Collect and display the db restuls
 async function getPaymentData (searchString = '', limit = 20, offset = 1) {
   if (searchString === '') throw new Error('Empty search content')
-  console.log('searchString :' + searchString)
   const mf = 0.4 // Matching factor
   try {
     return PaymentDataModel.findAndCountAll({
