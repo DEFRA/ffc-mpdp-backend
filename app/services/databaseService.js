@@ -33,11 +33,7 @@ async function getPaymentData (searchString = '', limit = 20, offset = 1) {
           where(fn('SIMILARITY', col('payee_name'), searchString), { [Op.gt]: mf }),
           where(fn('SIMILARITY', col('part_postcode'), searchString), { [Op.gt]: mf }),
           where(fn('SIMILARITY', col('town'), searchString), { [Op.gt]: mf }),
-          where(fn('SIMILARITY', col('parliamentary_constituency'), searchString), { [Op.gt]: mf }),
-          where(fn('SIMILARITY', col('county_council'), searchString), { [Op.gt]: mf }),
-          where(fn('SIMILARITY', col('scheme'), searchString), { [Op.gt]: mf }),
-          where(fn('SIMILARITY', col('scheme_detail'), searchString), { [Op.gt]: mf }),
-          where(fn('SIMILARITY', col('activity_level'), searchString), { [Op.gt]: mf })
+          where(fn('SIMILARITY', col('county_council'), searchString), { [Op.gt]: mf })
         ]
       }
     })
