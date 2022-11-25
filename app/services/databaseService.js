@@ -39,7 +39,7 @@ async function getPaymentData (searchString = '', limit = 20, offset = 0) {
         [sequelize.fn('sum', sequelize.col('amount')), 'total-amount']
       ]
     })
-    return { count: result.count.length, rows:result.rows }
+    return { count: result.count.length, rows: result.rows }
   } catch (error) {
     console.error('Error occured while reading data : ' + error)
     throw error
