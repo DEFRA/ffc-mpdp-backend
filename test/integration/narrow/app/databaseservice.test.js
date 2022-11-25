@@ -45,14 +45,24 @@ describe('database-service test', () => {
 
   test('GET /paymentdata returns DB error', async () => {
     const searchString = 'Farmer Vel'
-    const limit = 20
-    const offset = 0
+    const limit = null
+    const offset = null
     const errorMessage = 'DB Error'
 
     const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
     mockDb.mockRejectedValue(new Error(errorMessage))
 
     await expect(getPaymentData(searchString, limit, offset))
+      .rejects
+      .toThrow(errorMessage)
+  })
+
+  test('GET /paymentdata parameter default valus used', async () => {
+    // const searchString = 'Farmer Vel'
+    const errorMessage = 'Empty search content'
+    const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
+    mockDb.mockRejectedValue(new Error(errorMessage))
+    await expect(getPaymentData())
       .rejects
       .toThrow(errorMessage)
   })
