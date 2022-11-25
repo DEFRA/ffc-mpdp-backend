@@ -10,6 +10,10 @@ describe('database-service test', () => {
     expect(getPaymentData).toBeDefined()
   })
 
+  test('database-service to be defined', () => {
+    expect(PaymentDataModel).toBeDefined()
+  })
+
   test('GET /paymentdata returns right data', async () => {
     const searchString = 'Farmer Vel'
     const limit = 20
