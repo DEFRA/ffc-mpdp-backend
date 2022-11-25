@@ -5,7 +5,7 @@
   </changeSet>
   <changeSet author="christian" id="1">
     <sql dbms="postgresql" endDelimiter=";">
-        CREATE EXTENSION PG_TRGM
+        CREATE EXTENSION IF NOT EXISTS PG_TRGM
     </sql>
   </changeSet>
 </databaseChangeLog>
