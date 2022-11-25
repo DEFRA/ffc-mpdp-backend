@@ -46,4 +46,4 @@ async function getPaymentData (searchString = '', limit = 20, offset = 0) {
   }
 }
 
-module.exports = { getPaymentData }
+module.exports = { getPaymentData, PaymentDataModel }
