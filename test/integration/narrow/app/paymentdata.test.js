@@ -1,16 +1,25 @@
 const databaseService = require('../../../../app/services/databaseService')
 
+const createServer = require('../../../../app/server')
+let server
+
+beforeEach(async () => {
+  server = await createServer()
+  await server.start()
+})
+
+afterEach(async () => {
+  await server.stop()
+  jest.clearAllMocks()
+})
+
+afterAll(() => {
+  jest.resetAllMocks()
+})
+
 describe('paymentdata api call test', () => {
   const getPaymentDataMock = jest.spyOn(databaseService, 'getPaymentData')
   getPaymentDataMock.mockReturnValue('[{"id":1,"payee_name":"Farmer A","part_postcode":"RG1","town":"Reading","parliamentary_constituency":"Reading East","county_council":"Berkshire","scheme":"SFI Arable and Horticultural Land","activity_detail":"Low","amount":"223.65"}]')
-
-  const createServer = require('../../../../app/server')
-  let server
-
-  beforeEach(async () => {
-    server = await createServer()
-    await server.start()
-  })
 
   test('paymentdata api test to be defined', () => {
     const paymentdata = require('../../../../app/routes/paymentdata')
@@ -46,13 +55,20 @@ describe('paymentdata api call test', () => {
     const response = await server.inject(options)
     expect(response.statusCode).toBe(500)
   })
+})
 
-  afterEach(async () => {
-    await server.stop()
-    jest.clearAllMocks()
-  })
+describe('paymentdata api test mocking DB service', () => {
+  test('GET /paymentdata error in DB', async () => {
+    const { PaymentDataModel } = require('../../../../app/services/databaseService')
+    const errorMessage = 'DB Error'
+    const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
+    mockDb.mockRejectedValue(new Error(errorMessage))
 
-  afterAll(() => {
-    jest.resetAllMocks()
+    const options = {
+      method: 'GET',
+      url: '/paymentdata?searchString="Farmer Vel"'
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(500)
   })
 })

@@ -47,7 +47,7 @@ describe('database-service test', () => {
     const searchString = 'Farmer Vel'
     const limit = 20
     const offset = 0
-    const errorMessage = 'Error occured while reading data'
+    const errorMessage = 'DB Error'
 
     const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
     mockDb.mockRejectedValue(new Error(errorMessage))
