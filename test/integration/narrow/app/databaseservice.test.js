@@ -26,7 +26,6 @@ describe('database-service test', () => {
       count: 3,
       rows: ['r1', 'r2', 'r3']
     }
-    // const mockErrorData = 'mock data'
 
     const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
     mockDb.mockResolvedValue(mockData)
@@ -58,7 +57,6 @@ describe('database-service test', () => {
   })
 
   test('GET /paymentdata parameter default valus used', async () => {
-    // const searchString = 'Farmer Vel'
     const errorMessage = 'Empty search content'
     const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
     mockDb.mockRejectedValue(new Error(errorMessage))

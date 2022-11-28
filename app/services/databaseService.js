@@ -36,7 +36,7 @@ async function getPaymentData (searchString = '', limit = 20, offset = 0) {
       group: ['payee_name', 'part_postcode', 'town', 'county_council'],
       attributes: [
         'payee_name', 'part_postcode', 'town', 'county_council',
-        [sequelize.fn('sum', sequelize.col('amount')), 'total-amount']
+        [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
       ]
     })
     return { count: result.count.length, rows: result.rows }
