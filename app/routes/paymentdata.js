@@ -5,11 +5,12 @@ module.exports = {
   path: '/paymentdata',
   handler: async (request, h) => {
     try {
-      const records = await getPaymentData()
+      const { searchString, limit, offset } = request.query
+      const records = await getPaymentData(searchString, limit, offset)
       if (!records) return h.response('No data found').code(404)
       return h.response(records).code(200)
     } catch (error) {
-      return h.response('Error while reading data' + error + ' env: ' + process.env.POSTGRES_HOST).code(500)
+      return h.response('Error while reading data' + error).code(500)
     }
   }
 }
