@@ -104,4 +104,15 @@ describe('database-service paymentdetails test', () => {
       .rejects
       .toThrow(errorMessage)
   })
+
+  test('GET /paymentdetails returns DB error', async () => {
+    const payeeName = 'Farmer Vel'
+    const partPostcode = 'WT5'
+    const errorMessage = 'DB Error'
+    const mockDb = jest.spyOn(PaymentDetailModel, 'findAll')
+    mockDb.mockRejectedValue(new Error(errorMessage))
+    await expect(getPaymentDetails(payeeName, partPostcode))
+      .rejects
+      .toThrow(errorMessage)
+  })
 })
