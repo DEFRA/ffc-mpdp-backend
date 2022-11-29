@@ -76,4 +76,4 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   }
 }
 
-module.exports = { getPaymentData, getPaymentDetails }
+module.exports = { getPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel }

@@ -26,7 +26,7 @@ describe('paymentdetails api call test', () => {
   mockDb.mockReturnValue(paymentsdetailsdbrow)
 
   test('paymentdetails api test to be defined', () => {
-    const paymentdetails = require('../../../../app/routes/paymentdetails')
+    const paymentdetails = require('../../../../app/routes/paymentdetail')
     expect(paymentdetails).toBeDefined()
     expect(paymentdetails.handler).toBeDefined()
   })
