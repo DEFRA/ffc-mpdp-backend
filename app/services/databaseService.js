@@ -43,4 +43,35 @@ async function getPaymentData (searchString = '', limit = 20, offset = 1) {
   }
 }
 
-module.exports = { getPaymentData }
+// payment details API
+// Define the Model
+const PaymentDetailModel = sequelize.define('payment_activity_data', {
+  id: { type: DataTypes.INTEGER, primaryKey: true },
+  payee_name: DataTypes.STRING(32),
+  part_postcode: DataTypes.STRING(8),
+  town: DataTypes.STRING(32),
+  county_council: DataTypes.STRING(64),
+  financial_year: DataTypes.STRING(8),
+  parliamentary_constituency: DataTypes.STRING(32),
+  scheme: DataTypes.STRING(64),
+  scheme_detail: DataTypes.STRING(128),
+  activity_level: DataTypes.STRING(16),
+  amount: DataTypes.DOUBLE
+})
+
+async function getPaymentDetails (payeeName = '', partPostcode = '') {
+  if (payeeName === '' || partPostcode === '') throw new Error('Empty payeeName or  partPostcode')
+  try {
+    return PaymentDetailModel.findAll({
+      where: {
+        payee_name: payeeName,
+        part_postcode: partPostcode
+      }
+    })
+  } catch (error) {
+    console.error('Error occured while reading data : ' + error)
+    throw error
+  }
+}
+
+module.exports = { getPaymentData, getPaymentDetails }
