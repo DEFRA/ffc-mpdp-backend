@@ -7,7 +7,7 @@ module.exports = {
     try {
       const { payeeName, partPostcode } = request.query
       const records = await getPaymentDetails(payeeName, partPostcode)
-      if (!records) return h.response('No data found').code(404)
+      if (!records || records.length < 1) return h.response('No data found').code(404)
 
       const payemntDetails = {
         payee_name: records[0].payee_name,
