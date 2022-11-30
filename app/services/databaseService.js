@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, Op, where, fn, col } = require('sequelize')
+const { Sequelize, DataTypes, Op, where, fn, col, and } = require('sequelize')
 const value = require('../config/appConfig')
 const dbConfigAllEnv = require('../config/databaseConfig')
 const dbConfig = dbConfigAllEnv[value.env]
@@ -65,10 +65,10 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   if (payeeName === '' || partPostcode === '') throw new Error('Empty payeeName or  partPostcode')
   try {
     return PaymentDetailModel.findAll({
-      where: {
-        payee_name: payeeName,
-        part_postcode: partPostcode
-      }
+      where: and(
+        where(fn('btrim', col('payee_name')), payeeName),
+        where(fn('btrim', col('part_postcode')), partPostcode)
+      )
     })
   } catch (error) {
     console.error('Error occured while reading data : ' + error)
