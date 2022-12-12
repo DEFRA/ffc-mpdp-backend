@@ -49,7 +49,7 @@ async function getPaymentData (searchString = '', limit = 20, offset = 0) {
 // payment details API
 const PaymentDetailModel = sequelize.define('payment_activity_data', {
   id: { type: DataTypes.INTEGER, primaryKey: true },
-  payee_name: DataTypes.STRING(32),
+  payee_name: DataTypes.STRING(128),
   part_postcode: DataTypes.STRING(8),
   town: DataTypes.STRING(32),
   county_council: DataTypes.STRING(64),
@@ -57,7 +57,7 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
   parliamentary_constituency: DataTypes.STRING(32),
   scheme: DataTypes.STRING(64),
   scheme_detail: DataTypes.STRING(128),
-  activity_level: DataTypes.STRING(16),
+  activity_level: DataTypes.STRING(64),
   amount: DataTypes.DOUBLE
 })
 
