@@ -46,6 +46,24 @@ async function getPaymentData (searchString = '', limit = 20, offset = 0) {
   }
 }
 
+// Collect all DB restuls
+async function getAllPaymentData () {
+  try {
+    const result = await PaymentDataModel.findAll({
+      group: ['payee_name', 'part_postcode', 'town', 'county_council'],
+      attributes: [
+        'payee_name', 'part_postcode', 'town', 'county_council',
+        [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
+      ],
+      raw: true
+    })
+    return result
+  } catch (error) {
+    console.error('Error occured while reading data : ' + error)
+    throw error
+  }
+}
+
 // payment details API
 const PaymentDetailModel = sequelize.define('payment_activity_data', {
   id: { type: DataTypes.INTEGER, primaryKey: true },
@@ -76,4 +94,4 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   }
 }
 
-module.exports = { getPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel }
+module.exports = { getPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel,getAllPaymentData }

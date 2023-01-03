@@ -5,4 +5,5 @@ helm/**/*.lock
 .vscode
 .DS_Store
 .idea/
+dump.rdb
 

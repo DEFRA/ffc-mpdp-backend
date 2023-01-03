@@ -23,4 +23,8 @@ services:
       - POSTGRES_PORT=${POSTGRES_PORT:-5432}
     ports:
       - '5432:5432'
-      
+  ffc-mpdp-backend-redis:
+    image: redis
+    restart: always
+    ports:
+      - '6379:6379'
