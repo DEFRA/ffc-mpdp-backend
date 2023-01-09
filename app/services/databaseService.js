@@ -15,31 +15,18 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
-// Collect the DB restuls
-async function getPaymentData (searchString = '', limit = 20, offset = 0) {
-  if (searchString === '') throw new Error('Empty search content')
-  const mf = 0.4 // Matching factor
-  const whereClause = {
-    [Op.or]: [
-      where(fn('SIMILARITY', col('payee_name'), searchString), { [Op.gt]: mf }),
-      where(fn('SIMILARITY', col('part_postcode'), searchString), { [Op.gt]: mf }),
-      where(fn('SIMILARITY', col('town'), searchString), { [Op.gt]: mf }),
-      where(fn('SIMILARITY', col('county_council'), searchString), { [Op.gt]: mf })
-    ]
-  }
-
+// Collect all DB results
+async function getAllPaymentData () {
   try {
-    const result = await PaymentDataModel.findAndCountAll({
-      limit: limit,
-      offset: offset,
-      where: whereClause,
+    const result = await PaymentDataModel.findAll({
       group: ['payee_name', 'part_postcode', 'town', 'county_council'],
       attributes: [
         'payee_name', 'part_postcode', 'town', 'county_council',
         [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
-      ]
+      ],
+      raw: true
     })
-    return { count: result.count.length, rows: result.rows }
+    return result
   } catch (error) {
     console.error('Error occured while reading data : ' + error)
     throw error
@@ -76,4 +63,4 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   }
 }
 
-module.exports = { getPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel }
+module.exports = { getAllPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel }
