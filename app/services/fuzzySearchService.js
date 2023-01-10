@@ -21,6 +21,26 @@ const fuseSearchOptions = {
   keys: ["payee_name", "part_postcode", "town", "county_council"]
 }
 
+// Sort the records
+function getSortedValue(records , field){
+  if('score'===field){
+    return records
+  }
+  if('payee_name'===field){
+    return records.sort((r1,r2)=>r1.payee_name>r2.payee_name?1:-1)
+  }
+  if('town'===field){
+    return records.sort((r1,r2)=>r1.town>r2.town?1:-1)
+  }
+  if('part_postcode'===field){
+    return records.sort((r1,r2)=>r1.part_postcode>r2.part_postcode?1:-1)
+  }
+  if('county_council'===field){
+    return records.sort((r1,r2)=>r1.county_council>r2.county_council?1:-1)
+  }
+  return records
+}
+
 async function getPaymentData(searchKey,limit, offset, searchBy) {
   const cachedData = await getCachedPaymentData();
   console.log("cachedData count : " + cachedData.length);
@@ -30,11 +50,10 @@ async function getPaymentData(searchKey,limit, offset, searchBy) {
   const result = fuse.search(searchKey);
   const resultCount = result.length;
   if(resultCount<1) return [];
-  // result.map(row => console.log(row.score))
   const filteredItems = result.map(row => row.item);
-  const offsetBlock = filteredItems.slice(offset,limit)
+  const sortedItems = getSortedValue(filteredItems,searchBy)
+  const offsetBlock = sortedItems.slice(offset,limit)
   console.log("offsetBlock length: "+offsetBlock.length);
-  // TODO : sort the result by given field
   return { count: resultCount, rows: offsetBlock }
 }
 
