@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, Op, where, fn, col, and } = require('sequelize')
+const { Sequelize, DataTypes, where, fn, col, and } = require('sequelize')
 const value = require('../config/appConfig')
 const dbConfigAllEnv = require('../config/databaseConfig')
 const dbConfig = dbConfigAllEnv[value.env]
