@@ -6,8 +6,6 @@ let localCachedData=null ;
 async function getCachedPaymentData() {
   if(!localCachedData){
     localCachedData = await getAllPaymentData();
-    // console.log("local caching the value as : ");
-    // console.log(localCachedData);
   }
   return localCachedData;
 }
