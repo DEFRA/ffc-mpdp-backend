@@ -1,5 +1,3 @@
-const databaseService = require('../../../../app/services/databaseService')
-
 const createServer = require('../../../../app/server')
 let server
 
@@ -18,7 +16,8 @@ afterAll(() => {
 })
 
 describe('paymentdata api call test', () => {
-  const getPaymentDataMock = jest.spyOn(databaseService, 'getPaymentData')
+  const service = require('../../../../app/services/fuzzySearchService')
+  const getPaymentDataMock = jest.spyOn(service, 'getPaymentData')
   getPaymentDataMock.mockReturnValue('[{"id":1,"payee_name":"Farmer A","part_postcode":"RG1","town":"Reading","parliamentary_constituency":"Reading East","county_council":"Berkshire","scheme":"SFI Arable and Horticultural Land","activity_detail":"Low","amount":"223.65"}]')
 
   test('paymentdata api test to be defined', () => {
@@ -37,7 +36,7 @@ describe('paymentdata api call test', () => {
   })
 
   test('GET /paymentdata returns 404', async () => {
-    getPaymentDataMock.mockReturnValue(null)
+    getPaymentDataMock.mockReturnValue([])
     const options = {
       method: 'GET',
       url: '/paymentdata'
