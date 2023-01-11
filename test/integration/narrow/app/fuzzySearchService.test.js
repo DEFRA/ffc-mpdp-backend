@@ -83,9 +83,26 @@ describe('testing fuzzySearchService /paymentdata', () => {
     mockDb.mockResolvedValue(paymentestdata)
     const result = await getPaymentData(searchString, limit, offset, sortBy)
     expect(result.rows[0].part_postcode).toEqual('PE15')
-    // Results with sorting
-    const result2 = await getPaymentData(searchString, limit, offset, 'part_postcode')
-    expect(result2.rows[0].part_postcode).toEqual('CH65')
+
+    // Results with sorting by score
+    const result3 = await getPaymentData(searchString, limit, offset, 'score')
+    expect(result3.rows[0].part_postcode).toEqual('PE15')
+
+    // Results with sorting by payee_name
+    const result4 = await getPaymentData(searchString, limit, offset, 'payee_name')
+    expect(result4.rows[0].part_postcode).toEqual('LL15')
+
+    // Results with sorting by town
+    const result5 = await getPaymentData(searchString, limit, offset, 'town')
+    expect(result5.rows[0].part_postcode).toEqual('CH65')
+
+    // Results with sorting by part_postcode
+    const result6 = await getPaymentData(searchString, limit, offset, 'part_postcode')
+    expect(result6.rows[0].part_postcode).toEqual('CH65')
+
+    // Results with sorting by county_council
+    const result7 = await getPaymentData(searchString, limit, offset, 'county_council')
+    expect(result7.rows[0].part_postcode).toEqual('PE15')
   })
 
   test('GET /paymentdata returns error  for invalid parameters', async () => {
