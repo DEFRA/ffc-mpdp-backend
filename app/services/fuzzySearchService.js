@@ -51,9 +51,8 @@ async function getPaymentData (searchKey, limit, offset, searchBy) {
   if (resultCount < 1) return []
   const filteredItems = result.map(row => row.item)
   const sortedItems = getSortedValue(filteredItems, searchBy)
-  const startingFrom = offset > 0 ? offset * limit : offset
-  const end = startingFrom + parseInt(limit)
-  const offsetBlock = sortedItems.slice(startingFrom, end)
+  const end = offset + parseInt(limit)
+  const offsetBlock = sortedItems.slice(offset, end)
 
   return { count: resultCount, rows: offsetBlock }
 }
