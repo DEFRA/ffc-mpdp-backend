@@ -69,7 +69,7 @@ describe('testing fuzzySearchService /paymentdata', () => {
     mockDb.mockResolvedValue(paymentestdata)
     const result = await getPaymentData(searchString, limit, offset, searchBy)
     expect(result.count).toEqual(11)
-    expect(result.rows.length).toEqual(1)
+    expect(result.rows.length).toEqual(10)
   })
 
   test('GET /paymentdata returns sorted data', async () => {
