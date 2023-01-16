@@ -21,20 +21,9 @@ const fuseSearchOptions = {
 
 // Sort the records
 function getSortedValue (records, field) {
-  if (field === 'score') {
-    return records
-  }
-  if (field === 'payee_name') {
-    return records.sort((r1, r2) => r1.payee_name > r2.payee_name ? 1 : -1)
-  }
-  if (field === 'town') {
-    return records.sort((r1, r2) => r1.town > r2.town ? 1 : -1)
-  }
-  if (field === 'part_postcode') {
-    return records.sort((r1, r2) => r1.part_postcode > r2.part_postcode ? 1 : -1)
-  }
-  if (field === 'county_council') {
-    return records.sort((r1, r2) => r1.county_council > r2.county_council ? 1 : -1)
+  const keys = ['payee_name', 'part_postcode', 'town', 'county_council']
+  if (keys.includes(field)) {
+    return records.sort((r1, r2) => r1[field] > r2[field] ? 1 : -1)
   }
   return records
 }
@@ -48,7 +37,7 @@ async function getPaymentData (searchKey, limit, offset, searchBy) {
   const fuse = new Fuse(cachedData, fuseSearchOptions)
   const result = fuse.search(searchKey)
   const resultCount = result.length
-  if (resultCount < 1) return []
+  if (resultCount < 1) return { count: 0, rows: [] }
   const filteredItems = result.map(row => row.item)
   const sortedItems = getSortedValue(filteredItems, searchBy)
   const end = parseInt(offset) + parseInt(limit)
