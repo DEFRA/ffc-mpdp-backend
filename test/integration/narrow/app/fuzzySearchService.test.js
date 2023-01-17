@@ -48,13 +48,13 @@ describe('testing fuzzySearchService /paymentdata', () => {
     const searchString = 'fa'
     const limit = 10
     const offset = 0
-    const searchBy = null
+    const sortBy = null
     const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
     mockDb.mockResolvedValue(paymentestdata)
-    const result = await getPaymentData(searchString, limit, offset, searchBy)
+    const result = await getPaymentData(searchString, limit, offset, sortBy)
     expect(result.count).toBeGreaterThan(10)
     expect(result.rows.length).toEqual(10)
-    const result2 = await getPaymentData(searchString, 5, offset, searchBy)
+    const result2 = await getPaymentData(searchString, 5, offset, sortBy)
     expect(result2.count).toEqual(11)
     expect(result2.rows.length).toEqual(5)
   })
@@ -64,10 +64,10 @@ describe('testing fuzzySearchService /paymentdata', () => {
     const searchString = 'fa'
     const limit = 10
     const offset = 1
-    const searchBy = null
+    const sortBy = null
     const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
     mockDb.mockResolvedValue(paymentestdata)
-    const result = await getPaymentData(searchString, limit, offset, searchBy)
+    const result = await getPaymentData(searchString, limit, offset, sortBy)
     expect(result.count).toEqual(11)
     expect(result.rows.length).toEqual(10)
   })
@@ -109,9 +109,9 @@ describe('testing fuzzySearchService /paymentdata', () => {
     const searchString = ''
     const limit = 20
     const offset = 0
-    const searchBy = null
+    const sortBy = null
 
-    await expect(getPaymentData(searchString, limit, offset, searchBy))
+    await expect(getPaymentData(searchString, limit, offset, sortBy))
       .rejects
       .toThrow('Empty search content')
   })
