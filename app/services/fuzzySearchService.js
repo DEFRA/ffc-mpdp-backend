@@ -28,7 +28,7 @@ function getSortedValue (records, field) {
   return records
 }
 
-async function getPaymentData (searchKey, limit, offset, searchBy) {
+async function getPaymentData (searchKey, limit, offset, sortBy) {
   if (!searchKey) throw new Error('Empty search content')
 
   const cachedData = await getCachedPaymentData()
@@ -39,7 +39,7 @@ async function getPaymentData (searchKey, limit, offset, searchBy) {
   const resultCount = result.length
   if (resultCount < 1) return { count: 0, rows: [] }
   const filteredItems = result.map(row => row.item)
-  const sortedItems = getSortedValue(filteredItems, searchBy)
+  const sortedItems = getSortedValue(filteredItems, sortBy)
   const end = parseInt(offset) + parseInt(limit)
   const offsetBlock = sortedItems.slice(offset, end)
   return { count: resultCount, rows: offsetBlock }
