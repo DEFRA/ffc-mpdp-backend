@@ -13,7 +13,7 @@ async function getCachedPaymentData () {
 // search configuration
 const fuseSearchOptions = {
   includeScore: true,
-  threshold: 0.3,
+  threshold: 0.5,
   ignoreLocation: true,
   useExtendedSearch: true,
   keys: ['payee_name', 'part_postcode', 'town', 'county_council']
