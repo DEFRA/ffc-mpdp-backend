@@ -7,7 +7,6 @@ module.exports = {
   handler: async (request, res) => {
     // convert json to csv content
     const fields = ['payee_name', 'part_postcode', 'town', 'county_council', 'total_amount']
-    const opts = { fields }
     try {
       const paymentData = await getAllPaymentData()
       const csvParser = new Parser({ fields })
