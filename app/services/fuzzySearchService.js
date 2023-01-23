@@ -1,14 +1,6 @@
 const Fuse = require('fuse.js')
 const { getAllPaymentData } = require('../services/databaseService')
 
-// Locally cached data
-let localCachedData = null
-async function getCachedPaymentData () {
-  if (!localCachedData) {
-    localCachedData = await getAllPaymentData()
-  }
-  return localCachedData
-}
 
 // search configuration
 const fuseSearchOptions = {
