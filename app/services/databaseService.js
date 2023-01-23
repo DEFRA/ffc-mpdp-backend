@@ -15,8 +15,17 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
-// Collect all DB results
+// Locally cached data
+let localCachedData = null
 async function getAllPaymentData () {
+  if (!localCachedData) {
+    localCachedData = await getAllPaymentDataFromDB()
+  }
+  return localCachedData
+}
+
+// Collect all DB results
+async function getAllPaymentDataFromDB () {
   try {
     const result = await PaymentDataModel.findAll({
       group: ['payee_name', 'part_postcode', 'town', 'county_council'],
