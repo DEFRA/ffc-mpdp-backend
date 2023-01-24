@@ -53,7 +53,6 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
   parliamentary_constituency: DataTypes.STRING(64),
   scheme: DataTypes.STRING(64),
   scheme_detail: DataTypes.STRING(128),
-  activity_level: DataTypes.STRING(64),
   amount: DataTypes.DOUBLE
 })
 
@@ -72,4 +71,23 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   }
 }
 
-module.exports = { getAllPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel }
+// Cached CSV data
+let cachedCsvData = null
+async function getCsvPaymentData () {
+  if (!cachedCsvData) {
+    cachedCsvData = await getCsvPaymentDataFromDb()
+    console.log(cachedCsvData)
+  }
+  return cachedCsvData
+}
+
+async function getCsvPaymentDataFromDb () {
+  try {
+    return PaymentDetailModel.findAll()
+  } catch (error) {
+    console.error('Error occured while reading data : ' + error)
+    throw error
+  }
+}
+
+module.exports = { getAllPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel, getCsvPaymentData }

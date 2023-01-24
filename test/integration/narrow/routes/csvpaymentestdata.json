@@ -1,0 +1,156 @@
+[
+    {
+      "financial_year": "21/22",
+      "payee_name": "Stacy Schneider",
+      "part_postcode": "TN39",
+      "town": "Bexhill-on-Sea",
+      "county_council": "East Sussex",
+      "parliamentary_constituency": "Bexhill and Battle",
+      "scheme": "Farming Equipment and Technology Fund",
+      "scheme_detail": "Livestock Handling and weighing equipment",
+      "amount": 4210
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Stacy Schneider",
+      "part_postcode": "TN39",
+      "town": "Bexhill-on-Sea",
+      "county_council": "East Sussex",
+      "parliamentary_constituency": "Bexhill and Battle",
+      "scheme": "Sustainable Farming Incentive Pilot",
+      "scheme_detail": "Arable and Horticultural Land",
+      "amount": 3492
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Stacy Schneider",
+      "part_postcode": "TN39",
+      "town": "Bexhill-on-Sea",
+      "county_council": "East Sussex",
+      "parliamentary_constituency": "Bexhill and Battle",
+      "scheme": "Sustainable Farming Incentive Pilot",
+      "scheme_detail": "Low and no input Grassland",
+      "amount": 3761
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Gordon Moen",
+      "part_postcode": "DH2",
+      "town": "County Durham, unparished area",
+      "county_council": "None",
+      "parliamentary_constituency": "North Durham",
+      "scheme": "Farming Equipment and Technology Fund",
+      "scheme_detail": "Forestry",
+      "amount": 2729
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Gordon Moen",
+      "part_postcode": "DH2",
+      "town": "County Durham, unparished area",
+      "county_council": "None",
+      "parliamentary_constituency": "North Durham",
+      "scheme": "Farming Equipment and Technology Fund",
+      "scheme_detail": "Horticulture",
+      "amount": 3287
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Gordon Moen",
+      "part_postcode": "DH2",
+      "town": "County Durham, unparished area",
+      "county_council": "None",
+      "parliamentary_constituency": "North Durham",
+      "scheme": "Sustainable Farming Incentive Pilot",
+      "scheme_detail": "Improved Grassland soils",
+      "amount": 4446
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Gordon Moen",
+      "part_postcode": "DH2",
+      "town": "County Durham, unparished area",
+      "county_council": "None",
+      "parliamentary_constituency": "North Durham",
+      "scheme": "Farming Equipment and Technology Fund",
+      "scheme_detail": "General",
+      "amount": 3335
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Gordon Moen",
+      "part_postcode": "DH2",
+      "town": "County Durham, unparished area",
+      "county_council": "None",
+      "parliamentary_constituency": "North Durham",
+      "scheme": "Farming Equipment and Technology Fund",
+      "scheme_detail": "Resource Management",
+      "amount": 4312
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Gordon Moen",
+      "part_postcode": "DH2",
+      "town": "County Durham, unparished area",
+      "county_council": "None",
+      "parliamentary_constituency": "North Durham",
+      "scheme": "Sustainable Farming Incentive Pilot",
+      "scheme_detail": "Improved Grassland",
+      "amount": 4007
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Margaretta Ernser",
+      "part_postcode": "EX9",
+      "town": "East Budleigh",
+      "county_council": "Devon",
+      "parliamentary_constituency": "East Devon",
+      "scheme": "Farming Equipment and Technology Fund",
+      "scheme_detail": "Resource Management",
+      "amount": 3963
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Margaretta Ernser",
+      "part_postcode": "EX9",
+      "town": "East Budleigh",
+      "county_council": "Devon",
+      "parliamentary_constituency": "East Devon",
+      "scheme": "Sustainable Farming Incentive Pilot",
+      "scheme_detail": "Arable and Horticultural Soils",
+      "amount": 3039
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Shelli Blick",
+      "part_postcode": "AL2",
+      "town": "London Colney",
+      "county_council": "Hertfordshire",
+      "parliamentary_constituency": "St Albans",
+      "scheme": "Farming Equipment and Technology Fund",
+      "scheme_detail": "Forestry",
+      "amount": 3030
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Shelli Blick",
+      "part_postcode": "AL2",
+      "town": "London Colney",
+      "county_council": "Hertfordshire",
+      "parliamentary_constituency": "St Albans",
+      "scheme": "Farming Equipment and Technology Fund",
+      "scheme_detail": "Forestry",
+      "amount": 2202
+    },
+    {
+      "financial_year": "21/22",
+      "payee_name": "Faustino Heller",
+      "part_postcode": "S20",
+      "town": "Sheffield, unparished area",
+      "county_council": "None",
+      "parliamentary_constituency": "Sheffield South East",
+      "scheme": "Farming Equipment and Technology Fund",
+      "scheme_detail": "Precision and Analysis",
+      "amount": 2898
+    }
+  ]

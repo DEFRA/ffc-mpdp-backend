@@ -1,14 +1,24 @@
 const { Parser } = require('json2csv')
-const { getAllPaymentData } = require('../services/databaseService')
+const { getCsvPaymentData } = require('../services/databaseService')
 
 module.exports = {
   method: 'GET',
   path: '/downloadall',
   handler: async (request, res) => {
     // convert json to csv content
-    const fields = ['payee_name', 'part_postcode', 'town', 'county_council', 'total_amount']
+    const fields = [
+      'financial_year',
+      'payee_name',
+      'part_postcode',
+      'town',
+      'county_council',
+      'parliamentary_constituency',
+      'scheme',
+      'scheme_detail',
+      'amount'
+    ]
     try {
-      const paymentData = await getAllPaymentData()
+      const paymentData = await getCsvPaymentData()
       const csvParser = new Parser({ fields })
       const csv = csvParser.parse(paymentData)
       return res.response(csv)
