@@ -32,12 +32,11 @@ describe('database-service PaymentData test', () => {
 
   test('GET /paymentdata returns empty array when no data found', async () => {
     const { getAllPaymentData, PaymentDataModel } = require('../../../../app/services/databaseService')
-
     const mockData = []
     const expectedData = []
-
     const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
     mockDb.mockResolvedValue(mockData)
+
     const result = await getAllPaymentData()
     expect(result).toEqual(expectedData)
   })

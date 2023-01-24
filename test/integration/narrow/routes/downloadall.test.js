@@ -19,6 +19,7 @@ describe('downloadall test', () => {
     const mockDb = jest.spyOn(PaymentDetailModel, 'findAll')
     mockDb.mockResolvedValue(csvpaymentestdata)
     const response = await server.inject(options)
+
     expect(response.statusCode).toBe(200)
     expect(response.headers['content-type']).toContain('text/csv')
     expect(response.headers['content-disposition']).toContain('attachment')

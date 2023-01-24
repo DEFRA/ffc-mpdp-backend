@@ -25,7 +25,7 @@ module.exports = {
         .type('text/csv')
         .header('Connection', 'keep-alive')
         .header('Cache-Control', 'no-cache')
-        .header('Content-Disposition', 'attachment;filename=myfilename.csv')
+        .header('Content-Disposition', 'attachment;filename=ffc-payment-data.csv')
     } catch (err) {
       console.error(err)
       throw err

@@ -16,12 +16,12 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
 })
 
 // Locally cached data
-let localCachedData = null
+let cachedPaymentData = null
 async function getAllPaymentData () {
-  if (!localCachedData) {
-    localCachedData = await getAllPaymentDataFromDB()
+  if (!cachedPaymentData) {
+    cachedPaymentData = await getAllPaymentDataFromDB()
   }
-  return localCachedData
+  return cachedPaymentData
 }
 
 // Collect all DB results
@@ -76,7 +76,6 @@ let cachedCsvData = null
 async function getCsvPaymentData () {
   if (!cachedCsvData) {
     cachedCsvData = await getCsvPaymentDataFromDb()
-    console.log(cachedCsvData)
   }
   return cachedCsvData
 }
