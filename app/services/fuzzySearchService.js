@@ -1,15 +1,6 @@
 const Fuse = require('fuse.js')
 const { getAllPaymentData } = require('../services/databaseService')
 
-// Locally cached data
-let localCachedData = null
-async function getCachedPaymentData () {
-  if (!localCachedData) {
-    localCachedData = await getAllPaymentData()
-  }
-  return localCachedData
-}
-
 // search configuration
 const fuseSearchOptions = {
   includeScore: true,
@@ -31,10 +22,10 @@ function getSortedValue (records, field) {
 async function getPaymentData (searchKey, limit, offset, sortBy) {
   if (!searchKey) throw new Error('Empty search content')
 
-  const cachedData = await getCachedPaymentData()
+  const paymentData = await getAllPaymentData()
 
   // do search here
-  const fuse = new Fuse(cachedData, fuseSearchOptions)
+  const fuse = new Fuse(paymentData, fuseSearchOptions)
   const result = fuse.search(searchKey)
   const resultCount = result.length
   if (resultCount < 1) return { count: 0, rows: [] }

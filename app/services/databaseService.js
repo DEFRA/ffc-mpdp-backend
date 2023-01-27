@@ -15,8 +15,17 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
-// Collect all DB results
+// Locally cached data
+let cachedPaymentData = null
 async function getAllPaymentData () {
+  if (!cachedPaymentData) {
+    cachedPaymentData = await getAllPaymentDataFromDB()
+  }
+  return cachedPaymentData
+}
+
+// Collect all DB results
+async function getAllPaymentDataFromDB () {
   try {
     const result = await PaymentDataModel.findAll({
       group: ['payee_name', 'part_postcode', 'town', 'county_council'],
@@ -44,7 +53,6 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
   parliamentary_constituency: DataTypes.STRING(64),
   scheme: DataTypes.STRING(64),
   scheme_detail: DataTypes.STRING(128),
-  activity_level: DataTypes.STRING(64),
   amount: DataTypes.DOUBLE
 })
 
@@ -63,4 +71,22 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   }
 }
 
-module.exports = { getAllPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel }
+// Cached CSV data
+let cachedCsvData = null
+async function getCsvPaymentData () {
+  if (!cachedCsvData) {
+    cachedCsvData = await getCsvPaymentDataFromDb()
+  }
+  return cachedCsvData
+}
+
+async function getCsvPaymentDataFromDb () {
+  try {
+    return PaymentDetailModel.findAll()
+  } catch (error) {
+    console.error('Error occured while reading data : ' + error)
+    throw error
+  }
+}
+
+module.exports = { getAllPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel, getCsvPaymentData }

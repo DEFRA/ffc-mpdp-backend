@@ -4,6 +4,11 @@ afterAll(() => {
   jest.resetAllMocks()
 })
 
+// Reset databaseService cache after each test
+afterEach(() => {
+  jest.resetModules()
+})
+
 describe('database-service PaymentData test', () => {
   test('getAllPaymentData & PaymentDataModel  to be defined', () => {
     expect(getAllPaymentData).toBeDefined()
@@ -11,6 +16,7 @@ describe('database-service PaymentData test', () => {
   })
 
   test('GET /paymentdata returns right data', async () => {
+    const { getAllPaymentData, PaymentDataModel } = require('../../../../app/services/databaseService')
     const mockData = {
       rows: ['r1', 'r2', 'r3']
     }
@@ -25,16 +31,18 @@ describe('database-service PaymentData test', () => {
   })
 
   test('GET /paymentdata returns empty array when no data found', async () => {
+    const { getAllPaymentData, PaymentDataModel } = require('../../../../app/services/databaseService')
     const mockData = []
     const expectedData = []
-
     const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
     mockDb.mockResolvedValue(mockData)
+
     const result = await getAllPaymentData()
     expect(result).toEqual(expectedData)
   })
 
   test('GET /paymentdata returns DB error', async () => {
+    const { getAllPaymentData, PaymentDataModel } = require('../../../../app/services/databaseService')
     const errorMessage = 'DB Error'
     const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
     mockDb.mockRejectedValue(new Error(errorMessage))
