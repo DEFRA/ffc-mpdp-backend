@@ -1,71 +1,59 @@
-const { getPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel } = require('../../../../app/services/databaseService')
+const { getAllPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel } = require('../../../../app/services/databaseService')
 
 afterAll(() => {
   jest.resetAllMocks()
 })
 
-describe('database-service PaymentData test', () => {
-  test('database-service to be defined', () => {
-    const getPaymentData = require('../../../../app/services/databaseService')
-    expect(getPaymentData).toBeDefined()
-  })
+// Reset databaseService cache after each test
+afterEach(() => {
+  jest.resetModules()
+})
 
-  test('database-service to be defined', () => {
+describe('database-service PaymentData test', () => {
+  test('getAllPaymentData & PaymentDataModel  to be defined', () => {
+    expect(getAllPaymentData).toBeDefined()
     expect(PaymentDataModel).toBeDefined()
   })
 
   test('GET /paymentdata returns right data', async () => {
-    const searchString = 'Farmer Vel'
-    const limit = 20
-    const offset = 0
+    const { getAllPaymentData, PaymentDataModel } = require('../../../../app/services/databaseService')
     const mockData = {
-      count: ['c1', 'c2', 'c3'],
       rows: ['r1', 'r2', 'r3']
     }
     const expectedData = {
-      count: 3,
       rows: ['r1', 'r2', 'r3']
     }
 
-    const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
+    const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
     mockDb.mockResolvedValue(mockData)
-    const result = await getPaymentData(searchString, limit, offset)
+    const result = await getAllPaymentData()
     expect(result).toEqual(expectedData)
   })
 
-  test('GET /paymentdata returns error  for invalid parameters', async () => {
-    const searchString = ''
-    const limit = 20
-    const offset = 0
-    await expect(getPaymentData(searchString, limit, offset))
-      .rejects
-      .toThrow('Empty search content')
+  test('GET /paymentdata returns empty array when no data found', async () => {
+    const { getAllPaymentData, PaymentDataModel } = require('../../../../app/services/databaseService')
+    const mockData = []
+    const expectedData = []
+    const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
+    mockDb.mockResolvedValue(mockData)
+
+    const result = await getAllPaymentData()
+    expect(result).toEqual(expectedData)
   })
 
   test('GET /paymentdata returns DB error', async () => {
-    const searchString = 'Farmer Vel'
-    const limit = null
-    const offset = null
+    const { getAllPaymentData, PaymentDataModel } = require('../../../../app/services/databaseService')
     const errorMessage = 'DB Error'
-
-    const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
+    const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
     mockDb.mockRejectedValue(new Error(errorMessage))
 
-    await expect(getPaymentData(searchString, limit, offset))
-      .rejects
-      .toThrow(errorMessage)
-  })
-
-  test('GET /paymentdata parameter default valus used', async () => {
-    const errorMessage = 'Empty search content'
-    const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
-    mockDb.mockRejectedValue(new Error(errorMessage))
-    await expect(getPaymentData())
+    await expect(getAllPaymentData())
       .rejects
       .toThrow(errorMessage)
   })
 })
 
+// Test cases for /paymentdetails api
 describe('database-service paymentdetails test', () => {
   test('paymentdetails service and model to be defined', () => {
     expect(getPaymentDetails).toBeDefined()
