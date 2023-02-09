@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes, where, fn, col, and } = require('sequelize')
-const value = require('../config/appConfig')
+const config = require('../config/appConfig')
 const dbConfigAllEnv = require('../config/databaseConfig')
-const dbConfig = dbConfigAllEnv[value.env]
+const dbConfig = dbConfigAllEnv[config.env]
 
 const sequelize = new Sequelize(
   dbConfig
@@ -28,9 +28,9 @@ async function getAllPaymentData () {
 async function getAllPaymentDataFromDB () {
   try {
     const result = await PaymentDataModel.findAll({
-      group: ['payee_name', 'part_postcode', 'town', 'county_council'],
+      group: config.search.fieldsToExtract,
       attributes: [
-        'payee_name', 'part_postcode', 'town', 'county_council',
+        ...config.search.fieldsToExtract,
         [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
       ],
       raw: true
