@@ -45,9 +45,44 @@ const getSortedResults = (records, sortBy) => {
   return records
 }
 
-const applyFilters = (searchResults, { schemes = [] }) => {
-  if (!schemes || !schemes.length) return searchResults
-  return searchResults.filter(x => schemes.includes(x.scheme))
+const applyFilters = (searchResults, { schemes = [], amounts = [] }) => {
+  let results = filterBySchemes(searchResults, schemes)
+  results = filterByAmounts(results, amounts)
+  return results
+}
+
+const filterBySchemes = (results, schemes) => {
+  if (!schemes || !schemes.length) {
+    return results
+  }
+  
+  return results.filter(x => schemes.includes(x.scheme))
+}
+
+const filterByAmounts = (results, amounts) => {
+  if(!amounts || !amounts.length) {
+    return results
+  }
+
+  const amountRanges = amounts.map(x => {
+    const [_from, _to] = x.split('-')
+    return { from: parseFloat(_from), to: parseFloat(_to)}
+  })
+
+  return results.filter(x => {
+    return amountRanges.some(({ from, to }) => {
+      const totalAmount = parseFloat(x.total_amount)
+
+      if(!to) {
+        return totalAmount >= from
+      }
+      else if(totalAmount >= from && totalAmount <= to) {
+        return true;
+      }
+
+      return false
+    })
+  })
 }
 
 const removeFilterFields = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
