@@ -21,11 +21,12 @@ const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy })
   }
 
   const filteredResults = applyFilters(searchResults, filterBy)
-  const sortedResults = getSortedResults(filteredResults, sortBy)
+  const groupedResults = groupByPayee(filteredResults)
+  const sortedResults = getSortedResults(groupedResults, sortBy)
   const offsetResults = sortedResults.slice(offset, parseInt(offset) + parseInt(limit))
 
   return {
-    count: filteredResults.length,
+    count: sortedResults.length,
     rows: removeFilterFields(offsetResults)
   }
 }
@@ -48,6 +49,21 @@ const getSortedResults = (records, sortBy) => {
 const applyFilters = (searchResults, { schemes = [] }) => {
   if (!schemes || !schemes.length) return searchResults
   return searchResults.filter(x => schemes.includes(x.scheme))
+}
+
+const groupByPayee = (searchResults) => {
+  const result = searchResults.reduce((acc, x) => {
+    const payee = acc.find(r => r.payee_name === x.payee_name && r.part_postcode === x.part_postcode)
+    if(!payee) {
+      acc.push({...x})
+    } else {
+      payee.total_amount = parseFloat(payee.total_amount) + parseFloat(x.total_amount)
+    }
+
+    return acc
+  }, [])
+
+  return result
 }
 
 const removeFilterFields = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
