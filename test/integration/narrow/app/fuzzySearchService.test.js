@@ -1,7 +1,7 @@
 const { getPaymentData } = require('../../../../app/services/fuzzySearchService')
 const { PaymentDataModel } = require('../../../../app/services/databaseService')
 const paymentestdata = require('./paymentestdata.json')
-const { isAscending } = require('../../../utils/helpers')
+const { isAscending, isInRange } = require('../../../utils/helpers')
 
 beforeAll(() => {
   jest.resetAllMocks()
@@ -141,11 +141,12 @@ describe('fuzzySearchService tests with filterBy', () => {
     offset: 0,
     sortBy: null,
     filterBy: {
-      schemes: []
+      schemes: [],
+      amounts: []
     }
   }
 
-  test('GET /paymentdata returns default results with no schemes provided', async () => {
+  test('GET /paymentdata returns default results with empty filters are provided provided', async () => {
     const results = await getPaymentData(searchCriteria)
     expect(results.count).toBeGreaterThan(0)
   })
@@ -173,5 +174,37 @@ describe('fuzzySearchService tests with filterBy', () => {
     const filteredResultPage2 = await getPaymentData({ ...searchCriteria, offset: 5, filterBy: { schemes } })
     expect(filteredResultPage2.count).toBe(11)
     expect(filteredResultPage2.rows.length).toBe(5)
+  })
+
+  test('GET /paymentdata filters by single amount', async () => {
+    const amounts = ['5000-9999']
+    const filteredResult = await getPaymentData({ ...searchCriteria, filterBy: { amounts } })
+
+    filteredResult.rows.forEach(x => {
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name)
+      expect(isInRange(matchingSet.total_amount, amounts[0])).toBe(true)
+    })
+  })
+
+  test('GET /paymentdata filters by multiple amounts', async () => {
+    const amounts = ['0-4999', '5000-9999']
+    const filteredResult = await getPaymentData({ ...searchCriteria, filterBy: { amounts } })
+
+    filteredResult.rows.forEach(x => {
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name)
+      expect(amounts.some(x => isInRange(matchingSet.total_amount, x))).toBeTruthy()
+    })
+  })
+
+  test('GET /paymentdata filters by scheme and amount', async () => {
+    const schemes = ['Farming Equipment and Technology Fund']
+    const amounts = ['5000-9999']
+    const filteredResult = await getPaymentData({ ...searchCriteria, filterBy: { schemes, amounts } })
+
+    filteredResult.rows.forEach(x => {
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name)
+      expect(isInRange(matchingSet.total_amount, amounts[0])).toBe(true)
+      expect(matchingSet.scheme).toBe(schemes[0])
+    })
   })
 })

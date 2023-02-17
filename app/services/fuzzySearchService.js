@@ -56,29 +56,28 @@ const filterBySchemes = (results, schemes) => {
   if (!schemes || !schemes.length) {
     return results
   }
-  
+
   return results.filter(x => schemes.includes(x.scheme))
 }
 
 const filterByAmounts = (results, amounts) => {
-  if(!amounts || !amounts.length) {
+  if (!amounts || !amounts.length) {
     return results
   }
 
   const amountRanges = amounts.map(x => {
     const [_from, _to] = x.split('-')
-    return { from: parseFloat(_from), to: parseFloat(_to)}
+    return { from: parseFloat(_from), to: parseFloat(_to) }
   })
 
   return results.filter(x => {
     return amountRanges.some(({ from, to }) => {
       const totalAmount = parseFloat(x.total_amount)
 
-      if(!to) {
+      if (!to) {
         return totalAmount >= from
-      }
-      else if(totalAmount >= from && totalAmount <= to) {
-        return true;
+      } else if (totalAmount >= from && totalAmount <= to) {
+        return true
       }
 
       return false
@@ -89,8 +88,8 @@ const filterByAmounts = (results, amounts) => {
 const groupByPayee = (searchResults) => {
   const result = searchResults.reduce((acc, x) => {
     const payee = acc.find(r => r.payee_name === x.payee_name && r.part_postcode === x.part_postcode)
-    if(!payee) {
-      acc.push({...x})
+    if (!payee) {
+      acc.push({ ...x })
     } else {
       payee.total_amount = parseFloat(payee.total_amount) + parseFloat(x.total_amount)
     }
