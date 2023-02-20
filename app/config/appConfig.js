@@ -8,7 +8,7 @@ const config = {
   env: process.env.NODE_ENV || environments.development,
   search: {
     fieldsToExtract: ['payee_name', 'part_postcode', 'town', 'county_council', 'scheme'],
-    fields: ['payee_name', 'part_postcode', 'town', 'county_council']
+    fieldsToSearch: ['payee_name', 'part_postcode', 'town', 'county_council']
   }
 }
 module.exports = config

@@ -58,7 +58,7 @@ describe('testing fuzzySearchService /paymentdata', () => {
       searchString: 'fa',
       limit: 5,
       offset: 0,
-      sortBy: 'null',
+      sortBy: null,
       filterBy: {
         schemes: []
       }

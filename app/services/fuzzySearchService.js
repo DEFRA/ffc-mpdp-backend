@@ -9,19 +9,18 @@ const fuseSearchOptions = {
   threshold: 0.3,
   ignoreLocation: true,
   useExtendedSearch: true,
-  keys: config.search.fields
+  keys: config.search.fieldsToSearch
 }
 
 const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy }) => {
   if (!searchString) throw new Error('Empty search content')
 
-  const searchResults = await performSearch(searchString)
+  const searchResults = await filterAndSearch(searchString, filterBy)
   if (!searchResults.length) {
     return { count: 0, rows: [] }
   }
 
-  const filteredResults = applyFilters(searchResults, filterBy)
-  const groupedResults = groupByPayee(filteredResults)
+  const groupedResults = groupByPayee(searchResults)
   const sortedResults = getSortedResults(groupedResults, sortBy)
   const offsetResults = sortedResults.slice(offset, parseInt(offset) + parseInt(limit))
 
@@ -31,15 +30,16 @@ const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy })
   }
 }
 
-const performSearch = async (searchKey) => {
+const filterAndSearch = async (searchKey, filters) => {
   const paymentData = await getAllPaymentData()
-  const fuse = new Fuse(paymentData, fuseSearchOptions)
+  const filteredData = applyFilters(paymentData, filters)
+  const fuse = new Fuse(filteredData, fuseSearchOptions)
   return fuse.search(searchKey).map(row => row.item)
 }
 
 const getSortedResults = (records, sortBy) => {
   if (sortBy && sortBy !== 'score') {
-    if (config.search.fields.includes(sortBy)) {
+    if (config.search.fieldsToSearch.includes(sortBy)) {
       return records.sort((r1, r2) => r1[sortBy] > r2[sortBy] ? 1 : -1)
     }
   }

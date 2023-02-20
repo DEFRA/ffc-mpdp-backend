@@ -11,29 +11,28 @@ afterEach(async () => {
   jest.clearAllMocks()
 })
 
-afterAll(() => {
-  jest.resetAllMocks()
-})
-
 describe('paymentdata api call test', () => {
   const service = require('../../../../app/services/fuzzySearchService')
   const getPaymentDataMock = jest.spyOn(service, 'getPaymentData')
-  getPaymentDataMock.mockReturnValue({
-    count: 1,
-    rows: [{
-      id: 1,
-      payee_name: 'Farmer A',
-      part_postcode: 'RG1',
-      town: 'Reading',
-      parliamentary_constituency: 'Reading East',
-      county_council: 'Berkshire',
-      scheme: 'SFI Arable and Horticultural Land',
-      activity_detail: 'Low',
-      amount: '223.65'
-    }]
+
+  beforeEach(() => {
+    getPaymentDataMock.mockReturnValue({
+      count: 1,
+      rows: [{
+        id: 1,
+        payee_name: 'Farmer A',
+        part_postcode: 'RG1',
+        town: 'Reading',
+        parliamentary_constituency: 'Reading East',
+        county_council: 'Berkshire',
+        scheme: 'SFI Arable and Horticultural Land',
+        activity_detail: 'Low',
+        amount: '223.65'
+      }]
+    })
   })
 
-  afterAll(() => {
+  afterEach(() => {
     jest.resetAllMocks()
   })
 
