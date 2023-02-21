@@ -1,6 +1,6 @@
 {
   "name": "ffc-mpdp-backend",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "Backend for making payment data public",
   "homepage": "https://github.com/DEFRA/ffc-mpdp-backend",
   "main": "app/index.js",
@@ -9,6 +9,7 @@
     "test": "jest --runInBand --forceExit",
     "test:watch": "jest --coverage=false --onlyChanged --watch --runInBand",
     "test:lint": "standard",
+    "lint:fix": "standard --fix",
     "test:debug": "node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --coverage=false --onlyChanged --watch --runInBand --no-cache",
     "start:watch": "nodemon --inspect=0.0.0.0 --ext js --legacy-watch app/index.js",
     "start:debug": "nodemon --inspect-brk=0.0.0.0 --ext js --legacy-watch app/index.js"
@@ -26,7 +27,8 @@
     "json2csv": "^5.0.7",
     "pg": "^8.8.0",
     "pg-hstore": "2.3.4",
-    "sequelize": "^6.24.0"
+    "sequelize": "^6.24.0",
+    "joi": "^17.6.0"
   },
   "devDependencies": {
     "jest": "^27.5.1",
