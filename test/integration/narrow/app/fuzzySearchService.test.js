@@ -58,7 +58,7 @@ describe('testing fuzzySearchService /paymentdata', () => {
       searchString: 'fa',
       limit: 5,
       offset: 0,
-      sortBy: 'null',
+      sortBy: null,
       filterBy: {
         schemes: []
       }
@@ -156,7 +156,7 @@ describe('fuzzySearchService tests with filterBy', () => {
     const filteredResult = await getPaymentData({ ...searchCriteria, filterBy: { schemes } })
 
     filteredResult.rows.forEach(x => {
-      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name)
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
       expect(matchingSet.scheme).toBe(schemes[0])
     })
   })
