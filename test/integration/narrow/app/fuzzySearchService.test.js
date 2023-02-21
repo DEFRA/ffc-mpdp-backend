@@ -174,4 +174,23 @@ describe('fuzzySearchService tests with filterBy', () => {
     expect(filteredResultPage2.count).toBe(11)
     expect(filteredResultPage2.rows.length).toBe(5)
   })
+
+  test('GET /paymentdata filters by single county', async () => {
+    const counties = ['Cambridgeshire']
+    const filteredResult = await getPaymentData({ ...searchCriteria, filterBy: { counties } })
+
+    filteredResult.rows.forEach(x => {
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
+      expect(matchingSet.county_council).toBe(counties[0])
+    })
+  })
+
+  test('GET /paymentdata filters by multiple counties', async () => {
+    const counties = ['Cambridgeshire', 'Staffordshire']
+    const filteredResultPage = await getPaymentData({ ...searchCriteria, filterBy: { counties } })
+    filteredResultPage.rows.forEach(x => {
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
+      expect(counties.includes(matchingSet.county_council)).toBeTruthy()
+    })
+  })
 })

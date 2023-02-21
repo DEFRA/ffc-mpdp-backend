@@ -32,7 +32,8 @@ const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy })
 
 const filterAndSearch = async (searchKey, filters) => {
   const paymentData = await getAllPaymentData()
-  const filteredData = applyFilters(paymentData, filters)
+  let filteredData = applyFilters(paymentData, filters)
+  filteredData = filterByCounty(filteredData, filters)
   const fuse = new Fuse(filteredData, fuseSearchOptions)
   return fuse.search(searchKey).map(row => row.item)
 }
@@ -49,6 +50,11 @@ const getSortedResults = (records, sortBy) => {
 const applyFilters = (searchResults, { schemes = [] }) => {
   if (!schemes || !schemes.length) return searchResults
   return searchResults.filter(x => schemes.includes(x.scheme))
+}
+
+const filterByCounty = (searchResults, { counties = [] }) => {
+  if (!counties || !counties.length) return searchResults
+  return searchResults.filter(x => counties.includes(x.county_council))
 }
 
 const groupByPayee = (searchResults) => {
