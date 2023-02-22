@@ -74,13 +74,7 @@ const filterByAmounts = (results, amounts) => {
     return amountRanges.some(({ from, to }) => {
       const totalAmount = parseFloat(x.total_amount)
 
-      if (!to) {
-        return totalAmount >= from
-      } else if (totalAmount >= from && totalAmount <= to) {
-        return true
-      }
-
-      return false
+      return (!to) ? (totalAmount >= from) : (totalAmount >= from && totalAmount <= to)
     })
   })
 }

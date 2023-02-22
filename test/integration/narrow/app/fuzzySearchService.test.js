@@ -166,7 +166,7 @@ describe('fuzzySearchService tests with filterBy', () => {
     const filteredResultPage1 = await getPaymentData({ ...searchCriteria, filterBy: { schemes } })
 
     filteredResultPage1.rows.forEach(x => {
-      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name)
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
       expect(schemes.includes(matchingSet.scheme)).toBeTruthy()
     })
 
@@ -181,7 +181,7 @@ describe('fuzzySearchService tests with filterBy', () => {
     const filteredResult = await getPaymentData({ ...searchCriteria, filterBy: { amounts } })
 
     filteredResult.rows.forEach(x => {
-      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name)
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
       expect(isInRange(matchingSet.total_amount, amounts[0])).toBe(true)
     })
   })
@@ -191,7 +191,7 @@ describe('fuzzySearchService tests with filterBy', () => {
     const filteredResult = await getPaymentData({ ...searchCriteria, filterBy: { amounts } })
 
     filteredResult.rows.forEach(x => {
-      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name)
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
       expect(amounts.some(x => isInRange(matchingSet.total_amount, x))).toBeTruthy()
     })
   })
@@ -202,7 +202,7 @@ describe('fuzzySearchService tests with filterBy', () => {
     const filteredResult = await getPaymentData({ ...searchCriteria, filterBy: { schemes, amounts } })
 
     filteredResult.rows.forEach(x => {
-      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name)
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
       expect(isInRange(matchingSet.total_amount, amounts[0])).toBe(true)
       expect(matchingSet.scheme).toBe(schemes[0])
     })
