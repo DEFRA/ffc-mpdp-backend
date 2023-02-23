@@ -13,7 +13,8 @@ module.exports = {
         offset: Joi.number().default(0),
         sortBy: Joi.string().optional().default('score'),
         filterBy: Joi.object({
-          schemes: Joi.array().items(Joi.string())
+          schemes: Joi.array().items(Joi.string()),
+          amounts: Joi.array().items(Joi.string())
         }).default({})
       }),
       failAction: async (_request, h, error) => h.response(error.toString()).code(400).takeover()

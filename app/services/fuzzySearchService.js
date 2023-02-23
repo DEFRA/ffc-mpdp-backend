@@ -46,9 +46,37 @@ const getSortedResults = (records, sortBy) => {
   return records
 }
 
-const applyFilters = (searchResults, { schemes = [] }) => {
-  if (!schemes || !schemes.length) return searchResults
-  return searchResults.filter(x => schemes.map(scheme => scheme.toLowerCase()).includes(x.scheme.toLowerCase()))
+const applyFilters = (searchResults, { schemes = [], amounts = [] }) => {
+  let results = filterBySchemes(searchResults, schemes)
+  results = filterByAmounts(results, amounts)
+  return results
+}
+
+const filterBySchemes = (results, schemes) => {
+  if (!schemes || !schemes.length) {
+    return results
+  }
+
+  return results.filter(x => schemes.map(scheme => scheme.toLowerCase()).includes(x.scheme.toLowerCase()))
+}
+
+const filterByAmounts = (results, amounts) => {
+  if (!amounts || !amounts.length) {
+    return results
+  }
+
+  const amountRanges = amounts.map(x => {
+    const [_from, _to] = x.split('-')
+    return { from: parseFloat(_from), to: parseFloat(_to) }
+  })
+
+  return results.filter(x => {
+    return amountRanges.some(({ from, to }) => {
+      const totalAmount = parseFloat(x.total_amount)
+
+      return (!to) ? (totalAmount >= from) : (totalAmount >= from && totalAmount <= to)
+    })
+  })
 }
 
 const groupByPayee = (searchResults) => {
