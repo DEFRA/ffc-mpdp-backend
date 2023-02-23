@@ -65,7 +65,8 @@ describe('paymentdata api call test', () => {
         offset: 10,
         sortBy: '__SORT_BY__',
         filterBy: {
-          schemes: ['__DUMMY_SCHEME__']
+          schemes: ['__DUMMY_SCHEME__'],
+          amounts: ['0-4999']
         }
       }
     }
