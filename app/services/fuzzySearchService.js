@@ -57,7 +57,7 @@ const filterBySchemes = (results, schemes) => {
     return results
   }
 
-  return results.filter(x => schemes.includes(x.scheme))
+  return results.filter(x => schemes.map(scheme => scheme.toLowerCase()).includes(x.scheme.toLowerCase()))
 }
 
 const filterByAmounts = (results, amounts) => {

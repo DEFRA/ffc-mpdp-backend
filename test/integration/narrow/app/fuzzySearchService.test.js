@@ -161,6 +161,16 @@ describe('fuzzySearchService tests with filterBy', () => {
     })
   })
 
+  test('GET /paymentdata filters scheme while using case insensitive search', async () => {
+    const schemes = ['Farming Equipment and technology fund']
+    const filteredResult = await getPaymentData({ ...searchCriteria, filterBy: { schemes } })
+
+    filteredResult.rows.forEach(x => {
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
+      expect(matchingSet.scheme).toBe('Farming Equipment and Technology Fund')
+    })
+  })
+
   test('GET /paymentdata filters by multiple schemes and pagination still works', async () => {
     const schemes = ['Farming Equipment and Technology Fund', 'Sustainable Farming Incentive pilot']
     const filteredResultPage1 = await getPaymentData({ ...searchCriteria, filterBy: { schemes } })
