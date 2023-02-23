@@ -202,7 +202,7 @@ describe('fuzzySearchService tests with filterBy', () => {
 
     filteredResult.rows.forEach(x => {
       const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
-      expect(amounts.some(x => isInRange(matchingSet.total_amount, x))).toBeTruthy()
+      expect(amounts.some(r => isInRange(matchingSet.total_amount, r))).toBeTruthy()
     })
   })
 
