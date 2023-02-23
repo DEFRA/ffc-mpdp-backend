@@ -48,7 +48,7 @@ const getSortedResults = (records, sortBy) => {
 
 const applyFilters = (searchResults, { schemes = [] }) => {
   if (!schemes || !schemes.length) return searchResults
-  return searchResults.filter(x => schemes.includes(x.scheme))
+  return searchResults.filter(x => schemes.map(scheme => scheme.toLowerCase()).includes(x.scheme.toLowerCase()))
 }
 
 const groupByPayee = (searchResults) => {
