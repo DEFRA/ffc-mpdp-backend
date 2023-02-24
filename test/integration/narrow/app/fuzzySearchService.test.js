@@ -236,5 +236,4 @@ describe('fuzzySearchService tests with filterBy', () => {
       expect(counties.includes(matchingSet.county_council)).toBeTruthy()
     })
   })
-  
 })
