@@ -46,10 +46,11 @@ const getSortedResults = (records, sortBy) => {
   return records
 }
 
-const applyFilters = (searchResults, { schemes = [], amounts = [] }) => {
+const applyFilters = (searchResults, { schemes = [], counties = [], amounts = [] }) => {
   let results = filterBySchemes(searchResults, schemes)
-  results = filterByCounty(results, filters)
+  results = filterByCounty(results, counties)
   results = filterByAmounts(results, amounts)
+
   return results
 }
 
@@ -80,7 +81,7 @@ const filterByAmounts = (results, amounts) => {
   })
 }
 
-const filterByCounty = (searchResults, { counties = [] }) => {
+const filterByCounty = (searchResults, counties) => {
   if (!counties || !counties.length) return searchResults
   return searchResults.filter(x => counties.includes(x.county_council))
 }
