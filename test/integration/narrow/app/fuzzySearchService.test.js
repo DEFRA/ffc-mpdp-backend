@@ -231,6 +231,7 @@ describe('fuzzySearchService tests with filterBy', () => {
   test('GET /paymentdata filters by multiple counties', async () => {
     const counties = ['Cambridgeshire', 'Staffordshire']
     const filteredResultPage = await getPaymentData({ ...searchCriteria, filterBy: { counties } })
+
     filteredResultPage.rows.forEach(x => {
       const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
       expect(counties.includes(matchingSet.county_council)).toBeTruthy()
