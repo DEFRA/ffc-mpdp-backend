@@ -237,4 +237,19 @@ describe('fuzzySearchService tests with filterBy', () => {
       expect(counties.includes(matchingSet.county_council)).toBeTruthy()
     })
   })
+
+  test('GET /paymentdata filters by multiple  scheme, counties and amount', async () => {
+    const schemes = ['Farming Equipment and Technology Fund']
+    const counties = ['Cambridgeshire', 'Staffordshire']
+    const amounts = ['5000-9999']
+    const filterBy = { schemes, counties, amounts }
+    const filteredResultPage = await getPaymentData({ ...searchCriteria, filterBy })
+
+    filteredResultPage.rows.forEach(x => {
+      const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
+      expect(schemes.includes(matchingSet.scheme)).toBeTruthy()
+      expect(counties.includes(matchingSet.county_council)).toBeTruthy()
+      expect(matchingSet.scheme).toBe(schemes[0])
+    })
+  })
 })
