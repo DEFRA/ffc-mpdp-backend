@@ -48,7 +48,7 @@ const getSortedResults = (records, sortBy) => {
 
 const applyFilters = (searchResults, { schemes = [], counties = [], amounts = [] }) => {
   let results = filterBySchemes(searchResults, schemes)
-  results = filterByCounty(results, counties)
+  results = filterByCounties(results, counties)
   results = filterByAmounts(results, amounts)
 
   return results
@@ -81,7 +81,7 @@ const filterByAmounts = (results, amounts) => {
   })
 }
 
-const filterByCounty = (searchResults, counties) => {
+const filterByCounties = (searchResults, counties) => {
   if (!counties || !counties.length) return searchResults
   const lowerCaseCounties = counties.map(county => county.toLowerCase())
   return searchResults.filter(x => lowerCaseCounties.includes(x.county_council.toLowerCase()))
