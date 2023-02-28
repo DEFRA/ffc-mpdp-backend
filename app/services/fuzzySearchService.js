@@ -46,9 +46,11 @@ const getSortedResults = (records, sortBy) => {
   return records
 }
 
-const applyFilters = (searchResults, { schemes = [], amounts = [] }) => {
+const applyFilters = (searchResults, { schemes = [], counties = [], amounts = [] }) => {
   let results = filterBySchemes(searchResults, schemes)
+  results = filterByCounties(results, counties)
   results = filterByAmounts(results, amounts)
+
   return results
 }
 
@@ -77,6 +79,12 @@ const filterByAmounts = (results, amounts) => {
       return (!to) ? (totalAmount >= from) : (totalAmount >= from && totalAmount <= to)
     })
   })
+}
+
+const filterByCounties = (searchResults, counties) => {
+  if (!counties || !counties.length) return searchResults
+  const lowerCaseCounties = counties.map(county => county.toLowerCase())
+  return searchResults.filter(x => lowerCaseCounties.includes(x.county_council.toLowerCase()))
 }
 
 const groupByPayee = (searchResults) => {
