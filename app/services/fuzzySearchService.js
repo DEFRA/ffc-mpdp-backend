@@ -83,7 +83,8 @@ const filterByAmounts = (results, amounts) => {
 
 const filterByCounty = (searchResults, counties) => {
   if (!counties || !counties.length) return searchResults
-  return searchResults.filter(x => counties.includes(x.county_council))
+  const lowerCaseCounties = counties.map(county => county.toLowerCase())
+  return searchResults.filter(x => lowerCaseCounties.includes(x.county_council.toLowerCase()))
 }
 
 const groupByPayee = (searchResults) => {
