@@ -37,13 +37,6 @@ const filterAndSearch = async (searchKey, filters) => {
   return fuse.search(searchKey).map(row => row.item)
 }
 
-const getSearchSuggestions = async (searchKey) => {
-  const paymentData = await getAllPaymentData()
-  const fuse = new Fuse(paymentData, fuseSearchOptions)
-  const searchResult = fuse.search(searchKey).map(row => row.item)
-  return searchResult.slice(0, 6);
-}
-
 const getSortedResults = (records, sortBy) => {
   if (sortBy && sortBy !== 'score') {
     if (config.search.fieldsToSearch.includes(sortBy)) {
@@ -109,6 +102,13 @@ const groupByPayee = (searchResults) => {
   return result
 }
 
+const getSearchSuggestions = async (searchKey) => {
+  const paymentData = await getAllPaymentData()
+  const fuse = new Fuse(paymentData, fuseSearchOptions)
+  const searchResult = fuse.search(searchKey).map(row => row.item)
+  return searchResult.slice(0, 6)
+}
+
 const removeFilterFields = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
 
-module.exports = { getPaymentData ,getSearchSuggestions}
+module.exports = { getPaymentData, getSearchSuggestions }

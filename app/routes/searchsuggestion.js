@@ -12,14 +12,14 @@ module.exports = {
       }),
       failAction: async (_request, h, error) => h.response(error.toString()).code(400).takeover()
     },
- 
-  handler: async (request, h) => {
+
+    handler: async (request, h) => {
       try {
         const records = await getSearchSuggestions(request.query.searchString)
         return h.response(records).code(!records.length ? 404 : 200)
       } catch (error) {
         return h.response('Error while reading data' + error).code(500)
       }
+    }
   }
-}
 }
