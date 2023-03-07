@@ -32,7 +32,8 @@ async function createServer () {
     require('./routes/healthz'),
     require('./routes/downloadall'),
     require('./routes/paymentdata'),
-    require('./routes/paymentdetail')
+    require('./routes/paymentdetail'),
+    require('./routes/searchsuggestion')
   )
   server.route(routes)
 
