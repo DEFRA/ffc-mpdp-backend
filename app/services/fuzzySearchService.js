@@ -31,11 +31,60 @@ const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy })
 }
 
 const filterAndSearch = async (searchKey, filters) => {
-  const paymentData = await getAllPaymentData()
+  const data = await getAllPaymentData()
+  const paymentData = await groupByPayee(data)
+
   const filteredData = applyFilters(paymentData, filters)
-  const fuse = new Fuse(filteredData, fuseSearchOptions)
-  return fuse.search(searchKey).map(row => row.item)
+  // const fuse = new Fuse(filteredData, fuseSearchOptions)
+  // return fuse.search(searchKey).map(row => row.item)
+  return searchWithDelimiterComma(searchKey,paymentData)
+  return searchWithDelimiterSpace(searchKey,paymentData)
 }
+
+// chris vel john ram
+// results are added to next set
+
+const searchWithDelimiterComma = async (searchKey, paymentData) => {
+  // split the key by comma
+  const keys = searchKey.split(' ')
+  console.log("keys :" + keys)
+  const fuse = new Fuse(paymentData, fuseSearchOptions)
+  // loop through the keys and print the result
+
+  let records = [];
+  for (let i = 0; i < keys.length; i++) {
+    // add the result to the array
+    const result = fuse.search(keys[i])
+    console.log(result)
+    console.log(result.length)
+    records = records.concat(result)
+  }
+  // console.log(records)
+  const items =  records.map(row => row.item)
+  return items
+}
+
+const searchWithDelimiterSpace = async (searchKey, paymentData) => {
+  // split the key by comma
+  const keys = searchKey.split(' ')
+  console.log("keys :" + keys)
+  const fuse = new Fuse(paymentData, fuseSearchOptions)
+  // loop through the keys and print the result
+
+  let records = [];
+  for (let i = 0; i < keys.length; i++) {
+    // add the result to the array
+    const result = fuse.search(keys[i])
+    console.log(result)
+    console.log(result.length)
+    records = records.concat(result)
+  }
+  // console.log(records)
+  const items =  records.map(row => row.item)
+  return items
+}
+
+
 
 const getSortedResults = (records, sortBy) => {
   if (sortBy && sortBy !== 'score') {
