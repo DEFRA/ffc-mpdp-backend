@@ -9,6 +9,8 @@ const config = {
   search: {
     fieldsToExtract: ['payee_name', 'part_postcode', 'town', 'county_council', 'scheme'],
     fieldsToSearch: ['payee_name', 'part_postcode', 'town', 'county_council']
-  }
+  },
+  searchSuggestionResultsLimit: 6
 }
+
 module.exports = config
