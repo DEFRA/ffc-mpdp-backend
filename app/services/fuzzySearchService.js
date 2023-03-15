@@ -109,7 +109,7 @@ const getSearchSuggestions = async (searchKey) => {
   }
   const fuse = new Fuse(cachedGroupedPaymentData, fuseSearchOptions)
   const searchResult = fuse.search(searchKey).map(row => row.item)
-  return searchResult.slice(0, config.searchSuggestionResultsLimit)
+  return searchResult.slice(0, config.search.suggestionResultsLimit)
 }
 
 const removeFilterFields = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
