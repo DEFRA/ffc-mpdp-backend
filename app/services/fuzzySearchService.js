@@ -20,8 +20,7 @@ const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy })
     return { count: 0, rows: [] }
   }
 
-  const groupedResults = groupByPayee(searchResults)
-  const sortedResults = getSortedResults(groupedResults, sortBy)
+  const sortedResults = getSortedResults(searchResults, sortBy)
   const offsetResults = sortedResults.slice(offset, parseInt(offset) + parseInt(limit))
 
   return {
@@ -32,7 +31,7 @@ const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy })
 
 const filterAndSearch = async (searchKey, filters) => {
   const paymentData = await getAllPaymentData()
-  const filteredData = applyFilters(paymentData, filters)
+  const filteredData = applyFiltersAndGroupByPayee(paymentData, filters)
   const fuse = new Fuse(filteredData, fuseSearchOptions)
   return fuse.search(searchKey).map(row => row.item)
 }
@@ -46,11 +45,11 @@ const getSortedResults = (records, sortBy) => {
   return records
 }
 
-const applyFilters = (searchResults, { schemes = [], counties = [], amounts = [] }) => {
+const applyFiltersAndGroupByPayee = (searchResults, { schemes = [], counties = [], amounts = [] }) => {
   let results = filterBySchemes(searchResults, schemes)
   results = filterByCounties(results, counties)
+  results = groupByPayee(results)
   results = filterByAmounts(results, amounts)
-
   return results
 }
 
@@ -58,7 +57,6 @@ const filterBySchemes = (results, schemes) => {
   if (!schemes || !schemes.length) {
     return results
   }
-
   return results.filter(x => schemes.map(scheme => scheme.toLowerCase()).includes(x.scheme.toLowerCase()))
 }
 
@@ -66,16 +64,13 @@ const filterByAmounts = (results, amounts) => {
   if (!amounts || !amounts.length) {
     return results
   }
-
-  const amountRanges = amounts.map(x => {
-    const [_from, _to] = x.split('-')
+  const amountRanges = amounts.map(range => {
+    const [_from, _to] = range.split('-')
     return { from: parseFloat(_from), to: parseFloat(_to) }
   })
-
-  return results.filter(x => {
+  return results.filter(row => {
     return amountRanges.some(({ from, to }) => {
-      const totalAmount = parseFloat(x.total_amount)
-
+      const totalAmount = parseFloat(row.total_amount)
       return (!to) ? (totalAmount >= from) : (totalAmount >= from && totalAmount <= to)
     })
   })
