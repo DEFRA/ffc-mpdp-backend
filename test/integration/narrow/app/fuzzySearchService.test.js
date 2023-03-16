@@ -1,4 +1,4 @@
-const { getPaymentData } = require('../../../../app/services/fuzzySearchService')
+const { getPaymentData, getSearchSuggestions } = require('../../../../app/services/fuzzySearchService')
 const { PaymentDataModel } = require('../../../../app/services/databaseService')
 const paymentestdata = require('./paymentestdata.json')
 const { isAscending, isInRange } = require('../../../utils/helpers')
@@ -251,5 +251,42 @@ describe('fuzzySearchService tests with filterBy', () => {
       expect(counties.includes(matchingSet.county_council)).toBeTruthy()
       expect(matchingSet.scheme).toBe(schemes[0])
     })
+  })
+})
+
+describe('fuzzySearchService tests for search suggestions', () => {
+  const searchString = 'Farmer'
+  test('GET /searchsuggestion returns right data', async () => {
+    const expectedData = [
+      {
+        payee_name: 'Farmer1 Vel',
+        scheme: 'Farming Equipment and Technology Fund',
+        part_postcode: 'PE15',
+        town: 'March',
+        county_council: 'Cambridgeshire',
+        total_amount: '5853.00'
+      },
+      {
+        payee_name: 'Farmer2  Vel',
+        scheme: 'Sustainable Farming Incentive pilot',
+        part_postcode: 'WS7',
+        town: 'Hammerwich',
+        county_council: 'Staffordshire',
+        total_amount: '1472.00'
+      }
+    ]
+    const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
+    mockDb.mockResolvedValue(paymentestdata)
+
+    const result = await getSearchSuggestions(searchString)
+    expect(result).toEqual(expectedData)
+  })
+
+  test('GET /searchsuggestion returns 6 rows maximum', async () => {
+    const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
+    mockDb.mockResolvedValue(paymentestdata)
+    const searchString = 'a'
+    const result = await getSearchSuggestions(searchString)
+    expect(result.length).toEqual(6)
   })
 })
