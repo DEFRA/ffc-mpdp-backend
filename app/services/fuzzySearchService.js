@@ -37,16 +37,19 @@ const filterAndSearch = async (searchKey, filters) => {
   const filteredData = applyFilters(paymentData, filters)
   // const fuse = new Fuse(filteredData, fuseSearchOptions)
   // return fuse.search(searchKey).map(row => row.item)
-  return searchWithDelimiterComma(searchKey,paymentData)
-  return searchWithDelimiterSpace(searchKey,paymentData)
+  
+  // return searchWithDelimiterComma(searchKey,paymentData)
+  // return searchWithDelimiterSpace(searchKey,paymentData)
+  return searchWithDelimiterSpaceSortByScore(searchKey,paymentData)
 }
 
 // chris vel john ram
 // results are added to next set
-
+// chris , vel, john, ram
 const searchWithDelimiterComma = async (searchKey, paymentData) => {
   // split the key by comma
-  const keys = searchKey.split(' ')
+  const keys = searchKey.split(',')
+  console.log("searchWithDelimiterComma :")
   console.log("keys :" + keys)
   const fuse = new Fuse(paymentData, fuseSearchOptions)
   // loop through the keys and print the result
@@ -55,7 +58,7 @@ const searchWithDelimiterComma = async (searchKey, paymentData) => {
   for (let i = 0; i < keys.length; i++) {
     // add the result to the array
     const result = fuse.search(keys[i])
-    console.log(result)
+    console.log(result.map(e=>e.item.payee_name))
     console.log(result.length)
     records = records.concat(result)
   }
@@ -64,9 +67,11 @@ const searchWithDelimiterComma = async (searchKey, paymentData) => {
   return items
 }
 
+// chris vel john ram
 const searchWithDelimiterSpace = async (searchKey, paymentData) => {
   // split the key by comma
   const keys = searchKey.split(' ')
+  console.log("searchWithDelimiterSpace :")
   console.log("keys :" + keys)
   const fuse = new Fuse(paymentData, fuseSearchOptions)
   // loop through the keys and print the result
@@ -75,7 +80,7 @@ const searchWithDelimiterSpace = async (searchKey, paymentData) => {
   for (let i = 0; i < keys.length; i++) {
     // add the result to the array
     const result = fuse.search(keys[i])
-    console.log(result)
+    console.log(result.map(e=>e.item.payee_name))
     console.log(result.length)
     records = records.concat(result)
   }
@@ -84,7 +89,38 @@ const searchWithDelimiterSpace = async (searchKey, paymentData) => {
   return items
 }
 
+// chris vel john ram
+// results are sorted by score
+const searchWithDelimiterSpaceSortByScore = async (searchKey, paymentData) => {
+  // split the key by comma
+  const keys = searchKey.split(' ')
+  console.log("searchWithDelimiterSpaceSortByScore :")
+  console.log("keys :" + keys)
+  const fuse = new Fuse(paymentData, fuseSearchOptions)
+  // loop through the keys and print the result
 
+  let records = [];
+  for (let i = 0; i < keys.length; i++) {
+    // add the result to the array
+    const result = fuse.search(keys[i])
+    console.log(keys[i])
+    // console.log(result.map(e=>e.item.payee_name))
+    console.log(result.map(e=> [e.item.payee_name, parseFloat(e.score.toFixed(5))].join(" ") ))
+    console.log(result.length)
+    records = records.concat(result)
+  }
+  console.log("before sorting")
+  // console.log(records)
+  console.log(records.map(e=>e.item.payee_name))
+  const sortedResults = records.sort((r1, r2) => r1.score > r2.score ? 1 : -1)
+  console.log("sortedResults")
+  console.log(sortedResults.map(e=> e.item.payee_name ))
+  console.log(sortedResults.map(e=> [e.item.payee_name, parseFloat(e.score.toFixed(5))].join(" ") ))
+  // console.log(parseFloat(number.toFixed(2)));
+  // console.log(sortedResults)
+  const items =  sortedResults.map(row => row.item)
+  return items
+}
 
 const getSortedResults = (records, sortBy) => {
   if (sortBy && sortBy !== 'score') {
