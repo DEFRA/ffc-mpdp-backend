@@ -81,7 +81,6 @@ const filterByCounties = (searchResults, counties) => {
   const lowerCaseCounties = counties.map(county => county.toLowerCase())
   return searchResults.filter(x => lowerCaseCounties.includes(x.county_council.toLowerCase()))
 }
-
 const groupByPayee = (searchResults) => {
   const result = searchResults.reduce((acc, x) => {
     const payee = acc.find(r => r.payee_name === x.payee_name && r.part_postcode === x.part_postcode)
@@ -97,6 +96,17 @@ const groupByPayee = (searchResults) => {
   return result
 }
 
+let cachedGroupedPaymentData = null
+const getSearchSuggestions = async (searchKey) => {
+  if (!cachedGroupedPaymentData) {
+    const paymentData = await getAllPaymentData()
+    cachedGroupedPaymentData = await groupByPayee(paymentData)
+  }
+  const fuse = new Fuse(cachedGroupedPaymentData, fuseSearchOptions)
+  const searchResult = fuse.search(searchKey).map(row => row.item)
+  return searchResult.slice(0, config.search.suggestionResultsLimit)
+}
+
 const removeFilterFields = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
 
-module.exports = { getPaymentData }
+module.exports = { getPaymentData, getSearchSuggestions }
