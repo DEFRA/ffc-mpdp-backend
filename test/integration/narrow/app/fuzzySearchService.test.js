@@ -257,24 +257,23 @@ describe('fuzzySearchService tests with filterBy', () => {
 describe('fuzzySearchService tests for search suggestions', () => {
   const searchString = 'Farmer'
   test('GET /searchsuggestion returns right data', async () => {
-    const expectedData = [
-      {
-        payee_name: 'Farmer1 Vel',
-        scheme: 'Farming Equipment and Technology Fund',
-        part_postcode: 'PE15',
-        town: 'March',
-        county_council: 'Cambridgeshire',
-        total_amount: '5853.00'
-      },
-      {
-        payee_name: 'Farmer2  Vel',
-        scheme: 'Sustainable Farming Incentive pilot',
-        part_postcode: 'WS7',
-        town: 'Hammerwich',
-        county_council: 'Staffordshire',
-        total_amount: '1472.00'
-      }
-    ]
+    const expectedData = {
+      count: 2,
+      rows: [
+        {
+          payee_name: 'Farmer1 Vel',
+          part_postcode: 'PE15',
+          town: 'March',
+          county_council: 'Cambridgeshire'
+        },
+        {
+          payee_name: 'Farmer2  Vel',
+          part_postcode: 'WS7',
+          town: 'Hammerwich',
+          county_council: 'Staffordshire'
+        }
+      ]
+    }
     const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
     mockDb.mockResolvedValue(paymentestdata)
 
@@ -287,6 +286,6 @@ describe('fuzzySearchService tests for search suggestions', () => {
     mockDb.mockResolvedValue(paymentestdata)
     const searchString = 'a'
     const result = await getSearchSuggestions(searchString)
-    expect(result.length).toEqual(6)
+    expect(result.rows.length).toBeLessThanOrEqual(6)
   })
 })

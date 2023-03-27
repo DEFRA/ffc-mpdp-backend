@@ -101,10 +101,15 @@ const getSearchSuggestions = async (searchKey) => {
   if (!cachedGroupedPaymentData) {
     const paymentData = await getAllPaymentData()
     cachedGroupedPaymentData = await groupByPayee(paymentData)
+    // eslint-disable-next-line camelcase
+    cachedGroupedPaymentData = cachedGroupedPaymentData.map(({ scheme, total_amount, ...rest }) => rest)
   }
   const fuse = new Fuse(cachedGroupedPaymentData, fuseSearchOptions)
   const searchResult = fuse.search(searchKey).map(row => row.item)
-  return searchResult.slice(0, config.search.suggestionResultsLimit)
+  return {
+    count: searchResult.length,
+    rows: searchResult.slice(0, config.search.suggestionResultsLimit)
+  }
 }
 
 const removeFilterFields = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
