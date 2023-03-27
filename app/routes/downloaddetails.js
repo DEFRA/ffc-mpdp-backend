@@ -19,7 +19,7 @@ module.exports = {
     const { payeeName, partPostcode } = request.query
     try {
       const paymentData = await getCsvPaymentDataOfPayee(payeeName, partPostcode)
-      const csvParser = new Parser(config.csvFields)
+      const csvParser = new Parser({ fields: config.csvFields })
       const csv = csvParser.parse(paymentData)
       return res.response(csv)
         .type('text/csv')
