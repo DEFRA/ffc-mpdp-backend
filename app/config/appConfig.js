@@ -10,7 +10,18 @@ const config = {
     fieldsToExtract: ['payee_name', 'part_postcode', 'town', 'county_council', 'scheme'],
     fieldsToSearch: ['payee_name', 'part_postcode', 'town', 'county_council'],
     suggestionResultsLimit: 6
-  }
+  },
+  csvFields: [
+    'financial_year',
+    'payee_name',
+    'part_postcode',
+    'town',
+    'county_council',
+    'parliamentary_constituency',
+    'scheme',
+    'scheme_detail',
+    'amount'
+  ]
 
 }
 
