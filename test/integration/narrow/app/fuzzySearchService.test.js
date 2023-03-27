@@ -284,7 +284,7 @@ describe('fuzzySearchService tests for search suggestions', () => {
   test('GET /searchsuggestion returns 6 rows maximum', async () => {
     const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
     mockDb.mockResolvedValue(paymentestdata)
-    const searchString = 'a'
+    const searchString = 'Farmer'
     const result = await getSearchSuggestions(searchString)
     expect(result.rows.length).toBeLessThanOrEqual(6)
   })
