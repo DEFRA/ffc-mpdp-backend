@@ -16,16 +16,19 @@ afterEach(async () => {
 
 const url = '/searchsuggestion?searchString=__search_string__'
 const options = { method: 'GET', url }
-const mockdata = [
-  {
-    payee_name: 'Louann Cummings',
-    part_postcode: 'N17',
-    town: 'Haringey, unparished area',
-    county_council: 'None',
-    total_amount: '14967.00',
-    scheme: 'Farming Equipment and Technology Fund'
-  }
-]
+const mockdata = {
+  count: 1,
+  rows: [
+    {
+      payee_name: 'Louann Cummings',
+      part_postcode: 'N17',
+      town: 'Haringey, unparished area',
+      county_council: 'None',
+      total_amount: '14967.00',
+      scheme: 'Farming Equipment and Technology Fund'
+    }
+  ]
+}
 
 describe('paymentdata api call test', () => {
   test('searchsuggestion api to be defined', () => {
@@ -49,7 +52,8 @@ describe('paymentdata api call test', () => {
   })
 
   test('GET /searchsuggestion returns 404', async () => {
-    getSearchSuggestionsMock.mockReturnValue([])
+    const emptyResult = { count: 0, rows: [] }
+    getSearchSuggestionsMock.mockReturnValue(emptyResult)
     const response = await server.inject(options)
     expect(response.statusCode).toBe(404)
   })
