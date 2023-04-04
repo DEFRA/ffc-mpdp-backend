@@ -89,4 +89,9 @@ async function getCsvPaymentDataFromDb () {
   }
 }
 
-module.exports = { getAllPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel, getCsvPaymentData }
+async function getCsvPaymentDataOfPayee (payeeName, partPostcode) {
+  const csvData = await getCsvPaymentData()
+  return csvData.filter((item) => item.payee_name === payeeName && item.part_postcode === partPostcode)
+}
+
+module.exports = { getAllPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel, getCsvPaymentData, getCsvPaymentDataOfPayee }
