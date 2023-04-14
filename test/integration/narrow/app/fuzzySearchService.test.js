@@ -75,6 +75,30 @@ describe('testing fuzzySearchService /paymentdata', () => {
     expect(result.rows.length).toEqual(searchCriteria.limit)
   })
 
+  test('GET /paymentdata returns all matching data without limit with download csv action', async () => {
+    const searchCriteria = {
+      searchString: 'a',
+      limit: 5,
+      offset: 0,
+      sortBy: null,
+      filterBy: {
+        schemes: []
+      }
+    }
+    const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
+    mockDb.mockResolvedValue(paymentestdata)
+    const fullData = 242
+
+    const result = await getPaymentData(searchCriteria)
+    expect(result.count).toBe(fullData)
+    expect(result.rows.length).toEqual(searchCriteria.limit)
+
+    const action = 'download'
+    const result2 = await getPaymentData({ ...searchCriteria, action: action })
+    expect(result2.count).toEqual(fullData)
+    expect(result2.rows.length).toEqual(fullData)
+  })
+
   test('GET /paymentdata returns error  for invalid parameters', async () => {
     const searchString = ''
     const limit = 20
