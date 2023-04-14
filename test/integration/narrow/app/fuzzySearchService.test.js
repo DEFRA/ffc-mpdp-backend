@@ -99,6 +99,39 @@ describe('testing fuzzySearchService /paymentdata', () => {
     expect(result2.rows.length).toEqual(fullData)
   })
 
+  test('GET /paymentdata returns expected content when filters selected with download csv action', async () => {
+    const searchCriteria = {
+      searchString: 'a',
+      limit: 5,
+      offset: 0,
+      sortBy: null,
+      filterBy: {
+        schemes: []
+      }
+    }
+    const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
+    mockDb.mockResolvedValue(paymentestdata)
+    const fullData = 242
+
+    const action = 'download'
+    const result = await getPaymentData({ ...searchCriteria, action: action })
+    expect(result.count).toEqual(fullData)
+    expect(result.rows.length).toEqual(fullData)
+
+    const counties = ['Staffordshire']
+    const amounts = ['5000-9999']
+    const filterBy = { counties, amounts }
+    const filteredResult = await getPaymentData({ ...searchCriteria, filterBy, action })
+
+    filteredResult.rows.forEach(row => {
+      expect(isInRange(row.total_amount, amounts[0])).toBe(true)
+      expect(row.county_council).toEqual(counties[0])
+    })
+
+    expect(filteredResult.count).toEqual(4)
+    expect(filteredResult.rows.length).toEqual(4)
+  })
+
   test('GET /paymentdata returns error  for invalid parameters', async () => {
     const searchString = ''
     const limit = 20
