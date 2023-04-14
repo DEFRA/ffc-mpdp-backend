@@ -12,7 +12,7 @@ const fuseSearchOptions = {
   keys: config.search.fieldsToSearch
 }
 
-const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy }) => {
+const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy, action }) => {
   if (!searchString) throw new Error('Empty search content')
 
   const searchResults = await filterAndSearch(searchString, filterBy)
@@ -20,12 +20,15 @@ const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy })
     return { count: 0, rows: [] }
   }
 
-  const sortedResults = getSortedResults(searchResults, sortBy)
-  const offsetResults = sortedResults.slice(offset, parseInt(offset) + parseInt(limit))
+  let results = getSortedResults(searchResults, sortBy)
+  if (!action) {
+    results = results.slice(offset, parseInt(offset) + parseInt(limit))
+    results = removeFilterFields(results)
+  }
 
   return {
-    count: sortedResults.length,
-    rows: removeFilterFields(offsetResults)
+    count: searchResults.length,
+    rows: results
   }
 }
 
