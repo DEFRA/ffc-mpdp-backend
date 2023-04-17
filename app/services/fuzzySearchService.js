@@ -23,12 +23,11 @@ const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy, a
   let results = getSortedResults(searchResults, sortBy)
   if (action !== 'download') {
     results = results.slice(offset, parseInt(offset) + parseInt(limit))
-    results = removeFilterFields(results)
   }
 
   return {
     count: searchResults.length,
-    rows: results
+    rows: removeFilterFields(results)
   }
 }
 
