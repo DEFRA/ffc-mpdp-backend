@@ -1,6 +1,8 @@
 const Fuse = require('fuse.js')
 
 const { getAllPaymentData } = require('../services/databaseService')
+const { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee } = require('../utils/search/filters')
+
 const config = require('../config/appConfig')
 
 // search configuration
@@ -15,25 +17,26 @@ const fuseSearchOptions = {
 const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy }) => {
   if (!searchString) throw new Error('Empty search content')
 
-  const searchResults = await filterAndSearch(searchString, filterBy)
-  if (!searchResults.length) {
-    return { count: 0, rows: [] }
+  const searchResults = await search(searchString)
+  const filteredResults = applyFiltersAndGroupByPayee(searchResults, filterBy)
+  if (!filteredResults.length) {
+    return { count: 0, rows: [], filterOptions: {} }
   }
 
-  const sortedResults = getSortedResults(searchResults, sortBy)
+  const sortedResults = getSortedResults(filteredResults, sortBy)
   const offsetResults = sortedResults.slice(offset, parseInt(offset) + parseInt(limit))
 
   return {
     count: sortedResults.length,
-    rows: removeFilterFields(offsetResults)
+    rows: offsetResults,
+    filterOptions: getFilterOptions(searchResults)
   }
 }
 
-const filterAndSearch = async (searchKey, filters) => {
+const search = async (searchString) => {
   const paymentData = await getAllPaymentData()
-  const filteredData = applyFiltersAndGroupByPayee(paymentData, filters)
-  const fuse = new Fuse(filteredData, fuseSearchOptions)
-  return fuse.search(searchKey).map(row => row.item)
+  const fuse = new Fuse(paymentData, fuseSearchOptions)
+  return fuse.search(searchString).map(row => row.item)
 }
 
 const getSortedResults = (records, sortBy) => {
@@ -45,62 +48,12 @@ const getSortedResults = (records, sortBy) => {
   return records
 }
 
-const applyFiltersAndGroupByPayee = (searchResults, { schemes = [], counties = [], amounts = [] }) => {
-  let results = filterBySchemes(searchResults, schemes)
-  results = filterByCounties(results, counties)
-  results = groupByPayee(results)
-  results = filterByAmounts(results, amounts)
-  return results
-}
-
-const filterBySchemes = (results, schemes) => {
-  if (!schemes || !schemes.length) {
-    return results
-  }
-  return results.filter(x => schemes.map(scheme => scheme.toLowerCase()).includes(x.scheme.toLowerCase()))
-}
-
-const filterByAmounts = (results, amounts) => {
-  if (!amounts || !amounts.length) {
-    return results
-  }
-  const amountRanges = amounts.map(range => {
-    const [_from, _to] = range.split('-')
-    return { from: parseFloat(_from), to: parseFloat(_to) }
-  })
-  return results.filter(row => {
-    return amountRanges.some(({ from, to }) => {
-      const totalAmount = parseFloat(row.total_amount)
-      return (!to) ? (totalAmount >= from) : (totalAmount >= from && totalAmount <= to)
-    })
-  })
-}
-
-const filterByCounties = (searchResults, counties) => {
-  if (!counties || !counties.length) return searchResults
-  const lowerCaseCounties = counties.map(county => county.toLowerCase())
-  return searchResults.filter(x => lowerCaseCounties.includes(x.county_council.toLowerCase()))
-}
-const groupByPayee = (searchResults) => {
-  const result = searchResults.reduce((acc, x) => {
-    const payee = acc.find(r => r.payee_name === x.payee_name && r.part_postcode === x.part_postcode)
-    if (!payee) {
-      acc.push({ ...x })
-    } else {
-      payee.total_amount = parseFloat(payee.total_amount) + parseFloat(x.total_amount)
-    }
-
-    return acc
-  }, [])
-
-  return result
-}
-
 let cachedGroupedPaymentData = null
 const getSearchSuggestions = async (searchKey) => {
   if (!cachedGroupedPaymentData) {
     const paymentData = await getAllPaymentData()
-    cachedGroupedPaymentData = await groupByPayee(paymentData)
+    cachedGroupedPaymentData = groupByPayee(paymentData)
+
     // eslint-disable-next-line camelcase
     cachedGroupedPaymentData = cachedGroupedPaymentData.map(({ scheme, total_amount, ...rest }) => rest)
   }
@@ -111,7 +64,5 @@ const getSearchSuggestions = async (searchKey) => {
     rows: searchResult.slice(0, config.search.suggestionResultsLimit)
   }
 }
-
-const removeFilterFields = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
 
 module.exports = { getPaymentData, getSearchSuggestions }
