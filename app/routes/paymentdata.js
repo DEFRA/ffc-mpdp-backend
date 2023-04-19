@@ -16,7 +16,8 @@ module.exports = {
           schemes: Joi.array().items(Joi.string()),
           counties: Joi.array().items(Joi.string()),
           amounts: Joi.array().items(Joi.string())
-        }).default({})
+        }).default({}),
+        action: Joi.string().trim().optional('')
       }),
       failAction: async (_request, h, error) => h.response(error.toString()).code(400).takeover()
     },
