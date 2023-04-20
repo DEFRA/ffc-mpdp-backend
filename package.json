@@ -21,20 +21,22 @@
     "@azure/identity": "3.1.2",
     "@hapi/hapi": "^20.2.2",
     "@hapi/inert": "^7.0.0",
-    "applicationinsights": "^2.2.1",
+    "applicationinsights": "^2.5.1",
     "fuse.js": "^6.6.2",
     "hapi-pino": "^11.0.1",
     "json2csv": "^5.0.7",
     "pg": "^8.8.0",
     "pg-hstore": "2.3.4",
     "sequelize": "7.0.0-alpha.9",
-    "joi": "^17.6.0"
+    "joi": "^17.6.0",
+    "node-fetch": "2.6.8"
   },
   "devDependencies": {
     "jest": "^27.5.1",
     "jest-junit": "^13.0.0",
     "nodemon": "^2.0.20",
-    "standard": "^16.0.4"
+    "standard": "^16.0.4",
+    "@types/node-fetch": "^2.6.3"
   },
   "standard": {
     "globals": [
