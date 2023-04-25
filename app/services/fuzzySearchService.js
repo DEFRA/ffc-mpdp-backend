@@ -20,13 +20,17 @@ const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy, a
   const searchResults = await search(searchString)
   const filteredResults = applyFiltersAndGroupByPayee(searchResults, filterBy)
   if (!filteredResults.length) {
-    return { count: 0, rows: [], filterOptions: {} }
+    return { count: 0, rows: [], filterOptions: getFilterOptions(searchResults) }
   }
 
-  const sortedResults = getSortedResults(filteredResults, sortBy)
+  let results = getSortedResults(filteredResults, sortBy)
+  if(action !== 'download') {
+    results = results.slice(offset, parseInt(offset) + parseInt(limit))
+  }
+
   return {
-    count: sortedResults.length,
-    rows: (action !== 'download') ? sortedResults.slice(offset, parseInt(offset) + parseInt(limit)) : sortedResults,
+    count: filteredResults.length,
+    rows: results,
     filterOptions: getFilterOptions(searchResults)
   }
 }

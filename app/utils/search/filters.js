@@ -6,7 +6,7 @@ const applyFiltersAndGroupByPayee = (
   results = filterByCounties(results, counties)
   results = groupByPayee(results)
   results = filterByAmounts(results, amounts)
-  return removeFilterFields(results)
+  return removeSchemeField(results)
 }
 
 const filterBySchemes = (results, schemes) => {
@@ -64,7 +64,7 @@ const groupByPayee = (searchResults) => {
   return result
 }
 
-const removeFilterFields = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
+const removeSchemeField = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
 
 const getFilterOptions = (searchResults) => {
   if (!searchResults || !searchResults.length) {
