@@ -12,11 +12,13 @@ afterEach(async () => {
 })
 
 describe('paymentdata api call test', () => {
-  const service = require('../../../../app/services/fuzzySearchService')
-  const getPaymentDataMock = jest.spyOn(service, 'getPaymentData')
+  jest.mock('../../../../app/services/fuzzySearchService')
+  const { getPaymentData } = require('../../../../app/services/fuzzySearchService')
+
+  // const getPaymentDataMock = jest.spyOn(service, 'getPaymentData')
 
   beforeEach(() => {
-    getPaymentDataMock.mockReturnValue({
+    getPaymentData.mockReturnValue({
       count: 1,
       rows: [{
         id: 1,
@@ -73,11 +75,11 @@ describe('paymentdata api call test', () => {
     }
     const response = await server.inject(options)
     expect(response.statusCode).toBe(200)
-    expect(getPaymentDataMock).toHaveBeenCalledWith(options.payload)
+    expect(getPaymentData).toHaveBeenCalledWith(options.payload)
   })
 
-  test('POST /paymentdata returns 404', async () => {
-    getPaymentDataMock.mockReturnValue({ count: 0, rows: [] })
+  test('POST /paymentdata returns 200 when no results found', async () => {
+    getPaymentData.mockReturnValue({ count: 0, rows: [], filterOptions: { schemes: ['Sustainable Farming Incentive'], counties: [], amounts: [] } })
     const options = {
       method: 'POST',
       url: '/paymentdata',
@@ -87,36 +89,16 @@ describe('paymentdata api call test', () => {
       }
     }
     const response = await server.inject(options)
-    expect(response.statusCode).toBe(404)
+    expect(response.statusCode).toBe(200)
   })
 
   test('POST /paymentdata returns 500', async () => {
-    getPaymentDataMock.mockImplementation(() => { throw new Error() })
+    getPaymentData.mockImplementation(() => { throw new Error() })
     const options = {
       method: 'POST',
       url: '/paymentdata',
       payload: {
         searchString: '__search_string__',
-        limit: 10
-      }
-    }
-    const response = await server.inject(options)
-    expect(response.statusCode).toBe(500)
-  })
-})
-
-describe('paymentdata api test mocking DB service', () => {
-  test('POST /paymentdata error in DB', async () => {
-    const { PaymentDataModel } = require('../../../../app/services/databaseService')
-
-    const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
-    mockDb.mockRejectedValue(new Error('DB Error'))
-
-    const options = {
-      method: 'POST',
-      url: '/paymentdata',
-      payload: {
-        searchString: 'Farmer Vel',
         limit: 10
       }
     }

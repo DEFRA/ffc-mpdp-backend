@@ -24,7 +24,7 @@ module.exports = {
     handler: async (request, h) => {
       try {
         const records = await getPaymentData(request.payload)
-        return h.response(records).code(!records.rows.length ? 404 : 200)
+        return h.response(records).code(200)
       } catch (error) {
         return h.response('Error while reading data' + error).code(500)
       }

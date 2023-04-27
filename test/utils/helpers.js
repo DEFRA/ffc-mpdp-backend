@@ -6,4 +6,6 @@ const isInRange = (amount, range) => {
   return amountF >= parseFloat(from) && amountF <= parseFloat(to)
 }
 
-module.exports = { isAscending, isInRange }
+const removeFilterFields = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
+
+module.exports = { isAscending, isInRange, removeFilterFields }

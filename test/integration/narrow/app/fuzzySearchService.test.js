@@ -44,7 +44,12 @@ describe('testing fuzzySearchService /paymentdata', () => {
           county_council: 'Staffordshire',
           total_amount: '1472.00'
         }
-      ]
+      ],
+      filterOptions: {
+        schemes: ['Farming Equipment and Technology Fund', 'Sustainable Farming Incentive pilot'],
+        counties: ['Cambridgeshire', 'Staffordshire'],
+        amounts: ['5853.00', '1472.00']
+      }
     }
     const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
     mockDb.mockResolvedValue(paymentestdata)
