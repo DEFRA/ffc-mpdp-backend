@@ -85,7 +85,6 @@ const getUniqueFields = (searchResults, field) => {
     }
     return acc
   }, [])
-  // return Array.from(new Set(searchResults.map((result) => result[field])))
 }
 
 module.exports = { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee }
