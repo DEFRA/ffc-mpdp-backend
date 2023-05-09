@@ -80,7 +80,7 @@ const getFilterOptions = (searchResults) => {
 
 const getUniqueFields = (searchResults, field) => {
   return searchResults.reduce((acc, result) => {
-    if (acc.findIndex((y) => {y.toLowerCase() === result[field].toLowerCase()}) != -1) {
+    if (acc.findIndex((y) => y.toLowerCase() === result[field].toLowerCase()) === -1) {
       acc.push(result[field])
     }
     return acc
