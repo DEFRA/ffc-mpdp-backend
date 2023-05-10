@@ -79,7 +79,18 @@ const getFilterOptions = (searchResults) => {
 }
 
 const getUniqueFields = (searchResults, field) => {
-  return Array.from(new Set(searchResults.map((result) => result[field])))
+  try {
+    return searchResults.reduce((acc, result) => {
+      if (!acc.length || acc.findIndex((y) =>
+        y?.toString().toLowerCase() === result[field]?.toString().toLowerCase()) === -1) {
+        acc.push(result[field].toString())
+      }
+      return acc
+    }, [])
+  } catch (error) {
+    console.error(error)
+    return []
+  }
 }
 
 module.exports = { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee }
