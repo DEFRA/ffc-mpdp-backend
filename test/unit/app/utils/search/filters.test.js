@@ -120,6 +120,20 @@ describe('getFilterOptions', () => {
       counties: []
     })
   })
+
+  test('should return empty filterOptions for any fields that throws an error', () => {
+    const searchResults = [
+      { scheme: 'scheme1', payee_name: 'payee1', part_postcode: 'part_postcode1', total_amount: '100', county_council: 'county1' },
+      { scheme: 'scheme2', payee_name: 'payee2', part_postcode: 'part_postcode2', total_amount: '200', county_council: 'county2' },
+      { scheme: 'scheme2', payee_name: 'payee3', part_postcode: 'part_postcode3', county_council: 'county2' }
+    ]
+    const result = getFilterOptions(searchResults)
+    expect(result).toEqual({
+      schemes: ['scheme1', 'scheme2'],
+      amounts: [],
+      counties: ['county1', 'county2']
+    })
+  })
 })
 
 describe('groupByPayee', () => {
