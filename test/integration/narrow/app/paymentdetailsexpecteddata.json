@@ -4,44 +4,49 @@
     "part_postcode": "WD6",
     "town": " Elstree and Borehamwood ",
     "county_council": " Hertfordshire",
-    "financial_year": "21/22",
     "parliamentary_constituency": " Hertsmere ",
     "schemes": [
         {
-            "scheme": "Farming Equipment and Technology Fund",
+            "name": "Farming Equipment and Technology Fund",
             "scheme_detail": "",
             "activity_level": "N/a",
-            "amount": "11965.00"
+            "amount": "11965.00",
+            "financial_year": "21/22"
         },
         {
-            "scheme": "Sustainable Farming Incentive pilot",
+            "name": "Sustainable Farming Incentive pilot",
             "scheme_detail": "Low and no input Grassland",
             "activity_level": "High",
-            "amount": "4954.00"
+            "amount": "4954.00",
+            "financial_year": "21/22"
         },
         {
-            "scheme": "Sustainable Farming Incentive pilot",
+            "name": "Sustainable Farming Incentive pilot",
             "scheme_detail": "On farm woodland",
             "activity_level": "Low",
-            "amount": "25986.00"
+            "amount": "25986.00",
+            "financial_year": "21/22"
         },
         {
-            "scheme": "Sustainable Farming Incentive pilot",
+            "name": "Sustainable Farming Incentive pilot",
             "scheme_detail": "Low and no input Grassland",
             "activity_level": "High",
-            "amount": "22329.00"
+            "amount": "22329.00",
+            "financial_year": "21/22"
         },
         {
-            "scheme": "Sustainable Farming Incentive pilot",
+            "name": "Sustainable Farming Incentive pilot",
             "scheme_detail": "Improved Grassland soils",
             "activity_level": "Medium",
-            "amount": "31109.00"
+            "amount": "31109.00",
+            "financial_year": "21/22"
         },
         {
-            "scheme": "Sustainable Farming Incentive pilot",
+            "name": "Sustainable Farming Incentive pilot",
             "scheme_detail": "Improved Grassland",
             "activity_level": "High",
-            "amount": "18836.00"
+            "amount": "18836.00",
+            "financial_year": "21/22"
         }
     ]
 }
