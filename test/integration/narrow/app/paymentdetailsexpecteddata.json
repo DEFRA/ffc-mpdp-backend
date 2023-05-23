@@ -8,42 +8,42 @@
     "schemes": [
         {
             "name": "Farming Equipment and Technology Fund",
-            "scheme_detail": "",
+            "detail": "",
             "activity_level": "N/a",
             "amount": "11965.00",
             "financial_year": "21/22"
         },
         {
             "name": "Sustainable Farming Incentive pilot",
-            "scheme_detail": "Low and no input Grassland",
+            "detail": "Low and no input Grassland",
             "activity_level": "High",
             "amount": "4954.00",
             "financial_year": "21/22"
         },
         {
             "name": "Sustainable Farming Incentive pilot",
-            "scheme_detail": "On farm woodland",
+            "detail": "On farm woodland",
             "activity_level": "Low",
             "amount": "25986.00",
             "financial_year": "21/22"
         },
         {
             "name": "Sustainable Farming Incentive pilot",
-            "scheme_detail": "Low and no input Grassland",
+            "detail": "Low and no input Grassland",
             "activity_level": "High",
             "amount": "22329.00",
             "financial_year": "21/22"
         },
         {
             "name": "Sustainable Farming Incentive pilot",
-            "scheme_detail": "Improved Grassland soils",
+            "detail": "Improved Grassland soils",
             "activity_level": "Medium",
             "amount": "31109.00",
             "financial_year": "21/22"
         },
         {
             "name": "Sustainable Farming Incentive pilot",
-            "scheme_detail": "Improved Grassland",
+            "detail": "Improved Grassland",
             "activity_level": "High",
             "amount": "18836.00",
             "financial_year": "21/22"

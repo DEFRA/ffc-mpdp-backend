@@ -19,7 +19,7 @@ module.exports = {
         schemes: records.map(r1 => {
           return {
             name: r1.scheme,
-            scheme_detail: r1.scheme_detail,
+            detail: r1.scheme_detail,
             activity_level: r1.activity_level,
             amount: r1.amount,
             financial_year: r1.financial_year
