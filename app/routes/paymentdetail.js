@@ -15,14 +15,14 @@ module.exports = {
         part_postcode: records[0].part_postcode,
         town: records[0].town,
         county_council: records[0].county_council,
-        financial_year: records[0].financial_year,
         parliamentary_constituency: records[0].parliamentary_constituency,
         schemes: records.map(r1 => {
           return {
-            scheme: r1.scheme,
-            scheme_detail: r1.scheme_detail,
+            name: r1.scheme,
+            detail: r1.scheme_detail,
             activity_level: r1.activity_level,
-            amount: r1.amount
+            amount: r1.amount,
+            financial_year: r1.financial_year
           }
         })
       }
