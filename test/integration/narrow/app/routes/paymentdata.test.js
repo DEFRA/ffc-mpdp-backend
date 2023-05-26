@@ -1,4 +1,4 @@
-const createServer = require('../../../../app/server')
+const createServer = require('../../../../../app/server')
 let server
 
 beforeEach(async () => {
@@ -12,8 +12,8 @@ afterEach(async () => {
 })
 
 describe('paymentdata api call test', () => {
-  jest.mock('../../../../app/services/fuzzySearchService')
-  const { getPaymentData } = require('../../../../app/services/fuzzySearchService')
+  jest.mock('../../../../../app/services/fuzzySearchService')
+  const { getPaymentData } = require('../../../../../app/services/fuzzySearchService')
 
   // const getPaymentDataMock = jest.spyOn(service, 'getPaymentData')
 
@@ -39,7 +39,7 @@ describe('paymentdata api call test', () => {
   })
 
   test('paymentdata api test to be defined', () => {
-    const paymentdata = require('../../../../app/routes/paymentdata')
+    const paymentdata = require('../../../../../app/routes/paymentdata')
     expect(paymentdata).toBeDefined()
     expect(paymentdata.options.handler).toBeDefined()
   })
