@@ -94,4 +94,37 @@ async function getCsvPaymentDataOfPayee (payeeName, partPostcode) {
   return csvData.filter((item) => item.payee_name === payeeName && item.part_postcode === partPostcode)
 }
 
-module.exports = { getAllPaymentData, PaymentDataModel, getPaymentDetails, PaymentDetailModel, getCsvPaymentData, getCsvPaymentDataOfPayee }
+const schemePaymentsModel = sequelize.define('payment_activity_data', {
+  financial_year: DataTypes.STRING(8),
+  scheme: DataTypes.STRING(64),
+  amount: DataTypes.DOUBLE
+})
+
+const getSchemePaymentsByYear = async () => {
+  try {
+    const result = await schemePaymentsModel.findAll({
+      group: ['scheme', 'financial_year'],
+      attributes: [
+        'scheme',
+        'financial_year',
+        [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
+      ],
+      raw: true
+    })
+    return result
+  } catch (error) {
+    console.error('Error occured while reading data : ' + error)
+    throw error
+  }
+}
+
+module.exports = {
+  getAllPaymentData,
+  PaymentDataModel,
+  getPaymentDetails,
+  PaymentDetailModel,
+  getCsvPaymentData,
+  getCsvPaymentDataOfPayee,
+  schemePaymentsModel,
+  getSchemePaymentsByYear
+}
