@@ -54,5 +54,8 @@
     "ignore": [
       "**/test-output/**"
     ]
+  },
+  "overrides": {
+    "semver": "7.5.3"
   }
 }
