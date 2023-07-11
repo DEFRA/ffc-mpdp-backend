@@ -38,6 +38,9 @@
     "standard": "^16.0.4",
     "@types/node-fetch": "^2.6.3"
   },
+  "overrides": {
+    "semver": "^7.5.3"
+  },
   "standard": {
     "globals": [
       "describe",
