@@ -1,6 +1,6 @@
 {
   "name": "ffc-mpdp-backend",
-  "version": "0.1.35",
+  "version": "0.1.37",
   "description": "Backend for making payment data public",
   "homepage": "https://github.com/DEFRA/ffc-mpdp-backend",
   "main": "app/index.js",
@@ -37,6 +37,9 @@
     "nodemon": "^2.0.20",
     "standard": "^16.0.4",
     "@types/node-fetch": "^2.6.3"
+  },
+  "overrides": {
+    "semver": "^7.5.3"
   },
   "standard": {
     "globals": [

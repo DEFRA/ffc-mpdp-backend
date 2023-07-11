@@ -10,7 +10,7 @@ const fuseSearchOptions = {
   includeScore: true,
   threshold: 0.3,
   ignoreLocation: true,
-  useExtendedSearch: true,
+  useExtendedSearch: false,
   keys: config.search.fieldsToSearch
 }
 
