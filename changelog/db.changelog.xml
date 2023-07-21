@@ -11,4 +11,6 @@
   <include  file="changelog/db.changelog-1.4.xml"/>
   <include  file="changelog/db.changelog-1.5.xml"/>
   <include  file="changelog/db.changelog-1.6.xml"/>
+  <include  file="changelog/db.changelog-1.7.xml"/>
+  <include  file="changelog/db.changelog-1.8.xml"/>
 </databaseChangeLog>
