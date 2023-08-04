@@ -29,7 +29,7 @@
     "pg-hstore": "2.3.4",
     "sequelize": "7.0.0-alpha.9",
     "joi": "^17.6.0",
-    "node-fetch": "2.6.8"
+    "node-fetch": "2.6.12"
   },
   "devDependencies": {
     "jest": "^27.5.1",
