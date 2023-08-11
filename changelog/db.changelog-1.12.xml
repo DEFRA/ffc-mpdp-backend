@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+  <changeSet author="VMuthu" id="1">
+    <tagDatabase tag="v1.0.6" />
+ </changeSet>
+ <changeSet  author="VMuthu"  id="2">
+    <insert tableName="dim_parliamentary_cons">
+        <column  name="parliamentary_cons_id"  value="PC-01"/>
+        <column  name="parliamentary_cons_name"  value="Aldershot"/>
+        <column  name="parliamentary_cons_postcode"  value="GU11"/>
+        <column  name="county_council"  value="Hampshire"/>
+        <column  name="start_date" value="2021-01-01"/>
+        <column  name="end_date" value="2031-12-31"/>  
+    </insert>
+    <insert tableName="dim_parliamentary_cons">
+        <column  name="parliamentary_cons_id"  value="PC-02"/>
+        <column  name="parliamentary_cons_name"  value="Amber Valley"/>
+        <column  name="parliamentary_cons_postcode"  value="DE2 5BH"/>
+        <column  name="county_council"  value="Derbyshire"/>
+        <column  name="start_date" value="2021-01-01"/>
+        <column  name="end_date" value="2031-12-31"/>  
+    </insert>
+</changeSet>
+</databaseChangeLog>
