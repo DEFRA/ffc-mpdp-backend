@@ -1,6 +1,6 @@
 {
   "name": "ffc-mpdp-backend",
-  "version": "0.1.39",
+  "version": "0.1.40",
   "description": "Backend for making payment data public",
   "homepage": "https://github.com/DEFRA/ffc-mpdp-backend",
   "main": "app/index.js",
@@ -18,7 +18,7 @@
   "contributors": [],
   "license": "OGL-UK-3.0",
   "dependencies": {
-    "@azure/identity": "3.1.2",
+    "@azure/identity": "3.2.3",
     "@hapi/hapi": "^20.2.2",
     "@hapi/inert": "^7.0.0",
     "applicationinsights": "^2.5.1",
