@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+  <changeSet author="VMuthu" id="1">
+    <tagDatabase tag="v1.0.6" />
+ </changeSet>
+ <changeSet  author="VMuthu"  id="2">
+    <insert tableName="dim_payee">
+        <column  name="payee_id"  value="PAY-01"/>
+        <column  name="payee_name"  value="Rayan Carter"/>
+        <column  name="account_name"  value="TR Carter"/>
+        <column  name="sort_code"  value="01-02-03"/>
+        <column  name="account_no"  value="456781"/>
+        <column  name="start_date" value="2021-01-01"/>
+        <column  name="end_date" value="2031-12-31"/>  
+    </insert>
+    <insert tableName="dim_payee">
+        <column  name="payee_id"  value="PAY-02"/>
+        <column  name="payee_name"  value="Vel"/>
+        <column  name="account_name"  value="Vel enterprices"/>
+        <column  name="sort_code"  value="01-02-03"/>
+        <column  name="account_no"  value="456782"/>
+        <column  name="start_date" value="2021-01-01"/>
+        <column  name="end_date" value="2031-12-31"/>  
+    </insert>
+</changeSet>
+</databaseChangeLog>

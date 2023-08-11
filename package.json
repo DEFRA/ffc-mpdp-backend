@@ -18,7 +18,7 @@
   "contributors": [],
   "license": "OGL-UK-3.0",
   "dependencies": {
-    "@azure/identity": "3.1.2",
+    "@azure/identity": "3.2.3",
     "@hapi/hapi": "^20.2.2",
     "@hapi/inert": "^7.0.0",
     "applicationinsights": "^2.5.1",
@@ -28,8 +28,8 @@
     "pg": "^8.8.0",
     "pg-hstore": "2.3.4",
     "sequelize": "7.0.0-alpha.9",
-    "joi": "^17.6.0",
     "node-fetch": "2.6.12"
+    "joi": "^17.9.2",
   },
   "devDependencies": {
     "jest": "^27.5.1",
