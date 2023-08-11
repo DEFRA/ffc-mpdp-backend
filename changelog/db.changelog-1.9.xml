@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+  <changeSet author="VMuthu" id="1">
+    <tagDatabase tag="v1.0.5" />
+  </changeSet>
+  <changeSet author="VMuthu" id="2">
+    <createTable tableName="dim_payee">
+      <column name="dimension_key" type="INTEGER" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true" primaryKeyName="dimension_payee_pkey" />
+      </column>
+      <column name="payee_id" type="VARCHAR(8)" />
+      <column name="payee_name" type="VARCHAR(128)" />
+      <column name="account_name" type="VARCHAR(128)" />
+      <column name="sort_code" type="VARCHAR(16)" />
+      <column name="account_no" type="VARCHAR(16)" />
+      <column name="start_date" type="DATE" />
+      <column name="end_date" type="DATE" />
+    </createTable>
+  </changeSet>
+</databaseChangeLog>
