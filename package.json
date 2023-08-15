@@ -20,7 +20,7 @@
   "dependencies": {
     "@azure/identity": "3.2.3",
     "@hapi/hapi": "^20.2.2",
-    "@hapi/inert": "^7.1.0",
+    "@hapi/inert": "^7.0.0",
     "applicationinsights": "^2.5.1",
     "fuse.js": "^6.6.2",
     "hapi-pino": "^11.0.1",
