@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="VMuthu" id="1">
+        <tagDatabase tag="v1.0.6" />
+    </changeSet>
+    <changeSet  author="VMuthu"  id="2">
+        <insert tableName="dim_address">
+            <column  name="address_id"  value="AD-01"/>
+            <column  name="address_line_1"  value="20 new street"/>
+            <column  name="address_line_2"  value="West ham"/>
+            <column  name="address_line_3"  value="London"/>
+            <column  name="county"  value="London"/>
+            <column  name="post_code"  value="EC2 2MX"/>
+            <column  name="start_date" value="2021-01-01"/>
+            <column  name="end_date" value="2031-12-31"/>  
+        </insert>
+        <insert tableName="dim_address">
+            <column  name="address_id"  value="AD-02"/>
+            <column  name="address_line_1"  value="21 new street"/>
+            <column  name="address_line_2"  value="West ham"/>
+            <column  name="address_line_3"  value="London"/>
+            <column  name="county"  value="London"/>
+            <column  name="post_code"  value="EC2 2MX"/>
+            <column  name="start_date" value="2021-01-01"/>
+            <column  name="end_date" value="2031-12-31"/>    
+        </insert>
+    </changeSet>
+</databaseChangeLog>
