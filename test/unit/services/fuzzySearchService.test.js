@@ -3,8 +3,12 @@ const { PaymentDataModel } = require('../../../app/services/databaseService')
 const paymentestdata = require('../../data/paymentestdata.json')
 const { isAscending, isInRange } = require('../../utils/helpers')
 
+jest.mock('../../../app/cache/')
+const { get } = require('../../../app/cache/')
+
 beforeAll(() => {
   jest.resetAllMocks()
+  get.mockResolvedValue({})
 })
 
 describe('testing fuzzySearchService /paymentdata', () => {
@@ -168,7 +172,10 @@ describe('fuzzySearchService tests with sortBy', () => {
   }
 
   const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
-  mockDb.mockResolvedValue(paymentestdata)
+
+  beforeEach(() => {
+    mockDb.mockResolvedValue(paymentestdata)
+  })
 
   test('GET /paymentdata sorts results by score by default', async () => {
     const result = await getPaymentData(searchCriteria)

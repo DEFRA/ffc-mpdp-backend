@@ -24,7 +24,7 @@ const config = {
     'amount'
   ],
   useRedis: !isTest && cacheConfig.redisCatboxOptions.host !== undefined,
-  cacheConfig,
+  cacheConfig
 }
 
 module.exports = config

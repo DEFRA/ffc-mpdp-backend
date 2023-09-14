@@ -17,14 +17,13 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
 })
 
 const getAllPaymentData = async () => {
-  let cachedData = await cache.get(config.cacheConfig.paymentDataSegment.name, 'allPaymentData')
-  
-  if(!cachedData || !Object.keys(cachedData).length) {
-    console.debug('no cache found')
+  let cachedData = await cache.get(config.cacheConfig.segments.paymentData.name, 'allPaymentData')
+
+  if (!cachedData || !Object.keys(cachedData).length) {
     cachedData = await getAllPaymentDataFromDB()
-    cache.set(config.cacheConfig.paymentDataSegment.name, 'allPaymentData', cachedData)
+    await cache.set(config.cacheConfig.segments.paymentData.name, 'allPaymentData', cachedData)
   }
-  
+
   return cachedData
 }
 
