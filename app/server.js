@@ -36,7 +36,7 @@ async function createServer () {
     require('./routes/searchsuggestion'),
     require('./routes/downloaddetails'),
     require('./routes/schemePaymentsByYear'),
-    require('./routes/downloadPaymentsByYearSummary'),
+    require('./routes/downloadPaymentsByYearSummary')
   )
   server.route(routes)
 
