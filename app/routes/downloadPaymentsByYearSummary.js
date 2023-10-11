@@ -11,28 +11,19 @@ module.exports = {
       'amount'
     ]
     try {
-      const schemePaymentsArray = []
       const csvParser = new Parser({ fields })
-      const schemePayments = (await getSchemePaymentsByYear()).reduce((acc, item) => {
-        (acc[item.financial_year] = acc[item.financial_year] || []).push(item)
-        return acc
-      }, {})
-
-      for (const property in schemePayments) {
-        for (const item of schemePayments[property]) {
-          item.amount = item.total_amount
-          delete item.total_amount
-          schemePaymentsArray.push(item)
-        }
-      }
-
-      const csv = csvParser.parse(schemePaymentsArray)
+      const schemePaymentsByYear = (await getSchemePaymentsByYear()).sort((r1, r2) => r1.financial_year > r2.financial_year ? 1 : -1)
+      const schemePayments = schemePaymentsByYear.map(({ total_amount, ...rest }) => ({
+        amount: total_amount,
+        ...rest
+      }))
+      const csv = csvParser.parse(schemePayments)
 
       return _response.response(csv)
         .type('text/csv')
         .header('Connection', 'keep-alive')
         .header('Cache-Control', 'no-cache')
-        .header('Content-Disposition', 'attachment;filename=ffc-year-payments-summary.csv')
+        .header('Content-Disposition', 'attachment;filename=ffc-payments-by-year.csv')
     } catch (error) {
       return _response.response('Error while reading data' + error).code(500)
     }
