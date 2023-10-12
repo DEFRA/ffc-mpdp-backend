@@ -13,6 +13,7 @@ module.exports = {
     try {
       const csvParser = new Parser({ fields })
       const schemePaymentsByYear = (await getSchemePaymentsByYear()).sort((r1, r2) => r1.financial_year > r2.financial_year ? 1 : -1)
+      // eslint-disable-next-line camelcase
       const schemePayments = schemePaymentsByYear.map(({ total_amount, ...rest }) => ({
         amount: total_amount,
         ...rest
