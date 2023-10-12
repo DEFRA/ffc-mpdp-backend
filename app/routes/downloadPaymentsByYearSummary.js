@@ -6,7 +6,7 @@ module.exports = {
   path: '/downloadPaymentsByYearSummary',
   handler: async (_request, _response) => {
     const fields = [
-      'financial_year',
+      'financial year',
       'scheme',
       'amount'
     ]
@@ -14,7 +14,8 @@ module.exports = {
       const csvParser = new Parser({ fields })
       const schemePaymentsByYear = (await getSchemePaymentsByYear()).sort((r1, r2) => r1.financial_year > r2.financial_year ? 1 : -1)
       // eslint-disable-next-line camelcase
-      const schemePayments = schemePaymentsByYear.map(({ total_amount, ...rest }) => ({
+      const schemePayments = schemePaymentsByYear.map(({ total_amount, financial_year, ...rest }) => ({
+        'financial year': financial_year,
         amount: total_amount,
         ...rest
       }))

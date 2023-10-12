@@ -23,7 +23,7 @@ describe('downloadPaymentsByYearSummary test', () => {
     expect(response.statusCode).toBe(200)
     expect(response.headers['content-type']).toContain('text/csv')
     expect(response.headers['content-disposition']).toContain('attachment')
-    expect(response.result).toContain('"financial_year","scheme","amount"')
+    expect(response.result).toContain('"financial year","scheme","amount"')
     expect(response.result).toContain('"21/22","Sustainable Farming Incentive Pilot","1436025.00"')
     expect(response.result).toContain('"21/22","Farming Equipment and Technology Fund","1125893.00"')
   })
