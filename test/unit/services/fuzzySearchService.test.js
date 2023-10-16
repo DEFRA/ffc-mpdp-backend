@@ -35,20 +35,23 @@ describe('testing fuzzySearchService /paymentdata', () => {
           part_postcode: 'PE15',
           town: 'March',
           county_council: 'Cambridgeshire',
-          total_amount: '5853.00'
+          total_amount: '5853.00',
+          financial_year: '21/22'
         },
         {
           payee_name: 'Farmer2  Vel',
           part_postcode: 'WS7',
           town: 'Hammerwich',
           county_council: 'Staffordshire',
-          total_amount: '1472.00'
+          total_amount: '1472.00',
+          financial_year: '22/23'
         }
       ],
       filterOptions: {
         schemes: ['Farming Equipment and Technology Fund', 'Sustainable Farming Incentive pilot'],
         counties: ['Cambridgeshire', 'Staffordshire'],
-        amounts: ['5853.00', '1472.00']
+        amounts: ['5853.00', '1472.00'],
+        years: ['21/22', '22/23']
       }
     }
     const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
@@ -326,13 +329,15 @@ describe('fuzzySearchService tests for search suggestions', () => {
           payee_name: 'Farmer1 Vel',
           part_postcode: 'PE15',
           town: 'March',
-          county_council: 'Cambridgeshire'
+          county_council: 'Cambridgeshire',
+          financial_year: '21/22'
         },
         {
           payee_name: 'Farmer2  Vel',
           part_postcode: 'WS7',
           town: 'Hammerwich',
-          county_council: 'Staffordshire'
+          county_council: 'Staffordshire',
+          financial_year: '22/23'
         }
       ]
     }

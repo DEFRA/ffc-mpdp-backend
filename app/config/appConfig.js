@@ -7,7 +7,7 @@ const config = {
   isProd: process.env.NODE_ENV === environments.production,
   env: process.env.NODE_ENV || environments.development,
   search: {
-    fieldsToExtract: ['payee_name', 'part_postcode', 'town', 'county_council', 'scheme'],
+    fieldsToExtract: ['payee_name', 'part_postcode', 'town', 'county_council', 'scheme', 'financial_year'],
     fieldsToSearch: ['payee_name', 'part_postcode', 'town', 'county_council'],
     suggestionResultsLimit: 6
   },

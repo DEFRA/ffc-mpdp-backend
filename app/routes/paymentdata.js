@@ -15,7 +15,8 @@ module.exports = {
         filterBy: Joi.object({
           schemes: Joi.array().items(Joi.string()),
           counties: Joi.array().items(Joi.string()),
-          amounts: Joi.array().items(Joi.string())
+          amounts: Joi.array().items(Joi.string()),
+          years: Joi.array().items(Joi.string())
         }).default({}),
         action: Joi.string().trim().optional('')
       }),
