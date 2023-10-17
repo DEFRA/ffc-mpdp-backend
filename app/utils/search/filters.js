@@ -1,9 +1,10 @@
 const applyFiltersAndGroupByPayee = (
   searchResults,
-  { schemes = [], counties = [], amounts = [] }
+  { schemes = [], counties = [], amounts = [], years = [] }
 ) => {
   let results = filterBySchemes(searchResults, schemes)
   results = filterByCounties(results, counties)
+  results = filterByYears(results, years)
   results = groupByPayee(results)
   results = filterByAmounts(results, amounts)
   return removeSchemeField(results)
@@ -64,17 +65,26 @@ const groupByPayee = (searchResults) => {
   return result
 }
 
+const filterByYears = (results, years) => {
+  if (!years || !years.length) {
+    return results
+  }
+
+  return results.filter(x => years.includes(x.financial_year))
+}
+
 const removeSchemeField = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
 
 const getFilterOptions = (searchResults) => {
   if (!searchResults || !searchResults.length) {
-    return { schemes: [], amounts: [], counties: [] }
+    return { schemes: [], amounts: [], counties: [], years: [] }
   }
 
   return {
     schemes: getUniqueFields(searchResults, 'scheme'),
     counties: getUniqueFields(searchResults, 'county_council'),
-    amounts: getUniqueFields(groupByPayee(searchResults), 'total_amount')
+    amounts: getUniqueFields(groupByPayee(searchResults), 'total_amount'),
+    years: getUniqueFields(searchResults, 'financial_year')
   }
 }
 
