@@ -9,4 +9,9 @@ data:
   POSTGRES_DB: {{ quote .Values.postgresService.postgresDb }}
   POSTGRES_SCHEMA_NAME: {{ quote .Values.postgresService.postgresSchema }}
   POSTGRES_USER: {{ quote .Values.postgresService.postgresUser }}
+  {{- if .Values.container.redisHostname }}
+  REDIS_HOSTNAME: {{ quote .Values.container.redisHostname }}
+  {{- end }}
+  REDIS_PORT: {{ quote .Values.container.redisPort }}
+  REDIS_PARTITION: {{ quote .Values.container.redisPartition }}
 {{- end -}}

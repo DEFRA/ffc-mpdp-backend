@@ -29,6 +29,10 @@ container:
   limitMemory: 120Mi
   limitCpu: 120m
   port: 3000
+  redisHostname: redis-redis-ha.default
+  redisPassword: redis
+  redisPort: 6379
+  redisPartition: ffc-mpdp-backend
 
 livenessProbe:
   path: /healthz

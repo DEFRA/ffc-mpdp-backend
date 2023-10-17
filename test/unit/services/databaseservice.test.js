@@ -7,6 +7,13 @@ const {
   getSchemePaymentsByYear
 } = require('../../../app/services/databaseService')
 
+jest.mock('../../../app/cache/')
+const { get } = require('../../../app/cache/')
+
+beforeAll(() => {
+  get.mockResolvedValue({})
+})
+
 afterAll(() => {
   jest.resetAllMocks()
 })
@@ -128,5 +135,31 @@ describe('database-service getSchemePaymentsByYear test', () => {
     const mockDb = jest.spyOn(schemePaymentsModel, 'findAll')
     mockDb.mockRejectedValue(new Error(errorMessage))
     await expect(getSchemePaymentsByYear()).rejects.toThrow(errorMessage)
+  })
+})
+
+describe('database-service returns data from cache', () => {
+  test('GET /paymentdata returns data from cache', async () => {
+    const cachedData = {
+      count: 1,
+      rows: [{
+        id: 1,
+        payee_name: 'Farmer A',
+        part_postcode: 'RG1',
+        town: 'Reading',
+        parliamentary_constituency: 'Reading East',
+        county_council: 'Berkshire',
+        scheme: 'SFI Arable and Horticultural Land',
+        activity_detail: 'Low',
+        amount: '223.65'
+      }]
+    }
+
+    get.mockResolvedValue(cachedData)
+    const mockFindAll = jest.spyOn(PaymentDataModel, 'findAll')
+
+    const result = await getAllPaymentData()
+    expect(result).toEqual(cachedData)
+    expect(mockFindAll).toHaveBeenCalledTimes(0)
   })
 })

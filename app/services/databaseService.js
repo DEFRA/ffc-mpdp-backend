@@ -2,6 +2,7 @@ const { Sequelize, DataTypes, where, fn, col, and } = require('sequelize')
 const config = require('../config/appConfig')
 const dbConfigAllEnv = require('../config/databaseConfig')
 const dbConfig = dbConfigAllEnv[config.env]
+const cache = require('../cache')
 
 const sequelize = new Sequelize(
   dbConfig
@@ -15,17 +16,19 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
-// Locally cached data
-let cachedPaymentData = null
-async function getAllPaymentData () {
-  if (!cachedPaymentData) {
-    cachedPaymentData = await getAllPaymentDataFromDB()
+const getAllPaymentData = async () => {
+  let cachedData = await cache.get(config.cacheConfig.segments.paymentData.name, 'allPaymentData')
+
+  if (!cachedData || !Object.keys(cachedData).length) {
+    cachedData = await getAllPaymentDataFromDB()
+    await cache.set(config.cacheConfig.segments.paymentData.name, 'allPaymentData', cachedData)
   }
-  return cachedPaymentData
+
+  return cachedData
 }
 
 // Collect all DB results
-async function getAllPaymentDataFromDB () {
+const getAllPaymentDataFromDB = async () => {
   try {
     const result = await PaymentDataModel.findAll({
       group: config.search.fieldsToExtract,

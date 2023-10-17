@@ -1,10 +1,11 @@
 const databaseConfig = require('./databaseConfig')
-const { environments } = require('./constants')
+const { environments, isDev, isTest, isProd } = require('./constants')
+const cacheConfig = require('./cache')
 
 const config = {
   database: databaseConfig,
-  isDev: process.env.NODE_ENV === environments.development,
-  isProd: process.env.NODE_ENV === environments.production,
+  isDev,
+  isProd,
   env: process.env.NODE_ENV || environments.development,
   search: {
     fieldsToExtract: ['payee_name', 'part_postcode', 'town', 'county_council', 'scheme', 'financial_year'],
@@ -21,8 +22,9 @@ const config = {
     'scheme',
     'scheme_detail',
     'amount'
-  ]
-
+  ],
+  useRedis: !isTest && cacheConfig.redisCatboxOptions.host !== undefined,
+  cacheConfig
 }
 
 module.exports = config
