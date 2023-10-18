@@ -1,8 +1,8 @@
-const databaseService = require('../../../../../app/services/databaseService')
-const paymentsdetailsdbrow = require('../../../../data/paymentsdetailsdbrows.json')
-const paymentdetailsexpecteddata = require('../../../../data/paymentdetailsexpecteddata.json')
+const databaseService = require('../../../../app/services/databaseService')
+const paymentsdetailsdbrow = require('../../../data/paymentsdetailsdbrows.json')
+const paymentdetailsexpecteddata = require('../../../data/paymentdetailsexpecteddata.json')
 
-const createServer = require('../../../../../app/server')
+const createServer = require('../../../../app/server')
 let server
 
 beforeEach(async () => {
@@ -26,7 +26,7 @@ describe('paymentdetails api call test', () => {
   mockDb.mockReturnValue(paymentsdetailsdbrow)
 
   test('paymentdetails api test to be defined', () => {
-    const paymentdetails = require('../../../../../app/routes/paymentdetail')
+    const paymentdetails = require('../../../../app/routes/paymentdetail')
     expect(paymentdetails).toBeDefined()
     expect(paymentdetails.handler).toBeDefined()
   })

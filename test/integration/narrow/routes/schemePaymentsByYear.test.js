@@ -1,7 +1,7 @@
-jest.mock('../../../../../app/services/databaseService')
-const { getSchemePaymentsByYear } = require('../../../../../app/services/databaseService')
+jest.mock('../../../../app/services/databaseService')
+const { getSchemePaymentsByYear } = require('../../../../app/services/databaseService')
 
-const createServer = require('../../../../../app/server')
+const createServer = require('../../../../app/server')
 let server
 
 beforeEach(async () => {
@@ -35,7 +35,7 @@ const expectedData = {
 
 describe('schemepayments api call test', () => {
   test('schemepayments api test to be defined', () => {
-    const schemePayments = require('../../../../../app/routes/schemePaymentsByYear')
+    const schemePayments = require('../../../../app/routes/schemePaymentsByYear')
     expect(schemePayments).toBeDefined()
     expect(schemePayments.handler).toBeDefined()
   })
