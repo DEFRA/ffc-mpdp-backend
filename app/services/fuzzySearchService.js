@@ -50,20 +50,13 @@ const getSortedResults = (records, sortBy) => {
   return records
 }
 
-let cachedGroupedPaymentData = null
-const getSearchSuggestions = async (searchKey) => {
-  if (!cachedGroupedPaymentData) {
-    const paymentData = await getAllPaymentData()
-    cachedGroupedPaymentData = groupByPayee(paymentData)
-
-    // eslint-disable-next-line camelcase
-    cachedGroupedPaymentData = cachedGroupedPaymentData.map(({ scheme, total_amount, ...rest }) => rest)
-  }
-  const fuse = new Fuse(cachedGroupedPaymentData, fuseSearchOptions)
-  const searchResult = fuse.search(searchKey).map(row => row.item)
+const getSearchSuggestions = async (searchString) => {
+  const searchResults = groupByPayee(await search(searchString))
   return {
-    count: searchResult.length,
-    rows: searchResult.slice(0, config.search.suggestionResultsLimit)
+    count: searchResults.length,
+    rows: searchResults
+      .map(({ scheme, total_amount, financial_year, ...rest }) => rest) // eslint-disable-line camelcase
+      .slice(0, config.search.suggestionResultsLimit)
   }
 }
 

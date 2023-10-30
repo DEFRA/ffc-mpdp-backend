@@ -336,15 +336,13 @@ describe('fuzzySearchService tests for search suggestions', () => {
           payee_name: 'Farmer1 Vel',
           part_postcode: 'PE15',
           town: 'March',
-          county_council: 'Cambridgeshire',
-          financial_year: '21/22'
+          county_council: 'Cambridgeshire'
         },
         {
           payee_name: 'Farmer2  Vel',
           part_postcode: 'WS7',
           town: 'Hammerwich',
-          county_council: 'Staffordshire',
-          financial_year: '22/23'
+          county_council: 'Staffordshire'
         }
       ]
     }
