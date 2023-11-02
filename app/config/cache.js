@@ -1,7 +1,6 @@
-const { environments } = require('./constants')
+const { isProd } = require('./constants')
 
-const isProd = process.env.NODE_ENV === environments.production
-const defaultExpiresIn = (isProd ? 3600 : 300) * 1000
+const defaultExpiresIn = ((isProd && !process.env.POSTGRES_DB?.includes('test')) ? 3600 : 300) * 1000
 
 module.exports = {
   segments: {
