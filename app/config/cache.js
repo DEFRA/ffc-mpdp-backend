@@ -1,6 +1,5 @@
 const { isProd } = require('./constants')
-
-const defaultExpiresIn = ((isProd && !process.env.POSTGRES_DB?.includes('test')) ? 3600 : 300) * 1000
+const defaultExpiresIn = 300 * 1000 // 5 Minutes
 
 module.exports = {
   segments: {
