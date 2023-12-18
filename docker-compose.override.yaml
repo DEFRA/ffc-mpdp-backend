@@ -5,8 +5,8 @@ version: '3.8'
 
 services:
   ffc-mpdp-backend:
-    depends_on: 
-      - redis
+    # depends_on: 
+    #   - redis
     build:
       target: development
     image: ffc-mpdp-backend-development
@@ -25,10 +25,10 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   ffc-mpdp-backend-redis:
-    volumes:
-      - redis_data:/data
     ports:
       - "6380:6379"
+    volumes:
+      - redis_data:/data
 
 volumes:
   postgres_data:
