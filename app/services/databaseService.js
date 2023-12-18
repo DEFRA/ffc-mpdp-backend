@@ -59,7 +59,7 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
-async function getPaymentDetails (payeeName = '', partPostcode = '') {
+async function getPaymentDetails(payeeName = '', partPostcode = '') {
   if (payeeName === '' || partPostcode === '') throw new Error('Empty payeeName or  partPostcode')
   try {
     return PaymentDetailModel.findAll({
@@ -76,14 +76,14 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
 
 // Cached CSV data
 let cachedCsvData = null
-async function getCsvPaymentData () {
+async function getCsvPaymentData() {
   if (!cachedCsvData) {
     cachedCsvData = await getCsvPaymentDataFromDb()
   }
   return cachedCsvData
 }
 
-async function getCsvPaymentDataFromDb () {
+async function getCsvPaymentDataFromDb() {
   try {
     return PaymentDetailModel.findAll()
   } catch (error) {
@@ -92,25 +92,25 @@ async function getCsvPaymentDataFromDb () {
   }
 }
 
-async function getCsvPaymentDataOfPayee (payeeName, partPostcode) {
+async function getCsvPaymentDataOfPayee(payeeName, partPostcode) {
   const csvData = await getCsvPaymentData()
   return csvData.filter((item) => item.payee_name === payeeName && item.part_postcode === partPostcode)
 }
 
-const schemePaymentsModel = sequelize.define('payment_activity_data', {
+const schemePaymentsModel = sequelize.define('schema_payment_data', {
+  id: { type: DataTypes.INTEGER, primaryKey: true },
   financial_year: DataTypes.STRING(8),
   scheme: DataTypes.STRING(64),
-  amount: DataTypes.DOUBLE
+  total_amount: DataTypes.DOUBLE
 })
 
 const getSchemePaymentsByYear = async () => {
   try {
     const result = await schemePaymentsModel.findAll({
-      group: ['scheme', 'financial_year'],
       attributes: [
         'scheme',
         'financial_year',
-        [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
+        'total_amount'
       ],
       raw: true
     })
