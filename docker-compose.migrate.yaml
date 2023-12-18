@@ -17,7 +17,8 @@ services:
   database-up:
     image: liquibase/liquibase:3.10.x
     environment:
-      << : [*common-migration, *common-postgres]
+      << : *common-migration
+      << : *common-postgres
     entrypoint: >
       sh -c "/scripts/migration/database-up"
     depends_on:
@@ -29,7 +30,8 @@ services:
   database-down:
     image: liquibase/liquibase:3.10.x
     environment:
-      << : [*common-migration, *common-postgres]
+      << : *common-migration
+      << : *common-postgres
     entrypoint: >
       sh -c "/scripts/migration/database-down"
     depends_on:
