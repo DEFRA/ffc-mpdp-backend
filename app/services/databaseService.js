@@ -97,20 +97,20 @@ async function getCsvPaymentDataOfPayee (payeeName, partPostcode) {
   return csvData.filter((item) => item.payee_name === payeeName && item.part_postcode === partPostcode)
 }
 
-const schemePaymentsModel = sequelize.define('payment_activity_data', {
+const schemePaymentsModel = sequelize.define('aggregate_scheme_payments', {
+  id: { type: DataTypes.INTEGER, primaryKey: true },
   financial_year: DataTypes.STRING(8),
   scheme: DataTypes.STRING(64),
-  amount: DataTypes.DOUBLE
+  total_amount: DataTypes.DOUBLE
 })
 
 const getSchemePaymentsByYear = async () => {
   try {
     const result = await schemePaymentsModel.findAll({
-      group: ['scheme', 'financial_year'],
       attributes: [
         'scheme',
         'financial_year',
-        [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
+        'total_amount'
       ],
       raw: true
     })
