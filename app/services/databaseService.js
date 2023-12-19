@@ -59,7 +59,7 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
-async function getPaymentDetails(payeeName = '', partPostcode = '') {
+async function getPaymentDetails (payeeName = '', partPostcode = '') {
   if (payeeName === '' || partPostcode === '') throw new Error('Empty payeeName or  partPostcode')
   try {
     return PaymentDetailModel.findAll({
@@ -76,14 +76,14 @@ async function getPaymentDetails(payeeName = '', partPostcode = '') {
 
 // Cached CSV data
 let cachedCsvData = null
-async function getCsvPaymentData() {
+async function getCsvPaymentData () {
   if (!cachedCsvData) {
     cachedCsvData = await getCsvPaymentDataFromDb()
   }
   return cachedCsvData
 }
 
-async function getCsvPaymentDataFromDb() {
+async function getCsvPaymentDataFromDb () {
   try {
     return PaymentDetailModel.findAll()
   } catch (error) {
@@ -92,7 +92,7 @@ async function getCsvPaymentDataFromDb() {
   }
 }
 
-async function getCsvPaymentDataOfPayee(payeeName, partPostcode) {
+async function getCsvPaymentDataOfPayee (payeeName, partPostcode) {
   const csvData = await getCsvPaymentData()
   return csvData.filter((item) => item.payee_name === payeeName && item.part_postcode === partPostcode)
 }
