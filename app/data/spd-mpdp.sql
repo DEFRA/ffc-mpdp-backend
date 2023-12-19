@@ -1,7 +1,6 @@
+DROP table if exists public.aggregate_scheme_payments;
 
-DROP table if exists public.schema_payment_data;
-CREATE TABLE public.schema_payment_data
-(
+CREATE TABLE public.aggregate_scheme_payments (
   id SERIAL NOT NULL PRIMARY KEY,
   scheme character varying(64),
   total_amount numeric(16, 2),
@@ -9,4 +8,7 @@ CREATE TABLE public.schema_payment_data
 );
 
 -- select data
-select * from public.schema_payment_data;
+select
+  *
+from
+  public.aggregate_scheme_payments;
