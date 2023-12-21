@@ -1,5 +1,5 @@
 const { isProd } = require('./constants')
-const defaultExpiresIn = 300 * 1000 // 5 Minutes
+const defaultExpiresIn = 900 * 1000 // 15 Minutes
 
 module.exports = {
   segments: {
