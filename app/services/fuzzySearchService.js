@@ -3,7 +3,7 @@ const Fuse = require('fuse.js')
 const { getAllPaymentData } = require('../services/databaseService')
 const { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee } = require('../utils/search/filters')
 
-const config = require('../config/appConfig')
+const { search: { results } } = require('../config/appConfig')
 
 // search configuration
 const fuseSearchOptions = {
@@ -11,7 +11,7 @@ const fuseSearchOptions = {
   threshold: 0.3,
   ignoreLocation: true,
   useExtendedSearch: false,
-  keys: config.search.fieldsToSearch
+  keys: results.fieldsToSearch
 }
 
 const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy, action }) => {
@@ -43,7 +43,7 @@ const search = async (searchString) => {
 
 const getSortedResults = (records, sortBy) => {
   if (sortBy && sortBy !== 'score') {
-    if (config.search.fieldsToSearch.includes(sortBy)) {
+    if (results.fieldsToSearch.includes(sortBy)) {
       return records.sort((r1, r2) => r1[sortBy] > r2[sortBy] ? 1 : -1)
     }
   }
@@ -56,7 +56,7 @@ const getSearchSuggestions = async (searchString) => {
     count: searchResults.length,
     rows: searchResults
       .map(({ scheme, total_amount, financial_year, ...rest }) => rest) // eslint-disable-line camelcase
-      .slice(0, config.search.suggestionResultsLimit)
+      .slice(0, results.suggestionResultsLimit)
   }
 }
 

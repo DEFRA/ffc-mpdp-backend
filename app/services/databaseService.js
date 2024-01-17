@@ -31,9 +31,9 @@ const getAllPaymentData = async () => {
 const getAllPaymentDataFromDB = async () => {
   try {
     const result = await PaymentDataModel.findAll({
-      group: config.search.fieldsToExtract,
+      group: config.search.results.fieldsToExtract,
       attributes: [
-        ...config.search.fieldsToExtract,
+        ...config.search.results.fieldsToExtract,
         [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
       ],
       raw: true
@@ -63,6 +63,11 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   if (payeeName === '' || partPostcode === '') throw new Error('Empty payeeName or  partPostcode')
   try {
     return PaymentDetailModel.findAll({
+      group: config.search.details.fieldsToExtract,
+      attributes: [
+        ...config.search.details.fieldsToExtract,
+        [sequelize.fn('sum', sequelize.col('amount')), 'amount']
+      ],
       where: and(
         where(fn('btrim', col('payee_name')), payeeName),
         where(fn('btrim', col('part_postcode')), partPostcode)
