@@ -14,8 +14,15 @@ module.exports = {
     },
 
     handler: async (request, h) => {
+      let searchString = request.query.searchString
       try {
-        const records = await getSearchSuggestions(request.query.searchString)
+        searchString = decodeURIComponent(request.query.searchString)
+      } catch (err) {
+        console.log(`Error: ${err} deocoding ${searchString}`)
+      }
+
+      try {
+        const records = await getSearchSuggestions(searchString)
         return h.response(records).code(!records.rows.length ? 404 : 200)
       } catch (error) {
         return h.response('Error while reading data' + error).code(500)
