@@ -79,16 +79,16 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   }
 }
 
-// Cached CSV data
-let cachedCsvData = null
-async function getCsvPaymentData () {
-  if (!cachedCsvData) {
-    cachedCsvData = await getCsvPaymentDataFromDb()
+const getRawData = async () => {
+  let cachedData = await cache.get(config.cacheConfig.segments.rawData.name, 'rawData')
+  if (!cachedData || !Object.keys(cachedData).length) {
+    cachedData = await getRawDataFromDB()
+    await cache.set(config.cacheConfig.segments.rawData.name, 'rawData', cachedData)
   }
-  return cachedCsvData
+  return cachedData
 }
 
-async function getCsvPaymentDataFromDb () {
+const getRawDataFromDB = async () => {
   try {
     return PaymentDetailModel.findAll()
   } catch (error) {
@@ -97,9 +97,11 @@ async function getCsvPaymentDataFromDb () {
   }
 }
 
-async function getCsvPaymentDataOfPayee (payeeName, partPostcode) {
-  const csvData = await getCsvPaymentData()
-  return csvData.filter((item) => item.payee_name === payeeName && item.part_postcode === partPostcode)
+const getCsvPaymentDataOfPayee = async (payeeName, partPostcode) => {
+  const csvData = await getRawData()
+  return csvData.filter((item) =>
+    item.payee_name?.toLowerCase() === payeeName?.toLowerCase() &&
+    item.part_postcode?.toLowerCase() === partPostcode?.toLowerCase())
 }
 
 const schemePaymentsModel = sequelize.define('aggregate_scheme_payments', {
@@ -131,7 +133,7 @@ module.exports = {
   PaymentDataModel,
   getPaymentDetails,
   PaymentDetailModel,
-  getCsvPaymentData,
+  getRawData,
   getCsvPaymentDataOfPayee,
   schemePaymentsModel,
   getSchemePaymentsByYear

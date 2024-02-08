@@ -44,9 +44,13 @@ describe('paymentdata api call test', () => {
   })
 
   test('GET /searchsuggestion calls the search function with the payload data', async () => {
-    const searchString = '__search_string__'
     getSearchSuggestionsMock.mockReturnValue(mockdata)
+
+    const searchString = '__search_string_%$£!&*__'
+    const url = `/searchsuggestion?searchString=${encodeURIComponent(searchString)}`
+    const options = { method: 'GET', url }
     const response = await server.inject(options)
+
     expect(response.statusCode).toBe(200)
     expect(getSearchSuggestionsMock).toHaveBeenCalledWith(searchString)
   })

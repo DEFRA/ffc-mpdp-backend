@@ -6,6 +6,10 @@ module.exports = {
     paymentData: {
       name: 'paymentData',
       expiresIn: defaultExpiresIn
+    },
+    rawData: {
+      name: 'rawData',
+      expiresIn: defaultExpiresIn
     }
   },
   redisCatboxOptions: {
