@@ -18,7 +18,7 @@ module.exports = {
       'amount'
     ]
     try {
-      console.log(`Get all raw data`)
+      console.log('Get all raw data')
       const paymentData = await getRawData()
       console.log('Raw data acquired')
       const csvParser = new Parser({ fields })
