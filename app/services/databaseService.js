@@ -88,10 +88,10 @@ const getRawData = async () => {
     console.log(`Raw Data from db aquired, length: ${cachedData?.length}`)
     try {
       await cache.set(config.cacheConfig.segments.rawData.name, 'rawData', cachedData)
-    } catch(err) {
+    } catch (err) {
       console.log('Could not set cache.')
     }
-    
+
     console.log('Setting cache')
   }
   return cachedData
