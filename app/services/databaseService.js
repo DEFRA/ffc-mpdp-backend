@@ -40,7 +40,7 @@ const getAllPaymentDataFromDB = async () => {
     })
     return result
   } catch (error) {
-    console.error('Error occured while reading data : ' + error)
+    console.log('Error occured while reading data : ' + error)
     throw error
   }
 }
@@ -74,31 +74,38 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
       )
     })
   } catch (error) {
-    console.error('Error occured while reading data : ' + error)
+    console.log('Error occured while reading data : ' + error)
     throw error
   }
 }
 
 const getRawData = async () => {
+  console.log('Getting Cached data')
   let cachedData = await cache.get(config.cacheConfig.segments.rawData.name, 'rawData')
   if (!cachedData || !Object.keys(cachedData).length) {
+    console.log('No cached data found, getting raw data from DB')
     cachedData = await getRawDataFromDB()
+    console.log(`Raw Data from db aquired, length: ${cachedData?.length}`)
     await cache.set(config.cacheConfig.segments.rawData.name, 'rawData', cachedData)
+    console.log('Setting cache')
   }
   return cachedData
 }
 
 const getRawDataFromDB = async () => {
   try {
+    console.log('Calling PaymentDEtailsModel')
     return PaymentDetailModel.findAll()
   } catch (error) {
-    console.error('Error occured while reading data : ' + error)
-    throw error
+    console.log('Error occured while reading data : ' + error)
+    return []
   }
 }
 
 const getCsvPaymentDataOfPayee = async (payeeName, partPostcode) => {
+  console.log('Getting Raw Data')
   const csvData = await getRawData()
+  console.log('Raw Data acquired')
   return csvData.filter((item) =>
     item.payee_name?.toLowerCase() === payeeName?.toLowerCase() &&
     item.part_postcode?.toLowerCase() === partPostcode?.toLowerCase())
@@ -123,7 +130,7 @@ const getSchemePaymentsByYear = async () => {
     })
     return result
   } catch (error) {
-    console.error('Error occured while reading data : ' + error)
+    console.log('Error occured while reading data : ' + error)
     throw error
   }
 }
