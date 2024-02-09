@@ -79,21 +79,15 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   }
 }
 
-let cachedData = null
 const getRawData = async () => {
   console.log('Getting Cached data')
-  // let cachedData = await cache.get(config.cacheConfig.segments.rawData.name, 'rawData')
-  if (!cachedData || !cachedData?.length) {
+  let cachedData = await cache.get(config.cacheConfig.segments.rawData.name, 'rawData')
+  if (!cachedData || !Object.keys(cachedData).length) {
     console.log('No cached data found, getting raw data from DB')
     cachedData = await getRawDataFromDB()
     console.log(`Raw Data from db aquired, length: ${cachedData?.length}`)
-    // try {
-    //   await cache.set(config.cacheConfig.segments.rawData.name, 'rawData', cachedData)
-    // } catch (err) {
-    //   console.log('Could not set cache.')
-    // }
-
-    console.log('Setting cache')
+    // await cache.set(config.cacheConfig.segments.rawData.name, 'rawData', cachedData)
+    console.log('Returning raw data')
   }
   return cachedData
 }
