@@ -18,9 +18,13 @@ module.exports = {
   handler: async (request, res) => {
     const { payeeName, partPostcode } = request.query
     try {
+      console.log(`Downloading details for ${payeeName}`)
       const paymentData = await getCsvPaymentDataOfPayee(payeeName, partPostcode)
+      console.log(`Payment data acquired`)
       const csvParser = new Parser({ fields: config.csvFields })
+      console.log(`Parser created`)
       const csv = csvParser.parse(paymentData)
+      console.log('csv created, sending response back.')
       return res.response(csv)
         .type('text/csv')
         .header('Connection', 'keep-alive')

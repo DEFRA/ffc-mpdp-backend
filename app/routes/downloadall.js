@@ -18,9 +18,13 @@ module.exports = {
       'amount'
     ]
     try {
+      console.log(`Get all raw data`)
       const paymentData = await getRawData()
+      console.log('Raw data acquired')
       const csvParser = new Parser({ fields })
+      console.log('Parser created')
       const csv = csvParser.parse(paymentData)
+      console.log('csv created, sending back response.')
       return res.response(csv)
         .type('text/csv')
         .header('Connection', 'keep-alive')
