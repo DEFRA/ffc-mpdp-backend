@@ -83,7 +83,7 @@ let cachedData = null
 const getRawData = async () => {
   console.log('Getting Cached data')
   // let cachedData = await cache.get(config.cacheConfig.segments.rawData.name, 'rawData')
-  if (!cachedData) {
+  if (!cachedData || !cachedData?.length) {
     console.log('No cached data found, getting raw data from DB')
     cachedData = await getRawDataFromDB()
     console.log(`Raw Data from db aquired, length: ${cachedData?.length}`)
