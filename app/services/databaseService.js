@@ -86,7 +86,12 @@ const getRawData = async () => {
     console.log('No cached data found, getting raw data from DB')
     cachedData = await getRawDataFromDB()
     console.log(`Raw Data from db aquired, length: ${cachedData?.length}`)
-    // await cache.set(config.cacheConfig.segments.rawData.name, 'rawData', cachedData)
+    try {
+      await cache.set(config.cacheConfig.segments.rawData.name, 'rawData', cachedData)
+    } catch(err) {
+      console.log('Could not set cache.')
+    }
+    
     console.log('Setting cache')
   }
   return cachedData
