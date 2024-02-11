@@ -2,7 +2,7 @@ const { Sequelize, DataTypes, where, fn, col, and } = require('sequelize')
 const config = require('../config/appConfig')
 const dbConfigAllEnv = require('../config/databaseConfig')
 const dbConfig = dbConfigAllEnv[config.env]
-const cache = require('../cache')
+// const cache = require('../cache')
 
 const sequelize = new Sequelize(
   dbConfig
@@ -16,7 +16,7 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
-let cachedPaymentData = null;
+let cachedPaymentData = null
 const getAllPaymentData = async () => {
   // let cachedData = await cache.get(config.cacheConfig.segments.paymentData.name, 'allPaymentData')
 
@@ -87,7 +87,7 @@ const getRawData = async () => {
   if (!cachedRawData || !cachedRawData?.length) {
     console.log('No cached data found, getting raw data from DB')
     cachedRawData = await getRawDataFromDB()
-    console.log(`Raw Data from db aquired, length: ${cachedData?.length}`)
+    console.log(`Raw Data from db aquired, length: ${cachedRawData?.length}`)
     // await cache.set(config.cacheConfig.segments.rawData.name, 'rawData', cachedData)
     console.log('Returning raw data')
   }
