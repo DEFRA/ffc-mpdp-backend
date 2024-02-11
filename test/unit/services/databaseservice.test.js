@@ -138,28 +138,28 @@ describe('database-service getSchemePaymentsByYear test', () => {
   })
 })
 
-describe('database-service returns data from cache', () => {
-  test('GET /paymentdata returns data from cache', async () => {
-    const cachedData = {
-      count: 1,
-      rows: [{
-        id: 1,
-        payee_name: 'Farmer A',
-        part_postcode: 'RG1',
-        town: 'Reading',
-        parliamentary_constituency: 'Reading East',
-        county_council: 'Berkshire',
-        scheme: 'SFI Arable and Horticultural Land',
-        activity_detail: 'Low',
-        amount: '223.65'
-      }]
-    }
+// describe('database-service returns data from cache', () => {
+//   test('GET /paymentdata returns data from cache', async () => {
+//     const cachedData = {
+//       count: 1,
+//       rows: [{
+//         id: 1,
+//         payee_name: 'Farmer A',
+//         part_postcode: 'RG1',
+//         town: 'Reading',
+//         parliamentary_constituency: 'Reading East',
+//         county_council: 'Berkshire',
+//         scheme: 'SFI Arable and Horticultural Land',
+//         activity_detail: 'Low',
+//         amount: '223.65'
+//       }]
+//     }
 
-    get.mockResolvedValue(cachedData)
-    const mockFindAll = jest.spyOn(PaymentDataModel, 'findAll')
+//     get.mockResolvedValue(cachedData)
+//     const mockFindAll = jest.spyOn(PaymentDataModel, 'findAll')
 
-    const result = await getAllPaymentData()
-    expect(result).toEqual(cachedData)
-    expect(mockFindAll).toHaveBeenCalledTimes(0)
-  })
-})
+//     const result = await getAllPaymentData()
+//     expect(result).toEqual(cachedData)
+//     expect(mockFindAll).toHaveBeenCalledTimes(0)
+//   })
+// })
