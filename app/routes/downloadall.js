@@ -20,7 +20,7 @@ module.exports = {
     try {
       console.log('Get all raw data')
       const paymentData = await getRawData()
-      console.log('Raw data acquired')
+      console.log(`Raw data acquired: ${Object.keys(paymentData).length}`)
       const csvParser = new Parser({ fields })
       console.log('Parser created')
       const csv = csvParser.parse(paymentData)

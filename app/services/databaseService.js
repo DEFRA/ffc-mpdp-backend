@@ -20,7 +20,7 @@ let cachedPaymentData = null
 const getAllPaymentData = async () => {
   // let cachedData = await cache.get(config.cacheConfig.segments.paymentData.name, 'allPaymentData')
 
-  if (!cachedPaymentData || !cachedPaymentData?.length) {
+  if (!cachedPaymentData || !Object.keys(cachedPaymentData).length) {
     cachedPaymentData = await getAllPaymentDataFromDB()
     // await cache.set(config.cacheConfig.segments.paymentData.name, 'allPaymentData', cachedData)
   }
@@ -80,18 +80,18 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   }
 }
 
-let cachedRawData = []
+let cachedRawData = null
 const getRawData = async () => {
   console.log('Getting Cached data')
   // let cachedData = await cache.get(config.cacheConfig.segments.rawData.name, 'rawData')
-  if (!cachedRawData || !cachedRawData?.length) {
-    console.log('No cached data found, getting raw data from DB')
+  if (!cachedRawData || !Object.keys(cachedRawData).length) {
+    console.log(`No cached data found, getting raw data from DB: ${cachedRawData}`)
     cachedRawData = await getRawDataFromDB()
     console.log(`Raw Data from db aquired, length: ${cachedRawData?.length}`)
     // await cache.set(config.cacheConfig.segments.rawData.name, 'rawData', cachedData)
     console.log('Returning raw data')
   }
-  return cachedRawData
+  return cachedRawData || {}
 }
 
 const getRawDataFromDB = async () => {
@@ -100,7 +100,7 @@ const getRawDataFromDB = async () => {
     return PaymentDetailModel.findAll()
   } catch (error) {
     console.log('Error occured while reading data : ' + error)
-    return []
+    return null
   }
 }
 
