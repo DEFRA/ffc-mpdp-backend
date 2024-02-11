@@ -16,15 +16,16 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
+let cachedPaymentData = null;
 const getAllPaymentData = async () => {
-  let cachedData = await cache.get(config.cacheConfig.segments.paymentData.name, 'allPaymentData')
+  // let cachedData = await cache.get(config.cacheConfig.segments.paymentData.name, 'allPaymentData')
 
-  if (!cachedData || !Object.keys(cachedData).length) {
-    cachedData = await getAllPaymentDataFromDB()
-    await cache.set(config.cacheConfig.segments.paymentData.name, 'allPaymentData', cachedData)
+  if (!cachedPaymentData || !cachedPaymentData?.length) {
+    cachedPaymentData = await getAllPaymentDataFromDB()
+    // await cache.set(config.cacheConfig.segments.paymentData.name, 'allPaymentData', cachedData)
   }
 
-  return cachedData
+  return cachedPaymentData
 }
 
 // Collect all DB results
@@ -79,17 +80,18 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   }
 }
 
+let cachedRawData = []
 const getRawData = async () => {
   console.log('Getting Cached data')
-  let cachedData = await cache.get(config.cacheConfig.segments.rawData.name, 'rawData')
-  if (!cachedData || !Object.keys(cachedData).length) {
+  // let cachedData = await cache.get(config.cacheConfig.segments.rawData.name, 'rawData')
+  if (!cachedRawData || !cachedRawData?.length) {
     console.log('No cached data found, getting raw data from DB')
-    cachedData = await getRawDataFromDB()
+    cachedRawData = await getRawDataFromDB()
     console.log(`Raw Data from db aquired, length: ${cachedData?.length}`)
     // await cache.set(config.cacheConfig.segments.rawData.name, 'rawData', cachedData)
     console.log('Returning raw data')
   }
-  return cachedData
+  return cachedRawData
 }
 
 const getRawDataFromDB = async () => {
