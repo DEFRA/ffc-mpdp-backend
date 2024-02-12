@@ -19,15 +19,19 @@ containerSecret:
 deployment:
   restartPolicy: Always
   priorityClassName: default
-  replicas: 1
+  replicas: 3
+  minReplicas: 1
+  maxReplicas: 3
+  cpuThreshold: 80
+  memoryThreshold: 80
   minReadySeconds: 0
 
 container:
   imagePullPolicy: IfNotPresent
   requestMemory: 100Mi
   requestCpu: 100m
-  limitMemory: 120Mi
-  limitCpu: 120m
+  limitMemory: 250Mi
+  limitCpu: 250m
   port: 3000
   redisHostname: redis-redis-ha.default
   redisPassword: redis
