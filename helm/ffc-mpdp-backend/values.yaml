@@ -19,17 +19,17 @@ containerSecret:
 deployment:
   restartPolicy: Always
   priorityClassName: default
-  replicas: 4
+  replicas: 3
   minReplicas: 1
-  maxReplicas: 4
+  maxReplicas: 3
   cpuThreshold: 80
   memoryThreshold: 80
   minReadySeconds: 0
 
 container:
   imagePullPolicy: IfNotPresent
-  requestMemory: 250Mi
-  requestCpu: 250m
+  requestMemory: 100Mi
+  requestCpu: 100m
   limitMemory: 250Mi
   limitCpu: 250m
   port: 3000
