@@ -10,6 +10,10 @@ module.exports = {
     rawData: {
       name: 'rawData',
       expiresIn: defaultExpiresIn
+    },
+    csvData: {
+      name: 'csvData',
+      expiresIn: defaultExpiresIn
     }
   },
   redisCatboxOptions: {
