@@ -6,7 +6,7 @@ version: '3.8'
 services:
   ffc-mpdp-backend:
     depends_on: 
-      - redis
+      - ffc-mpdp-backend-redis
     build:
       target: development
     image: ffc-mpdp-backend-development
