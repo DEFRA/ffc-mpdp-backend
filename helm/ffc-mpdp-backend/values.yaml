@@ -30,7 +30,7 @@ container:
   imagePullPolicy: IfNotPresent
   requestMemory: 100Mi
   requestCpu: 100m
-  limitMemory: 250Mi
+  limitMemory: 500Mi
   limitCpu: 250m
   port: 3000
   redisHostname: redis-redis-ha.default
