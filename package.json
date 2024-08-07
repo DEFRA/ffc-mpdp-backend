@@ -1,6 +1,6 @@
 {
   "name": "ffc-mpdp-backend",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Backend for making payment data public",
   "homepage": "https://github.com/DEFRA/ffc-mpdp-backend",
   "main": "app/index.js",
@@ -18,32 +18,32 @@
   "contributors": [],
   "license": "OGL-UK-3.0",
   "dependencies": {
-    "@azure/identity": "3.2.3",
-    "@hapi/hapi": "^20.2.2",
-    "@hapi/inert": "^7.0.0",
-    "@hapi/catbox-redis": "^6.0.2",
-    "@hapi/yar": "^10.1.1",
-    "@hapi/hoek": "^9.2.0",
-    "applicationinsights": "^2.5.1",
-    "fuse.js": "^6.6.2",
-    "hapi-pino": "^11.0.1",
-    "json2csv": "^5.0.7",
-    "pg": "^8.11.1",
-    "pg-hstore": "2.3.4",
-    "sequelize": "7.0.0-alpha.9",
-    "joi": "^17.9.2",
+    "@azure/identity": "4.4.1",
+    "@hapi/catbox-redis": "6.0.2",
+    "@hapi/hapi": "20.2.2",
+    "@hapi/hoek": "9.2.0",
+    "@hapi/inert": "7.0.0",
+    "@hapi/yar": "10.1.1",
+    "applicationinsights": "2.5.1",
+    "fuse.js": "6.6.2",
+    "hapi-pino": "11.0.1",
+    "joi": "17.9.2",
+    "json2csv": "5.0.7",
     "node-fetch": "2.6.12",
-    "redis": "^4.0.0-rc.1"
+    "pg": "8.11.1",
+    "pg-hstore": "2.3.4",
+    "redis": "4.0.0-rc.1",
+    "sequelize": "7.0.0-alpha.9"
   },
   "devDependencies": {
-    "jest": "^27.5.1",
-    "jest-junit": "^13.0.0",
-    "nodemon": "^2.0.20",
-    "standard": "^16.0.4",
-    "@types/node-fetch": "^2.6.3"
+    "@types/node-fetch": "2.6.3",
+    "jest": "27.5.1",
+    "jest-junit": "13.0.0",
+    "nodemon": "2.0.20",
+    "standard": "16.0.4"
   },
   "overrides": {
-    "semver": "^7.5.3"
+    "semver": "7.5.3"
   },
   "standard": {
     "globals": [

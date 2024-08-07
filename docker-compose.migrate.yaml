@@ -1,4 +1,4 @@
-version: '3.8'
+
 
 x-common-migration: &common-migration
   POSTGRES_HOST: ${POSTGRES_HOST:-ffc-mpdp-backend-postgres}
