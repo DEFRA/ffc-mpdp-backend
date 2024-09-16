@@ -54,7 +54,7 @@ docker-compose -f docker-compose.yaml -f docker-compose.override.yaml -f docker-
 The tests have been structured into subfolders of `./test` as per the
 [Microservice test approach and repository structure](https://eaflood.atlassian.net/wiki/spaces/FPS/pages/1845396477/Microservice+test+approach+and+repository+structure)
 
-### Running tests
+### Running Unit tests
 
 A convenience script is provided to run automated tests in a containerised
 environment. This will rebuild images before running tests via docker-compose,
@@ -71,6 +71,11 @@ scripts/test
 # Run tests with file watch
 scripts/test -w
 ```
+### Running Acceptance tests
+
+The acceptance tests are in the test/acceptance folder and are run using the docker containers and this gets run automatically in Jenkins CI. To run the acceptance tests locally, run the command below from the acceptance tests folder:
+
+`docker-compose up --build --abort-on-container-exit`
 
 ## CI pipeline
 
