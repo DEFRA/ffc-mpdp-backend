@@ -30,6 +30,6 @@ module.exports = {
     ]
   ],
   testEnvironment: 'node',
-  testPathIgnorePatterns: ['test/acceptance'],
+  testPathIgnorePatterns: [],
   verbose: true
 }

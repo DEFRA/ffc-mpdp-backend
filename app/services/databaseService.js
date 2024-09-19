@@ -134,7 +134,6 @@ module.exports = {
   getPaymentDetails,
   PaymentDetailModel,
   getRawData,
-  getRawDataFromDB,
   getCsvPaymentDataOfPayee,
   schemePaymentsModel,
   getSchemePaymentsByYear
