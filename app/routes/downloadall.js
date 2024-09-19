@@ -1,5 +1,5 @@
 const { Parser } = require('json2csv')
-const { getRawDataFromDB } = require('../services/databaseService')
+const { getRawData } = require('../services/databaseService')
 
 module.exports = {
   method: 'GET',
@@ -18,7 +18,7 @@ module.exports = {
       'amount'
     ]
     try {
-      const paymentData = await getRawDataFromDB()
+      const paymentData = await getRawData()
       const csvParser = new Parser({ fields })
       const csv = csvParser.parse(paymentData)
       return res.response(csv)
