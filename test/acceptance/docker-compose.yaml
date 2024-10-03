@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+
+  ffc-mpdp-backend:
+    build:
+      context: https://github.com/DEFRA/ffc-mpdp-backend.git
+    depends_on:
+      - ffc-mpdp-backend-postgres
+      - ffc-mpdp-backend-redis
+    environment:
+      NODE_ENV: development
+      APPINSIGHTS_CLOUDROLE: ffc-mpdp-backend-local
+      APPINSIGHTS_INSTRUMENTATIONKEY: ${APPINSIGHTS_INSTRUMENTATIONKEY}
+      REDIS_HOSTNAME: ffc-mpdp-backend-redis
+      REDIS_PORT: 6379
+      HOST: "0.0.0.0"
+      PORT: "3000"
+    ports:
+      - "3000:3000"
+      - "9229:9229"   
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/healthy || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    expose:
+      - "3000"
+    networks:
+      - ffc-mpdp
+  
+  ffc-mpdp-backend-postgres:
+    image: postgres:11.4-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRES_DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_DB_PASSWORD:-ppp}
+      - POSTGRES_USERNAME=${POSTGRES_DB_USER:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-ffc_mpdp_backend}
+      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ffc-mpdp
+  
+  ffc-mpdp-backend-redis:
+    image: redis:4.0.14
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - ffc-mpdp
+
+  acceptance-tests:
+    build:
+      context: ../../
+      dockerfile: test/acceptance/Dockerfile
+    environment:
+      - BASE_URL=http://ffc-mpdp-backend:3000
+    depends_on:
+      - ffc-mpdp-backend
+    volumes:
+      - ../..:/app
+      - /app/node_modules
+    networks:
+      - ffc-mpdp
+
+networks:
+  ffc-mpdp:
+
+volumes:
+  postgres_data: {}
+  redis_data:

@@ -4,7 +4,8 @@ namespace: ffc-mpdp
 workstream: ffc-mpdp
 image: ffc-mpdp-backend
 
-labels: {}
+labels:
+  component: service
 
 appInsights:
   key:
@@ -64,3 +65,8 @@ postgresService:
   postgresPort: 5432
   postgresSchema: public
   postgresUser: postgres
+
+ingress:
+  class: nginx
+  endpoint: ffc-mpdp-backend
+  server: example.com
