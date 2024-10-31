@@ -52,7 +52,7 @@ readinessProbe:
   periodSeconds: 10
   failureThreshold: 3
 
-aadPodIdentity: true
+workloadIdentity: true
 
 azureIdentity:
   clientID: not-a-real-clientID
