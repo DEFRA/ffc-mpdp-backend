@@ -7,7 +7,7 @@ services:
     container_name: ffc-mpdp-backend
     environment:
       APPINSIGHTS_CLOUDROLE: ffc-mpdp-backend-local
-      APPINSIGHTS_INSTRUMENTATIONKEY: ${APPINSIGHTS_INSTRUMENTATIONKEY}
+      APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
       REDIS_HOSTNAME: ffc-mpdp-backend-redis
     depends_on: 
       ffc-mpdp-backend-redis:
