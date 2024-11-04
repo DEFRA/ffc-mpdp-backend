@@ -1,12 +1,5 @@
-
-
-# This override file should be used when running this service in isolation
-# to provide dependencies and expose ports for local testing
-
 services:
   ffc-mpdp-backend:
-    depends_on: 
-      - ffc-mpdp-backend-redis
     build:
       target: development
     image: ffc-mpdp-backend-development
@@ -17,19 +10,30 @@ services:
     volumes:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
+    networks:
+      - ffc-mpdp
 
   ffc-mpdp-backend-postgres:
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ffc-mpdp
 
   ffc-mpdp-backend-redis:
     volumes:
       - redis_data:/data
     ports:
       - "6380:6379"
+    networks:
+      - ffc-mpdp
 
 volumes:
   postgres_data:
   redis_data:
+
+networks:
+  ffc-mpdp:
+    driver: bridge
+    name: ffc-mpdp

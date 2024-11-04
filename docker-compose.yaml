@@ -1,5 +1,3 @@
-
-
 services:
   ffc-mpdp-backend:
     build:
@@ -7,23 +5,30 @@ services:
       target: production
     image: ffc-mpdp-backend
     container_name: ffc-mpdp-backend
-    depends_on:
-      - ffc-mpdp-backend-postgres
-      - ffc-mpdp-backend-redis
     environment:
       APPINSIGHTS_CLOUDROLE: ffc-mpdp-backend-local
       APPINSIGHTS_INSTRUMENTATIONKEY: ${APPINSIGHTS_INSTRUMENTATIONKEY}
       REDIS_HOSTNAME: ffc-mpdp-backend-redis
+    depends_on: 
+      ffc-mpdp-backend-redis:
+      ffc-mpdp-backend-postgres:
+        condition: service_healthy
+
   ffc-mpdp-backend-postgres:
     image: postgres:11.4-alpine
     restart: always
     environment:
-      - POSTGRES_USER=${POSTGRES_DB_USER:-postgres}
-      - POSTGRES_PASSWORD=${POSTGRES_DB_PASSWORD:-ppp}
-      - POSTGRES_USERNAME=${POSTGRES_DB_USER:-postgres}
-      - POSTGRES_DB=${POSTGRES_DB:-ffc_mpdp_backend}
-      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
+      POSTGRES_USERNAME: ${POSTGRES_DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_DB_PASSWORD:-ppp}
+      POSTGRES_DB: ${POSTGRES_DB:-ffc_mpdp_backend}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
     ports:
-      - '5432:5432'
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   ffc-mpdp-backend-redis:
     image: redis:4.0.14
