@@ -1,5 +1,3 @@
-
-
 x-common-migration: &common-migration
   POSTGRES_HOST: ${POSTGRES_HOST:-ffc-mpdp-backend-postgres}
   SCHEMA_ROLE: ${POSTGRES_SCHEMA_ROLE:-postgres}

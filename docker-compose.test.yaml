@@ -1,6 +1,3 @@
-# This override file should be used when running automated tests so
-# that test output is saved to the host
-
 services:
   ffc-mpdp-backend:
     build:
