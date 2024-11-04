@@ -25,14 +25,14 @@ const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy, a
     return { count: 0, rows: [], filterOptions: getFilterOptions(searchResults) }
   }
 
-  let results = getSortedResults(filteredResults, sortBy)
+  let sortedResults = getSortedResults(filteredResults, sortBy)
   if (action !== 'download') {
-    results = results.slice(offset, parseInt(offset) + parseInt(limit))
+    sortedResults = sortedResults.slice(offset, parseInt(offset) + parseInt(limit))
   }
 
   return {
     count: filteredResults.length,
-    rows: results,
+    rows: sortedResults,
     filterOptions: getFilterOptions(searchResults)
   }
 }
@@ -44,11 +44,10 @@ const search = async (searchString) => {
 }
 
 const getSortedResults = (records, sortBy) => {
-  if (sortBy && sortBy !== 'score') {
-    if (results.fieldsToSearch.includes(sortBy)) {
-      return records.sort((r1, r2) => r1[sortBy] > r2[sortBy] ? 1 : -1)
-    }
+  if (sortBy && sortBy !== 'score' && results.fieldsToSearch.includes(sortBy)) {
+    return records.sort((r1, r2) => r1[sortBy] > r2[sortBy] ? 1 : -1)
   }
+
   return records
 }
 
