@@ -1,10 +1,10 @@
-const { getPaymentData, getSearchSuggestions } = require('../../../app/services/fuzzySearchService')
-const { PaymentDataModel } = require('../../../app/services/databaseService')
-const paymentestdata = require('../../data/paymentestdata.json')
+const { getPaymentData, getSearchSuggestions } = require('../../../app/services/fuzzy-search')
+const { PaymentDataModel } = require('../../../app/services/database')
+const paymentestdata = require('../../data/payment-test-data.json')
 const { isAscending, isInRange } = require('../../utils/helpers')
 
 jest.mock('../../../app/cache/')
-const { get } = require('../../../app/cache/')
+const { get } = require('../../../app/cache')
 
 beforeAll(() => {
   jest.resetAllMocks()

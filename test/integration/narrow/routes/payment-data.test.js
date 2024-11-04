@@ -3,7 +3,7 @@ let server
 
 beforeEach(async () => {
   server = await createServer()
-  await server.start()
+  await server.initialize()
 })
 
 afterEach(async () => {
@@ -12,8 +12,8 @@ afterEach(async () => {
 })
 
 describe('paymentdata api call test', () => {
-  jest.mock('../../../../app/services/fuzzySearchService')
-  const { getPaymentData } = require('../../../../app/services/fuzzySearchService')
+  jest.mock('../../../../app/services/fuzzy-search')
+  const { getPaymentData } = require('../../../../app/services/fuzzy-search')
 
   // const getPaymentDataMock = jest.spyOn(service, 'getPaymentData')
 
@@ -39,7 +39,7 @@ describe('paymentdata api call test', () => {
   })
 
   test('paymentdata api test to be defined', () => {
-    const paymentdata = require('../../../../app/routes/paymentdata')
+    const paymentdata = require('../../../../app/routes/payment-data')
     expect(paymentdata).toBeDefined()
     expect(paymentdata.options.handler).toBeDefined()
   })

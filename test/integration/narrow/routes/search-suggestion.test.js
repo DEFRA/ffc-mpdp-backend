@@ -1,4 +1,4 @@
-const service = require('../../../../app/services/fuzzySearchService')
+const service = require('../../../../app/services/fuzzy-search')
 const getSearchSuggestionsMock = jest.spyOn(service, 'getSearchSuggestions')
 
 const createServer = require('../../../../app/server')
@@ -6,7 +6,7 @@ let server
 
 beforeEach(async () => {
   server = await createServer()
-  await server.start()
+  await server.initialize()
 })
 
 afterEach(async () => {
@@ -32,7 +32,7 @@ const mockdata = {
 
 describe('paymentdata api call test', () => {
   test('searchsuggestion api to be defined', () => {
-    const searchsuggestion = require('../../../../app/routes/searchsuggestion')
+    const searchsuggestion = require('../../../../app/routes/search-suggestion')
     expect(searchsuggestion).toBeDefined()
     expect(searchsuggestion.options.handler).toBeDefined()
   })
@@ -71,7 +71,7 @@ describe('paymentdata api call test', () => {
 
 describe('searchsuggestion api call test DB error', () => {
   test('GET /searchsuggestion error in DB', async () => {
-    const { PaymentDataModel } = require('../../../../app/services/databaseService')
+    const { PaymentDataModel } = require('../../../../app/services/database')
     const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
     mockDb.mockRejectedValue(new Error('DB Error'))
     const response = await server.inject(options)

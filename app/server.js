@@ -1,6 +1,6 @@
 require('./insights').setup()
 const Hapi = require('@hapi/hapi')
-const config = require('./config/appConfig')
+const config = require('./config/app')
 const catbox = config.useRedis ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')
 const catboxOptions = config.useRedis ? config.cacheConfig.redisCatboxOptions : {}
 const cache = require('./cache')
@@ -42,13 +42,13 @@ async function createServer () {
   const routes = [].concat(
     require('./routes/healthy'),
     require('./routes/healthz'),
-    require('./routes/downloadall'),
-    require('./routes/paymentdata'),
-    require('./routes/paymentdetail'),
-    require('./routes/searchsuggestion'),
-    require('./routes/downloaddetails'),
-    require('./routes/schemePaymentsByYear'),
-    require('./routes/downloadPaymentsByYearSummary')
+    require('./routes/download-all'),
+    require('./routes/payment-data'),
+    require('./routes/payment-detail'),
+    require('./routes/search-suggestion'),
+    require('./routes/download-details'),
+    require('./routes/scheme-payments-by-year'),
+    require('./routes/download-payments-by-year-summary')
   )
   server.route(routes)
 

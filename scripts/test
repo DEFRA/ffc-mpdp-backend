@@ -51,6 +51,9 @@ compose() {
 (
   cd "${projectRoot}"
 
+  # Create test directory
+  mkdir -p test-output
+
   # Guarantee clean environment
   compose down -v
 

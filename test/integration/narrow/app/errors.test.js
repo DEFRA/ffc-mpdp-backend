@@ -4,7 +4,7 @@ describe('errors plugin test', () => {
 
   beforeEach(async () => {
     server = await createServer()
-    await server.start()
+    await server.initialize()
   })
 
   afterEach(async () => {
