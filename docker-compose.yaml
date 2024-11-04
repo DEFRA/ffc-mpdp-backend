@@ -11,6 +11,7 @@ services:
       REDIS_HOSTNAME: ffc-mpdp-backend-redis
     depends_on: 
       ffc-mpdp-backend-redis:
+        condition: service_started
       ffc-mpdp-backend-postgres:
         condition: service_healthy
 
