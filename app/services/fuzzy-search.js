@@ -15,7 +15,9 @@ const fuseSearchOptions = {
 }
 
 const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy, action }) => {
-  if (!searchString) throw new Error('Empty search content')
+  if (!searchString) {
+    throw new Error('Empty search content')
+  }
 
   const searchResults = await search(searchString)
   const filteredResults = applyFiltersAndGroupByPayee(searchResults, filterBy)

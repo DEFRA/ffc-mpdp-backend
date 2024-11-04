@@ -40,7 +40,7 @@ const getAllPaymentDataFromDB = async () => {
     })
     return result
   } catch (error) {
-    console.error('Error occured while reading data : ' + error)
+    console.error('Error occurred while reading data:', error)
     throw error
   }
 }
@@ -60,7 +60,9 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
 })
 
 async function getPaymentDetails (payeeName = '', partPostcode = '') {
-  if (payeeName === '' || partPostcode === '') throw new Error('Empty payeeName or  partPostcode')
+  if (payeeName === '' || partPostcode === '') {
+    throw new Error('Empty payeeName or  partPostcode')
+  }
   try {
     return PaymentDetailModel.findAll({
       group: config.search.details.fieldsToExtract,
@@ -74,7 +76,7 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
       )
     })
   } catch (error) {
-    console.error('Error occured while reading data : ' + error)
+    console.error('Error occurred while reading data:', error)
     throw error
   }
 }
@@ -90,9 +92,9 @@ const getRawData = async () => {
 
 const getRawDataFromDB = async () => {
   try {
-    return PaymentDetailModel.findAll()
+    return await PaymentDetailModel.findAll()
   } catch (error) {
-    console.error('Error occured while reading data : ' + error)
+    console.error('Error occurred while reading data:', error)
     throw error
   }
 }
@@ -123,7 +125,7 @@ const getSchemePaymentsByYear = async () => {
     })
     return result
   } catch (error) {
-    console.error('Error occured while reading data : ' + error)
+    console.error('Error occurred while reading data:', error)
     throw error
   }
 }
