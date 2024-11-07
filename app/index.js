@@ -4,4 +4,5 @@ async function startServer () {
   const server = await createServer()
   server.start()
 }
+
 startServer()

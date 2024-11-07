@@ -1,5 +1,5 @@
 const { Parser } = require('json2csv')
-const { getSchemePaymentsByYear } = require('../services/databaseService')
+const { getSchemePaymentsByYear } = require('../services/database')
 
 module.exports = {
   method: 'GET',

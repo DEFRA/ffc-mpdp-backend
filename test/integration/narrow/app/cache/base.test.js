@@ -20,7 +20,7 @@ jest.mock('../../../../../app/config/cache', () => ({
 
 beforeAll(async () => {
   server = await createServer()
-  await server.start()
+  await server.initialize()
 })
 
 afterAll(async () => {

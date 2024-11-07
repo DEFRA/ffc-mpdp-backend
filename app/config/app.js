@@ -1,4 +1,4 @@
-const databaseConfig = require('./databaseConfig')
+const databaseConfig = require('./database')
 const { environments, isDev, isTest, isProd } = require('./constants')
 const cacheConfig = require('./cache')
 const allPaymentDataFields = [

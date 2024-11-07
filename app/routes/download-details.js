@@ -1,7 +1,7 @@
 const { Parser } = require('json2csv')
-const { getCsvPaymentDataOfPayee } = require('../services/databaseService')
+const { getCsvPaymentDataOfPayee } = require('../services/database')
 const Joi = require('joi')
-const config = require('../config/appConfig')
+const config = require('../config/app')
 
 module.exports = {
   method: 'GET',

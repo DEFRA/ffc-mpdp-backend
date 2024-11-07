@@ -4,7 +4,7 @@ describe('Healthz test', () => {
 
   beforeEach(async () => {
     server = await createServer()
-    await server.start()
+    await server.initialize()
   })
 
   test('GET /healthz route returns 200', async () => {

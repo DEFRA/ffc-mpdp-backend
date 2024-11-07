@@ -1,5 +1,5 @@
-const csvPaymentsByYearSummaryTestData = require('./csvPaymentsByYearSummaryTestData.json')
-const { schemePaymentsModel } = require('../../../../app/services/databaseService')
+const csvPaymentsByYearSummaryTestData = require('./csv-payments-by-year-summary-test-data.json')
+const { schemePaymentsModel } = require('../../../../app/services/database')
 
 describe('downloadPaymentsByYearSummary test', () => {
   const createServer = require('../../../../app/server')
@@ -7,7 +7,7 @@ describe('downloadPaymentsByYearSummary test', () => {
 
   beforeEach(async () => {
     server = await createServer()
-    await server.start()
+    await server.initialize()
   })
 
   // Test to check that the response is a csv file

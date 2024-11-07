@@ -1,6 +1,6 @@
 const Joi = require('joi')
 
-const { getPaymentData } = require('../services/fuzzySearchService')
+const { getPaymentData } = require('../services/fuzzy-search')
 
 module.exports = {
   method: 'POST',

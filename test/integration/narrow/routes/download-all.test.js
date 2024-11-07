@@ -1,28 +1,23 @@
-const csvpaymentestdata = require('./csvpaymentestdata.json')
-const { PaymentDetailModel } = require('../../../../app/services/databaseService')
+const csvpaymentestdata = require('./csv-payment-test-data.json')
+const { PaymentDetailModel } = require('../../../../app/services/database')
 
-describe('downloaddetails test', () => {
+describe('downloadall test', () => {
   const createServer = require('../../../../app/server')
   let server
 
   beforeEach(async () => {
     server = await createServer()
-    await server.start()
+    await server.initialize()
   })
 
-  afterEach(async () => {
-    jest.clearAllMocks()
-    await server.stop()
-  })
-
-  const mockDb = jest.spyOn(PaymentDetailModel, 'findAll')
-  mockDb.mockResolvedValue(csvpaymentestdata)
-
-  test('GET /downloaddetails route returns csv file', async () => {
+  // Test to check that the response is a csv file
+  test('GET /downloadall route returns csv file', async () => {
     const options = {
       method: 'GET',
-      url: '/downloaddetails?payeeName=Stacy Schneider&partPostcode=TN39'
+      url: '/downloadall'
     }
+    const mockDb = jest.spyOn(PaymentDetailModel, 'findAll')
+    mockDb.mockResolvedValue(csvpaymentestdata)
     const response = await server.inject(options)
 
     expect(response.statusCode).toBe(200)
@@ -33,19 +28,8 @@ describe('downloaddetails test', () => {
     expect(response.result).toContain('"21/22","Stacy Schneider","TN39","Bexhill-on-Sea","East Sussex","Bexhill and Battle","Sustainable Farming Incentive Pilot","Arable and Horticultural Land",3492')
   })
 
-  test('GET /downloaddetails route returns 400 when parameters missing', async () => {
-    const options = {
-      method: 'GET',
-      url: '/downloaddetails?payeeName=Stacy Schneider'
-    }
-    const response = await server.inject(options)
-    expect(response.statusCode).toBe(400)
-
-    const option2 = {
-      method: 'GET',
-      url: '/downloaddetails'
-    }
-    const response2 = await server.inject(option2)
-    expect(response2.statusCode).toBe(400)
+  afterEach(async () => {
+    jest.clearAllMocks()
+    await server.stop()
   })
 })

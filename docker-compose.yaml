@@ -7,7 +7,7 @@ services:
     container_name: ffc-mpdp-backend
     environment:
       APPINSIGHTS_CLOUDROLE: ffc-mpdp-backend-local
-      APPINSIGHTS_INSTRUMENTATIONKEY: ${APPINSIGHTS_INSTRUMENTATIONKEY}
+      APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
       REDIS_HOSTNAME: ffc-mpdp-backend-redis
     depends_on: 
       ffc-mpdp-backend-redis:
@@ -23,8 +23,6 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_DB_PASSWORD:-ppp}
       POSTGRES_DB: ${POSTGRES_DB:-ffc_mpdp_backend}
       POSTGRES_PORT: ${POSTGRES_PORT:-5432}
-    ports:
-      - "5432:5432"
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 10s
