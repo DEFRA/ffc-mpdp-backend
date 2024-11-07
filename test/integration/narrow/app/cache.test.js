@@ -1,10 +1,10 @@
-const cache = require('../../../../../app/cache/base')
-const createServer = require('../../../../../app/server')
+const cache = require('../../../../app/cache')
+const createServer = require('../../../../app/server')
 const testCacheName = 'testCache'
 const testCacheName2 = 'testCache2'
 let server
 
-jest.mock('../../../../../app/config/cache', () => ({
+jest.mock('../../../../app/config/cache', () => ({
   segments: {
     testCache: {
       name: testCacheName,

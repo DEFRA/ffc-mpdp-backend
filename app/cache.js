@@ -1,5 +1,5 @@
 const hoek = require('@hapi/hoek')
-const config = require('../config/app').cacheConfig
+const config = require('./config/app').cacheConfig
 const cacheStore = []
 
 const setup = (server) => {

@@ -3,7 +3,7 @@ const { PaymentDataModel } = require('../../../app/services/database')
 const paymentestdata = require('../../data/payment-test-data.json')
 const { isAscending, isInRange } = require('../../utils/helpers')
 
-jest.mock('../../../app/cache/')
+jest.mock('../../../app/cache')
 const { get } = require('../../../app/cache')
 
 beforeAll(() => {

@@ -7,7 +7,7 @@ const {
   getSchemePaymentsByYear
 } = require('../../../app/services/database')
 
-jest.mock('../../../app/cache/')
+jest.mock('../../../app/cache')
 const { get } = require('../../../app/cache')
 
 beforeAll(() => {
