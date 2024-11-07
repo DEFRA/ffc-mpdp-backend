@@ -38,7 +38,7 @@ const clear = async (cacheName, key) => {
 }
 
 const getCache = (cacheName) => {
-  const cache = cacheStore.find(cache => cache.name === cacheName)
+  const cache = cacheStore.find(cacheItem => cacheItem.name === cacheName)
   if (!cache) {
     throw new Error(`Cache ${cacheName} does not exist`)
   }
