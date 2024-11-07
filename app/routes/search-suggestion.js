@@ -18,7 +18,7 @@ module.exports = {
       try {
         searchString = decodeURIComponent(request.query.searchString)
       } catch (err) {
-        console.log(`Error: ${err} deocoding ${searchString}`)
+        console.log(`Error: ${err} decoding ${searchString}`)
       }
 
       try {
