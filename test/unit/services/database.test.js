@@ -3,7 +3,7 @@ const {
   PaymentDataModel,
   getPaymentDetails,
   PaymentDetailModel,
-  schemePaymentsModel,
+  SchemePaymentsModel,
   getSchemePaymentsByYear
 } = require('../../../app/services/database')
 
@@ -116,7 +116,7 @@ describe('database-service paymentdetails test', () => {
 describe('database-service getSchemePaymentsByYear test', () => {
   test('getSchemePaymentsByYear service and model to be defined', () => {
     expect(getSchemePaymentsByYear).toBeDefined()
-    expect(schemePaymentsModel).toBeDefined()
+    expect(SchemePaymentsModel).toBeDefined()
   })
 
   test('GET /schemePaymentsByYear returns right data', async () => {
@@ -124,7 +124,7 @@ describe('database-service getSchemePaymentsByYear test', () => {
       rows: [{ scheme: 'SFI', financial_year: '21/22', amount: '12000.00' }]
     }
 
-    const mockDb = jest.spyOn(schemePaymentsModel, 'findAll')
+    const mockDb = jest.spyOn(SchemePaymentsModel, 'findAll')
     mockDb.mockResolvedValue(mockData)
     const result = await getSchemePaymentsByYear()
     expect(result).toEqual(mockData)
@@ -132,7 +132,7 @@ describe('database-service getSchemePaymentsByYear test', () => {
 
   test('GET /schemePaymentsByYear returns DB error', async () => {
     const errorMessage = 'DB Error'
-    const mockDb = jest.spyOn(schemePaymentsModel, 'findAll')
+    const mockDb = jest.spyOn(SchemePaymentsModel, 'findAll')
     mockDb.mockRejectedValue(new Error(errorMessage))
     await expect(getSchemePaymentsByYear()).rejects.toThrow(errorMessage)
   })
