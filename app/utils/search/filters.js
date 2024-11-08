@@ -71,7 +71,9 @@ function filterByAmounts (results, amounts) {
 }
 
 function filterByCounties (searchResults, counties) {
-  if (!counties?.length) return searchResults
+  if (!counties?.length) {
+    return searchResults
+  }
   const lowerCaseCounties = counties.map((county) => county.toLowerCase())
   return searchResults.filter((x) =>
     lowerCaseCounties.includes(x.county_council.toLowerCase())
