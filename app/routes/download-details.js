@@ -3,7 +3,7 @@ const { getCsvPaymentDataOfPayee } = require('../services/database')
 const Joi = require('joi')
 const config = require('../config/app')
 
-module.exports = {
+module.exports = [{
   method: 'GET',
   path: '/downloaddetails',
   options: {
@@ -31,4 +31,4 @@ module.exports = {
       throw err
     }
   }
-}
+}]

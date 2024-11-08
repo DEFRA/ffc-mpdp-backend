@@ -1,6 +1,6 @@
 const { getPaymentDetails } = require('../services/database')
 
-module.exports = {
+module.exports = [{
   method: 'GET',
   path: '/paymentdetails',
   handler: async (request, h) => {
@@ -34,4 +34,4 @@ module.exports = {
       return h.response('Error while reading data: ' + error).code(500)
     }
   }
-}
+}]

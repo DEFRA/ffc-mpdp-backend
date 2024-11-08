@@ -2,7 +2,7 @@ const Joi = require('joi')
 
 const { getPaymentData } = require('../services/fuzzy-search')
 
-module.exports = {
+module.exports = [{
   method: 'POST',
   path: '/paymentdata',
   options: {
@@ -31,4 +31,4 @@ module.exports = {
       }
     }
   }
-}
+}]

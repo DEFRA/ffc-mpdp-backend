@@ -1,7 +1,7 @@
 const { Parser } = require('json2csv')
 const { getSchemePaymentsByYear } = require('../services/database')
 
-module.exports = {
+module.exports = [{
   method: 'GET',
   path: '/downloadPaymentsByYearSummary',
   handler: async (_request, h) => {
@@ -30,4 +30,4 @@ module.exports = {
       return h.response('Error while reading data: ' + error).code(500)
     }
   }
-}
+}]

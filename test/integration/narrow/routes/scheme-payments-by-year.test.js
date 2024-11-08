@@ -37,7 +37,7 @@ describe('schemepayments api call test', () => {
   test('schemepayments api test to be defined', () => {
     const schemePayments = require('../../../../app/routes/scheme-payments-by-year')
     expect(schemePayments).toBeDefined()
-    expect(schemePayments.handler).toBeDefined()
+    expect(schemePayments[0].handler).toBeDefined()
   })
 
   test('GET /schemepayments returns status 200 and results formatted by financial_year', async () => {

@@ -1,6 +1,6 @@
 const { getSchemePaymentsByYear } = require('../services/database')
 
-module.exports = {
+module.exports = [{
   method: 'GET',
   path: '/schemePayments',
   handler: async (_request, h) => {
@@ -17,4 +17,4 @@ module.exports = {
       return h.response('Error while reading data: ' + error).code(500)
     }
   }
-}
+}]

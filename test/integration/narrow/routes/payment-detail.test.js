@@ -28,7 +28,7 @@ describe('paymentdetails api call test', () => {
   test('paymentdetails api test to be defined', () => {
     const paymentdetails = require('../../../../app/routes/payment-detail')
     expect(paymentdetails).toBeDefined()
-    expect(paymentdetails.handler).toBeDefined()
+    expect(paymentdetails[0].handler).toBeDefined()
   })
 
   test('GET /paymentdetails returns 200', async () => {

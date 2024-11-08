@@ -1,7 +1,11 @@
 const { Parser } = require('json2csv')
 const { getRawData } = require('../services/database')
 
-module.exports = {
+/*
+Not current in use in front end due to workaround.  Needs updating to stream responses to client
+*/
+
+module.exports = [{
   method: 'GET',
   path: '/downloadall',
   handler: async (_request, h) => {
@@ -31,4 +35,4 @@ module.exports = {
       throw err
     }
   }
-}
+}]

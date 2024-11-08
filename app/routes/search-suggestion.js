@@ -2,7 +2,7 @@ const Joi = require('joi')
 
 const { getSearchSuggestions } = require('../services/fuzzy-search')
 
-module.exports = {
+module.exports = [{
   method: 'GET',
   path: '/searchsuggestion',
   options: {
@@ -29,4 +29,4 @@ module.exports = {
       }
     }
   }
-}
+}]
