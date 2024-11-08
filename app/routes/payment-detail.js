@@ -11,7 +11,7 @@ module.exports = {
         return h.response('No data found').code(404)
       }
 
-      const payemntDetails = {
+      const paymentDetails = {
         payee_name: records[0].payee_name,
         payee_name2: records[0].payee_name,
         part_postcode: records[0].part_postcode,
@@ -29,9 +29,9 @@ module.exports = {
         })
       }
 
-      return h.response(payemntDetails).code(200)
+      return h.response(paymentDetails).code(200)
     } catch (error) {
-      return h.response('Error while reading data' + error).code(500)
+      return h.response('Error while reading data: ' + error).code(500)
     }
   }
 }

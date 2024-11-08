@@ -1,5 +1,5 @@
 const csvPaymentsByYearSummaryTestData = require('./csv-payments-by-year-summary-test-data.json')
-const { schemePaymentsModel } = require('../../../../app/services/database')
+const { SchemePaymentsModel } = require('../../../../app/services/database')
 
 describe('downloadPaymentsByYearSummary test', () => {
   const createServer = require('../../../../app/server')
@@ -16,7 +16,7 @@ describe('downloadPaymentsByYearSummary test', () => {
       method: 'GET',
       url: '/downloadPaymentsByYearSummary'
     }
-    const mockDb = jest.spyOn(schemePaymentsModel, 'findAll')
+    const mockDb = jest.spyOn(SchemePaymentsModel, 'findAll')
     mockDb.mockResolvedValue(csvPaymentsByYearSummaryTestData)
     const response = await server.inject(options)
 

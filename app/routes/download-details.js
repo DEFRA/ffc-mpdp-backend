@@ -15,13 +15,13 @@ module.exports = {
       failAction: async (_request, h, error) => h.response(error.toString()).code(400).takeover()
     }
   },
-  handler: async (request, res) => {
+  handler: async (request, h) => {
     const { payeeName, partPostcode } = request.query
     try {
       const paymentData = await getCsvPaymentDataOfPayee(payeeName, partPostcode)
       const csvParser = new Parser({ fields: config.csvFields })
       const csv = csvParser.parse(paymentData)
-      return res.response(csv)
+      return h.response(csv)
         .type('text/csv')
         .header('Connection', 'keep-alive')
         .header('Cache-Control', 'no-cache')

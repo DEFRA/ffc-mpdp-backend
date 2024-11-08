@@ -7,7 +7,14 @@ const cache = require('../cache')
 const sequelize = new Sequelize(
   dbConfig
 )
-// Define the Model
+
+const SchemePaymentsModel = sequelize.define('aggregate_scheme_payments', {
+  id: { type: DataTypes.INTEGER, primaryKey: true },
+  financial_year: DataTypes.STRING(8),
+  scheme: DataTypes.STRING(64),
+  total_amount: DataTypes.DOUBLE
+})
+
 const PaymentDataModel = sequelize.define('payment_activity_data', {
   payee_name: DataTypes.STRING(32),
   part_postcode: DataTypes.STRING(8),
@@ -16,7 +23,20 @@ const PaymentDataModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
-const getAllPaymentData = async () => {
+const PaymentDetailModel = sequelize.define('payment_activity_data', {
+  id: { type: DataTypes.INTEGER, primaryKey: true },
+  payee_name: DataTypes.STRING(128),
+  part_postcode: DataTypes.STRING(8),
+  town: DataTypes.STRING(128),
+  county_council: DataTypes.STRING(64),
+  financial_year: DataTypes.STRING(8),
+  parliamentary_constituency: DataTypes.STRING(64),
+  scheme: DataTypes.STRING(64),
+  scheme_detail: DataTypes.STRING(128),
+  amount: DataTypes.DOUBLE
+})
+
+async function getAllPaymentData () {
   let cachedData = await cache.get(config.cacheConfig.segments.paymentData.name, 'allPaymentData')
 
   if (!cachedData || !Object.keys(cachedData).length) {
@@ -27,8 +47,7 @@ const getAllPaymentData = async () => {
   return cachedData
 }
 
-// Collect all DB results
-const getAllPaymentDataFromDB = async () => {
+async function getAllPaymentDataFromDB () {
   try {
     const result = await PaymentDataModel.findAll({
       group: config.search.results.fieldsToExtract,
@@ -44,20 +63,6 @@ const getAllPaymentDataFromDB = async () => {
     throw error
   }
 }
-
-// payment details API
-const PaymentDetailModel = sequelize.define('payment_activity_data', {
-  id: { type: DataTypes.INTEGER, primaryKey: true },
-  payee_name: DataTypes.STRING(128),
-  part_postcode: DataTypes.STRING(8),
-  town: DataTypes.STRING(128),
-  county_council: DataTypes.STRING(64),
-  financial_year: DataTypes.STRING(8),
-  parliamentary_constituency: DataTypes.STRING(64),
-  scheme: DataTypes.STRING(64),
-  scheme_detail: DataTypes.STRING(128),
-  amount: DataTypes.DOUBLE
-})
 
 async function getPaymentDetails (payeeName = '', partPostcode = '') {
   if (payeeName === '' || partPostcode === '') {
@@ -81,7 +86,7 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   }
 }
 
-const getRawData = async () => {
+async function getRawData () {
   let cachedData = await cache.get(config.cacheConfig.segments.rawData.name, 'rawData')
   if (!cachedData || !Object.keys(cachedData).length) {
     cachedData = await getRawDataFromDB()
@@ -90,7 +95,7 @@ const getRawData = async () => {
   return cachedData
 }
 
-const getRawDataFromDB = async () => {
+async function getRawDataFromDB () {
   try {
     return await PaymentDetailModel.findAll()
   } catch (error) {
@@ -99,23 +104,16 @@ const getRawDataFromDB = async () => {
   }
 }
 
-const getCsvPaymentDataOfPayee = async (payeeName, partPostcode) => {
+async function getCsvPaymentDataOfPayee (payeeName, partPostcode) {
   const csvData = await getRawData()
   return csvData.filter((item) =>
     item.payee_name?.toLowerCase() === payeeName?.toLowerCase() &&
     item.part_postcode?.toLowerCase() === partPostcode?.toLowerCase())
 }
 
-const schemePaymentsModel = sequelize.define('aggregate_scheme_payments', {
-  id: { type: DataTypes.INTEGER, primaryKey: true },
-  financial_year: DataTypes.STRING(8),
-  scheme: DataTypes.STRING(64),
-  total_amount: DataTypes.DOUBLE
-})
-
-const getSchemePaymentsByYear = async () => {
+async function getSchemePaymentsByYear () {
   try {
-    const result = await schemePaymentsModel.findAll({
+    const result = await SchemePaymentsModel.findAll({
       attributes: [
         'scheme',
         'financial_year',
@@ -131,12 +129,12 @@ const getSchemePaymentsByYear = async () => {
 }
 
 module.exports = {
-  getAllPaymentData,
+  SchemePaymentsModel,
   PaymentDataModel,
-  getPaymentDetails,
   PaymentDetailModel,
+  getAllPaymentData,
+  getPaymentDetails,
   getRawData,
   getCsvPaymentDataOfPayee,
-  schemePaymentsModel,
   getSchemePaymentsByYear
 }
