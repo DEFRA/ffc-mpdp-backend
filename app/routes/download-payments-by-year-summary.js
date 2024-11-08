@@ -4,7 +4,7 @@ const { getSchemePaymentsByYear } = require('../services/database')
 module.exports = {
   method: 'GET',
   path: '/downloadPaymentsByYearSummary',
-  handler: async (_request, _response) => {
+  handler: async (_request, h) => {
     const fields = [
       'financial year',
       'scheme',
@@ -21,13 +21,13 @@ module.exports = {
       }))
       const csv = csvParser.parse(schemePayments)
 
-      return _response.response(csv)
+      return h.response(csv)
         .type('text/csv')
         .header('Connection', 'keep-alive')
         .header('Cache-Control', 'no-cache')
         .header('Content-Disposition', 'attachment;filename=ffc-payments-by-year.csv')
     } catch (error) {
-      return _response.response('Error while reading data' + error).code(500)
+      return h.response('Error while reading data: ' + error).code(500)
     }
   }
 }

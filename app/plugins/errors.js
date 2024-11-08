@@ -10,7 +10,6 @@ module.exports = {
           // processing the request
           const statusCode = response.output.statusCode
 
-          // Log the error
           request.log('error', {
             statusCode,
             data: response.data,

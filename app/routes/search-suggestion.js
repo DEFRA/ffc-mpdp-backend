@@ -18,14 +18,14 @@ module.exports = {
       try {
         searchString = decodeURIComponent(request.query.searchString)
       } catch (err) {
-        console.log(`Error: ${err} decoding ${searchString}`)
+        console.log(`Error decoding ${searchString}`, err)
       }
 
       try {
         const records = await getSearchSuggestions(searchString)
         return h.response(records).code(!records.rows.length ? 404 : 200)
       } catch (error) {
-        return h.response('Error while reading data' + error).code(500)
+        return h.response('Error while reading data: ' + error).code(500)
       }
     }
   }

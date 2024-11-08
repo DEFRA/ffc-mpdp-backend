@@ -4,7 +4,7 @@ const { getRawData } = require('../services/database')
 module.exports = {
   method: 'GET',
   path: '/downloadall',
-  handler: async (_request, res) => {
+  handler: async (_request, h) => {
     // convert json to csv content
     const fields = [
       'financial_year',
@@ -21,7 +21,7 @@ module.exports = {
       const paymentData = await getRawData()
       const csvParser = new Parser({ fields })
       const csv = csvParser.parse(paymentData)
-      return res.response(csv)
+      return h.response(csv)
         .type('text/csv')
         .header('Connection', 'keep-alive')
         .header('Cache-Control', 'no-cache')

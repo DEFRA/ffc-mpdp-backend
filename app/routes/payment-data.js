@@ -27,7 +27,7 @@ module.exports = {
         const records = await getPaymentData(request.payload)
         return h.response(records).code(200)
       } catch (error) {
-        return h.response('Error while reading data' + error).code(500)
+        return h.response('Error while reading data: ' + error).code(500)
       }
     }
   }
