@@ -1,8 +1,6 @@
 const Fuse = require('fuse.js')
-
 const { getAllPaymentData } = require('./database')
 const { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee } = require('../utils/search/filters')
-
 const { search: { results } } = require('../config/app')
 
 // search configuration
@@ -14,7 +12,7 @@ const fuseSearchOptions = {
   keys: results.fieldsToSearch
 }
 
-const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy, action }) => {
+async function getPaymentData ({ searchString, limit, offset, sortBy, filterBy, action }) {
   if (!searchString) {
     throw new Error('Empty search content')
   }
@@ -37,13 +35,13 @@ const getPaymentData = async ({ searchString, limit, offset, sortBy, filterBy, a
   }
 }
 
-const search = async (searchString) => {
+async function search (searchString) {
   const paymentData = await getAllPaymentData()
   const fuse = new Fuse(paymentData, fuseSearchOptions)
   return fuse.search(searchString).map(row => row.item)
 }
 
-const getSortedResults = (records, sortBy) => {
+function getSortedResults (records, sortBy) {
   if (sortBy && sortBy !== 'score' && results.fieldsToSearch.includes(sortBy)) {
     return records.sort((r1, r2) => r1[sortBy] > r2[sortBy] ? 1 : -1)
   }
@@ -51,7 +49,7 @@ const getSortedResults = (records, sortBy) => {
   return records
 }
 
-const getSearchSuggestions = async (searchString) => {
+async function getSearchSuggestions (searchString) {
   const searchResults = groupByPayee(await search(searchString))
   return {
     count: searchResults.length,
