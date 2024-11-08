@@ -1,7 +1,7 @@
-const applyFiltersAndGroupByPayee = (
+function applyFiltersAndGroupByPayee (
   searchResults,
   { schemes = [], counties = [], amounts = [], years = [] }
-) => {
+) {
   let results = filterBySchemes(searchResults, schemes)
   results = filterByCounties(results, counties)
   results = filterByYears(results, years)
@@ -10,8 +10,8 @@ const applyFiltersAndGroupByPayee = (
   return removeSchemeField(results)
 }
 
-const filterBySchemes = (results, schemes) => {
-  if (!schemes || !schemes.length) {
+function filterBySchemes (results, schemes) {
+  if (!schemes?.length) {
     return results
   }
   return results.filter((x) =>
@@ -21,33 +21,7 @@ const filterBySchemes = (results, schemes) => {
   )
 }
 
-const filterByAmounts = (results, amounts) => {
-  if (!amounts || !amounts.length) {
-    return results
-  }
-  const amountRanges = amounts.map((range) => {
-    const [_from, _to] = range.split('-')
-    return { from: parseFloat(_from), to: parseFloat(_to) }
-  })
-  return results.filter((row) => {
-    return amountRanges.some(({ from, to }) => {
-      const totalAmount = parseFloat(row.total_amount)
-      return !to
-        ? totalAmount >= from
-        : totalAmount >= from && totalAmount <= to
-    })
-  })
-}
-
-const filterByCounties = (searchResults, counties) => {
-  if (!counties || !counties.length) return searchResults
-  const lowerCaseCounties = counties.map((county) => county.toLowerCase())
-  return searchResults.filter((x) =>
-    lowerCaseCounties.includes(x.county_council.toLowerCase())
-  )
-}
-
-const groupByPayee = (searchResults) => {
+function groupByPayee (searchResults) {
   const result = searchResults.reduce((acc, x) => {
     const payee = acc.find(
       (r) =>
@@ -65,18 +39,8 @@ const groupByPayee = (searchResults) => {
   return result
 }
 
-const filterByYears = (results, years) => {
-  if (!years || !years.length) {
-    return results
-  }
-
-  return results.filter(x => years.includes(x.financial_year))
-}
-
-const removeSchemeField = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
-
-const getFilterOptions = (searchResults) => {
-  if (!searchResults || !searchResults.length) {
+function getFilterOptions (searchResults) {
+  if (!searchResults?.length) {
     return { schemes: [], amounts: [], counties: [], years: [] }
   }
 
@@ -88,7 +52,43 @@ const getFilterOptions = (searchResults) => {
   }
 }
 
-const getUniqueFields = (searchResults, field) => {
+function filterByAmounts (results, amounts) {
+  if (!amounts?.length) {
+    return results
+  }
+  const amountRanges = amounts.map((range) => {
+    const [_from, _to] = range.split('-')
+    return { from: parseFloat(_from), to: parseFloat(_to) }
+  })
+  return results.filter((row) => {
+    return amountRanges.some(({ from, to }) => {
+      const totalAmount = parseFloat(row.total_amount)
+      return !to
+        ? totalAmount >= from
+        : totalAmount >= from && totalAmount <= to
+    })
+  })
+}
+
+function filterByCounties (searchResults, counties) {
+  if (!counties?.length) return searchResults
+  const lowerCaseCounties = counties.map((county) => county.toLowerCase())
+  return searchResults.filter((x) =>
+    lowerCaseCounties.includes(x.county_council.toLowerCase())
+  )
+}
+
+function filterByYears (results, years) {
+  if (!years?.length) {
+    return results
+  }
+
+  return results.filter(x => years.includes(x.financial_year))
+}
+
+const removeSchemeField = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
+
+function getUniqueFields (searchResults, field) {
   try {
     return searchResults.reduce((acc, result) => {
       if (!acc.length || acc.findIndex((y) =>
