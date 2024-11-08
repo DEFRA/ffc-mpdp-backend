@@ -6,7 +6,6 @@ const catboxOptions = config.useRedis ? config.cacheConfig.redisCatboxOptions : 
 const cache = require('./cache')
 
 async function createServer () {
-  // Create the hapi server
   const server = Hapi.server({
     port: process.env.PORT,
     routes: {
@@ -24,7 +23,6 @@ async function createServer () {
     }]
   })
 
-  // Register the plugins
   await server.register(require('@hapi/inert'))
   await server.register(require('./plugins/logging'))
   await server.register(require('./plugins/errors'))

@@ -1,6 +1,6 @@
 const appInsights = require('applicationinsights')
 
-const setup = () => {
+function setup () {
   if (process.env.APPINSIGHTS_CONNECTIONSTRING) {
     appInsights.setup(process.env.APPINSIGHTS_CONNECTIONSTRING).start()
     console.log('App Insights running')
