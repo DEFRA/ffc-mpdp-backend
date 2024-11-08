@@ -1,0 +1,13 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+  <changeSet author="Defra" id="1">
+    <tagDatabase tag="v1.17.0" />
+  </changeSet>
+  <changeSet author="Defra" id="2">
+    <dropTable tableName="dim_address" />
+    <dropTable tableName="dim_financial_year" />
+    <dropTable tableName="dim_parliamentary_cons" />
+    <dropTable tableName="dim_payee" />
+    <dropTable tableName="dim_scheme" />
+  </changeSet>
+</databaseChangeLog>
