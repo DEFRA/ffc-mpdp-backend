@@ -34,7 +34,7 @@ describe('paymentdata api call test', () => {
   test('searchsuggestion api to be defined', () => {
     const searchsuggestion = require('../../../../app/routes/search-suggestion')
     expect(searchsuggestion).toBeDefined()
-    expect(searchsuggestion.options[0].handler).toBeDefined()
+    expect(searchsuggestion[0].options.handler).toBeDefined()
   })
 
   test('GET /searchsuggestion returns 200', async () => {
