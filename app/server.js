@@ -38,8 +38,7 @@ async function createServer () {
   })
 
   const routes = [].concat(
-    require('./routes/healthy'),
-    require('./routes/healthz'),
+    require('./routes/health'),
     require('./routes/download-all'),
     require('./routes/payment-data'),
     require('./routes/payment-detail'),
