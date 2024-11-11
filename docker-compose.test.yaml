@@ -11,6 +11,8 @@ services:
       - ./test-output:/home/node/test-output
       - ./jest.config.js:/home/node/jest.config.js
       - ./package.json:/home/node/package.json
+    environment:
+      NODE_ENV: test
 
   ffc-mpdp-backend-postgres:
     volumes:

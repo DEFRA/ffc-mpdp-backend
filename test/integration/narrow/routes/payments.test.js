@@ -39,9 +39,9 @@ describe('paymentdata api call test', () => {
   })
 
   test('paymentdata api test to be defined', () => {
-    const paymentdata = require('../../../../app/routes/payment-data')
+    const paymentdata = require('../../../../app/routes/payments')
     expect(paymentdata).toBeDefined()
-    expect(paymentdata.options.handler).toBeDefined()
+    expect(paymentdata[0].options.handler).toBeDefined()
   })
 
   test('POST /paymentdata returns 200', async () => {

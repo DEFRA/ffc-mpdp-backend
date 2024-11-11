@@ -32,9 +32,9 @@ const mockdata = {
 
 describe('paymentdata api call test', () => {
   test('searchsuggestion api to be defined', () => {
-    const searchsuggestion = require('../../../../app/routes/search-suggestion')
+    const searchsuggestion = require('../../../../app/routes/payments-search')
     expect(searchsuggestion).toBeDefined()
-    expect(searchsuggestion.options.handler).toBeDefined()
+    expect(searchsuggestion[0].options.handler).toBeDefined()
   })
 
   test('GET /searchsuggestion returns 200', async () => {
