@@ -11,7 +11,7 @@ module.exports = [{
   handler
 }]
 
-async function handler (request, h) {
+async function handler (_request, h) {
   const fields = [
     'financial year',
     'scheme',

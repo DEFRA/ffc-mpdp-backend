@@ -10,7 +10,7 @@ module.exports = [{
   handler
 }]
 
-async function handler (request, h) {
+async function handler (_request, h) {
   try {
     const schemePayments = (await getSchemePaymentsByYear()).reduce((acc, item) => {
       if (!acc[item.financial_year]) {

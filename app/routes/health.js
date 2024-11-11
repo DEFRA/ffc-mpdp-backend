@@ -8,6 +8,6 @@ module.exports = [{
   handler
 }]
 
-function handler (request, h) {
+function handler (_request, h) {
   return h.response('ok').code(200)
 }

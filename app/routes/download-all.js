@@ -15,7 +15,7 @@ module.exports = [{
   handler
 }]
 
-async function handler (request, h) {
+async function handler (_request, h) {
   // convert json to csv content
   const fields = [
     'financial_year',
