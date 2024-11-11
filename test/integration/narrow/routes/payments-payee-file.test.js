@@ -6,17 +6,16 @@ describe('downloaddetails test', () => {
   let server
 
   beforeEach(async () => {
+    const mockDb = jest.spyOn(PaymentDetailModel, 'findAll')
+    mockDb.mockResolvedValue(csvpaymentestdata)
     server = await createServer()
     await server.initialize()
   })
 
   afterEach(async () => {
-    jest.clearAllMocks()
     await server.stop()
+    jest.clearAllMocks()
   })
-
-  const mockDb = jest.spyOn(PaymentDetailModel, 'findAll')
-  mockDb.mockResolvedValue(csvpaymentestdata)
 
   test('GET /downloaddetails route returns csv file', async () => {
     const options = {

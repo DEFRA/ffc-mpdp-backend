@@ -32,7 +32,7 @@ module.exports = [{
 }]
 
 async function handler (request, h) {
-  const { payeeName, partPostcode } = request.query ?? request.params
+  const { payeeName, partPostcode } = Object.keys(request.query).length ? request.query : request.params
   try {
     const paymentData = await getCsvPaymentDataOfPayee(payeeName, partPostcode)
     const csvParser = new Parser({ fields: config.csvFields })

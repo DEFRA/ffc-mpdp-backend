@@ -12,7 +12,7 @@ module.exports = [{
 
 async function handler (request, h) {
   try {
-    const { payeeName, partPostcode } = request.query ?? request.params
+    const { payeeName, partPostcode } = Object.keys(request.query).length ? request.query : request.params
     const records = await getPaymentDetails(payeeName, partPostcode)
     if (!records || records.length < 1) {
       return h.response('No data found').code(404)
