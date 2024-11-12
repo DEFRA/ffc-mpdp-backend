@@ -1,4 +1,3 @@
-require('./insights').setup()
 const Hapi = require('@hapi/hapi')
 const config = require('./config/app')
 const catbox = config.useRedis ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')

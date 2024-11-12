@@ -1,3 +1,4 @@
+require('./insights').setup()
 const createServer = require('./server')
 
 async function startServer () {
