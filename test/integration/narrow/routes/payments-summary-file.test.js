@@ -1,8 +1,8 @@
 const csvPaymentsByYearSummaryTestData = require('./csv-payments-by-year-summary-test-data.json')
 const { SchemePaymentsModel } = require('../../../../app/services/database')
 
-describe('downloadPaymentsByYearSummary test', () => {
-  const createServer = require('../../../../app/server')
+describe('/v1/payments/summary/file test', () => {
+  const { createServer } = require('../../../../app/server')
   let server
 
   beforeEach(async () => {
@@ -11,10 +11,10 @@ describe('downloadPaymentsByYearSummary test', () => {
   })
 
   // Test to check that the response is a csv file
-  test('GET /downloadPaymentsByYearSummary route returns csv file', async () => {
+  test('GET /v1/payments/summary/file route returns csv file', async () => {
     const options = {
       method: 'GET',
-      url: '/downloadPaymentsByYearSummary'
+      url: '/v1/payments/summary/file'
     }
     const mockDb = jest.spyOn(SchemePaymentsModel, 'findAll')
     mockDb.mockResolvedValue(csvPaymentsByYearSummaryTestData)

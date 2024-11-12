@@ -1,8 +1,8 @@
-const csvpaymentestdata = require('./csv-payment-test-data.json')
+const csvPaymentTestData = require('./csv-payment-test-data.json')
 const { PaymentDetailModel } = require('../../../../app/services/database')
 
-describe('downloadall test', () => {
-  const createServer = require('../../../../app/server')
+describe('/v1/payments/file test', () => {
+  const { createServer } = require('../../../../app/server')
   let server
 
   beforeEach(async () => {
@@ -11,13 +11,13 @@ describe('downloadall test', () => {
   })
 
   // Test to check that the response is a csv file
-  test('GET /downloadall route returns csv file', async () => {
+  test('GET /v1/payments/file route returns csv file', async () => {
     const options = {
       method: 'GET',
-      url: '/downloadall'
+      url: '/v1/payments/file'
     }
     const mockDb = jest.spyOn(PaymentDetailModel, 'findAll')
-    mockDb.mockResolvedValue(csvpaymentestdata)
+    mockDb.mockResolvedValue(csvPaymentTestData)
     const response = await server.inject(options)
 
     expect(response.statusCode).toBe(200)

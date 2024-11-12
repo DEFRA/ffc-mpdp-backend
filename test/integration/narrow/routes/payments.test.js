@@ -1,4 +1,4 @@
-const createServer = require('../../../../app/server')
+const { createServer } = require('../../../../app/server')
 let server
 
 beforeEach(async () => {
@@ -11,11 +11,9 @@ afterEach(async () => {
   jest.clearAllMocks()
 })
 
-describe('paymentdata api call test', () => {
+describe('/v1/payments api call test', () => {
   jest.mock('../../../../app/services/fuzzy-search')
   const { getPaymentData } = require('../../../../app/services/fuzzy-search')
-
-  // const getPaymentDataMock = jest.spyOn(service, 'getPaymentData')
 
   beforeEach(() => {
     getPaymentData.mockReturnValue({
@@ -38,16 +36,16 @@ describe('paymentdata api call test', () => {
     jest.resetAllMocks()
   })
 
-  test('paymentdata api test to be defined', () => {
-    const paymentdata = require('../../../../app/routes/payments')
-    expect(paymentdata).toBeDefined()
-    expect(paymentdata[0].options.handler).toBeDefined()
+  test('/v1/payments api test to be defined', () => {
+    const paymentData = require('../../../../app/routes/payments')
+    expect(paymentData).toBeDefined()
+    expect(paymentData.options.handler).toBeDefined()
   })
 
-  test('POST /paymentdata returns 200', async () => {
+  test('POST /v1/payments returns 200', async () => {
     const options = {
       method: 'POST',
-      url: '/paymentdata',
+      url: '/v1/payments',
       payload: {
         searchString: '__search_string__',
         limit: 10
@@ -57,10 +55,10 @@ describe('paymentdata api call test', () => {
     expect(response.statusCode).toBe(200)
   })
 
-  test('POST /paymentdata calls the search function with the payload data', async () => {
+  test('POST /v1/payments calls the search function with the payload data', async () => {
     const options = {
       method: 'POST',
-      url: '/paymentdata',
+      url: '/v1/payments',
       payload: {
         searchString: '__SEARCH_STRING__',
         limit: 10,
@@ -78,11 +76,11 @@ describe('paymentdata api call test', () => {
     expect(getPaymentData).toHaveBeenCalledWith(options.payload)
   })
 
-  test('POST /paymentdata returns 200 when no results found', async () => {
+  test('POST /v1/payments returns 200 when no results found', async () => {
     getPaymentData.mockReturnValue({ count: 0, rows: [], filterOptions: { schemes: ['Sustainable Farming Incentive'], counties: [], amounts: [] } })
     const options = {
       method: 'POST',
-      url: '/paymentdata',
+      url: '/v1/payments',
       payload: {
         searchString: '__search_string__',
         limit: 10
@@ -92,11 +90,11 @@ describe('paymentdata api call test', () => {
     expect(response.statusCode).toBe(200)
   })
 
-  test('POST /paymentdata returns 500', async () => {
+  test('POST /v1/payments returns 500', async () => {
     getPaymentData.mockImplementation(() => { throw new Error() })
     const options = {
       method: 'POST',
-      url: '/paymentdata',
+      url: '/v1/payments',
       payload: {
         searchString: '__search_string__',
         limit: 10

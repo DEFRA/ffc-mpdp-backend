@@ -1,5 +1,5 @@
 describe('errors plugin test', () => {
-  const createServer = require('../../../../app/server')
+  const { createServer } = require('../../../../app/server')
   let server
 
   beforeEach(async () => {

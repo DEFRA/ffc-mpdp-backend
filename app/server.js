@@ -1,4 +1,3 @@
-require('./insights').setup()
 const Hapi = require('@hapi/hapi')
 const config = require('./config/app')
 const catbox = config.useRedis ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')
@@ -7,6 +6,7 @@ const cache = require('./cache')
 
 async function createServer () {
   const server = Hapi.server({
+    host: process.env.HOST || '0.0.0.0',
     port: process.env.PORT,
     routes: {
       validate: {
@@ -52,4 +52,4 @@ async function createServer () {
   return server
 }
 
-module.exports = createServer
+module.exports = { createServer }
