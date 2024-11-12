@@ -2,7 +2,7 @@ const csvPaymentsByYearSummaryTestData = require('./csv-payments-by-year-summary
 const { SchemePaymentsModel } = require('../../../../app/services/database')
 
 describe('downloadPaymentsByYearSummary test', () => {
-  const createServer = require('../../../../app/server')
+  const { createServer } = require('../../../../app/server')
   let server
 
   beforeEach(async () => {

@@ -2,7 +2,7 @@ const csvpaymentestdata = require('./csv-payment-test-data.json')
 const { PaymentDetailModel } = require('../../../../app/services/database')
 
 describe('downloaddetails test', () => {
-  const createServer = require('../../../../app/server')
+  const { createServer } = require('../../../../app/server')
   let server
 
   beforeEach(async () => {

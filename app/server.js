@@ -6,6 +6,7 @@ const cache = require('./cache')
 
 async function createServer () {
   const server = Hapi.server({
+    host: process.env.HOST || '0.0.0.0',
     port: process.env.PORT,
     routes: {
       validate: {
@@ -51,4 +52,4 @@ async function createServer () {
   return server
 }
 
-module.exports = createServer
+module.exports = { createServer }

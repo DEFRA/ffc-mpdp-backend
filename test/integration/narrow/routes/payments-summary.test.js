@@ -1,7 +1,7 @@
 jest.mock('../../../../app/services/database')
 const { getSchemePaymentsByYear } = require('../../../../app/services/database')
 
-const createServer = require('../../../../app/server')
+const { createServer } = require('../../../../app/server')
 let server
 
 beforeEach(async () => {

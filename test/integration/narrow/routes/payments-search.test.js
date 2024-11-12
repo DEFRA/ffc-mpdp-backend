@@ -1,7 +1,7 @@
 const service = require('../../../../app/services/fuzzy-search')
 const getSearchSuggestionsMock = jest.spyOn(service, 'getSearchSuggestions')
 
-const createServer = require('../../../../app/server')
+const { createServer } = require('../../../../app/server')
 let server
 
 beforeEach(async () => {

@@ -1,5 +1,5 @@
 const cache = require('../../../../app/cache')
-const createServer = require('../../../../app/server')
+const { createServer } = require('../../../../app/server')
 const testCacheName = 'testCache'
 const testCacheName2 = 'testCache2'
 let server

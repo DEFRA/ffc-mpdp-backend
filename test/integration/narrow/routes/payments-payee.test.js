@@ -2,7 +2,7 @@ const databaseService = require('../../../../app/services/database')
 const paymentsdetailsdbrow = require('../../../data/payment-details-db-rows.json')
 const paymentdetailsexpecteddata = require('../../../data/payment-details-expected-data.json')
 
-const createServer = require('../../../../app/server')
+const { createServer } = require('../../../../app/server')
 let server
 
 beforeEach(async () => {
