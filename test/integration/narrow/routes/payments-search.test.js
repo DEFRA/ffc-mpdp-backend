@@ -1,5 +1,5 @@
-const service = require('../../../../app/services/fuzzy-search')
-const getSearchSuggestionsMock = jest.spyOn(service, 'getSearchSuggestions')
+const fuzzySearchService = require('../../../../app/services/fuzzy-search')
+const getSearchSuggestionsMock = jest.spyOn(fuzzySearchService, 'getSearchSuggestions')
 
 const { createServer } = require('../../../../app/server')
 let server
@@ -14,9 +14,9 @@ afterEach(async () => {
   jest.clearAllMocks()
 })
 
-const url = '/searchsuggestion?searchString=__search_string__'
+const url = '/v1/payments/search?searchString=__search_string__'
 const options = { method: 'GET', url }
-const mockdata = {
+const mockData = {
   count: 1,
   rows: [
     {
@@ -30,24 +30,24 @@ const mockdata = {
   ]
 }
 
-describe('paymentdata api call test', () => {
-  test('searchsuggestion api to be defined', () => {
-    const searchsuggestion = require('../../../../app/routes/payments-search')
-    expect(searchsuggestion).toBeDefined()
-    expect(searchsuggestion[0].options.handler).toBeDefined()
+describe('/v1/payments/search api call test', () => {
+  test('/v1/payments/search api to be defined', () => {
+    const searchSuggestion = require('../../../../app/routes/payments-search')
+    expect(searchSuggestion).toBeDefined()
+    expect(searchSuggestion.options.handler).toBeDefined()
   })
 
-  test('GET /searchsuggestion returns 200', async () => {
-    getSearchSuggestionsMock.mockReturnValue(mockdata)
+  test('GET /v1/payments/search returns 200', async () => {
+    getSearchSuggestionsMock.mockReturnValue(mockData)
     const response = await server.inject(options)
     expect(response.statusCode).toBe(200)
   })
 
-  test('GET /searchsuggestion calls the search function with the payload data', async () => {
-    getSearchSuggestionsMock.mockReturnValue(mockdata)
+  test('GET /v1/payments/search calls the search function with the payload data', async () => {
+    getSearchSuggestionsMock.mockReturnValue(mockData)
 
     const searchString = '__search_string_%$£!&*__'
-    const url = `/searchsuggestion?searchString=${encodeURIComponent(searchString)}`
+    const url = `/v1/payments/search?searchString=${encodeURIComponent(searchString)}`
     const options = { method: 'GET', url }
     const response = await server.inject(options)
 
@@ -55,22 +55,22 @@ describe('paymentdata api call test', () => {
     expect(getSearchSuggestionsMock).toHaveBeenCalledWith(searchString)
   })
 
-  test('GET /searchsuggestion returns 404', async () => {
+  test('GET /v1/payments/search returns 404', async () => {
     const emptyResult = { count: 0, rows: [] }
     getSearchSuggestionsMock.mockReturnValue(emptyResult)
     const response = await server.inject(options)
     expect(response.statusCode).toBe(404)
   })
 
-  test('GET /searchsuggestion returns 500', async () => {
+  test('GET /v1/payments/search returns 500', async () => {
     getSearchSuggestionsMock.mockImplementation(() => { throw new Error() })
     const response = await server.inject(options)
     expect(response.statusCode).toBe(500)
   })
 })
 
-describe('searchsuggestion api call test DB error', () => {
-  test('GET /searchsuggestion error in DB', async () => {
+describe('/v1/payments/search api call test DB error', () => {
+  test('GET /v1/payments/search error in DB', async () => {
     const { PaymentDataModel } = require('../../../../app/services/database')
     const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
     mockDb.mockRejectedValue(new Error('DB Error'))

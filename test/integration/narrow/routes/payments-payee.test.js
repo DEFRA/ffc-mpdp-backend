@@ -1,6 +1,6 @@
 const databaseService = require('../../../../app/services/database')
-const paymentsdetailsdbrow = require('../../../data/payment-details-db-rows.json')
-const paymentdetailsexpecteddata = require('../../../data/payment-details-expected-data.json')
+const paymentDetailsDatabase = require('../../../data/payment-details-db-rows.json')
+const expectedPaymentDetails = require('../../../data/payment-details-expected-data.json')
 
 const { createServer } = require('../../../../app/server')
 let server
@@ -19,29 +19,29 @@ afterAll(() => {
   jest.resetAllMocks()
 })
 
-const paymentsDetailsUrl = '/paymentdetails?payeeName=Farmer Vel&partPostcode=WD6'
+const paymentsDetailsUrl = '/v1/payments/Farmer Vel/WD6'
 
-describe('paymentdetails api call test', () => {
+describe('/v1/payments/{payeeName}/{partPostcode} api call test', () => {
   const mockDb = jest.spyOn(databaseService, 'getPaymentDetails')
-  mockDb.mockReturnValue(paymentsdetailsdbrow)
+  mockDb.mockReturnValue(paymentDetailsDatabase)
 
-  test('paymentdetails api test to be defined', () => {
-    const paymentdetails = require('../../../../app/routes/payments-payee')
-    expect(paymentdetails).toBeDefined()
-    expect(paymentdetails[0].handler).toBeDefined()
+  test('/v1/payments/{payeeName}/{partPostcode} api test to be defined', () => {
+    const paymentDetails = require('../../../../app/routes/payments-payee')
+    expect(paymentDetails).toBeDefined()
+    expect(paymentDetails.handler).toBeDefined()
   })
 
-  test('GET /paymentdetails returns 200', async () => {
+  test('GET /v1/payments/{payeeName}/{partPostcode} returns 200', async () => {
     const options = {
       method: 'GET',
       url: paymentsDetailsUrl
     }
     const response = await server.inject(options)
     expect(response.statusCode).toBe(200)
-    expect(response.result).toEqual(paymentdetailsexpecteddata)
+    expect(response.result).toEqual(expectedPaymentDetails)
   })
 
-  test('GET /paymentdetails returns 404', async () => {
+  test('GET /v1/payments/{payeeName}/{partPostcode} returns 404', async () => {
     mockDb.mockReturnValue(null)
     const options = {
       method: 'GET',
@@ -51,7 +51,7 @@ describe('paymentdetails api call test', () => {
     expect(response.statusCode).toBe(404)
   })
 
-  test('GET /paymentdetails returns 500', async () => {
+  test('GET /v1/payments/{payeeName}/{partPostcode} returns 500', async () => {
     mockDb.mockImplementation(() => { throw new Error() })
     const options = {
       method: 'GET',
