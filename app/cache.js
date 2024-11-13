@@ -1,55 +1,29 @@
-const hoek = require('@hapi/hoek')
-const config = require('./config/app').cacheConfig
-const cacheStore = []
+const cacheConfig = require('./config')
+let cache
 
 function setup (server) {
-  Object.keys(config.segments).forEach((key) => {
-    const { name, expiresIn } = config.segments[key]
-    cacheStore.push({
-      name,
-      cache: server.cache({
-        expiresIn,
-        segment: name
-      })
-    })
+  cache = server.cache({
+    segment: cacheConfig.get('cache.segment'),
+    expiresIn: cacheConfig.get('cache.expiresIn')
   })
 }
 
-async function get (cacheName, key) {
-  const cache = getCache(cacheName)
+async function get (key) {
   const value = await cache.get(key)
   return value ?? {}
 }
 
-async function set (cacheName, key, value) {
-  const cache = getCache(cacheName)
+async function set (key, value) {
   await cache.set(key, value)
 }
 
-async function update (cacheName, key, object) {
-  const existing = await get(cacheName, key)
-  hoek.merge(existing, object, { mergeArrays: false })
-  await set(cacheName, key, existing)
-}
-
-async function clear (cacheName, key) {
-  const cache = getCache(cacheName)
+async function clear (key) {
   await cache.drop(key)
-}
-
-function getCache (cacheName) {
-  const cache = cacheStore.find(cacheItem => cacheItem.name === cacheName)
-  if (!cache) {
-    throw new Error(`Cache ${cacheName} does not exist`)
-  }
-
-  return cache.cache
 }
 
 module.exports = {
   setup,
   get,
   set,
-  update,
   clear
 }

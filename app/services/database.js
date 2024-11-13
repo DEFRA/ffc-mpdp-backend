@@ -1,12 +1,22 @@
+const { DefaultAzureCredential, getBearerTokenProvider } = require('@azure/identity')
 const { Sequelize, DataTypes, where, fn, col, and } = require('sequelize')
-const config = require('../config/app')
-const dbConfigAllEnv = require('../config/database')
-const dbConfig = dbConfigAllEnv[config.env]
 const cache = require('../cache')
+const config = require('../config')
+const { search } = require('../search')
 
-const sequelize = new Sequelize(
-  dbConfig
-)
+const dbConfig = config.get('db')
+
+if (config.get('isProd')) {
+  dbConfig.hooks = {
+    beforeConnect: async (cfg) => {
+      const credential = new DefaultAzureCredential({ managedIdentityClientId: process.env.AZURE_CLIENT_ID })
+      const tokenProvider = getBearerTokenProvider(credential, 'https://ossrdbms-aad.database.windows.net/.default')
+      cfg.password = tokenProvider
+    }
+  }
+}
+
+const sequelize = new Sequelize(dbConfig)
 
 const SchemePaymentsModel = sequelize.define('aggregate_scheme_payments', {
   id: { type: DataTypes.INTEGER, primaryKey: true },
@@ -37,11 +47,11 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
 })
 
 async function getAllPaymentData () {
-  let cachedData = await cache.get(config.cacheConfig.segments.paymentData.name, 'allPaymentData')
+  let cachedData = await cache.get('allPaymentData')
 
   if (!cachedData || !Object.keys(cachedData).length) {
     cachedData = await getAllPaymentDataFromDB()
-    await cache.set(config.cacheConfig.segments.paymentData.name, 'allPaymentData', cachedData)
+    await cache.set('allPaymentData', cachedData)
   }
 
   return cachedData
@@ -50,9 +60,9 @@ async function getAllPaymentData () {
 async function getAllPaymentDataFromDB () {
   try {
     const result = await PaymentDataModel.findAll({
-      group: config.search.results.fieldsToExtract,
+      group: search.results.fieldsToExtract,
       attributes: [
-        ...config.search.results.fieldsToExtract,
+        ...search.results.fieldsToExtract,
         [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
       ],
       raw: true
@@ -70,9 +80,9 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
   }
   try {
     return PaymentDetailModel.findAll({
-      group: config.search.details.fieldsToExtract,
+      group: search.details.fieldsToExtract,
       attributes: [
-        ...config.search.details.fieldsToExtract,
+        ...search.details.fieldsToExtract,
         [sequelize.fn('sum', sequelize.col('amount')), 'amount']
       ],
       where: and(
@@ -87,10 +97,10 @@ async function getPaymentDetails (payeeName = '', partPostcode = '') {
 }
 
 async function getRawData () {
-  let cachedData = await cache.get(config.cacheConfig.segments.rawData.name, 'rawData')
+  let cachedData = await cache.get('rawData')
   if (!cachedData || !Object.keys(cachedData).length) {
     cachedData = await getRawDataFromDB()
-    await cache.set(config.cacheConfig.segments.rawData.name, 'rawData', cachedData)
+    await cache.set('rawData', cachedData)
   }
   return cachedData
 }

@@ -1,48 +1,100 @@
-const { DefaultAzureCredential, getBearerTokenProvider } = require('@azure/identity')
-const { production } = require('./constants').environments
+const convict = require('convict')
 
-function isProd () {
-  return process.env.NODE_ENV === production
-}
-
-const dbConfig = {
-  username: process.env.POSTGRES_USER || 'postgres',
-  password: process.env.POSTGRES_PASSWORD || 'ppp',
-  database: process.env.POSTGRES_DB || 'ffc_mpdp_backend',
-  schema: process.env.POSTGRES_SCHEMA_NAME || 'public',
-  host: process.env.POSTGRES_HOST || 'host.docker.internal',
-  port: process.env.POSTGRES_PORT || 5432,
-  logging: false,
-  dialect: 'postgres',
-  dialectOptions: {
-    ssl: isProd()
+const config = convict({
+  host: {
+    doc: 'The database host',
+    format: String,
+    default: null,
+    env: 'POSTGRES_HOST'
   },
-  hooks: {
-    beforeConnect: async (cfg) => {
-      if (isProd()) {
-        const credential = new DefaultAzureCredential({ managedIdentityClientId: process.env.AZURE_CLIENT_ID })
-        const tokenProvider = getBearerTokenProvider(credential, 'https://ossrdbms-aad.database.windows.net/.default')
-        cfg.password = tokenProvider
-      }
+  port: {
+    doc: 'The database port',
+    format: 'port',
+    default: 5432,
+    env: 'POSTGRES_PORT'
+  },
+  username: {
+    doc: 'The database username',
+    format: String,
+    default: null,
+    env: 'POSTGRES_USERNAME'
+  },
+  password: {
+    doc: 'The database password',
+    format: String,
+    default: undefined,
+    env: 'POSTGRES_PASSWORD'
+  },
+  schema: {
+    doc: 'The database schema',
+    format: String,
+    default: 'public',
+    env: 'POSTGRES_SCHEMA_NAME'
+  },
+  database: {
+    doc: 'The database name',
+    format: String,
+    default: null,
+    env: 'POSTGRES_DB'
+  },
+  logging: {
+    doc: 'Enable database logging',
+    format: Boolean,
+    default: false
+  },
+  dialect: {
+    doc: 'The database dialect',
+    format: String,
+    default: 'postgres'
+  },
+  dialectOptions: {
+    ssl: {
+      doc: 'Enable SSL for the database connection',
+      format: Boolean,
+      default: process.env.NODE_ENV === 'production'
     }
   },
   retry: {
-    backoffBase: 500,
-    backoffExponent: 1.1,
-    match: [/SequelizeConnectionError/],
-    max: 10,
-    name: 'connection',
-    timeout: 60000
+    backoffBase: {
+      doc: 'The base backoff time in milliseconds',
+      format: 'int',
+      default: 500
+    },
+    backoffExponent: {
+      doc: 'The backoff time exponent',
+      format: Number,
+      default: 1.1
+    },
+    match: {
+      doc: 'The error types to match',
+      format: Array,
+      default: [/SequelizeConnectionError/]
+    },
+    max: {
+      doc: 'The maximum number of retries',
+      format: 'int',
+      default: 10
+    },
+    name: {
+      doc: 'The retry name',
+      format: String,
+      default: 'connection'
+    },
+    timeout: {
+      doc: 'The retry timeout in milliseconds',
+      format: 'int',
+      default: 60 * 1000
+    }
   },
   define: {
-    timestamps: false
+    timestamps: {
+      doc: 'Enable timestamps for the database records',
+      format: Boolean,
+      default: false
+    }
   }
-}
+})
 
-const config = {
-  production: dbConfig,
-  development: dbConfig,
-  test: dbConfig
-}
+config.validate({ allowed: 'strict' })
 
 module.exports = config

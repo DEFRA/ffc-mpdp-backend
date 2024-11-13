@@ -1,7 +1,18 @@
 const { Parser } = require('json2csv')
 const { getCsvPaymentDataOfPayee } = require('../services/database')
 const Joi = require('joi')
-const config = require('../config/app')
+
+const csvFields = [
+  'financial_year',
+  'payee_name',
+  'part_postcode',
+  'town',
+  'county_council',
+  'parliamentary_constituency',
+  'scheme',
+  'scheme_detail',
+  'amount'
+]
 
 module.exports = {
   method: 'GET',
@@ -19,7 +30,7 @@ module.exports = {
     const { payeeName, partPostcode } = Object.keys(request.query).length ? request.query : request.params
     try {
       const paymentData = await getCsvPaymentDataOfPayee(payeeName, partPostcode)
-      const csvParser = new Parser({ fields: config.csvFields })
+      const csvParser = new Parser({ fields: csvFields })
       const csv = csvParser.parse(paymentData)
       return h.response(csv)
         .type('text/csv')
