@@ -1,5 +1,5 @@
 const { getPaymentData, getSearchSuggestions } = require('../../../app/services/fuzzy-search')
-const { PaymentDataModel } = require('../../../app/services/database')
+const { PaymentDataModel } = require('../../../app/data/database')
 const paymentestdata = require('../../data/payment-test-data.json')
 const { isAscending, isInRange } = require('../../utils/helpers')
 

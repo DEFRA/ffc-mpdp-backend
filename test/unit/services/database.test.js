@@ -5,7 +5,7 @@ const {
   PaymentDetailModel,
   SchemePaymentsModel,
   getSchemePaymentsByYear
-} = require('../../../app/services/database')
+} = require('../../../app/data/database')
 
 jest.mock('../../../app/cache')
 const { get } = require('../../../app/cache')
@@ -33,7 +33,7 @@ describe('database-service PaymentData test', () => {
     const {
       getAllPaymentData,
       PaymentDataModel
-    } = require('../../../app/services/database')
+    } = require('../../../app/data/database')
     const mockData = {
       rows: ['r1', 'r2', 'r3']
     }
@@ -51,7 +51,7 @@ describe('database-service PaymentData test', () => {
     const {
       getAllPaymentData,
       PaymentDataModel
-    } = require('../../../app/services/database')
+    } = require('../../../app/data/database')
     const mockData = []
     const expectedData = []
     const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
@@ -65,7 +65,7 @@ describe('database-service PaymentData test', () => {
     const {
       getAllPaymentData,
       PaymentDataModel
-    } = require('../../../app/services/database')
+    } = require('../../../app/data/database')
     const errorMessage = 'DB Error'
     const mockDb = jest.spyOn(PaymentDataModel, 'findAll')
     mockDb.mockRejectedValue(new Error(errorMessage))

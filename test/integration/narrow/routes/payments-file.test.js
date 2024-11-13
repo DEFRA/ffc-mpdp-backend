@@ -1,5 +1,5 @@
 const csvPaymentTestData = require('./csv-payment-test-data.json')
-const { PaymentDetailModel } = require('../../../../app/services/database')
+const { PaymentDetailModel } = require('../../../../app/data/database')
 
 describe('/v1/payments/file test', () => {
   const { createServer } = require('../../../../app/server')

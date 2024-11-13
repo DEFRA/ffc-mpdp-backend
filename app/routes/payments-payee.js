@@ -1,4 +1,4 @@
-const { getPaymentDetails } = require('../services/database')
+const { getPaymentDetails } = require('../data/database')
 
 module.exports = {
   method: 'GET',

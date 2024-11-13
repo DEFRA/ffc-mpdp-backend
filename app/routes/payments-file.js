@@ -1,5 +1,5 @@
 const { Parser } = require('json2csv')
-const { getRawData } = require('../services/database')
+const { getRawData } = require('../data/database')
 
 /*
 Not current in use in front end due to workaround.  Needs updating to stream responses to client

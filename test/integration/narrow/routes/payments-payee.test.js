@@ -1,4 +1,4 @@
-const databaseService = require('../../../../app/services/database')
+const databaseService = require('../../../../app/data/database')
 const paymentDetailsDatabase = require('../../../data/payment-details-db-rows.json')
 const expectedPaymentDetails = require('../../../data/payment-details-expected-data.json')
 

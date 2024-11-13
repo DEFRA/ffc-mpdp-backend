@@ -30,7 +30,7 @@
     "json2csv": "5.0.7",
     "pg": "8.13.1",
     "redis": "4.7.0",
-    "sequelize": "7.0.0-alpha.9"
+    "sequelize": "6.37.5"
   },
   "devDependencies": {
     "@hapi/catbox-memory": "6.0.2",

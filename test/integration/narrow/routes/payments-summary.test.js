@@ -1,5 +1,5 @@
-jest.mock('../../../../app/services/database')
-const { getSchemePaymentsByYear } = require('../../../../app/services/database')
+jest.mock('../../../../app/data/database')
+const { getSchemePaymentsByYear } = require('../../../../app/data/database')
 
 const { createServer } = require('../../../../app/server')
 let server

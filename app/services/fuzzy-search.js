@@ -1,5 +1,5 @@
 const Fuse = require('fuse.js')
-const { getAllPaymentData } = require('./database')
+const { getAllPaymentData } = require('../data/database')
 const { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee } = require('../utils/search/filters')
 const { search: { results } } = require('../search')
 

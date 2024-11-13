@@ -1,5 +1,5 @@
 const { Parser } = require('json2csv')
-const { getCsvPaymentDataOfPayee } = require('../services/database')
+const { getCsvPaymentDataOfPayee } = require('../data/database')
 const Joi = require('joi')
 
 const csvFields = [
