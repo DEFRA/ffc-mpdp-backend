@@ -2,14 +2,17 @@ const { DefaultAzureCredential, getBearerTokenProvider } = require('@azure/ident
 const { Sequelize, DataTypes, where, fn, col, and } = require('sequelize')
 const cache = require('../cache')
 const config = require('../config')
-const dbConfig = config.get('db')
 const { search } = require('../search')
 
-dbConfig.hooks.beforeConnect = async (cfg) => {
-  if (config.get('isProd')) {
-    const credential = new DefaultAzureCredential({ managedIdentityClientId: process.env.AZURE_CLIENT_ID })
-    const tokenProvider = getBearerTokenProvider(credential, 'https://ossrdbms-aad.database.windows.net/.default')
-    cfg.password = tokenProvider
+const dbConfig = config.get('db')
+
+if (config.get('isProd')) {
+  dbConfig.hooks = {
+    beforeConnect: async (cfg) => {
+      const credential = new DefaultAzureCredential({ managedIdentityClientId: process.env.AZURE_CLIENT_ID })
+      const tokenProvider = getBearerTokenProvider(credential, 'https://ossrdbms-aad.database.windows.net/.default')
+      cfg.password = tokenProvider
+    }
   }
 }
 
