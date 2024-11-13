@@ -28,14 +28,6 @@ async function createServer () {
 
   cache.setup(server)
 
-  process.on('SIGTERM', async function () {
-    process.exit(0)
-  })
-
-  process.on('SIGINT', async function () {
-    process.exit(0)
-  })
-
   const routes = [].concat(
     require('./routes/health'),
     require('./routes/payments-file'),
