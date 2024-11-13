@@ -22,7 +22,7 @@ const config = convict({
   password: {
     doc: 'The database password',
     format: String,
-    default: null,
+    default: undefined,
     env: 'POSTGRES_PASSWORD'
   },
   schema: {
