@@ -9,6 +9,10 @@ services:
       APPINSIGHTS_CLOUDROLE: ffc-mpdp-backend-local
       APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
       REDIS_HOSTNAME: ffc-mpdp-backend-redis
+      POSTGRES_HOST: ffc-mpdp-backend-postgres
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: ppp
+      POSTGRES_DB: ffc_mpdp_backend
     depends_on: 
       ffc-mpdp-backend-redis:
         condition: service_started
@@ -19,10 +23,9 @@ services:
     image: postgres:11.4-alpine
     restart: always
     environment:
-      POSTGRES_USERNAME: ${POSTGRES_DB_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_DB_PASSWORD:-ppp}
-      POSTGRES_DB: ${POSTGRES_DB:-ffc_mpdp_backend}
-      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: ppp
+      POSTGRES_DB: ffc_mpdp_backend
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 10s
