@@ -31,40 +31,6 @@ describe('base caching', () => {
     expect(result).toStrictEqual({ value: 'testValue' })
   })
 
-  test('updates object value', async () => {
-    await cache.set('testKey', { value: 'testValue' })
-    await cache.update('testKey', { nextValue: 'testValue2' })
-    const result = await cache.get('testKey')
-    expect(result).toStrictEqual({
-      value: 'testValue',
-      nextValue: 'testValue2'
-    })
-  })
-
-  test('updates object value with array', async () => {
-    await cache.set('testKey', { value: 'testValue' })
-    await cache.update('testKey', { nextValue: ['testValue2'] })
-    const result = await cache.get('testKey')
-    expect(result).toStrictEqual({
-      value: 'testValue',
-      nextValue: ['testValue2']
-    })
-  })
-
-  test('updates object value replacing array without merging', async () => {
-    await cache.set('testKey', { value: ['testValue'] })
-    await cache.update('testKey', { value: ['testValue2'] })
-    const result = await cache.get('testKey')
-    expect(result).toStrictEqual({ value: ['testValue2'] })
-  })
-
-  test('updates object value replaces value', async () => {
-    await cache.set('testKey', { value: 'testValue' })
-    await cache.update('testKey', { value: 'testValue2' })
-    const result = await cache.get('testKey')
-    expect(result).toStrictEqual({ value: 'testValue2' })
-  })
-
   test('returns empty object if key does not exist', async () => {
     const result = await cache.get('NonExistentTestKey')
     expect(result).toStrictEqual({})

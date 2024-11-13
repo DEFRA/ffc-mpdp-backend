@@ -1,4 +1,3 @@
-const hoek = require('@hapi/hoek')
 const cacheConfig = require('./config')
 let cache
 
@@ -18,12 +17,6 @@ async function set (key, value) {
   await cache.set(key, value)
 }
 
-async function update (key, object) {
-  const existing = await get(key)
-  hoek.merge(existing, object, { mergeArrays: false })
-  await set(key, existing)
-}
-
 async function clear (key) {
   await cache.drop(key)
 }
@@ -32,6 +25,5 @@ module.exports = {
   setup,
   get,
   set,
-  update,
   clear
 }
