@@ -1,8 +1,8 @@
 const { Parser } = require('json2csv')
-const { getSchemePaymentsByYear } = require('../data/database')
+const { getAnnualPayments } = require('../data/database')
 
 async function getPaymentSummary () {
-  const payments = await getSchemePaymentsByYear()
+  const payments = await getAnnualPayments()
   return groupPaymentsByYear(payments)
 }
 
@@ -15,7 +15,7 @@ async function getPaymentSummaryCsv () {
       value: 'total_amount'
     }
   ]
-  const payments = await getSchemePaymentsByYear()
+  const payments = await getAnnualPayments()
   const sortedPayments = payments.toSorted((a, b) => a.financial_year > b.financial_year ? 1 : -1)
 
   const csvParser = new Parser({ fields })

@@ -46,6 +46,23 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
+async function getAnnualPayments () {
+  try {
+    const result = await SchemePaymentsModel.findAll({
+      attributes: [
+        'scheme',
+        'financial_year',
+        'total_amount'
+      ],
+      raw: true
+    })
+    return result
+  } catch (error) {
+    console.error('Error occurred while reading data:', error)
+    throw error
+  }
+}
+
 async function getAllPaymentData () {
   let cachedData = await cache.get('allPaymentData')
 
@@ -121,30 +138,13 @@ async function getCsvPaymentDataOfPayee (payeeName, partPostcode) {
     item.part_postcode?.toLowerCase() === partPostcode?.toLowerCase())
 }
 
-async function getSchemePaymentsByYear () {
-  try {
-    const result = await SchemePaymentsModel.findAll({
-      attributes: [
-        'scheme',
-        'financial_year',
-        'total_amount'
-      ],
-      raw: true
-    })
-    return result
-  } catch (error) {
-    console.error('Error occurred while reading data:', error)
-    throw error
-  }
-}
-
 module.exports = {
   SchemePaymentsModel,
   PaymentDataModel,
   PaymentDetailModel,
+  getAnnualPayments,
   getAllPaymentData,
   getPaymentDetails,
   getRawData,
-  getCsvPaymentDataOfPayee,
-  getSchemePaymentsByYear
+  getCsvPaymentDataOfPayee
 }

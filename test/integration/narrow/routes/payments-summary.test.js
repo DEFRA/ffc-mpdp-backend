@@ -1,5 +1,5 @@
 jest.mock('../../../../app/data/database')
-const { getSchemePaymentsByYear } = require('../../../../app/data/database')
+const { getAnnualPayments } = require('../../../../app/data/database')
 
 const { createServer } = require('../../../../app/server')
 let server
@@ -35,15 +35,15 @@ const expectedData = {
 
 describe('/v1/payments/summary api call test', () => {
   test('GET /v1/payments/summary returns status 200 and results formatted by financial_year', async () => {
-    getSchemePaymentsByYear.mockResolvedValue(mockData)
+    getAnnualPayments.mockResolvedValue(mockData)
     const response = await server.inject(options)
-    expect(getSchemePaymentsByYear).toHaveBeenCalled()
+    expect(getAnnualPayments).toHaveBeenCalled()
     expect(response.statusCode).toBe(200)
     expect(response.result).toEqual(expectedData)
   })
 
   test('GET /v1/payments/summary returns 500 when an error is thrown', async () => {
-    getSchemePaymentsByYear.mockImplementation(() => {
+    getAnnualPayments.mockImplementation(() => {
       throw new Error()
     })
     const response = await server.inject(options)
