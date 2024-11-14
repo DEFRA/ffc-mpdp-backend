@@ -25,12 +25,6 @@ describe('/v1/payments/{payeeName}/{partPostcode} api call test', () => {
   const mockDb = jest.spyOn(databaseService, 'getPaymentDetails')
   mockDb.mockReturnValue(paymentDetailsDatabase)
 
-  test('/v1/payments/{payeeName}/{partPostcode} api test to be defined', () => {
-    const paymentDetails = require('../../../../app/routes/payments-payee')
-    expect(paymentDetails).toBeDefined()
-    expect(paymentDetails.handler).toBeDefined()
-  })
-
   test('GET /v1/payments/{payeeName}/{partPostcode} returns 200', async () => {
     const options = {
       method: 'GET',

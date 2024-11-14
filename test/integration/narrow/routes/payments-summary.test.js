@@ -34,12 +34,6 @@ const expectedData = {
 }
 
 describe('/v1/payments/summary api call test', () => {
-  test('/v1/payments/summary api test to be defined', () => {
-    const schemePayments = require('../../../../app/routes/payments-summary')
-    expect(schemePayments).toBeDefined()
-    expect(schemePayments.handler).toBeDefined()
-  })
-
   test('GET /v1/payments/summary returns status 200 and results formatted by financial_year', async () => {
     getSchemePaymentsByYear.mockResolvedValue(mockData)
     const response = await server.inject(options)
