@@ -36,12 +36,6 @@ describe('/v1/payments api call test', () => {
     jest.resetAllMocks()
   })
 
-  test('/v1/payments api test to be defined', () => {
-    const paymentData = require('../../../../app/routes/payments')
-    expect(paymentData).toBeDefined()
-    expect(paymentData.options.handler).toBeDefined()
-  })
-
   test('POST /v1/payments returns 200', async () => {
     const options = {
       method: 'POST',

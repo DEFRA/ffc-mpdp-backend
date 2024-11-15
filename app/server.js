@@ -33,7 +33,6 @@ async function createServer () {
 
   const routes = [].concat(
     require('./routes/health'),
-    require('./routes/payments-file'),
     require('./routes/payments'),
     require('./routes/payments-payee'),
     require('./routes/payments-search'),
