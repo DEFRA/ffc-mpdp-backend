@@ -12,8 +12,8 @@ afterEach(async () => {
 })
 
 describe('/v1/payments api call test', () => {
-  jest.mock('../../../../app/services/fuzzy-search')
-  const { getPaymentData } = require('../../../../app/services/fuzzy-search')
+  jest.mock('../../../../app/data/search')
+  const { getPaymentData } = require('../../../../app/data/search')
 
   beforeEach(() => {
     getPaymentData.mockReturnValue({
@@ -34,12 +34,6 @@ describe('/v1/payments api call test', () => {
 
   afterEach(() => {
     jest.resetAllMocks()
-  })
-
-  test('/v1/payments api test to be defined', () => {
-    const paymentData = require('../../../../app/routes/payments')
-    expect(paymentData).toBeDefined()
-    expect(paymentData.options.handler).toBeDefined()
   })
 
   test('POST /v1/payments returns 200', async () => {

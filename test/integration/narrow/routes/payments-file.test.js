@@ -1,8 +1,9 @@
-const csvPaymentTestData = require('./csv-payment-test-data.json')
-const { PaymentDetailModel } = require('../../../../app/services/database')
+jest.mock('../../../../app/data/database')
+const paymentData = require('../../../data/payment-details-db-rows.json')
+const database = require('../../../../app/data/database')
+const { createServer } = require('../../../../app/server')
 
 describe('/v1/payments/file test', () => {
-  const { createServer } = require('../../../../app/server')
   let server
 
   beforeEach(async () => {
@@ -16,16 +17,16 @@ describe('/v1/payments/file test', () => {
       method: 'GET',
       url: '/v1/payments/file'
     }
-    const mockDb = jest.spyOn(PaymentDetailModel, 'findAll')
-    mockDb.mockResolvedValue(csvPaymentTestData)
+    const mockDb = jest.spyOn(database, 'getAllPayments')
+    mockDb.mockResolvedValue(paymentData)
     const response = await server.inject(options)
 
     expect(response.statusCode).toBe(200)
     expect(response.headers['content-type']).toContain('text/csv')
     expect(response.headers['content-disposition']).toContain('attachment')
     expect(response.result).toContain('"financial_year","payee_name","part_postcode","town","county_council","parliamentary_constituency","scheme","scheme_detail","amount"')
-    expect(response.result).toContain('"21/22","Stacy Schneider","TN39","Bexhill-on-Sea","East Sussex","Bexhill and Battle","Farming Equipment and Technology Fund","Livestock Handling and weighing equipment",4210')
-    expect(response.result).toContain('"21/22","Stacy Schneider","TN39","Bexhill-on-Sea","East Sussex","Bexhill and Battle","Sustainable Farming Incentive Pilot","Arable and Horticultural Land",3492')
+    expect(response.result).toContain('"21/22","Farmer Vel","WD6","Elstree and Borehamwood","Hertfordshire","Hertsmere","Farming Equipment and Technology Fund","","11965.00"')
+    expect(response.result).toContain('"21/22","Farmer Vel","WD6","Elstree and Borehamwood","Hertfordshire","Hertsmere","Sustainable Farming Incentive Pilot","Improved Grassland soils","31109.00"')
   })
 
   afterEach(async () => {

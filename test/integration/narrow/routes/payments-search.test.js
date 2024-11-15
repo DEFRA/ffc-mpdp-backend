@@ -1,4 +1,4 @@
-const fuzzySearchService = require('../../../../app/services/fuzzy-search')
+const fuzzySearchService = require('../../../../app/data/search')
 const getSearchSuggestionsMock = jest.spyOn(fuzzySearchService, 'getSearchSuggestions')
 
 const { createServer } = require('../../../../app/server')
@@ -71,7 +71,7 @@ describe('/v1/payments/search api call test', () => {
 
 describe('/v1/payments/search api call test DB error', () => {
   test('GET /v1/payments/search error in DB', async () => {
-    const { PaymentDataModel } = require('../../../../app/services/database')
+    const { PaymentDataModel } = require('../../../../app/data/database')
     const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
     mockDb.mockRejectedValue(new Error('DB Error'))
     const response = await server.inject(options)

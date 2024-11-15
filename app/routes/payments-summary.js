@@ -1,20 +1,21 @@
-const { getSchemePaymentsByYear } = require('../services/database')
+const { getPaymentSummary, getPaymentSummaryCsv } = require('../data/summary')
 
-module.exports = {
+module.exports = [{
   method: 'GET',
   path: '/v1/payments/summary',
   handler: async (_request, h) => {
-    try {
-      const schemePayments = (await getSchemePaymentsByYear()).reduce((acc, item) => {
-        if (!acc[item.financial_year]) {
-          acc[item.financial_year] = []
-        }
-        acc[item.financial_year].push(item)
-        return acc
-      }, {})
-      return h.response(schemePayments).code(200)
-    } catch (error) {
-      return h.response('Error while reading data: ' + error).code(500)
-    }
+    const payments = await getPaymentSummary()
+    return h.response(payments).code(200)
   }
-}
+}, {
+  method: 'GET',
+  path: '/v1/payments/summary/file',
+  handler: async (_request, h) => {
+    const paymentsCsv = await getPaymentSummaryCsv()
+    return h.response(paymentsCsv)
+      .type('text/csv')
+      .header('Connection', 'keep-alive')
+      .header('Cache-Control', 'no-cache')
+      .header('Content-Disposition', 'attachment;filename=ffc-payments-by-year.csv')
+  }
+}]

@@ -1,16 +1,19 @@
 const Fuse = require('fuse.js')
-const { getAllPaymentData } = require('./database')
+const { getAllPayments } = require('./database')
 const { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee } = require('../utils/search/filters')
-const { search: { results } } = require('../search')
 
 // search configuration
+const fieldsToSearch = ['payee_name', 'part_postcode', 'town', 'county_council']
+
 const fuseSearchOptions = {
   includeScore: true,
   threshold: 0.3,
   ignoreLocation: true,
   useExtendedSearch: false,
-  keys: results.fieldsToSearch
+  keys: fieldsToSearch
 }
+
+const suggestionResultsLimit = 6
 
 async function getPaymentData ({ searchString, limit, offset, sortBy, filterBy, action }) {
   if (!searchString) {
@@ -36,13 +39,13 @@ async function getPaymentData ({ searchString, limit, offset, sortBy, filterBy, 
 }
 
 async function search (searchString) {
-  const paymentData = await getAllPaymentData()
+  const paymentData = await getAllPayments()
   const fuse = new Fuse(paymentData, fuseSearchOptions)
   return fuse.search(searchString).map(row => row.item)
 }
 
 function getSortedResults (records, sortBy) {
-  if (sortBy && sortBy !== 'score' && results.fieldsToSearch.includes(sortBy)) {
+  if (sortBy && sortBy !== 'score' && fieldsToSearch.includes(sortBy)) {
     return records.sort((r1, r2) => r1[sortBy] > r2[sortBy] ? 1 : -1)
   }
 
@@ -55,8 +58,11 @@ async function getSearchSuggestions (searchString) {
     count: searchResults.length,
     rows: searchResults
       .map(({ scheme, total_amount, financial_year, ...rest }) => rest) // eslint-disable-line camelcase
-      .slice(0, results.suggestionResultsLimit)
+      .slice(0, suggestionResultsLimit)
   }
 }
 
-module.exports = { getPaymentData, getSearchSuggestions }
+module.exports = {
+  getPaymentData,
+  getSearchSuggestions
+}
