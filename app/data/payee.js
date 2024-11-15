@@ -28,7 +28,7 @@ async function getPayeeDetails (payeeName, partPostcode) {
 }
 
 async function getPayeeDetailsCsv (payeeName, partPostcode) {
-  const csvFields = [
+  const fields = [
     'financial_year',
     'payee_name',
     'part_postcode',
@@ -40,7 +40,7 @@ async function getPayeeDetailsCsv (payeeName, partPostcode) {
     'amount'
   ]
   const paymentData = await getPayeePayments(payeeName, partPostcode)
-  const csvParser = new Parser({ fields: csvFields })
+  const csvParser = new Parser({ fields })
   return csvParser.parse(paymentData)
 }
 

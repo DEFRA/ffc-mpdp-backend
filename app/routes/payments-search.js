@@ -6,9 +6,9 @@ module.exports = {
   path: '/v1/payments/search',
   options: {
     validate: {
-      query: Joi.object({
+      query: {
         searchString: Joi.string().trim().min(1).required()
-      }),
+      },
       failAction: async (_request, h, error) => h.response(error.toString()).code(400).takeover()
     },
     handler: async (request, h) => {
@@ -18,13 +18,8 @@ module.exports = {
       } catch (err) {
         console.log(`Error decoding ${searchString}`, err)
       }
-
-      try {
-        const records = await getSearchSuggestions(searchString)
-        return h.response(records).code(!records.rows.length ? 404 : 200)
-      } catch (error) {
-        return h.response('Error while reading data: ' + error).code(500)
-      }
+      const records = await getSearchSuggestions(searchString)
+      return h.response(records).code(!records.rows.length ? 404 : 200)
     }
   }
 }
