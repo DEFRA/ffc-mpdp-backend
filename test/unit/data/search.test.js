@@ -143,24 +143,6 @@ describe('testing fuzzySearchService /paymentdata', () => {
     expect(filteredResult.count).toEqual(4)
     expect(filteredResult.rows.length).toEqual(4)
   })
-
-  test('GET /paymentdata returns error  for invalid parameters', async () => {
-    const searchString = ''
-    const limit = 20
-    const offset = 0
-    const sortBy = null
-
-    await expect(getPaymentData(searchString, limit, offset, sortBy))
-      .rejects
-      .toThrow('Empty search content')
-  })
-
-  test('GET /paymentdata throws error is searchString is empty', async () => {
-    const errorMessage = 'Empty search content'
-    await expect(getPaymentData({ searchString: '' }))
-      .rejects
-      .toThrow(errorMessage)
-  })
 })
 
 describe('fuzzySearchService tests with sortBy', () => {
