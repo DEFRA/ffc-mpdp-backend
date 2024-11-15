@@ -38,6 +38,17 @@ async function getPaymentData ({ searchString, limit, offset, sortBy, filterBy, 
   }
 }
 
+async function getSearchSuggestions (searchString) {
+  const searchResults = await search(searchString)
+  const groupedResults = groupByPayee(searchResults)
+  return {
+    count: groupedResults.length,
+    rows: groupedResults
+      .map(({ scheme, total_amount, financial_year, ...rest }) => rest) // eslint-disable-line camelcase
+      .slice(0, suggestionResultsLimit)
+  }
+}
+
 async function search (searchString) {
   const paymentData = await getAllPayments()
   const fuse = new Fuse(paymentData, fuseSearchOptions)
@@ -50,16 +61,6 @@ function getSortedResults (records, sortBy) {
   }
 
   return records
-}
-
-async function getSearchSuggestions (searchString) {
-  const searchResults = groupByPayee(await search(searchString))
-  return {
-    count: searchResults.length,
-    rows: searchResults
-      .map(({ scheme, total_amount, financial_year, ...rest }) => rest) // eslint-disable-line camelcase
-      .slice(0, suggestionResultsLimit)
-  }
 }
 
 module.exports = {
