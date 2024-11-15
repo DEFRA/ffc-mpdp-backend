@@ -1,8 +1,6 @@
 const { DefaultAzureCredential, getBearerTokenProvider } = require('@azure/identity')
 const { Sequelize, DataTypes, where, fn, col, and } = require('sequelize')
-const cache = require('../cache')
 const config = require('../config')
-const { search } = require('../search')
 
 const dbConfig = config.get('db')
 
@@ -58,14 +56,27 @@ async function getAnnualPayments () {
   return result
 }
 
-async function getPayeePayments (payeeName = '', partPostcode = '') {
-  if (payeeName === '' || partPostcode === '') {
-    throw new Error('Empty payeeName or  partPostcode')
-  }
+async function getPayeePayments (payeeName, partPostcode) {
   return PaymentDetailModel.findAll({
-    group: search.details.fieldsToExtract,
+    group: [
+      'financial_year',
+      'payee_name',
+      'part_postcode',
+      'town',
+      'county_council',
+      'parliamentary_constituency',
+      'scheme',
+      'scheme_detail'
+    ],
     attributes: [
-      ...search.details.fieldsToExtract,
+      'financial_year',
+      'payee_name',
+      'part_postcode',
+      'town',
+      'county_council',
+      'parliamentary_constituency',
+      'scheme',
+      'scheme_detail',
       [sequelize.fn('sum', sequelize.col('amount')), 'amount']
     ],
     where: and(
@@ -75,32 +86,15 @@ async function getPayeePayments (payeeName = '', partPostcode = '') {
   })
 }
 
-async function getAllPaymentData () {
-  let cachedData = await cache.get('allPaymentData')
-
-  if (!cachedData || !Object.keys(cachedData).length) {
-    cachedData = await getAllPaymentDataFromDB()
-    await cache.set('allPaymentData', cachedData)
-  }
-
-  return cachedData
-}
-
-async function getAllPaymentDataFromDB () {
-  try {
-    const result = await PaymentDataModel.findAll({
-      group: search.results.fieldsToExtract,
-      attributes: [
-        ...search.results.fieldsToExtract,
-        [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
-      ],
-      raw: true
-    })
-    return result
-  } catch (error) {
-    console.error('Error occurred while reading data:', error)
-    throw error
-  }
+async function getAllPayments () {
+  return PaymentDataModel.findAll({
+    group: ['payee_name', 'part_postcode', 'town', 'county_council', 'scheme', 'financial_year'],
+    attributes: [
+      'payee_name', 'part_postcode', 'town', 'county_council', 'scheme', 'financial_year',
+      [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
+    ],
+    raw: true
+  })
 }
 
 module.exports = {
@@ -109,5 +103,5 @@ module.exports = {
   PaymentDetailModel,
   getAnnualPayments,
   getPayeePayments,
-  getAllPaymentData
+  getAllPayments
 }

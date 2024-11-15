@@ -1,4 +1,4 @@
-const { getPaymentData, getSearchSuggestions } = require('../../../app/services/fuzzy-search')
+const { getPaymentData, getSearchSuggestions } = require('../../../app/data/search')
 const { PaymentDataModel } = require('../../../app/data/database')
 const paymentestdata = require('../../data/payment-test-data.json')
 const { isAscending, isInRange } = require('../../utils/helpers')
@@ -106,7 +106,7 @@ describe('testing fuzzySearchService /paymentdata', () => {
     expect(result.rows.length).toEqual(searchCriteria.limit)
 
     const action = 'download'
-    const result2 = await getPaymentData({ ...searchCriteria, action: action })
+    const result2 = await getPaymentData({ ...searchCriteria, action })
     expect(result2.count).toEqual(fullData)
     expect(result2.rows.length).toEqual(fullData)
   })
@@ -126,7 +126,7 @@ describe('testing fuzzySearchService /paymentdata', () => {
     const fullData = 242
 
     const action = 'download'
-    const result = await getPaymentData({ ...searchCriteria, action: action })
+    const result = await getPaymentData({ ...searchCriteria, action })
     expect(result.count).toEqual(fullData)
     expect(result.rows.length).toEqual(fullData)
 

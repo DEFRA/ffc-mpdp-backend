@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const { getSearchSuggestions } = require('../services/fuzzy-search')
+const { getSearchSuggestions } = require('../data/search')
 
 module.exports = {
   method: 'GET',

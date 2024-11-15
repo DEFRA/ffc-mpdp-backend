@@ -12,8 +12,8 @@ afterEach(async () => {
 })
 
 describe('/v1/payments api call test', () => {
-  jest.mock('../../../../app/services/fuzzy-search')
-  const { getPaymentData } = require('../../../../app/services/fuzzy-search')
+  jest.mock('../../../../app/data/search')
+  const { getPaymentData } = require('../../../../app/data/search')
 
   beforeEach(() => {
     getPaymentData.mockReturnValue({

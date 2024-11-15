@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const { getPaymentData } = require('../services/fuzzy-search')
+const { getPaymentData } = require('../data/search')
 const { getAllPaymentsCsv } = require('../data/payments')
 
 module.exports = [{

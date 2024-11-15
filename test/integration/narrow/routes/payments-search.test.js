@@ -1,4 +1,4 @@
-const fuzzySearchService = require('../../../../app/services/fuzzy-search')
+const fuzzySearchService = require('../../../../app/data/search')
 const getSearchSuggestionsMock = jest.spyOn(fuzzySearchService, 'getSearchSuggestions')
 
 const { createServer } = require('../../../../app/server')

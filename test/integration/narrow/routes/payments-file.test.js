@@ -17,7 +17,7 @@ describe('/v1/payments/file test', () => {
       method: 'GET',
       url: '/v1/payments/file'
     }
-    const mockDb = jest.spyOn(database, 'getAllPaymentData')
+    const mockDb = jest.spyOn(database, 'getAllPayments')
     mockDb.mockResolvedValue(paymentData)
     const response = await server.inject(options)
 
