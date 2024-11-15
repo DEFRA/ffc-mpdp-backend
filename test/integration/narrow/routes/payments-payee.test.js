@@ -22,7 +22,7 @@ afterAll(() => {
 const paymentsDetailsUrl = '/v1/payments/Farmer Vel/WD6'
 
 describe('/v1/payments/{payeeName}/{partPostcode} api call test', () => {
-  const mockDb = jest.spyOn(databaseService, 'getPaymentDetails')
+  const mockDb = jest.spyOn(databaseService, 'getPayeePayments')
   mockDb.mockReturnValue(paymentDetailsDatabase)
 
   test('GET /v1/payments/{payeeName}/{partPostcode} returns 200', async () => {
@@ -36,7 +36,7 @@ describe('/v1/payments/{payeeName}/{partPostcode} api call test', () => {
   })
 
   test('GET /v1/payments/{payeeName}/{partPostcode} returns 404', async () => {
-    mockDb.mockReturnValue(null)
+    mockDb.mockReturnValue([])
     const options = {
       method: 'GET',
       url: paymentsDetailsUrl

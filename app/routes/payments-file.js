@@ -1,5 +1,5 @@
 const { Parser } = require('json2csv')
-const { getRawData } = require('../data/database')
+const { getAllPaymentData } = require('../data/database')
 
 /*
 Not current in use in front end due to workaround.  Needs updating to stream responses to client
@@ -22,7 +22,7 @@ module.exports = {
       'amount'
     ]
     try {
-      const paymentData = await getRawData()
+      const paymentData = await getAllPaymentData()
       const csvParser = new Parser({ fields })
       const csv = csvParser.parse(paymentData)
       return h.response(csv)

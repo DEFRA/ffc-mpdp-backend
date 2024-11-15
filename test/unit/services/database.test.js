@@ -1,7 +1,7 @@
 const {
   getAllPaymentData,
   PaymentDataModel,
-  getPaymentDetails,
+  getPayeePayments,
   PaymentDetailModel,
   SchemePaymentsModel,
   getAnnualPayments
@@ -77,7 +77,7 @@ describe('database-service PaymentData test', () => {
 // Test cases for /paymentdetails api
 describe('database-service paymentdetails test', () => {
   test('paymentdetails service to be defined', () => {
-    expect(getPaymentDetails).toBeDefined()
+    expect(getPayeePayments).toBeDefined()
     expect(PaymentDetailModel).toBeDefined()
   })
 
@@ -92,13 +92,13 @@ describe('database-service paymentdetails test', () => {
     }
     const mockDb = jest.spyOn(PaymentDetailModel, 'findAll')
     mockDb.mockResolvedValue(mockData)
-    const result = await getPaymentDetails(payeeName, partPostcode)
+    const result = await getPayeePayments(payeeName, partPostcode)
     expect(result).toEqual(expectedData)
   })
 
   test('GET /paymentdetails returns error  for empty parameters', async () => {
     const errorMessage = 'Empty payeeName or  partPostcode'
-    await expect(getPaymentDetails()).rejects.toThrow(errorMessage)
+    await expect(getPayeePayments()).rejects.toThrow(errorMessage)
   })
 
   test('GET /paymentdetails returns DB error', async () => {
@@ -107,7 +107,7 @@ describe('database-service paymentdetails test', () => {
     const errorMessage = 'DB Error'
     const mockDb = jest.spyOn(PaymentDetailModel, 'findAll')
     mockDb.mockRejectedValue(new Error(errorMessage))
-    await expect(getPaymentDetails(payeeName, partPostcode)).rejects.toThrow(
+    await expect(getPayeePayments(payeeName, partPostcode)).rejects.toThrow(
       errorMessage
     )
   })

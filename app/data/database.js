@@ -47,20 +47,32 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
 })
 
 async function getAnnualPayments () {
-  try {
-    const result = await SchemePaymentsModel.findAll({
-      attributes: [
-        'scheme',
-        'financial_year',
-        'total_amount'
-      ],
-      raw: true
-    })
-    return result
-  } catch (error) {
-    console.error('Error occurred while reading data:', error)
-    throw error
+  const result = await SchemePaymentsModel.findAll({
+    attributes: [
+      'scheme',
+      'financial_year',
+      'total_amount'
+    ],
+    raw: true
+  })
+  return result
+}
+
+async function getPayeePayments (payeeName = '', partPostcode = '') {
+  if (payeeName === '' || partPostcode === '') {
+    throw new Error('Empty payeeName or  partPostcode')
   }
+  return PaymentDetailModel.findAll({
+    group: search.details.fieldsToExtract,
+    attributes: [
+      ...search.details.fieldsToExtract,
+      [sequelize.fn('sum', sequelize.col('amount')), 'amount']
+    ],
+    where: and(
+      where(fn('btrim', col('payee_name')), payeeName),
+      where(fn('btrim', col('part_postcode')), partPostcode)
+    )
+  })
 }
 
 async function getAllPaymentData () {
@@ -91,60 +103,11 @@ async function getAllPaymentDataFromDB () {
   }
 }
 
-async function getPaymentDetails (payeeName = '', partPostcode = '') {
-  if (payeeName === '' || partPostcode === '') {
-    throw new Error('Empty payeeName or  partPostcode')
-  }
-  try {
-    return PaymentDetailModel.findAll({
-      group: search.details.fieldsToExtract,
-      attributes: [
-        ...search.details.fieldsToExtract,
-        [sequelize.fn('sum', sequelize.col('amount')), 'amount']
-      ],
-      where: and(
-        where(fn('btrim', col('payee_name')), payeeName),
-        where(fn('btrim', col('part_postcode')), partPostcode)
-      )
-    })
-  } catch (error) {
-    console.error('Error occurred while reading data:', error)
-    throw error
-  }
-}
-
-async function getRawData () {
-  let cachedData = await cache.get('rawData')
-  if (!cachedData || !Object.keys(cachedData).length) {
-    cachedData = await getRawDataFromDB()
-    await cache.set('rawData', cachedData)
-  }
-  return cachedData
-}
-
-async function getRawDataFromDB () {
-  try {
-    return await PaymentDetailModel.findAll()
-  } catch (error) {
-    console.error('Error occurred while reading data:', error)
-    throw error
-  }
-}
-
-async function getCsvPaymentDataOfPayee (payeeName, partPostcode) {
-  const csvData = await getRawData()
-  return csvData.filter((item) =>
-    item.payee_name?.toLowerCase() === payeeName?.toLowerCase() &&
-    item.part_postcode?.toLowerCase() === partPostcode?.toLowerCase())
-}
-
 module.exports = {
   SchemePaymentsModel,
   PaymentDataModel,
   PaymentDetailModel,
   getAnnualPayments,
-  getAllPaymentData,
-  getPaymentDetails,
-  getRawData,
-  getCsvPaymentDataOfPayee
+  getPayeePayments,
+  getAllPaymentData
 }

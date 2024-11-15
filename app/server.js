@@ -1,4 +1,5 @@
 const Hapi = require('@hapi/hapi')
+const Joi = require('joi')
 const config = require('./config')
 const Catbox = config.get('cache.useRedis') ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')
 const catboxOptions = config.get('cache.useRedis') ? config.get('cache.catbox') : {}
@@ -22,6 +23,8 @@ async function createServer () {
       }
     }]
   })
+
+  server.validator(Joi)
 
   await server.register(require('./plugins/logging'))
   await server.register(require('./plugins/errors'))
