@@ -5,7 +5,7 @@ async function getPayeeDetails (payeeName, partPostcode) {
   const payments = await getPayeePayments(payeeName, partPostcode)
 
   if (!payments.length) {
-    return
+    return undefined
   }
 
   return {
