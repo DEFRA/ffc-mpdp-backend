@@ -1,6 +1,6 @@
 const Fuse = require('fuse.js')
 const { getAllPayments } = require('./database')
-const { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee } = require('../utils/search/filters')
+const { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee } = require('./filters')
 
 const options = {
   includeScore: true,

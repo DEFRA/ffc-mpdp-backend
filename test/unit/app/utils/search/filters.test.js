@@ -1,4 +1,4 @@
-const { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee } = require('../../../../../app/utils/search/filters')
+const { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee } = require('../../../../../app/data/filters')
 const { removeFilterFields } = require('../../../../utils/helpers')
 
 describe('applyFiltersAndGroupByPayee', () => {
