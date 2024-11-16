@@ -19,7 +19,8 @@ async function getPaymentData ({ searchString, limit, offset, sortBy, filterBy, 
     return { count: 0, rows: [], filterOptions: getFilterOptions(searchResults) }
   }
 
-  let sortedResults = getSortedResults(filteredResults, sortBy)
+  let sortedResults = sortResults(filteredResults, sortBy)
+
   if (action !== 'download') {
     sortedResults = sortedResults.slice(offset, offset + limit)
   }
@@ -43,17 +44,16 @@ async function getSearchSuggestions (searchString) {
 }
 
 async function search (searchString) {
-  const paymentData = await getAllPayments()
-  const fuse = new Fuse(paymentData, options)
+  const payments = await getAllPayments()
+  const fuse = new Fuse(payments, options)
   return fuse.search(searchString).map(row => row.item)
 }
 
-function getSortedResults (records, sortBy) {
-  if (sortBy && sortBy !== 'score' && options.keys.includes(sortBy)) {
-    return records.sort((r1, r2) => r1[sortBy] > r2[sortBy] ? 1 : -1)
+function sortResults (results, sortBy) {
+  if (sortBy !== 'score' && options.keys.includes(sortBy)) {
+    return results.sort((a, b) => a[sortBy] > b[sortBy] ? 1 : -1)
   }
-
-  return records
+  return results
 }
 
 module.exports = {

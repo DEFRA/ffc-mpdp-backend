@@ -40,7 +40,7 @@ function groupByPayee (searchResults) {
 }
 
 function getFilterOptions (searchResults) {
-  if (!searchResults?.length) {
+  if (!searchResults.length) {
     return { schemes: [], amounts: [], counties: [], years: [] }
   }
 
