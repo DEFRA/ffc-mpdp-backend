@@ -1,7 +1,7 @@
 const { DefaultAzureCredential, getBearerTokenProvider } = require('@azure/identity')
 const { Sequelize, DataTypes, where, fn, col, and } = require('sequelize')
+const { get, set } = require('../cache')
 const config = require('../config')
-
 const dbConfig = config.get('db')
 
 if (config.get('isProd')) {
@@ -45,7 +45,7 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
 })
 
 async function getAnnualPayments () {
-  const result = await SchemePaymentsModel.findAll({
+  return SchemePaymentsModel.findAll({
     attributes: [
       'scheme',
       'financial_year',
@@ -53,7 +53,6 @@ async function getAnnualPayments () {
     ],
     raw: true
   })
-  return result
 }
 
 async function getPayeePayments (payeeName, partPostcode) {
@@ -87,7 +86,12 @@ async function getPayeePayments (payeeName, partPostcode) {
 }
 
 async function getAllPayments () {
-  return PaymentDataModel.findAll({
+  const cachedPayments = await get('payments')
+  if (cachedPayments) {
+    return cachedPayments
+  }
+
+  const payments = await PaymentDataModel.findAll({
     group: ['payee_name', 'part_postcode', 'town', 'county_council', 'scheme', 'financial_year'],
     attributes: [
       'payee_name', 'part_postcode', 'town', 'county_council', 'scheme', 'financial_year',
@@ -95,6 +99,9 @@ async function getAllPayments () {
     ],
     raw: true
   })
+
+  await set('payments', payments)
+  return payments
 }
 
 module.exports = {

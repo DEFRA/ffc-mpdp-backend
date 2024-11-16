@@ -9,8 +9,8 @@ module.exports = [{
     validate: {
       payload: {
         searchString: Joi.string().trim().min(1).required(),
-        limit: Joi.number().required(),
-        offset: Joi.number().default(0),
+        limit: Joi.number().integer().required(),
+        offset: Joi.number().integer().default(0),
         sortBy: Joi.string().default('score'),
         filterBy: Joi.object({
           schemes: Joi.array().items(Joi.string()),

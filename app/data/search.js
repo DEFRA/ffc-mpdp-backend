@@ -21,7 +21,7 @@ async function getPaymentData ({ searchString, limit, offset, sortBy, filterBy, 
 
   let sortedResults = getSortedResults(filteredResults, sortBy)
   if (action !== 'download') {
-    sortedResults = sortedResults.slice(offset, parseInt(offset) + parseInt(limit))
+    sortedResults = sortedResults.slice(offset, offset + limit)
   }
 
   return {
