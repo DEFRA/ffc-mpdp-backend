@@ -7,7 +7,7 @@ function applyFiltersAndGroupByPayee (
   results = filterByYears(results, years)
   results = groupByPayee(results)
   results = filterByAmounts(results, amounts)
-  return removeSchemeField(results)
+  return results.map(result => removeKeys(result, ['scheme']))
 }
 
 function filterBySchemes (results, schemes) {
@@ -22,13 +22,13 @@ function filterBySchemes (results, schemes) {
 }
 
 function groupByPayee (searchResults) {
-  const result = searchResults.reduce((acc, result) => {
-    const payee = acc.find(r => r.payee_name === result.payee_name && r.part_postcode === result.part_postcode)
+  const result = searchResults.reduce((acc, item) => {
+    const payee = acc.find(r => r.payee_name === item.payee_name && r.part_postcode === item.part_postcode)
 
     if (!payee) {
-      acc.push({ ...result })
+      acc.push({ ...item })
     } else {
-      payee.total_amount = parseFloat(payee.total_amount) + parseFloat(result.total_amount)
+      payee.total_amount = parseFloat(payee.total_amount) + parseFloat(item.total_amount)
     }
 
     return acc
@@ -86,8 +86,6 @@ function filterByYears (results, years) {
   return results.filter(x => years.includes(x.financial_year))
 }
 
-const removeSchemeField = (searchResults) => searchResults.map(({ scheme, ...rest }) => rest)
-
 function getUniqueFields (searchResults, field) {
   try {
     return searchResults.reduce((acc, result) => {
@@ -103,4 +101,15 @@ function getUniqueFields (searchResults, field) {
   }
 }
 
-module.exports = { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee }
+function removeKeys (obj, keys) {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([key]) => !keys.includes(key))
+  )
+}
+
+module.exports = {
+  applyFiltersAndGroupByPayee,
+  getFilterOptions,
+  groupByPayee,
+  removeKeys
+}

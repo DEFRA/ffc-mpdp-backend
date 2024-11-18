@@ -1,6 +1,6 @@
 const Fuse = require('fuse.js')
 const { getAllPayments } = require('./database')
-const { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee } = require('./filters')
+const { applyFiltersAndGroupByPayee, getFilterOptions, groupByPayee, removeKeys } = require('./filters')
 
 const options = {
   includeScore: true,
@@ -54,12 +54,6 @@ function sortResults (results, sortBy) {
     return results.sort((a, b) => a[sortBy] > b[sortBy] ? 1 : -1)
   }
   return results
-}
-
-function removeKeys (obj, keys) {
-  return Object.fromEntries(
-    Object.entries(obj).filter(([key]) => !keys.includes(key))
-  )
 }
 
 module.exports = {
