@@ -31,9 +31,9 @@ describe('base caching', () => {
     expect(result).toStrictEqual({ value: 'testValue' })
   })
 
-  test('returns empty object if key does not exist', async () => {
+  test('returns null if key does not exist', async () => {
     const result = await cache.get('NonExistentTestKey')
-    expect(result).toStrictEqual({})
+    expect(result).toStrictEqual(null)
   })
 
   test('clears cache based on key', async () => {
@@ -42,6 +42,6 @@ describe('base caching', () => {
     expect(result).toBe('testValue')
 
     await cache.clear('testKey')
-    await expect(cache.get('testKey')).resolves.toStrictEqual({})
+    await expect(cache.get('testKey')).resolves.toStrictEqual(null)
   })
 })

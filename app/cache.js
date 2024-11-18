@@ -9,8 +9,7 @@ function setup (server) {
 }
 
 async function get (key) {
-  const value = await cache.get(key)
-  return value ?? {}
+  return cache.get(key)
 }
 
 async function set (key, value) {
