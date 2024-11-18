@@ -13,7 +13,7 @@ const options = {
 const suggestionResultsLimit = 6
 
 async function getPaymentData ({ searchString, limit, offset, sortBy, filterBy, action }) {
-  const searchResults = await search(searchString)
+  const searchResults = await searchAllPayments(searchString)
   const filteredResults = applyFiltersAndGroupByPayee(searchResults, filterBy)
   if (!filteredResults.length) {
     return { count: 0, rows: [], filterOptions: getFilterOptions(searchResults) }
@@ -33,20 +33,20 @@ async function getPaymentData ({ searchString, limit, offset, sortBy, filterBy, 
 }
 
 async function getSearchSuggestions (searchString) {
-  const searchResults = await search(searchString)
+  const searchResults = await searchAllPayments(searchString)
   const groupedResults = groupByPayee(searchResults)
   return {
     count: groupedResults.length,
     rows: groupedResults
-      .map(({ scheme, total_amount, financial_year, ...rest }) => rest) // eslint-disable-line camelcase
+      .map(result => removeKeys(result, ['scheme', 'total_amount', 'financial_year']))
       .slice(0, suggestionResultsLimit)
   }
 }
 
-async function search (searchString) {
+async function searchAllPayments (searchString) {
   const payments = await getAllPayments()
   const fuse = new Fuse(payments, options)
-  return fuse.search(searchString).map(row => row.item)
+  return fuse.search(searchString).map(result => result.item)
 }
 
 function sortResults (results, sortBy) {
@@ -54,6 +54,12 @@ function sortResults (results, sortBy) {
     return results.sort((a, b) => a[sortBy] > b[sortBy] ? 1 : -1)
   }
   return results
+}
+
+function removeKeys (obj, keys) {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([key]) => !keys.includes(key))
+  )
 }
 
 module.exports = {

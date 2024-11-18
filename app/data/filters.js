@@ -22,15 +22,13 @@ function filterBySchemes (results, schemes) {
 }
 
 function groupByPayee (searchResults) {
-  const result = searchResults.reduce((acc, x) => {
-    const payee = acc.find(
-      (r) =>
-        r.payee_name === x.payee_name && r.part_postcode === x.part_postcode
-    )
+  const result = searchResults.reduce((acc, result) => {
+    const payee = acc.find(r => r.payee_name === result.payee_name && r.part_postcode === result.part_postcode)
+
     if (!payee) {
-      acc.push({ ...x })
+      acc.push({ ...result })
     } else {
-      payee.total_amount = parseFloat(payee.total_amount) + parseFloat(x.total_amount)
+      payee.total_amount = parseFloat(payee.total_amount) + parseFloat(result.total_amount)
     }
 
     return acc
