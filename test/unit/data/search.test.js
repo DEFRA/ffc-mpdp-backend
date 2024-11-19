@@ -130,14 +130,14 @@ describe('testing fuzzySearchService /paymentdata', () => {
     expect(result.count).toEqual(fullData)
     expect(result.rows.length).toEqual(fullData)
 
-    const counties = ['Staffordshire']
+    const counties = ['staffordshire']
     const amounts = ['5000-9999']
     const filterBy = { counties, amounts }
     const filteredResult = await getPaymentData({ ...searchCriteria, filterBy, action })
 
     filteredResult.rows.forEach(row => {
       expect(isInRange(row.total_amount, amounts[0])).toBe(true)
-      expect(row.county_council).toEqual(counties[0])
+      expect(row.county_council).toEqual('Staffordshire')
     })
 
     expect(filteredResult.count).toEqual(4)
@@ -216,7 +216,7 @@ describe('fuzzySearchService tests with filterBy', () => {
   })
 
   test('GET /paymentdata filters scheme while using case insensitive search', async () => {
-    const schemes = ['Farming Equipment and technology fund']
+    const schemes = ['farming equipment and technology fund']
     const filteredResult = await getPaymentData({ ...searchCriteria, filterBy: { schemes } })
 
     filteredResult.rows.forEach(x => {
@@ -226,12 +226,12 @@ describe('fuzzySearchService tests with filterBy', () => {
   })
 
   test('GET /paymentdata filters by multiple schemes and pagination still works', async () => {
-    const schemes = ['Farming Equipment and Technology Fund', 'Sustainable Farming Incentive pilot']
+    const schemes = ['farming equipment and technology fund', 'sustainable farming incentive pilot']
     const filteredResultPage1 = await getPaymentData({ ...searchCriteria, filterBy: { schemes } })
 
     filteredResultPage1.rows.forEach(x => {
       const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
-      expect(schemes.includes(matchingSet.scheme)).toBeTruthy()
+      expect(schemes.includes(matchingSet.scheme.toLowerCase())).toBeTruthy()
     })
 
     // Check pagination works by setting the offset to previous search limit
@@ -261,14 +261,14 @@ describe('fuzzySearchService tests with filterBy', () => {
   })
 
   test('GET /paymentdata filters by scheme and amount', async () => {
-    const schemes = ['Farming Equipment and Technology Fund']
+    const schemes = ['farming equipment and technology fund']
     const amounts = ['5000-9999']
     const filteredResult = await getPaymentData({ ...searchCriteria, filterBy: { schemes, amounts } })
 
     filteredResult.rows.forEach(x => {
       const matchingSet = paymentestdata.find(td => td.payee_name === x.payee_name && td.part_postcode === x.part_postcode)
       expect(isInRange(matchingSet.total_amount, amounts[0])).toBe(true)
-      expect(matchingSet.scheme).toBe(schemes[0])
+      expect(matchingSet.scheme).toBe('Farming Equipment and Technology Fund')
     })
   })
 

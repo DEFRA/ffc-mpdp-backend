@@ -13,8 +13,8 @@ module.exports = [{
         offset: Joi.number().integer().default(0),
         sortBy: Joi.string().default('score'),
         filterBy: Joi.object({
-          schemes: Joi.array().items(Joi.string()),
-          counties: Joi.array().items(Joi.string()),
+          schemes: Joi.array().items(Joi.string().lowercase()),
+          counties: Joi.array().items(Joi.string().lowercase()),
           amounts: Joi.array().items(Joi.string()),
           years: Joi.array().items(Joi.string())
         }).default({}),

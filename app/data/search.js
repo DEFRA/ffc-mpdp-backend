@@ -15,19 +15,16 @@ const suggestionResultsLimit = 6
 async function getPaymentData ({ searchString, limit, offset, sortBy, filterBy, action }) {
   const searchResults = await searchAllPayments(searchString)
   const filteredResults = applyFiltersAndGroupByPayee(searchResults, filterBy)
+
   if (!filteredResults.length) {
     return { count: 0, rows: [], filterOptions: getFilterOptions(searchResults) }
   }
 
-  let sortedResults = sortResults(filteredResults, sortBy)
-
-  if (action !== 'download') {
-    sortedResults = sortedResults.slice(offset, offset + limit)
-  }
+  const sortedResults = sortResults(filteredResults, sortBy)
 
   return {
     count: filteredResults.length,
-    rows: sortedResults,
+    rows: action === 'download' ? sortedResults : sortedResults.slice(offset, offset + limit),
     filterOptions: getFilterOptions(searchResults)
   }
 }

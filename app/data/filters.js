@@ -2,23 +2,38 @@ function applyFiltersAndGroupByPayee (
   searchResults,
   { schemes = [], counties = [], amounts = [], years = [] }
 ) {
-  let results = filterBySchemes(searchResults, schemes)
-  results = filterByCounties(results, counties)
-  results = filterByYears(results, years)
-  results = groupByPayee(results)
-  results = filterByAmounts(results, amounts)
-  return results.map(result => removeKeys(result, ['scheme']))
+  const schemeFilteredResults = filterBySchemes(searchResults, schemes)
+  const countyFilteredResults = filterByCounties(schemeFilteredResults, counties)
+  const yearFilteredResults = filterByYears(countyFilteredResults, years)
+  const groupedResults = groupByPayee(yearFilteredResults)
+  const amountFilteredResults = filterByAmounts(groupedResults, amounts)
+  return amountFilteredResults.map(result => removeKeys(result, ['scheme']))
 }
 
-function filterBySchemes (results, schemes) {
-  if (!schemes?.length) {
+function filterBySchemes (searchResults, schemes) {
+  if (!schemes.length) {
+    return searchResults
+  }
+  return searchResults.filter(result =>
+    schemes.includes(result.scheme.toLowerCase())
+  )
+}
+
+function filterByCounties (searchResults, counties) {
+  if (!counties.length) {
+    return searchResults
+  }
+  return searchResults.filter(result =>
+    counties.includes(result.county_council.toLowerCase())
+  )
+}
+
+function filterByYears (results, years) {
+  if (!years.length) {
     return results
   }
-  return results.filter((x) =>
-    schemes
-      .map((scheme) => scheme.toLowerCase())
-      .includes(x.scheme.toLowerCase())
-  )
+
+  return results.filter(x => years.includes(x.financial_year))
 }
 
 function groupByPayee (searchResults) {
@@ -37,6 +52,25 @@ function groupByPayee (searchResults) {
   return result
 }
 
+function filterByAmounts (searchResults, amounts) {
+  if (!amounts.length) {
+    return searchResults
+  }
+  const amountRanges = amounts.map((range) => {
+    const [from, to] = range.split('-')
+    return { from: parseFloat(from), to: parseFloat(to) }
+  })
+
+  return searchResults.filter(result => {
+    return amountRanges.some(range => {
+      const totalAmount = parseFloat(result.total_amount)
+      return !range.to
+        ? totalAmount >= range.from
+        : totalAmount >= range.from && totalAmount <= range.to
+    })
+  })
+}
+
 function getFilterOptions (searchResults) {
   if (!searchResults.length) {
     return { schemes: [], amounts: [], counties: [], years: [] }
@@ -48,42 +82,6 @@ function getFilterOptions (searchResults) {
     amounts: getUniqueFields(groupByPayee(searchResults), 'total_amount'),
     years: getUniqueFields(searchResults, 'financial_year')
   }
-}
-
-function filterByAmounts (results, amounts) {
-  if (!amounts?.length) {
-    return results
-  }
-  const amountRanges = amounts.map((range) => {
-    const [_from, _to] = range.split('-')
-    return { from: parseFloat(_from), to: parseFloat(_to) }
-  })
-  return results.filter((row) => {
-    return amountRanges.some(({ from, to }) => {
-      const totalAmount = parseFloat(row.total_amount)
-      return !to
-        ? totalAmount >= from
-        : totalAmount >= from && totalAmount <= to
-    })
-  })
-}
-
-function filterByCounties (searchResults, counties) {
-  if (!counties?.length) {
-    return searchResults
-  }
-  const lowerCaseCounties = counties.map((county) => county.toLowerCase())
-  return searchResults.filter((x) =>
-    lowerCaseCounties.includes(x.county_council.toLowerCase())
-  )
-}
-
-function filterByYears (results, years) {
-  if (!years?.length) {
-    return results
-  }
-
-  return results.filter(x => years.includes(x.financial_year))
 }
 
 function getUniqueFields (searchResults, field) {
