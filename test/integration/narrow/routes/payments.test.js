@@ -59,8 +59,8 @@ describe('/v1/payments api call test', () => {
         offset: 10,
         sortBy: '__SORT_BY__',
         filterBy: {
-          schemes: ['__DUMMY_SCHEME__'],
-          counties: ['__DUMMY_COUNTY__'],
+          schemes: ['__dummy_scheme__'],
+          counties: ['__dummy_county__'],
           amounts: ['0-4999']
         }
       }
