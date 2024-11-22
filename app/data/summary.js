@@ -1,4 +1,4 @@
-const { Parser } = require('json2csv')
+const { AsyncParser } = require('@json2csv/node')
 const { getAnnualPayments } = require('../data/database')
 
 async function getPaymentSummary () {
@@ -18,8 +18,8 @@ async function getPaymentSummaryCsv () {
   const payments = await getAnnualPayments()
   const sortedPayments = payments.toSorted((a, b) => a.financial_year > b.financial_year ? 1 : -1)
 
-  const csvParser = new Parser({ fields })
-  return csvParser.parse(sortedPayments)
+  const parser = new AsyncParser({ fields })
+  return parser.parse(sortedPayments).promise()
 }
 
 function groupPaymentsByYear (payments) {

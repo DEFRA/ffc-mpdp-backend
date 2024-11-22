@@ -1,6 +1,6 @@
 {
   "name": "ffc-mpdp-backend",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "Backend for making payment data public",
   "homepage": "https://github.com/DEFRA/ffc-mpdp-backend",
   "main": "app/index.js",
@@ -28,7 +28,6 @@
     "fuse.js": "6.6.2",
     "hapi-pino": "12.1.0",
     "joi": "17.13.3",
-    "json2csv": "5.0.7",
     "pg": "8.13.1",
     "redis": "4.7.0",
     "sequelize": "6.37.5"

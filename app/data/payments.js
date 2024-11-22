@@ -1,5 +1,4 @@
 const { Readable } = require('stream')
-const { Parser } = require('json2csv')
 const { AsyncParser } = require('@json2csv/node')
 const { getAllPaymentsByPage } = require('./database')
 const { getPaymentData } = require('./search')
@@ -14,8 +13,8 @@ async function getPaymentsCsv ({ searchString, limit, offset, sortBy, filterBy, 
   ]
   const { rows: payments } = await getPaymentData({ searchString, limit, offset, sortBy, filterBy, action })
   const paymentsWithAmounts = payments.map(x => ({ ...x, amount: getReadableAmount(parseFloat(x.total_amount)) }))
-  const csvParser = new Parser({ fields })
-  return csvParser.parse(paymentsWithAmounts)
+  const parser = new AsyncParser({ fields })
+  return parser.parse(paymentsWithAmounts).promise()
 }
 
 function getAllPaymentsCsv () {
