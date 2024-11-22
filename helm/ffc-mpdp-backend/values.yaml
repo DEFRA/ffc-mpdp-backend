@@ -17,23 +17,15 @@ containerSecret:
   type: Opaque
 
 deployment:
-  restartPolicy: Always
-  priorityClassName: default
   replicas: 3
-  minReplicas: 1
-  maxReplicas: 3
-  cpuThreshold: 80
-  memoryThreshold: 80
-  minReadySeconds: 0
 
 container:
-  imagePullPolicy: IfNotPresent
   requestMemory: 500Mi
   requestCpu: 100m
   limitMemory: 500Mi
   port: 3000
-  redisHostname: redis-redis-ha.default
-  redisPassword: redis
+  redisHostname:
+  redisPassword:
   redisPort: 6379
   redisPartition: ffc-mpdp-backend
 
@@ -59,7 +51,7 @@ azureIdentity:
 
 postgresService:
   postgresDb: ffc_mpdp_backend
-  postgresqlHost: ffc-mpdp-backend
+  postgresqlHost:
   postgresPort: 5432
   postgresSchema: public
-  postgresUser: postgres
+  postgresUser:
