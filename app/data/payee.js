@@ -1,4 +1,4 @@
-const { Parser } = require('json2csv')
+const { AsyncParser } = require('@json2csv/node')
 const { getPayeePayments } = require('./database')
 
 async function getPayeeDetails (payeeName, partPostcode) {
@@ -40,8 +40,8 @@ async function getPayeeDetailsCsv (payeeName, partPostcode) {
     'amount'
   ]
   const paymentData = await getPayeePayments(payeeName, partPostcode)
-  const csvParser = new Parser({ fields })
-  return csvParser.parse(paymentData)
+  const parser = new AsyncParser({ fields })
+  return parser.parse(paymentData).promise()
 }
 
 module.exports = {
