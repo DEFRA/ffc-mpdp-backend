@@ -24,7 +24,7 @@ module.exports = [{
     },
     handler: async (request, h) => {
       const payments = await getPaymentData(request.payload)
-      return h.response(payments).code(200)
+      return h.response(payments)
     }
   }
 },
@@ -47,7 +47,7 @@ module.exports = [{
     },
     handler: async (request, h) => {
       const payments = await getPaymentsCsv(request.payload)
-      return h.response(payments).code(200)
+      return h.response(payments)
     }
   }
 },
@@ -58,11 +58,7 @@ Not current in use in front end due to workaround.  Needs updating to stream res
   method: 'GET',
   path: '/v1/payments/file',
   handler: async (_request, h) => {
-    const payments = await getAllPaymentsCsv()
-    return h.response(payments)
-      .type('text/csv')
-      .header('Connection', 'keep-alive')
-      .header('Cache-Control', 'no-cache')
-      .header('Content-Disposition', 'attachment;filename=ffc-payment-data.csv')
+    const paymentsStream = getAllPaymentsCsv()
+    return h.response(paymentsStream)
   }
 }]

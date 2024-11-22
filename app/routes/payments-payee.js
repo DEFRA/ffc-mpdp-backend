@@ -23,7 +23,7 @@ module.exports = [{
       return h.response('No data found').code(404)
     }
 
-    return h.response(payeeDetails).code(200)
+    return h.response(payeeDetails)
   }
 }, {
   method: 'GET',
