@@ -5,7 +5,7 @@ module.exports = [{
   path: '/v1/payments/summary',
   handler: async (_request, h) => {
     const payments = await getPaymentSummary()
-    return h.response(payments).code(200)
+    return h.response(payments)
   }
 }, {
   method: 'GET',

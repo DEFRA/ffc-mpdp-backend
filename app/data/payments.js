@@ -1,10 +1,8 @@
+const { Readable } = require('stream')
 const { Parser } = require('json2csv')
-const { getAllPayments } = require('./database')
+const { AsyncParser } = require('@json2csv/node')
+const { getAllPaymentsByPage } = require('./database')
 const { getPaymentData } = require('./search')
-
-/*
-Not current in use in front end due to workaround.  Needs updating to stream responses to client
-*/
 
 async function getPaymentsCsv ({ searchString, limit, offset, sortBy, filterBy, action = 'download' }) {
   const fields = [
@@ -20,7 +18,7 @@ async function getPaymentsCsv ({ searchString, limit, offset, sortBy, filterBy, 
   return csvParser.parse(paymentsWithAmounts)
 }
 
-async function getAllPaymentsCsv () {
+function getAllPaymentsCsv () {
   const fields = [
     'financial_year',
     'payee_name',
@@ -30,11 +28,43 @@ async function getAllPaymentsCsv () {
     'parliamentary_constituency',
     'scheme',
     'scheme_detail',
-    'amount'
+    {
+      label: 'amount',
+      value: 'total_amount'
+    }
   ]
-  const payments = await getAllPayments()
-  const csvParser = new Parser({ fields })
-  return csvParser.parse(payments)
+
+  const parser = new AsyncParser({ fields })
+
+  let page = 1
+
+  const paymentStream = new Readable({
+    read (_size) {
+      getAllPaymentsByPage(page)
+        .then(payments => {
+          if (payments.length === 0) {
+            this.push(null)
+            return
+          }
+
+          parser.parse(payments).promise()
+            .then(parsed => {
+              this.push(parsed)
+              page++
+            })
+            .catch(err => {
+              console.error(err)
+              this.destroy(err)
+            })
+        })
+        .catch(err => {
+          console.error(err)
+          this.destroy(err)
+        })
+    }
+  })
+
+  return paymentStream
 }
 
 function getReadableAmount (amount) {

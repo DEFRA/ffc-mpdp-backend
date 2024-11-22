@@ -104,11 +104,26 @@ async function getAllPayments () {
   return payments
 }
 
+async function getAllPaymentsByPage (page, pageSize = 500) {
+  return PaymentDataModel.findAll({
+    group: ['payee_name', 'part_postcode', 'town', 'county_council', 'scheme', 'financial_year', 'scheme_detail'],
+    attributes: [
+      'payee_name', 'part_postcode', 'town', 'county_council', 'scheme', 'financial_year', 'scheme_detail',
+      [sequelize.fn('sum', sequelize.col('amount')), 'total_amount']
+    ],
+    raw: true,
+    limit: pageSize,
+    offset: (page - 1) * pageSize,
+    order: [['payee_name', 'ASC']]
+  })
+}
+
 module.exports = {
   SchemePaymentsModel,
   PaymentDataModel,
   PaymentDetailModel,
   getAnnualPayments,
   getPayeePayments,
-  getAllPayments
+  getAllPayments,
+  getAllPaymentsByPage
 }

@@ -9,5 +9,5 @@ module.exports = [{
 }]
 
 function handler (_request, h) {
-  return h.response('ok').code(200)
+  return h.response('ok')
 }

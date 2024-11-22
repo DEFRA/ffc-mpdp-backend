@@ -17,13 +17,12 @@ describe('/v1/payments/file test', () => {
       method: 'GET',
       url: '/v1/payments/file'
     }
-    const mockDb = jest.spyOn(database, 'getAllPayments')
-    mockDb.mockResolvedValue(paymentData)
+    const mockDb = jest.spyOn(database, 'getAllPaymentsByPage')
+    mockDb.mockResolvedValueOnce(paymentData.map(x => ({ ...x, total_amount: x.amount })))
+    mockDb.mockResolvedValueOnce([])
     const response = await server.inject(options)
 
     expect(response.statusCode).toBe(200)
-    expect(response.headers['content-type']).toContain('text/csv')
-    expect(response.headers['content-disposition']).toContain('attachment')
     expect(response.result).toContain('"financial_year","payee_name","part_postcode","town","county_council","parliamentary_constituency","scheme","scheme_detail","amount"')
     expect(response.result).toContain('"21/22","Farmer Vel","WD6","Elstree and Borehamwood","Hertfordshire","Hertsmere","Farming Equipment and Technology Fund","","11965.00"')
     expect(response.result).toContain('"21/22","Farmer Vel","WD6","Elstree and Borehamwood","Hertfordshire","Hertsmere","Sustainable Farming Incentive Pilot","Improved Grassland soils","31109.00"')

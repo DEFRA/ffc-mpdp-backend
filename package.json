@@ -1,6 +1,6 @@
 {
   "name": "ffc-mpdp-backend",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "Backend for making payment data public",
   "homepage": "https://github.com/DEFRA/ffc-mpdp-backend",
   "main": "app/index.js",
@@ -21,6 +21,7 @@
     "@azure/identity": "4.5.0",
     "@hapi/catbox-redis": "7.0.2",
     "@hapi/hapi": "21.3.12",
+    "@json2csv/node": "7.0.6",
     "applicationinsights": "2.5.1",
     "convict": "6.2.4",
     "convict-format-with-validator": "6.2.0",
