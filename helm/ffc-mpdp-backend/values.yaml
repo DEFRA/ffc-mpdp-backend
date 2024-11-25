@@ -21,7 +21,7 @@ deployment:
 
 container:
   requestMemory: 500Mi
-  requestCpu: 100m
+  requestCpu: 500m
   limitMemory: 500Mi
   port: 3000
   redisHostname:
