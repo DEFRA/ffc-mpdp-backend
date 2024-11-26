@@ -1,4 +1,4 @@
-const { setup: setupAppInsights } = require('./insights')
+const { setupAppInsights } = require('./insights')
 const { createServer } = require('./server')
 
 async function startServer () {

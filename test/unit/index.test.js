@@ -1,5 +1,5 @@
 jest.mock('../../app/insights')
-const { setup } = require('../../app/insights')
+const { setupAppInsights } = require('../../app/insights')
 
 jest.mock('../../app/server')
 const { createServer } = require('../../app/server')
@@ -21,7 +21,7 @@ describe('startServer', () => {
 
   test('should setup application insights', async () => {
     await startServer()
-    expect(setup).toHaveBeenCalledTimes(1)
+    expect(setupAppInsights).toHaveBeenCalledTimes(1)
   })
 
   test('should create a new server instance', async () => {
