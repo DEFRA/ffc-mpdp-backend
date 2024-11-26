@@ -1,6 +1,9 @@
 jest.mock('../../app/insights')
+const { setup } = require('../../app/insights')
+
 jest.mock('../../app/server')
 const { createServer } = require('../../app/server')
+
 const { startServer } = require('../../app')
 
 const mockServer = {
@@ -14,6 +17,11 @@ describe('startServer', () => {
   beforeEach(() => {
     jest.clearAllMocks()
     createServer.mockResolvedValue(mockServer)
+  })
+
+  test('should setup application insights', async () => {
+    await startServer()
+    expect(setup).toHaveBeenCalledTimes(1)
   })
 
   test('should create a new server instance', async () => {
