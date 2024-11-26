@@ -1,7 +1,7 @@
 module.exports = {
   plugin: {
     name: 'router',
-    register: async function (server, options) {
+    register: async function (server) {
       server.route([].concat(
         require('../routes/health'),
         require('../routes/payments'),
