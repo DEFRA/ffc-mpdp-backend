@@ -7,4 +7,8 @@ async function startServer () {
   console.log(`Server running at: ${server.info.uri}`)
 }
 
-startServer()
+module.exports = { startServer }
+
+if (require.main === module) {
+  startServer()
+}
