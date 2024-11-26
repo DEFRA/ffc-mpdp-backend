@@ -1,15 +1,13 @@
-jest.mock('applicationinsights', () => {
-  return {
-    setup: jest.fn().mockReturnThis(),
-    start: jest.fn(),
-    defaultClient: {
-      context: {
-        keys: {},
-        tags: {}
-      }
+jest.mock('applicationinsights', () => ({
+  setup: jest.fn().mockReturnThis(),
+  start: jest.fn(),
+  defaultClient: {
+    context: {
+      keys: {},
+      tags: {}
     }
   }
-})
+}))
 const appInsights = require('applicationinsights')
 
 const { setupAppInsights } = require('../../app/insights')
