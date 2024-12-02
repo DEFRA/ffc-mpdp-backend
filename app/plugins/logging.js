@@ -4,6 +4,6 @@ module.exports = {
   plugin: require('hapi-pino'),
   options: {
     logPayload: !config.get('isProd'),
-    level: config.get('isProd') ? 'warn' : 'debug'
+    level: config.get('isProd') ? 'warn' : 'info'
   }
 }
