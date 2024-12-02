@@ -10,13 +10,11 @@ describe('cache config', () => {
 
   test('should return segment as payments', () => {
     const config = require('../../../app/config/cache')
-
     expect(config.get('segment')).toBe('payments')
   })
 
   test('should return expiresIn as 15 minutes in milliseconds', () => {
     const config = require('../../../app/config/cache')
-
     expect(config.get('expiresIn')).toBe(900000)
   })
 
