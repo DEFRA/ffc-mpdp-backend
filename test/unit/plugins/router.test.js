@@ -20,6 +20,10 @@ const mockServer = {
 const router = require('../../../app/plugins/router')
 
 describe('router plugin', () => {
+  beforeEach(() => {
+    jest.clearAllMocks()
+  })
+
   test('should have a name', () => {
     expect(router.plugin.name).toBe('router')
   })
