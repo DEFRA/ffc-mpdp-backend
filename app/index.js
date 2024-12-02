@@ -5,7 +5,6 @@ async function startServer () {
   setupAppInsights()
   const server = await createServer()
   await server.start()
-  console.log(`Server running at: ${server.info.uri}`)
 }
 
 module.exports = { startServer }

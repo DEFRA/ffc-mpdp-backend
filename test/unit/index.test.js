@@ -7,10 +7,7 @@ const { createServer } = require('../../app/server')
 const { startServer } = require('../../app')
 
 const mockServer = {
-  start: jest.fn(),
-  info: {
-    uri: 'http://0.0.0.0:3000'
-  }
+  start: jest.fn()
 }
 
 describe('startServer', () => {
@@ -32,11 +29,5 @@ describe('startServer', () => {
   test('should start the server', async () => {
     await startServer()
     expect(mockServer.start).toHaveBeenCalledTimes(1)
-  })
-
-  test('should log the server URI', async () => {
-    const consoleSpy = jest.spyOn(console, 'log')
-    await startServer()
-    expect(consoleSpy).toHaveBeenCalledWith(`Server running at: ${mockServer.info.uri}`)
   })
 })
