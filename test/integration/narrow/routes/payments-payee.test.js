@@ -88,7 +88,7 @@ describe('payments-payee routes', () => {
     expect(response.statusCode).toBe(404)
   })
 
-  test('GET /v1/payments/{payeeName}/{partPostcode} should return "No data found" if payee details undefined', async () => {
+  test('GET /v1/payments/{payeeName}/{partPostcode} should return "Payee not found" if payee details undefined', async () => {
     getPayeeDetails.mockResolvedValue(undefined)
 
     const options = {
@@ -96,10 +96,10 @@ describe('payments-payee routes', () => {
       url: `/v1/payments/${payeeName}/${partPostcode}`
     }
     const response = await server.inject(options)
-    expect(response.payload).toBe('No data found')
+    expect(response.payload).toBe('Payee not found')
   })
 
-  test('GET /v1/payments/{payeeName}/{partPostcode} should return "No data found" if payee details null', async () => {
+  test('GET /v1/payments/{payeeName}/{partPostcode} should return "Payee not found" if payee details null', async () => {
     getPayeeDetails.mockResolvedValue(null)
 
     const options = {
@@ -107,7 +107,7 @@ describe('payments-payee routes', () => {
       url: `/v1/payments/${payeeName}/${partPostcode}`
     }
     const response = await server.inject(options)
-    expect(response.payload).toBe('No data found')
+    expect(response.payload).toBe('Payee not found')
   })
 
   test('GET /v1/payments/{payeeName}/{partPostcode}/file should return payments summary csv', async () => {
