@@ -20,7 +20,7 @@ module.exports = [{
     const payeeDetails = await getPayeeDetails(payeeName, partPostcode)
 
     if (!payeeDetails) {
-      return h.response('No data found').code(404)
+      return h.response('Payee not found').code(404)
     }
 
     return h.response(payeeDetails)
@@ -35,8 +35,6 @@ module.exports = [{
 
     return h.response(payeeDetailsCsv)
       .type('text/csv')
-      .header('Connection', 'keep-alive')
-      .header('Cache-Control', 'no-cache')
       .header('Content-Disposition', 'attachment;filename=ffc-payment-details.csv')
   }
 }]

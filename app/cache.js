@@ -1,10 +1,21 @@
-const cacheConfig = require('./config')
+const config = require('./config')
 let cache
+
+function getProvider () {
+  const Catbox = config.get('cache.useRedis') ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')
+  const catboxOptions = config.get('cache.useRedis') ? config.get('cache.catbox') : {}
+  return {
+    provider: {
+      constructor: Catbox.Engine,
+      options: catboxOptions
+    }
+  }
+}
 
 function setup (server) {
   cache = server.cache({
-    segment: cacheConfig.get('cache.segment'),
-    expiresIn: cacheConfig.get('cache.expiresIn')
+    segment: config.get('cache.segment'),
+    expiresIn: config.get('cache.expiresIn')
   })
 }
 
@@ -21,6 +32,7 @@ async function clear (key) {
 }
 
 module.exports = {
+  getProvider,
   setup,
   get,
   set,
