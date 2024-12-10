@@ -7,7 +7,7 @@ const options = {
       payeeName: Joi.string().trim().required(),
       partPostcode: Joi.string().trim().required()
     },
-    failAction: async (_request, h, error) => h.response(error).code(400).takeover()
+    failAction: async (_request, h, error) => h.response(error.toString()).code(400).takeover()
   }
 }
 

@@ -379,4 +379,297 @@ describe('payments routes', () => {
     await server.inject(options)
     expect(getPaymentData).toHaveBeenCalledWith(expect.objectContaining({ sortBy: 'score' }))
   })
+
+  test('POST /v1/payments should return 400 if filterBy is not an object', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: 'filterBy',
+        action
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments should default filterBy to an empty object if not provided', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        action
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentData).toHaveBeenCalledWith(expect.objectContaining({ filterBy: {} }))
+  })
+
+  test('POST /v1/payments should return 400 if filterBy includes an invalid property', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          invalid: 'invalid'
+        },
+        action
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments should return 400 if filterBy.schemes is not an array', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          schemes: 'schemes',
+          counties,
+          amounts,
+          years
+        },
+        action
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments should convert filterBy.schemes to lowercase', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          schemes: ['SCHEME'],
+          counties,
+          amounts,
+          years
+        },
+        action
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentData).toHaveBeenCalledWith(expect.objectContaining({ filterBy: expect.objectContaining({ schemes: ['scheme'] }) }))
+  })
+
+  test.each([' schemes ', 'schemes '])('POST /v1/payments should trim filterBy.schemes', async (scheme) => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          schemes: [scheme],
+          counties,
+          amounts,
+          years
+        },
+        action
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentData).toHaveBeenCalledWith(expect.objectContaining({ filterBy: expect.objectContaining({ schemes: ['schemes'] }) }))
+  })
+
+  test('POST /v1/payments should return 400 if filterBy.counties is not an array', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties: 'counties',
+          amounts,
+          years
+        },
+        action
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments should convert filterBy.counties to lowercase', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties: ['COUNTY'],
+          amounts,
+          years
+        },
+        action
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentData).toHaveBeenCalledWith(expect.objectContaining({ filterBy: expect.objectContaining({ counties: ['county'] }) }))
+  })
+
+  test.each([' counties ', 'counties '])('POST /v1/payments should trim filterBy.counties', async (county) => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties: [county],
+          amounts,
+          years
+        },
+        action
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentData).toHaveBeenCalledWith(expect.objectContaining({ filterBy: expect.objectContaining({ counties: ['counties'] }) }))
+  })
+
+  test('POST /v1/payments should return 400 if filterBy.amounts is not an array', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts: 'amounts',
+          years
+        },
+        action
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments should return 400 if filterBy.years is not an array', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years: 'years'
+        },
+        action
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments should return 200 if action is not provided', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years
+        }
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(200)
+  })
+
+  test.each([' action ', 'action '])('POST /v1/payments should trim action', async (act) => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years
+        },
+        action: act
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentData).toHaveBeenCalledWith(expect.objectContaining({ action: 'action' }))
+  })
+
+  test('POST /v1/payments should return 400 if action empty string', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments',
+      payload: {
+        searchString,
+        limit,
+        offset,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years
+        },
+        action: ''
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
 })
