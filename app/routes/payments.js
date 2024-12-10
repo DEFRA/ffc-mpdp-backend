@@ -9,16 +9,16 @@ module.exports = [{
     validate: {
       payload: {
         searchString: Joi.string().trim().min(1).required(),
-        limit: Joi.number().integer().required(),
-        offset: Joi.number().integer().default(0),
+        limit: Joi.number().integer().positive().required(),
+        offset: Joi.number().integer().positive().allow(0).default(0),
         sortBy: Joi.string().default('score'),
         filterBy: Joi.object({
-          schemes: Joi.array().items(Joi.string().lowercase()),
-          counties: Joi.array().items(Joi.string().lowercase()),
+          schemes: Joi.array().items(Joi.string().trim().lowercase()),
+          counties: Joi.array().items(Joi.string().trim().lowercase()),
           amounts: Joi.array().items(Joi.string()),
           years: Joi.array().items(Joi.string())
         }).default({}),
-        action: Joi.string().trim().optional('')
+        action: Joi.string().trim().optional()
       },
       failAction: async (_request, h, error) => h.response(error.toString()).code(400).takeover()
     },
@@ -51,9 +51,6 @@ module.exports = [{
     }
   }
 },
-/*
-Not current in use in front end due to workaround.  Needs updating to stream responses to client
-*/
 {
   method: 'GET',
   path: '/v1/payments/file',
