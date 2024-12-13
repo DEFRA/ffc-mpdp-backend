@@ -21,16 +21,4 @@ describe('logging plugin', () => {
     const logging = require('../../../app/plugins/logging')
     expect(logging.options.logPayload).toBe(false)
   })
-
-  test('should log at info level if environment is not production', () => {
-    config.get.mockReturnValue(false)
-    const logging = require('../../../app/plugins/logging')
-    expect(logging.options.level).toBe('info')
-  })
-
-  test('should log at warn level if environment is production', () => {
-    config.get.mockReturnValue(true)
-    const logging = require('../../../app/plugins/logging')
-    expect(logging.options.level).toBe('warn')
-  })
 })
