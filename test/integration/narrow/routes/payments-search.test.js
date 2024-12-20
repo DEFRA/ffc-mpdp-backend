@@ -1,80 +1,84 @@
-const fuzzySearchService = require('../../../../app/data/search')
-const getSearchSuggestionsMock = jest.spyOn(fuzzySearchService, 'getSearchSuggestions')
+jest.mock('../../../../app/data/search')
+const { getSearchSuggestions } = require('../../../../app/data/search')
+
+getSearchSuggestions.mockResolvedValue({ rows: ['search result 1', 'search result 2'] })
 
 const { createServer } = require('../../../../app/server')
 let server
 
-beforeEach(async () => {
-  server = await createServer()
-  await server.initialize()
-})
+describe('payments-search routes', () => {
+  beforeEach(async () => {
+    jest.clearAllMocks()
+    server = await createServer()
+    await server.initialize()
+  })
 
-afterEach(async () => {
-  await server.stop()
-  jest.clearAllMocks()
-})
+  afterEach(async () => {
+    await server.stop()
+  })
 
-const url = '/v1/payments/search?searchString=__search_string__'
-const options = { method: 'GET', url }
-const mockData = {
-  count: 1,
-  rows: [
-    {
-      payee_name: 'Louann Cummings',
-      part_postcode: 'N17',
-      town: 'Haringey, unparished area',
-      county_council: 'None',
-      total_amount: '14967.00',
-      scheme: 'Farming Equipment and Technology Fund'
+  test('GET /v1/payments/search should return 200 if results', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/search?searchString=smith'
     }
-  ]
-}
-
-describe('/v1/payments/search api call test', () => {
-  test('/v1/payments/search api to be defined', () => {
-    const searchSuggestion = require('../../../../app/routes/payments-search')
-    expect(searchSuggestion).toBeDefined()
-    expect(searchSuggestion.options.handler).toBeDefined()
-  })
-
-  test('GET /v1/payments/search returns 200', async () => {
-    getSearchSuggestionsMock.mockReturnValue(mockData)
     const response = await server.inject(options)
     expect(response.statusCode).toBe(200)
   })
 
-  test('GET /v1/payments/search calls the search function with the payload data', async () => {
-    getSearchSuggestionsMock.mockReturnValue(mockData)
-
-    const searchString = '__search_string_%$£!&*__'
-    const url = `/v1/payments/search?searchString=${encodeURIComponent(searchString)}`
-    const options = { method: 'GET', url }
+  test('GET /v1/payments/search should return search results if results', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/search?searchString=smith'
+    }
     const response = await server.inject(options)
-
-    expect(response.statusCode).toBe(200)
-    expect(getSearchSuggestionsMock).toHaveBeenCalledWith(searchString)
+    expect(response.payload).toBe(JSON.stringify({ rows: ['search result 1', 'search result 2'] }))
   })
 
-  test('GET /v1/payments/search returns 404', async () => {
-    const emptyResult = { count: 0, rows: [] }
-    getSearchSuggestionsMock.mockReturnValue(emptyResult)
+  test('GET /v1/payments/search should return 404 if no results', async () => {
+    getSearchSuggestions.mockResolvedValue({ rows: [] })
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/search?searchString=smith'
+    }
     const response = await server.inject(options)
     expect(response.statusCode).toBe(404)
   })
 
-  test('GET /v1/payments/search returns 500', async () => {
-    getSearchSuggestionsMock.mockImplementation(() => { throw new Error() })
+  test('GET /v1/payments/search should return empty array if no results', async () => {
+    getSearchSuggestions.mockResolvedValue({ rows: [] })
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/search?searchString=smith'
+    }
     const response = await server.inject(options)
-    expect(response.statusCode).toBe(500)
+    expect(response.payload).toBe(JSON.stringify({ rows: [] }))
   })
-})
 
-describe('/v1/payments/search api call test DB error', () => {
-  test('GET /v1/payments/search error in DB', async () => {
-    const { PaymentDataModel } = require('../../../../app/data/database')
-    const mockDb = jest.spyOn(PaymentDataModel, 'findAndCountAll')
-    mockDb.mockRejectedValue(new Error('DB Error'))
+  test('GET /v1/payments/search should return 400 if no search string', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/search'
+    }
     const response = await server.inject(options)
-    expect(response.statusCode).toBe(500)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('GET /v1/payments/search should return error message if no search string', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/search'
+    }
+    const response = await server.inject(options)
+    expect(response.payload).toBe('ValidationError: "searchString" is required')
+  })
+
+  test('GET /v1/payments/search should return 400 if search string is empty', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/search?searchString='
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
   })
 })
