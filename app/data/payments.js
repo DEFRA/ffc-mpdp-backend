@@ -17,7 +17,7 @@ async function getPaymentsCsv ({ searchString, limit, offset, sortBy, filterBy, 
   return parser.parse(paymentsWithAmounts).promise()
 }
 
-function getAllPaymentsCsv () {
+function getAllPaymentsCsvStream () {
   const fields = [
     'financial_year',
     'payee_name',
@@ -79,5 +79,5 @@ function getReadableAmount (amount) {
 
 module.exports = {
   getPaymentsCsv,
-  getAllPaymentsCsv
+  getAllPaymentsCsvStream
 }

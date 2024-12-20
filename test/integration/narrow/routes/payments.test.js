@@ -2,10 +2,10 @@ jest.mock('../../../../app/data/search')
 const { getPaymentData } = require('../../../../app/data/search')
 
 jest.mock('../../../../app/data/payments')
-const { getAllPaymentsCsv, getPaymentsCsv } = require('../../../../app/data/payments')
+const { getAllPaymentsCsvStream, getPaymentsCsv } = require('../../../../app/data/payments')
 
 getPaymentData.mockResolvedValue('payment data')
-getAllPaymentsCsv.mockResolvedValue('all,payments,csv')
+getAllPaymentsCsvStream.mockReturnValue('csv stream')
 getPaymentsCsv.mockResolvedValue('payments,csv')
 
 const searchString = 'searchString'
@@ -671,5 +671,340 @@ describe('payments routes', () => {
     }
     const response = await server.inject(options)
     expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments/file should return 200', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years
+        }
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(200)
+  })
+
+  test('POST /v1/payments/file should return payments csv', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years
+        }
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.payload).toBe('payments,csv')
+  })
+
+  test('POST /v1/payments/file should trim search string', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString: ` ${searchString} `,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years
+        }
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentsCsv).toHaveBeenCalledWith(expect.objectContaining({ searchString }))
+  })
+
+  test('POST /v1/payments/file should return 400 if searchString is empty string', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString: '',
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years
+        }
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments/file should return error message if searchString is not provided', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years
+        }
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.payload).toBe('ValidationError: "searchString" is required')
+  })
+
+  test('POST /v1/payments/file should return 400 if sortBy is not a string', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy: 1,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years
+        }
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments/file should default sortBy to "score" if not provided', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years
+        }
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentsCsv).toHaveBeenCalledWith(expect.objectContaining({ sortBy: 'score' }))
+  })
+
+  test('POST /v1/payments/file should return 400 if filterBy is not an object', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: 'filterBy'
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments/file should default filterBy to an empty object if not provided', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentsCsv).toHaveBeenCalledWith(expect.objectContaining({ filterBy: {} }))
+  })
+
+  test('POST /v1/payments/file should return 400 if filterBy includes an invalid property', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: {
+          invalid: 'invalid'
+        }
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments/file should return 400 if filterBy.schemes is not an array', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: {
+          schemes: 'schemes',
+          counties,
+          amounts,
+          years
+        }
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments/file should convert filterBy.schemes to lowercase', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: {
+          schemes: ['SCHEME'],
+          counties,
+          amounts,
+          years
+        }
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentsCsv).toHaveBeenCalledWith(expect.objectContaining({ filterBy: expect.objectContaining({ schemes: ['scheme'] }) }))
+  })
+
+  test.each([' schemes ', 'schemes '])('POST /v1/payments/file should trim filterBy.schemes', async (scheme) => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: {
+          schemes: [scheme],
+          counties,
+          amounts,
+          years
+        }
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentsCsv).toHaveBeenCalledWith(expect.objectContaining({ filterBy: expect.objectContaining({ schemes: ['schemes'] }) }))
+  })
+
+  test('POST /v1/payments/file should return 400 if filterBy.counties is not an array', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties: 'counties',
+          amounts,
+          years
+        }
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments/file should convert filterBy.counties to lowercase', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties: ['COUNTY'],
+          amounts,
+          years
+        }
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentsCsv).toHaveBeenCalledWith(expect.objectContaining({ filterBy: expect.objectContaining({ counties: ['county'] }) }))
+  })
+
+  test.each([' counties ', 'counties '])('POST /v1/payments/file should trim filterBy.counties', async (county) => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties: [county],
+          amounts,
+          years
+        }
+      }
+    }
+    await server.inject(options)
+    expect(getPaymentsCsv).toHaveBeenCalledWith(expect.objectContaining({ filterBy: expect.objectContaining({ counties: ['counties'] }) }))
+  })
+
+  test('POST /v1/payments/file should return 400 if filterBy.amounts is not an array', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts: 'amounts',
+          years
+        }
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('POST /v1/payments/file should return 400 if filterBy.years is not an array', async () => {
+    const options = {
+      method: 'POST',
+      url: '/v1/payments/file',
+      payload: {
+        searchString,
+        sortBy,
+        filterBy: {
+          schemes,
+          counties,
+          amounts,
+          years: 'years'
+        }
+      }
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(400)
+  })
+
+  test('GET /v1/payments/file should return 200', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/file'
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(200)
   })
 })

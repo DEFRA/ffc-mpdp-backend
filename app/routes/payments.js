@@ -1,6 +1,6 @@
 const Joi = require('joi')
 const { getPaymentData } = require('../data/search')
-const { getAllPaymentsCsv, getPaymentsCsv } = require('../data/payments')
+const { getAllPaymentsCsvStream, getPaymentsCsv } = require('../data/payments')
 
 module.exports = [{
   method: 'POST',
@@ -37,8 +37,8 @@ module.exports = [{
         searchString: Joi.string().trim().min(1).required(),
         sortBy: Joi.string().default('score'),
         filterBy: Joi.object({
-          schemes: Joi.array().items(Joi.string().lowercase()),
-          counties: Joi.array().items(Joi.string().lowercase()),
+          schemes: Joi.array().items(Joi.string().trim().lowercase()),
+          counties: Joi.array().items(Joi.string().trim().lowercase()),
           amounts: Joi.array().items(Joi.string()),
           years: Joi.array().items(Joi.string())
         }).default({})
@@ -55,7 +55,7 @@ module.exports = [{
   method: 'GET',
   path: '/v1/payments/file',
   handler: async (_request, h) => {
-    const paymentsStream = getAllPaymentsCsv()
+    const paymentsStream = getAllPaymentsCsvStream()
     return h.response(paymentsStream)
   }
 }]
