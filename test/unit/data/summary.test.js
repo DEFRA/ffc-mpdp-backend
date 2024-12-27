@@ -1,7 +1,7 @@
 jest.mock('../../../app/data/database')
 const { getAnnualPayments } = require('../../../app/data/database')
 
-const { getPaymentSummary } = require('../../../app/data/summary')
+const { getPaymentSummary, getPaymentSummaryCsv } = require('../../../app/data/summary')
 
 describe('summary', () => {
   beforeEach(() => {
@@ -35,13 +35,11 @@ describe('summary', () => {
 
   describe('getPaymentSummaryCsv', () => {
     test('should return headers', async () => {
-      const { getPaymentSummaryCsv } = require('../../../app/data/summary')
       const data = await getPaymentSummaryCsv()
       expect(data).toContain('"financial_year","scheme","amount"')
     })
 
     test('should return data as csv', async () => {
-      const { getPaymentSummaryCsv } = require('../../../app/data/summary')
       const data = await getPaymentSummaryCsv()
       expect(data).toContain('"20/21","scheme",100')
       expect(data).toContain('"21/22","scheme",200')
@@ -49,7 +47,6 @@ describe('summary', () => {
     })
 
     test('should sort data by year', async () => {
-      const { getPaymentSummaryCsv } = require('../../../app/data/summary')
       const data = await getPaymentSummaryCsv()
       expect(data.indexOf('"20/21"')).toBeLessThan(data.indexOf('"21/22"'))
     })
@@ -58,7 +55,6 @@ describe('summary', () => {
       getAnnualPayments.mockResolvedValue([
         { financial_year: '21/22', scheme: 'scheme, with comma', total_amount: 200 }
       ])
-      const { getPaymentSummaryCsv } = require('../../../app/data/summary')
       const data = await getPaymentSummaryCsv()
       expect(data).toContain('"21/22","scheme, with comma",200')
     })
@@ -67,7 +63,6 @@ describe('summary', () => {
       getAnnualPayments.mockResolvedValue([
         { financial_year: '21/22', scheme: 'scheme "with" quotes', total_amount: 200 }
       ])
-      const { getPaymentSummaryCsv } = require('../../../app/data/summary')
       const data = await getPaymentSummaryCsv()
       expect(data).toContain('"21/22","scheme ""with"" quotes",200')
     })
