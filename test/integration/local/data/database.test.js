@@ -182,5 +182,11 @@ describe('database', () => {
       expect(data).toHaveLength(3)
       expect(data[0].payee_name).toBe('payee name 1')
     })
+
+    test('should order by payee_name', async () => {
+      await PaymentDataModel.create({ id: 5, payee_name: 'payee name 0', part_postcode: 'pp3', town: 'town', county_council: 'county council', financial_year: '20/21', scheme: 'scheme 1', scheme_detail: 'scheme detail 1', amount: 100 })
+      const data = await getAllPaymentsByPage()
+      expect(data[0].payee_name).toBe('payee name 0')
+    })
   })
 })
