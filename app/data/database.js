@@ -104,7 +104,7 @@ async function getAllPayments () {
   return payments
 }
 
-async function getAllPaymentsByPage (page, pageSize = 250) {
+async function getAllPaymentsByPage (page = 1, pageSize = 250) {
   return PaymentDataModel.findAll({
     group: ['payee_name', 'part_postcode', 'town', 'county_council', 'scheme', 'financial_year', 'scheme_detail'],
     attributes: [

@@ -7,10 +7,10 @@
   "scripts": {
     "pretest": "npm run test:lint",
     "test": "jest --runInBand --forceExit",
-    "test:watch": "jest --coverage=false --onlyChanged --watch --runInBand",
     "test:lint": "standard",
-    "lint:fix": "standard --fix",
+    "test:watch": "jest --coverage=false --onlyChanged --watch --runInBand --detectOpenHandles",
     "test:debug": "node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --coverage=false --onlyChanged --watch --runInBand --no-cache",
+    "lint:fix": "standard --fix",
     "start:watch": "nodemon --inspect=0.0.0.0 --ext js --legacy-watch app/index.js",
     "start:debug": "nodemon --inspect-brk=0.0.0.0 --ext js --legacy-watch app/index.js"
   },
