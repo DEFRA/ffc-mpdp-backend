@@ -12,12 +12,12 @@ async function getPaymentsCsv ({ searchString, limit, offset, sortBy, filterBy, 
     'amount'
   ]
   const { rows: payments } = await getPaymentData({ searchString, limit, offset, sortBy, filterBy, action })
-  const paymentsWithAmounts = payments.map(x => ({ ...x, amount: getReadableAmount(parseFloat(x.total_amount)) }))
+  const paymentsWithAmounts = payments.map(x => ({ ...x, amount: getReadableAmount(x.total_amount) }))
   const parser = new AsyncParser({ fields })
   return parser.parse(paymentsWithAmounts).promise()
 }
 
-function getAllPaymentsCsv () {
+function getAllPaymentsCsvStream () {
   const fields = [
     'financial_year',
     'payee_name',
@@ -33,8 +33,6 @@ function getAllPaymentsCsv () {
     }
   ]
 
-  const parser = new AsyncParser({ fields })
-
   let page = 1
 
   const paymentStream = new Readable({
@@ -46,9 +44,11 @@ function getAllPaymentsCsv () {
             return
           }
 
+          const parser = new AsyncParser({ fields, header: page === 1 })
           parser.parse(payments).promise()
             .then(parsed => {
               this.push(parsed)
+              this.push('\n')
               page++
             })
             .catch(err => {
@@ -67,17 +67,16 @@ function getAllPaymentsCsv () {
 }
 
 function getReadableAmount (amount) {
-  if (typeof amount !== 'number') {
-    return '0'
+  const floatAmount = parseFloat(amount)
+
+  if (isNaN(floatAmount)) {
+    return '0.00'
   }
 
-  return amount.toLocaleString('en-GB', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  })
+  return floatAmount.toFixed(2)
 }
 
 module.exports = {
   getPaymentsCsv,
-  getAllPaymentsCsv
+  getAllPaymentsCsvStream
 }

@@ -14,8 +14,6 @@ module.exports = [{
     const paymentsCsv = await getPaymentSummaryCsv()
     return h.response(paymentsCsv)
       .type('text/csv')
-      .header('Connection', 'keep-alive')
-      .header('Cache-Control', 'no-cache')
       .header('Content-Disposition', 'attachment;filename=ffc-payments-by-year.csv')
   }
 }]

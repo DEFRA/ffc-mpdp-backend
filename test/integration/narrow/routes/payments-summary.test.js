@@ -1,52 +1,74 @@
-jest.mock('../../../../app/data/database')
-const { getAnnualPayments } = require('../../../../app/data/database')
+jest.mock('../../../../app/data/summary')
+const { getPaymentSummary, getPaymentSummaryCsv } = require('../../../../app/data/summary')
+
+getPaymentSummary.mockResolvedValue('payments summary')
+getPaymentSummaryCsv.mockResolvedValue('payments,summary,csv')
 
 const { createServer } = require('../../../../app/server')
 let server
 
-beforeEach(async () => {
-  server = await createServer()
-  await server.initialize()
-})
-
-afterEach(async () => {
-  await server.stop()
-  jest.clearAllMocks()
-})
-
-const options = { method: 'GET', url: '/v1/payments/summary' }
-const mockData = [
-  { scheme: 'SFI', financial_year: '21/22', amount: '12000.00' },
-  { scheme: 'SFI', financial_year: '22/23', amount: '24000.00' },
-  { scheme: 'FETF', financial_year: '21/22', amount: '5000.00' },
-  { scheme: 'FETF', financial_year: '22/23', amount: '10000.00' }
-]
-
-const expectedData = {
-  '21/22': [
-    { scheme: 'SFI', financial_year: '21/22', amount: '12000.00' },
-    { scheme: 'FETF', financial_year: '21/22', amount: '5000.00' }
-  ],
-  '22/23': [
-    { scheme: 'SFI', financial_year: '22/23', amount: '24000.00' },
-    { scheme: 'FETF', financial_year: '22/23', amount: '10000.00' }
-  ]
-}
-
-describe('/v1/payments/summary api call test', () => {
-  test('GET /v1/payments/summary returns status 200 and results formatted by financial_year', async () => {
-    getAnnualPayments.mockResolvedValue(mockData)
-    const response = await server.inject(options)
-    expect(getAnnualPayments).toHaveBeenCalled()
-    expect(response.statusCode).toBe(200)
-    expect(response.result).toEqual(expectedData)
+describe('payments-summary routes', () => {
+  beforeEach(async () => {
+    jest.clearAllMocks()
+    server = await createServer()
+    await server.initialize()
   })
 
-  test('GET /v1/payments/summary returns 500 when an error is thrown', async () => {
-    getAnnualPayments.mockImplementation(() => {
-      throw new Error()
-    })
+  afterEach(async () => {
+    await server.stop()
+  })
+
+  test('GET /v1/payments/summary should return 200', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/summary'
+    }
     const response = await server.inject(options)
-    expect(response.statusCode).toBe(500)
+    expect(response.statusCode).toBe(200)
+  })
+
+  test('GET /v1/payments/summary should return payments summary', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/summary'
+    }
+    const response = await server.inject(options)
+    expect(response.payload).toBe('payments summary')
+  })
+
+  test('GET /v1/payments/summary/file should return 200', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/summary/file'
+    }
+    const response = await server.inject(options)
+    expect(response.statusCode).toBe(200)
+  })
+
+  test('GET /v1/payments/summary/file should return payments summary csv', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/summary/file'
+    }
+    const response = await server.inject(options)
+    expect(response.payload).toBe('payments,summary,csv')
+  })
+
+  test('GET /v1/payments/summary/file should return csv file', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/summary/file'
+    }
+    const response = await server.inject(options)
+    expect(response.headers['content-type']).toBe('text/csv; charset=utf-8')
+  })
+
+  test('GET /v1/payments/summary/file should return csv file attachment', async () => {
+    const options = {
+      method: 'GET',
+      url: '/v1/payments/summary/file'
+    }
+    const response = await server.inject(options)
+    expect(response.headers['content-disposition']).toBe('attachment;filename=ffc-payments-by-year.csv')
   })
 })

@@ -1,16 +1,16 @@
 {
   "name": "ffc-mpdp-backend",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "description": "Backend for making payment data public",
   "homepage": "https://github.com/DEFRA/ffc-mpdp-backend",
   "main": "app/index.js",
   "scripts": {
     "pretest": "npm run test:lint",
-    "test": "jest --runInBand --forceExit",
-    "test:watch": "jest --coverage=false --onlyChanged --watch --runInBand",
+    "test": "jest --runInBand --forceExit --detectOpenHandles",
     "test:lint": "standard",
-    "lint:fix": "standard --fix",
+    "test:watch": "jest --coverage=false --onlyChanged --watch --runInBand --detectOpenHandles",
     "test:debug": "node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --coverage=false --onlyChanged --watch --runInBand --no-cache",
+    "lint:fix": "standard --fix",
     "start:watch": "nodemon --inspect=0.0.0.0 --ext js --legacy-watch app/index.js",
     "start:debug": "nodemon --inspect-brk=0.0.0.0 --ext js --legacy-watch app/index.js"
   },

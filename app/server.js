@@ -1,9 +1,8 @@
 const Hapi = require('@hapi/hapi')
 const Joi = require('joi')
 const config = require('./config')
-const Catbox = config.get('cache.useRedis') ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')
-const catboxOptions = config.get('cache.useRedis') ? config.get('cache.catbox') : {}
 const cache = require('./cache')
+const { registerPlugins } = require('./plugins')
 
 async function createServer () {
   const server = Hapi.server({
@@ -16,29 +15,15 @@ async function createServer () {
         }
       }
     },
-    cache: [{
-      provider: {
-        constructor: Catbox.Engine,
-        options: catboxOptions
-      }
-    }]
+    router: {
+      stripTrailingSlash: true
+    },
+    cache: [cache.getProvider()]
   })
 
-  server.validator(Joi)
-
-  await server.register(require('./plugins/logging'))
-  await server.register(require('./plugins/errors'))
-
   cache.setup(server)
-
-  const routes = [].concat(
-    require('./routes/health'),
-    require('./routes/payments'),
-    require('./routes/payments-payee'),
-    require('./routes/payments-search'),
-    require('./routes/payments-summary')
-  )
-  server.route(routes)
+  server.validator(Joi)
+  await registerPlugins(server)
 
   return server
 }
