@@ -1,0 +1,6 @@
+resources:
+  identity: mpdp-backend
+  postgreSql:
+    name: ffc-mpdp-backend
+    extensions:
+      - name: pg_trgm
