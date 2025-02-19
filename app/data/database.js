@@ -8,8 +8,9 @@ if (config.get('isProd')) {
   dbConfig.hooks = {
     beforeConnect: async (cfg) => {
       const credential = new DefaultAzureCredential({ managedIdentityClientId: process.env.AZURE_CLIENT_ID })
-      const tokenProvider = getBearerTokenProvider(credential, 'https://ossrdbms-aad.database.windows.net/.default')
-      cfg.password = tokenProvider
+      const getAccessToken = getBearerTokenProvider(credential, 'https://ossrdbms-aad.database.windows.net/.default')
+      const token = await getAccessToken()
+      cfg.password = token
     }
   }
 }
