@@ -91,7 +91,7 @@ async function getPayeePayments (payeeName, partPostcode) {
 async function getAllPayments () {
   const cachedPayments = await get('payments')
   if (cachedPayments) {
-    console.log('Returning cached payments')
+    console.log('Returning cached payments', cachedPayments)
     return cachedPayments
   }
 
