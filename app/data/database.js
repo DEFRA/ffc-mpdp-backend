@@ -7,11 +7,9 @@ const dbConfig = config.get('db')
 if (config.get('isProd')) {
   dbConfig.hooks = {
     beforeConnect: async (cfg) => {
-      console.log('Connecting to database with managed identity')
       const credential = new DefaultAzureCredential({ managedIdentityClientId: process.env.AZURE_CLIENT_ID })
       const getAccessToken = getBearerTokenProvider(credential, 'https://ossrdbms-aad.database.windows.net/.default')
       const token = await getAccessToken()
-      console.log('Token acquired', token)
       cfg.password = token
     }
   }
@@ -91,11 +89,9 @@ async function getPayeePayments (payeeName, partPostcode) {
 async function getAllPayments () {
   const cachedPayments = await get('payments')
   if (cachedPayments) {
-    console.log('Returning cached payments', cachedPayments.length)
     return cachedPayments
   }
 
-  console.log('No cached payments, fetching payments from database')
   const payments = await PaymentDataModel.findAll({
     group: ['payee_name', 'part_postcode', 'town', 'county_council', 'scheme', 'financial_year'],
     attributes: [
@@ -105,7 +101,6 @@ async function getAllPayments () {
     raw: true
   })
 
-  console.log('Caching payments')
   await set('payments', payments)
   return payments
 }

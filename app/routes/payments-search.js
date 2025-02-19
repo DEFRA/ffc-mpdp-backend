@@ -13,7 +13,6 @@ module.exports = {
     },
     handler: async (request, h) => {
       const suggestions = await getSearchSuggestions(request.query.searchString)
-      console.log('Returning search suggestions', suggestions)
       return h.response(suggestions).code(!suggestions.rows.length ? 404 : 200)
     }
   }
