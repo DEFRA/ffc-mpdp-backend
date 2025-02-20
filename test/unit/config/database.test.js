@@ -77,9 +77,9 @@ describe('database config', () => {
     expect(() => require('../../../app/config/database')).toThrow()
   })
 
-  test('should return logging as false', () => {
+  test('should return logging as true', () => {
     const config = require('../../../app/config/database')
-    expect(config.get('logging')).toBe(false)
+    expect(config.get('logging')).toBe(true)
   })
 
   test('should return dialect as postgres', () => {
