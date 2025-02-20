@@ -21,4 +21,9 @@ describe('logging plugin', () => {
     const logging = require('../../../app/plugins/logging')
     expect(logging.options.logPayload).toBe(false)
   })
+
+  test('should ignore /healthy and /healthz paths', () => {
+    const logging = require('../../../app/plugins/logging')
+    expect(logging.options.ignorePaths).toEqual(['/healthy', '/healthz'])
+  })
 })
