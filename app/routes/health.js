@@ -1,13 +1,16 @@
+const { healthCheck } = require('../data/database')
+
 module.exports = [{
   method: 'GET',
   path: '/healthy',
-  handler
+  handler: async function (_request, h) {
+    await healthCheck()
+    return h.response('ok')
+  }
 }, {
   method: 'GET',
   path: '/healthz',
-  handler
+  handler: function (_request, h) {
+    return h.response('ok')
+  }
 }]
-
-function handler (_request, h) {
-  return h.response('ok')
-}

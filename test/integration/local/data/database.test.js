@@ -109,9 +109,23 @@ describe('database', () => {
     })
 
     test('should return cached payments if cached payments exist', async () => {
-      get.mockResolvedValueOnce('cached payments')
+      get.mockResolvedValueOnce(['cached payments'])
       const data = await getAllPayments()
-      expect(data).toBe('cached payments')
+      expect(data).toEqual(['cached payments'])
+    })
+
+    test('should get all payments from database if cached payments are not an array', async () => {
+      get.mockResolvedValueOnce('not an array')
+      jest.spyOn(PaymentDataModel, 'findAll')
+      await getAllPayments()
+      expect(PaymentDataModel.findAll).toHaveBeenCalledTimes(1)
+    })
+
+    test('should get all payments from database if cached payments is empty array', async () => {
+      get.mockResolvedValueOnce([])
+      jest.spyOn(PaymentDataModel, 'findAll')
+      await getAllPayments()
+      expect(PaymentDataModel.findAll).toHaveBeenCalledTimes(1)
     })
 
     test('should get all payments from database if no cached payments', async () => {
@@ -126,7 +140,7 @@ describe('database', () => {
     })
 
     test('should not cache payments if already in cache', async () => {
-      get.mockResolvedValueOnce('cached payments')
+      get.mockResolvedValueOnce(['cached payments'])
       await getAllPayments()
       expect(set).not.toHaveBeenCalled()
     })

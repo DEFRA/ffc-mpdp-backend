@@ -45,6 +45,10 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
+async function healthCheck () {
+  await sequelize.authenticate()
+}
+
 async function getAnnualPayments () {
   return SchemePaymentsModel.findAll({
     attributes: [
@@ -88,7 +92,7 @@ async function getPayeePayments (payeeName, partPostcode) {
 
 async function getAllPayments () {
   const cachedPayments = await get('payments')
-  if (cachedPayments) {
+  if (Array.isArray(cachedPayments) && cachedPayments.length > 0) {
     return cachedPayments
   }
 
@@ -126,5 +130,6 @@ module.exports = {
   getAnnualPayments,
   getPayeePayments,
   getAllPayments,
-  getAllPaymentsByPage
+  getAllPaymentsByPage,
+  healthCheck
 }
