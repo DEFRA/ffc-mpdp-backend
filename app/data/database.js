@@ -105,7 +105,9 @@ async function getAllPayments () {
     raw: true
   })
 
-  await set('payments', payments)
+  if (Array.isArray(payments) && payments.length > 0) {
+    await set('payments', payments)
+  }
   return payments
 }
 
