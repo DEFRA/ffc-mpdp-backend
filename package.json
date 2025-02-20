@@ -18,7 +18,7 @@
   "contributors": [],
   "license": "OGL-UK-3.0",
   "dependencies": {
-    "@azure/identity": "4.5.0",
+    "@azure/identity": "4.7.0",
     "@hapi/catbox-redis": "7.0.2",
     "@hapi/hapi": "21.3.12",
     "@json2csv/node": "7.0.6",
