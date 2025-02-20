@@ -92,8 +92,11 @@ async function getPayeePayments (payeeName, partPostcode) {
 
 async function getAllPayments () {
   const cachedPayments = await get('payments')
+
   if (Array.isArray(cachedPayments) && cachedPayments.length > 0) {
     return cachedPayments
+  } else {
+    console.log('No cached payments', cachedPayments)
   }
 
   const payments = await PaymentDataModel.findAll({
@@ -107,7 +110,10 @@ async function getAllPayments () {
 
   if (Array.isArray(payments) && payments.length > 0) {
     await set('payments', payments)
+  } else {
+    console.log('No payments retrieved from database', payments)
   }
+
   return payments
 }
 
