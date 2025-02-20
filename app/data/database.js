@@ -45,6 +45,10 @@ const PaymentDetailModel = sequelize.define('payment_activity_data', {
   amount: DataTypes.DOUBLE
 })
 
+async function healthCheck () {
+  await sequelize.authenticate()
+}
+
 async function getAnnualPayments () {
   return SchemePaymentsModel.findAll({
     attributes: [
@@ -126,5 +130,6 @@ module.exports = {
   getAnnualPayments,
   getPayeePayments,
   getAllPayments,
-  getAllPaymentsByPage
+  getAllPaymentsByPage,
+  healthCheck
 }
