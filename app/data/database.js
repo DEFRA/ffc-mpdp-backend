@@ -92,7 +92,7 @@ async function getPayeePayments (payeeName, partPostcode) {
 
 async function getAllPayments () {
   const cachedPayments = await get('payments')
-  if (cachedPayments) {
+  if (Array.isArray(cachedPayments) && cachedPayments.length > 0) {
     return cachedPayments
   }
 
