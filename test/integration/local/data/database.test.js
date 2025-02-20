@@ -139,6 +139,18 @@ describe('database', () => {
       expect(set).toHaveBeenCalledWith('payments', expect.any(Array))
     })
 
+    test('should not cache payments if no payments returned', async () => {
+      jest.spyOn(PaymentDataModel, 'findAll').mockResolvedValueOnce([])
+      await getAllPayments()
+      expect(set).not.toHaveBeenCalled()
+    })
+
+    test('should not cache payments if payments returned is not an array', async () => {
+      jest.spyOn(PaymentDataModel, 'findAll').mockResolvedValueOnce('not an array')
+      await getAllPayments()
+      expect(set).not.toHaveBeenCalled()
+    })
+
     test('should not cache payments if already in cache', async () => {
       get.mockResolvedValueOnce(['cached payments'])
       await getAllPayments()
