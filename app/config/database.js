@@ -40,7 +40,7 @@ const config = convict({
   logging: {
     doc: 'Enable database logging',
     format: Boolean,
-    default: true
+    default: false
   },
   dialect: {
     doc: 'The database dialect',
