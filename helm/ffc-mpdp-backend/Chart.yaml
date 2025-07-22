@@ -5,5 +5,5 @@ name: ffc-mpdp-backend
 version: 1.0.0
 dependencies:
 - name: ffc-helm-library
-  version: 4.7.2
+  version: 5.0.6
   repository: https://raw.githubusercontent.com/defra/ffc-helm-repository/master/
