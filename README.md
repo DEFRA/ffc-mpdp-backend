@@ -1,5 +1,7 @@
 # FFC MPDP Backend Service
 
+> This repository was for the FCP Platform hosted version of the service.  Since migrating to the Core Delivery Platform (CDP), this repository have been replaced with [fcp-mpdp-backend](https://github.com/DEFRA/fcp-mpdp-backend)
+
 > Backend service for the Making Payment Data Public
 
 ## Prerequisites
